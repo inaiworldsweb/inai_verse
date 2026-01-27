@@ -124,6 +124,13 @@
                 curl: `${window.location.origin}/failure.html`, // Cancel URL
             };
 
+            // Store customer details in sessionStorage for success page
+            sessionStorage.setItem('customerDetails', JSON.stringify({
+                product_info: document.getElementById('product_info').value,
+                customer_email: document.getElementById('customer_email').value,
+                customer_name: document.getElementById('customer_name').value
+            }));
+
             for (const [key, value] of Object.entries(paymentParams)) {
                 if (value !== null && value !== undefined) {
                     const input = document.createElement('input');

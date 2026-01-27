@@ -93,19 +93,19 @@
         <div class="details">
             <div class="row">
                 <span class="label">Transaction ID:</span>
-                <span class="value" id="txn_id">{{ txn_id }}</span>
+                <span class="value">{{ txn_id }}</span>
             </div>
             <div class="row">
                 <span class="label">Amount:</span>
-                <span class="value" id="amount">₹{{ amount }}</span>
+                <span class="value">₹{{ amount }}</span>
             </div>
             <div class="row">
                 <span class="label">Mode:</span>
-                <span class="value" id="mode">{{ mode }}</span>
+                <span class="value">{{ mode }}</span>
             </div>
             <div class="row">
                 <span class="label">Bank Ref:</span>
-                <span class="value" id="bank_ref">{{ bank_ref }}</span>
+                <span class="value">{{ bank_ref }}</span>
             </div>
         </div>
 
@@ -113,13 +113,38 @@
     </div>
 
     <script>
-        // Get URL parameters and update the page
+        // Get URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         
-        document.getElementById('txn_id').textContent = urlParams.get('txn_id') || 'TXN' + Date.now();
-        document.getElementById('amount').textContent = '₹' + (urlParams.get('amount') || '0.00');
-        document.getElementById('mode').textContent = urlParams.get('mode') || 'Online';
-        document.getElementById('bank_ref').textContent = urlParams.get('bank_ref') || 'BANK' + Date.now();
+        // Get customer details from sessionStorage
+        const customerDetails = JSON.parse(sessionStorage.getItem('customerDetails') || '{}');
+        
+        const paymentData = {
+            txn_id: urlParams.get('txn_id') || 'TXN' + Date.now(),
+            amount: urlParams.get('amount') || '0.00',
+            mode: urlParams.get('mode') || 'Online',
+            bank_ref: urlParams.get('bank_ref') || 'BANK' + Date.now(),
+            product_info: customerDetails.product_info || 'Product',
+            customer_email: customerDetails.customer_email || '',
+            customer_name: customerDetails.customer_name || 'Customer'
+        };
+
+        // Function to update page with data
+        function updatePage(data) {
+            document.getElementById('txn_id').textContent = data.txn_id || paymentData.txn_id;
+            document.getElementById('amount').textContent = '₹' + (data.amount || paymentData.amount);
+            document.getElementById('mode').textContent = data.mode || paymentData.mode;
+            document.getElementById('bank_ref').textContent = data.bank_ref || paymentData.bank_ref;
+        }
+
+        // Function to update page with payment details
+        function updatePaymentDetails() {
+            console.log('Payment data:', paymentData);
+            updatePage(paymentData);
+        }
+
+        // Call the function when page loads
+        document.addEventListener('DOMContentLoaded', updatePaymentDetails);
     </script>
 </body>
 
