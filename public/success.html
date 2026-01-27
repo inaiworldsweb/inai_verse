@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Successful</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0fdf4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .icon {
+            font-size: 4rem;
+            color: #22c55e;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: #15803d;
+            margin: 0 0 0.5rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .details {
+            background: #f9fafb;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: left;
+            margin-bottom: 1.5rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .label {
+            color: #6b7280;
+        }
+
+        .value {
+            color: #111827;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #22c55e;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">✓</div>
+        <h1>Payment Successful</h1>
+        <p>Thank you! Your transaction has been completed.</p>
+
+        <div class="details">
+            <div class="row">
+                <span class="label">Transaction ID:</span>
+                <span class="value" id="txn_id">{{ txn_id }}</span>
+            </div>
+            <div class="row">
+                <span class="label">Amount:</span>
+                <span class="value" id="amount">₹{{ amount }}</span>
+            </div>
+            <div class="row">
+                <span class="label">Mode:</span>
+                <span class="value" id="mode">{{ mode }}</span>
+            </div>
+            <div class="row">
+                <span class="label">Bank Ref:</span>
+                <span class="value" id="bank_ref">{{ bank_ref }}</span>
+            </div>
+        </div>
+
+        <a href="/" class="btn">Make Another Payment</a>
+    </div>
+
+    <script>
+        // Get URL parameters and update the page
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        document.getElementById('txn_id').textContent = urlParams.get('txn_id') || 'TXN' + Date.now();
+        document.getElementById('amount').textContent = '₹' + (urlParams.get('amount') || '0.00');
+        document.getElementById('mode').textContent = urlParams.get('mode') || 'Online';
+        document.getElementById('bank_ref').textContent = urlParams.get('bank_ref') || 'BANK' + Date.now();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayU Payment Checkout</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4f4f9; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 100%; max-width: 400px; }
+        h2 { text-align: center; color: #333; margin-bottom: 1.5rem; }
+        .form-group { margin-bottom: 1rem; }
+        label { display: block; margin-bottom: 0.5rem; color: #666; font-size: 0.9rem; }
+        input { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; font-size: 1rem; }
+        button { width: 100%; padding: 0.75rem; background-color: #3b82f6; color: white; border: none; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+        button:hover { background-color: #2563eb; }
+        .error { color: #ef4444; font-size: 0.875rem; margin-top: 0.5rem; text-align: center; display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>PayU Checkout</h2>
+        <form id="checkoutForm">
+            <div class="form-group">
+                <label for="amount">Amount (INR)</label>
+                <input type="number" id="amount" name="amount" value="100.00" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="product_info">Product Info</label>
+                <input type="text" id="product_info" name="product_info" value="Test Product" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_name">Name</label>
+                <input type="text" id="customer_name" name="customer_name" value="John Doe" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_email">Email</label>
+                <input type="email" id="customer_email" name="customer_email" value="john@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="customer_phone">Phone</label>
+                <input type="tel" id="customer_phone" name="customer_phone" value="9999999999" required>
+            </div>
+            <button type="submit" id="payButton">Pay Now</button>
+            <div id="errorMessage" class="error"></div>
+        </form>
+    </div>
+
+    <!-- Hidden PayU Form -->
+    <form action="" id="payuForm" method="POST">
+        <!-- Fields will be injected here -->
+    </form>
+
+    <script>
+        // Get URL parameters and pre-fill the form
+        const urlParams = new URLSearchParams(window.location.search);
+        const planName = urlParams.get('plan');
+        const planPrice = urlParams.get('price');
+        
+        if (planName && planPrice) {
+            document.getElementById('product_info').value = decodeURIComponent(planName);
+            document.getElementById('amount').value = planPrice;
+        }
+
+        document.getElementById('checkoutForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const payButton = document.getElementById('payButton');
+            const errorDiv = document.getElementById('errorMessage');
+            
+            payButton.disabled = true;
+            payButton.innerText = 'Processing...';
+            errorDiv.style.display = 'none';
+
+            try {
+                // 1. Create Order
+                const orderRes = await fetch('https://corporate-louetta-nonethnically.ngrok-free.dev/api/payment/create-order', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        amount: parseFloat(document.getElementById('amount').value),
+                        product_info: document.getElementById('product_info').value,
+                        customer_name: document.getElementById('customer_name').value,
+                        customer_email: document.getElementById('customer_email').value,
+                        customer_phone: document.getElementById('customer_phone').value
+                    })
+                });
+
+                if (!orderRes.ok) throw new Error('Failed to create order');
+                const orderData = await orderRes.json();
+                console.log("Order created:", orderData);
+
+                // 2. Initiate Payment Parameters
+                const paymentRes = await fetch('https://corporate-louetta-nonethnically.ngrok-free.dev/api/payment/payu-payment', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ order_id: orderData.order_id })
+                });
+
+                if (!paymentRes.ok) throw new Error('Failed to initiate payment');
+                const paymentData = await paymentRes.json();
+                console.log("Payment initiated:", paymentData);
+
+                // 3. Submit PayU Form
+                submitPayUForm(paymentData);
+
+            } catch (err) {
+                console.error(err);
+                errorDiv.innerText = err.message || 'An error occurred';
+                errorDiv.style.display = 'block';
+                payButton.disabled = false;
+                payButton.innerText = 'Pay Now';
+            }
+        });
+
+        function submitPayUForm(data) {
+            const payuForm = document.getElementById('payuForm');
+            payuForm.action = data.payment_url;
+            payuForm.innerHTML = ''; // Clear previous fields
+
+            // Add callback URLs to payment parameters
+            const paymentParams = {
+                ...data.payment_params,
+                surl: `${window.location.origin}/success.html`, // Success URL
+                furl: `${window.location.origin}/failure.html`, // Failure URL
+                curl: `${window.location.origin}/failure.html`, // Cancel URL
+            };
+
+            for (const [key, value] of Object.entries(paymentParams)) {
+                if (value !== null && value !== undefined) {
+                    const input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = key;
+                    input.value = value;
+                    payuForm.appendChild(input);
+                }
+            }
+            
+            payuForm.submit();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Failed</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fef2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .icon {
+            font-size: 4rem;
+            color: #ef4444;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            color: #991b1b;
+            margin: 0 0 0.5rem;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .details {
+            background: #fef2f2;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: left;
+            margin-bottom: 1.5rem;
+            border: 1px solid #fecaca;
+        }
+
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .label {
+            color: #6b7280;
+        }
+
+        .value {
+            color: #111827;
+            font-weight: 500;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #ef4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #dc2626;
+        }
+
+        .btn-success {
+            background-color: #22c55e;
+            margin-left: 0.5rem;
+        }
+
+        .btn-success:hover {
+            background-color: #16a34a;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="icon">✗</div>
+        <h1>Payment Failed</h1>
+        <p>Sorry! Your transaction could not be completed.</p>
+
+        <div class="details">
+            <div class="row">
+                <span class="label">Transaction ID:</span>
+                <span class="value" id="txn_id">{{ txn_id }}</span>
+            </div>
+            <div class="row">
+                <span class="label">Status:</span>
+                <span class="value" id="status">{{ status }}</span>
+            </div>
+            <div class="row">
+                <span class="label">Error:</span>
+                <span class="value" id="error">{{ error }}</span>
+            </div>
+        </div>
+
+        <a href="/" class="btn">Try Again</a>
+        <a href="/" class="btn btn-success">Make Another Payment</a>
+    </div>
+
+    <script>
+        // Get URL parameters and update page
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Update transaction details if parameters exist
+        const txnId = urlParams.get('txn_id');
+        const status = urlParams.get('status');
+        const error = urlParams.get('error');
+        
+        if (txnId) {
+            document.getElementById('txn_id').textContent = txnId;
+        }
+        
+        if (status) {
+            document.getElementById('status').textContent = status;
+        }
+        
+        if (error) {
+            document.getElementById('error').textContent = error;
+        }
+    </script>
+</body>
+
+</html>

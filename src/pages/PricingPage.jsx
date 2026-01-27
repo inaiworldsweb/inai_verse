@@ -108,7 +108,9 @@ const PricingPage = () => {
     const navigate = useNavigate()
     const handleBuyNowClick = (plan) => {
         console.log('Buy now clicked for plan:', plan.name)
-        // Add checkout logic here
+        // Open PayU checkout form with plan details
+        const priceInRupees = plan.price.replace('K', '000')
+        window.open(`/checkout.html?plan=${encodeURIComponent(plan.name)}&price=${priceInRupees}`, '_blank')
     }
 
     return (
