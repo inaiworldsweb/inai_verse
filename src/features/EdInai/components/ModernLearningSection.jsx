@@ -71,8 +71,7 @@ const ModernLearningSection = () => {
                 <div className="max-w-[900px]">
                     <h3 className="text-[1.5rem] font-bold text-white mb-4">AI-led interactive lectures</h3>
                     <p className="text-sm text-white/70 leading-relaxed">
-                        We're building the future of AI education in India ensuring every student experiences world-class, interactive,
-                        and inclusive learning.
+                     ED-INAI brings together innovation and education to create a smart, connected learning ecosystem for schools and colleges.
                     </p>
                 </div>
             </div>

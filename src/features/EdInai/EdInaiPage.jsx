@@ -43,14 +43,14 @@ const futureHighlights = [
             'INAI, VANI, and ARIA deliver consistent, intelligent lectures with human-like interaction and clarity.',
     },
     {
-        title: '24/7 Availability',
+        title: '24/7 Ready to teach ',
         description:
-            'Students can learn anytime through on-demand sessions, AI-generated notes, and instant Q&A support.',
+            'Students can learn anytime through on-demand sessions, AI-generated study materials, and instant question support—beyond classroom hours.',
     },
     {
-        title: 'Automation for Institutions',
+        title: 'Smart Automation for Institutions',
         description:
-            'Simplifies scheduling, tracking, and performance monitoring—reducing manual effort for schools and colleges.',
+            'ED-INAI automates scheduling, academic tracking, and performance monitoring significantly reducing manual workload for schools and colleges.',
     },
     {
         title: 'Future-Ready Education',
@@ -75,9 +75,8 @@ const overviewItems = [
         alt: 'Virtual instructor delivering a lesson on a large screen',
         textLines: [
             'Ed-INAI is an AI-powered education platform',
-            'where virtual AI GPT models conduct live and',
-            'interactive lectures through smart',
-            'interfaces.',
+            'where virtual AI teaching models conduct live and ',
+            'live and interactive lectures through smart interfaces.'
         ],
         centerText: true,
     },
@@ -85,10 +84,10 @@ const overviewItems = [
         image: 'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80',
         alt: 'Students experiencing immersive simulations in a futuristic setting',
         textLines: [
-            'Schools and colleges can upload their syllabus,',
-            'schedule lectures, and let Ed-INAI handle teaching, explaining, and',
-            'student interaction—all powered by AI for teaching',
-            'that keeps improving.',
+            'Our virtual AI mentors "Inai, Aira, and VNAI" combine storytelling,',
+            'design thinking, and engineering intelligence to deliver',
+            'immersive, AI-driven lessons tailored for Indian classrooms,',
+            'ensuring inclusive, engaging, and effective learning.'
         ],
         variant: 'text-first',
         centerText: true,
@@ -97,7 +96,7 @@ const overviewItems = [
         image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',
         alt: 'AI assistant collaborating with a professional on a transparent interface',
         textLines: [
-            'Our virtual AI mentors BALI, VIMAI, and ARIA bring',
+            'Our virtual AI mentors Inai, Aira, and VNAI bring',
             'storytelling, design, and engineering to life—delivering',
             'immersive, AI-driven lessons tailored for Indian classrooms,inclusive and',
             ' effective.',
@@ -249,9 +248,12 @@ const EdInaiPage = () => {
                 <section className="py-10 md:py-16">
                     {/* Hero Title and CTA - Centered */}
                     <div className="text-center mb-12 md:mb-20">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
-                            AI That Turns<br />Education into<br />Fun and Intellectual
-                        </h1>
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
+                            India's First<br /> Virtual AI Teacher Platform
+                        </h2>
+                        <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-6 md:mb-8">
+                            Teach smarter with AI-powered virtual teachers trained on your syllabus
+                        </h3>
                         <button
                             type="button"
                             className="
@@ -272,12 +274,11 @@ const EdInaiPage = () => {
                     {/* Two Column Layout - Heading Left, Image Right */}
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16 max-w-[1200px] mx-auto">
                         {/* Left Column - Heading */}
-                        <div className="text-center lg:text-left order-2 lg:order-1">
-                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
-                                Jumpstart Your<br />
-                                Education Experience<br />
-                                with Ed-INAI
-                            </h2>
+                        <div className="text-center lg:text-center rder-2 lg:order-1">
+                            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
+                                Transform <br/>Teaching & Learning with ED-INAI 
+                             
+                            </h3>
                         </div>
 
                         {/* Right Column - Hero Image */}
@@ -296,31 +297,6 @@ const EdInaiPage = () => {
                         interactive lectures for schools and colleges across India. Experience the next generation of AI
                         education built for the classrooms of the future.
                     </p>
-                </section>
-
-                {/* How to Implement Ed-INAI Section - Responsive */}
-                <section className="py-10 md:py-16" id="how-to-implement">
-                    <div className="max-w-[1200px] mx-auto text-center px-4">
-                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold mb-6 md:mb-8">
-                            How to Implement Ed-INAI?
-                        </h2>
-                        <p className="max-w-[800px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 mb-8 md:mb-12">
-                            Check out our simple 4-step setup process to get your institution running with AI-powered education in no time.
-                        </p>
-                        <button
-                            onClick={() => navigate('/edinai-setup')}
-                            className="
-                                px-8 py-3 
-                                bg-gradient-to-r from-blue-600 to-purple-600 
-                                text-white rounded-full font-bold text-lg 
-                                shadow-lg shadow-blue-500/20 
-                                hover:scale-105 hover:shadow-blue-500/40 
-                                transition-all duration-300
-                            "
-                        >
-                            learn more
-                        </button>
-                    </div>
                 </section>
 
                 {/* What is Ed-INAI Section - Responsive */}
@@ -390,7 +366,7 @@ const EdInaiPage = () => {
                         </div>
                         <div className="order-2 text-center md:text-left">
                             <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold leading-tight">
-                                Teach in Every Way<br />Students Want<br />to Learn
+                                Teach the Way Every <br />Student Learns Best
                             </h2>
                         </div>
                     </div>
@@ -402,7 +378,7 @@ const EdInaiPage = () => {
                 <section className="py-10 md:py-16" id="why-ed-inai">
                     <div className="max-w-content mx-auto">
                         <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
-                            Why Ed-INAI Is the Future of AI Education in India
+                            Why EdINAI is the future of Indian education system 
                         </h2>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
                             {futureHighlights.map(({ title, description }) => (

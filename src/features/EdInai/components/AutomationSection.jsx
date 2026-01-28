@@ -5,8 +5,8 @@ const AutomationSection = () => {
         <section className="py-16 bg-black">
             <div className="max-w-[900px] mx-auto px-4">
                 {/* Section Title */}
-                <h2 className="text-[2rem] font-bold text-white mb-4">How Do You Manage Your Lecture?</h2>
-                <p className="text-sm text-white/70 mb-8">Take full control of your classes with AI automation.</p>
+                <h2 className="text-[2rem] font-bold text-white mb-4">How Do You generate and Manage Your Lecture?</h2>
+                <p className="text-sm text-white/70 mb-8">Take complete control of your classes with intelligent AI automation.</p>
 
                 {/* Feature Image */}
                 <div className="rounded-[20px] overflow-hidden mb-8">
@@ -20,7 +20,7 @@ const AutomationSection = () => {
 
                 {/* Automation Label */}
                 <div className="text-center mb-6">
-                    <span className="text-sm font-medium text-white">Automation for Institutions</span>
+                    <span className="text-sm font-medium text-white">Smart Automation for Educational Institutions</span>
                 </div>
 
                 {/* Description */}
@@ -30,14 +30,13 @@ const AutomationSection = () => {
 
                 {/* Secondary Heading */}
                 <h3 className="text-[1.75rem] font-bold text-white mb-4">
-                    Think Bigger and Grow Your Students at a Global Scale
+                    Think smart and Grow Your Students at a Global Scale
                 </h3>
 
                 {/* Secondary Description */}
                 <p className="text-sm text-white/70 leading-relaxed">
-                    Your institution can now teach, train, and inspire students worldwide through virtual AI teachers that deliver consistent,
-                    multilingual, and high-quality lectures anytime, anywhere. From local classrooms to international audiences, Ed-INAI transforms
-                    education into a borderless experience, helping schools and colleges reach global standards with ease and innovation.
+                   With ED-INAI, institutions can elevate the level of education globally through AI-powered learning, multilingual delivery,
+                    and consistent academic quality - without increasing operational complexity.
                 </p>
             </div>
         </section>

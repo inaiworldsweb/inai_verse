@@ -75,9 +75,10 @@ const EducationPortalSection = () => {
         <section className="py-16 bg-black" id="admin-view">
             <div className="max-w-medium mx-auto px-4">
                 <header className="text-center">
-                    <h2 className="text-[2.5rem] font-bold mb-4 text-white">Inside the Ed-INAI AI Education Portal</h2>
+                    <h2 className="text-[2.5rem] font-bold mb-4 text-white">Inside the Ed-INAI AI Education Platform</h2>
                     <p className="text-lg text-white/70 max-w-[700px] mx-auto">
-                        From administration to learning, Ed-INAI brings automation, precision, and personalization to every level of education.
+                         Explore the ED-INAI AI Education Portal From Administration to Learning, ED-INAI Automates, Optimizes, and Personalizes the Entire Education Journey
+
                     </p>
                 </header>
 
