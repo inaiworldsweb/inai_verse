@@ -85,27 +85,6 @@ const EdInaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                 ))}
             </nav>
 
-            {/* Quick Links */}
-            <div className="px-4 py-4 border-t border-white/10 mt-auto">
-                <Link
-                    to="/edinai-admin"
-                    className="block py-2 px-2 text-sm text-white/60 hover:text-white transition-colors rounded hover:bg-white/5"
-                >
-                    Admin View
-                </Link>
-                <Link
-                    to="/edinai-student"
-                    className="block py-2 px-2 text-sm text-white/60 hover:text-white transition-colors rounded hover:bg-white/5"
-                >
-                    Student View
-                </Link>
-                <Link
-                    to="/pricing"
-                    className="block py-2 px-2 text-sm text-white/60 hover:text-white transition-colors rounded hover:bg-white/5"
-                >
-                    Pricing
-                </Link>
-            </div>
         </div>
     );
 

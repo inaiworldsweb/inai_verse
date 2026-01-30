@@ -9,7 +9,7 @@ import { HiHome, HiMenu } from 'react-icons/hi';
  * @param {'admin' | 'student'} props.activeView - Currently active view (admin or student)
  * @param {Array} props.menuItems - Optional custom menu items for the dropdown
  */
-const EdInaiHeader = ({ activeView = 'admin', menuItems }) => {
+const EdInaiHeader = ({ activeView = 'admin', menuItems, showSubNav = true }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const menuRef = useRef(null);
 
@@ -45,19 +45,18 @@ const EdInaiHeader = ({ activeView = 'admin', menuItems }) => {
                     <span className="text-white/50 hidden sm:inline" aria-hidden="true">›</span>
                     <Link
                         to="/edinai"
-                        className="text-white font-medium text-sm md:text-base hover:text-white/80 transition-colors whitespace-nowrap"
+                        className="text-white font-medium text-sm md:text-base whitespace-nowrap hover:text-white/80 transition-colors"
                     >
                         Edinai
                     </Link>
                     <span className="text-white/50" aria-hidden="true">›</span>
-                    <Link
-                        to="/edinai-detail"
-                        className="text-white/70 text-xs md:text-sm hover:text-white transition-colors underline underline-offset-4 truncate max-w-[120px] sm:max-w-none"
+                    <span
+                        className="text-white/70 text-xs md:text-sm underline underline-offset-4 truncate max-w-[120px] sm:max-w-none"
                         title="Inside the Ed-INAI Portal"
                     >
                         <span className="hidden sm:inline">Inside the Ed-INAI Portal</span>
                         <span className="sm:hidden">Portal</span>
-                    </Link>
+                    </span>
                 </nav>
 
                 {/* Right Actions */}
@@ -98,33 +97,26 @@ const EdInaiHeader = ({ activeView = 'admin', menuItems }) => {
                 </div>
             </div>
 
-            {/* Second Row - Sub Navigation - Responsive */}
-            <div className="px-4 pb-2 md:px-6 lg:px-8 md:pb-3">
-                <nav className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm">
-                    <span className="text-white/50 hidden sm:inline" aria-hidden="true">›</span>
-                    {activeView === 'admin' ? (
-                        <span className="text-white underline underline-offset-4">Admin view</span>
-                    ) : (
+            {showSubNav && (
+                <div className="px-4 pb-2 md:px-6 lg:px-8 md:pb-3">
+                    <nav className="flex items-center gap-1.5 md:gap-2 text-xs md:text-sm">
+                        <span className="text-white/50 hidden sm:inline" aria-hidden="true">›</span>
                         <Link
                             to="/edinai-admin"
                             className="text-white/70 hover:text-white transition-colors"
                         >
                             Admin view
                         </Link>
-                    )}
-                    <span className="text-white/50" aria-hidden="true">›</span>
-                    {activeView === 'student' ? (
-                        <span className="text-white underline underline-offset-4">Student view</span>
-                    ) : (
+                        <span className="text-white/50" aria-hidden="true">›</span>
                         <Link
                             to="/edinai-student"
-                            className="text-white/70 hover:text-white transition-colors"
+                            className="text-white underline underline-offset-4 hover:text-white/80 transition-colors"
                         >
                             Student view
                         </Link>
-                    )}
-                </nav>
-            </div>
+                    </nav>
+                </div>
+            )}
         </header>
     );
 };

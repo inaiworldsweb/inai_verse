@@ -77,210 +77,175 @@ const EdInaiStudentPage = () => {
             />
 
             {/* Main Content Area - Full width on mobile */}
-            <main className="flex-1 w-full min-w-0 overflow-y-auto">
+            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
                 {/* Shared Header Component */}
                 <EdInaiHeader activeView="student" />
 
                 {/* Content Sections - Responsive padding */}
-                <div className="px-4 md:px-6 lg:px-8">
-
-                    {/* Hero Section */}
-                    <section className="py-10 md:py-16">
-                        <div className="max-w-4xl mx-auto">
-                            {/* Hero Image */}
-                            <div className="relative group mb-8 md:mb-12">
-                                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500 to-purple-600 rounded-xl md:rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
-                                <div className="relative rounded-xl md:rounded-2xl overflow-hidden shadow-2xl bg-black border border-white/10">
-                                    <img
-                                        src={heroImage}
-                                        alt="Ed-INAI Student Interface - Futuristic AI Learning"
-                                        className="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105"
-                                    />
+                <div className="px-4 md:px-6 lg:px-8 bg-black">
+                    {/* About Section */}
+                    <section className="py-16 md:py-24">
+                        <div className="max-w-5xl mx-auto text-center">
+                            {/* Image Section */}
+                            <div className="mb-10 md:mb-12">
+                                <div className="relative group inline-block">
+                                    <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition duration-500"></div>
+                                    <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/20 bg-black">
+                                        <img
+                                            src={aiTutorImage}
+                                            alt="Ed-INAI Platform"
+                                            className="w-full h-[320px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
+                                        />
+                                    </div>
                                 </div>
                             </div>
 
-                            {/* Description */}
-                            <div className="text-center mb-10 md:mb-16">
-                                <p className="text-sm sm:text-base md:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto px-2">
-                                    Ed-INAI is a smart learning automation platform developed by INAI Worlds Pvt. Ltd. that reshapes classroom experiences by turning everyday teaching into a fully automated, intelligent learning system. This page gives a complete look at the Admin and Student interfaces, key features, and the step-by-step setup process your institution will follow.
-                                </p>
-                            </div>
+                            {/* Content Section */}
+                            <p className="text-lg md:text-xl text-white leading-relaxed max-w-4xl mx-auto">
+                                Ed-INAI is a smart learning automation platform developed by INAI Worlds Pvt. Ltd. that reshapes classroom experiences by turning everyday teaching into a fully automated, intelligent learning system. This page gives a complete look at the Admin and Student interfaces, key features, and the step-by-step setup process your institution will follow.
+                            </p>
                         </div>
                     </section>
 
                     {/* Student View Section */}
-                    <section id="student-view" className="py-10 md:py-16 bg-gradient-to-b from-transparent to-white/[0.02]">
-                        <div className="max-w-5xl mx-auto">
-                            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 md:mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white via-gray-200 to-gray-400">
-                                Student view
-                            </h1>
+                    <section id="student-view" className="py-12 md:py-20">
+                        <div className="max-w-6xl mx-auto">
+                            <div className="text-center space-y-4 mb-10 md:mb-14">
+                                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">Student view</h2>
+                                <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                                    The Student View is designed for easy navigation, interactive study, and self-paced growth. Each learner receives guidance based on their progress pattern and preferred learning style.
+                                </p>
+                            </div>
 
-                            <p className="text-sm sm:text-base md:text-lg text-gray-400 text-center max-w-3xl mx-auto mb-8 md:mb-12 leading-relaxed px-2">
-                                The Student View is designed for easy navigation, interactive study, and self-paced growth. Each learner receives guidance based on their progress pattern and preferred learning style.
-                            </p>
+                            <div className="bg-[#2b2b2b] rounded-[32px] md:rounded-[40px] border border-white/10 shadow-2xl px-6 sm:px-8 md:px-12 pt-10 pb-12 md:pb-14">
+                                <div className="max-w-4xl mx-auto text-center">
+                                    <h3 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white mb-4">
+                                        {carouselSlides[currentSlide].title}
+                                    </h3>
+                                    <p className="text-base sm:text-lg md:text-xl text-gray-100 leading-relaxed underline decoration-gray-400 decoration-2 decoration-offset-4">
+                                        {carouselSlides[currentSlide].description}
+                                    </p>
 
-                            {/* Carousel Slider */}
-                            <div className="mb-10 md:mb-16">
-                                <div className="relative max-w-3xl mx-auto">
-                                    {/* Carousel Container */}
-                                    <div className="relative bg-[#1a1a1a] rounded-2xl md:rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                                        {/* Slide Content */}
-                                        <div className="p-5 sm:p-6 md:p-8 lg:p-10">
-                                            {/* Title */}
-                                            <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white text-center mb-3 md:mb-4">
-                                                {carouselSlides[currentSlide].title}
-                                            </h3>
-
-                                            {/* Description */}
-                                            <p className="text-xs sm:text-sm md:text-base text-gray-400 text-center mb-6 md:mb-8 leading-relaxed max-w-xl mx-auto">
-                                                {carouselSlides[currentSlide].description}
-                                            </p>
-
-                                            {/* Image */}
-                                            <div className="relative group">
-                                                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl md:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
-                                                <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10">
-                                                    <img
-                                                        src={carouselSlides[currentSlide].image}
-                                                        alt={carouselSlides[currentSlide].title}
-                                                        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        {/* Navigation Arrows - Responsive sizing */}
-                                        <button
-                                            onClick={prevSlide}
-                                            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 rounded-full text-white/70 hover:text-white transition-all duration-300 border border-white/10"
-                                            aria-label="Previous slide"
-                                        >
-                                            <HiChevronLeft className="text-xl sm:text-2xl" />
-                                        </button>
-                                        <button
-                                            onClick={nextSlide}
-                                            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 bg-black/50 hover:bg-black/70 rounded-full text-white/70 hover:text-white transition-all duration-300 border border-white/10"
-                                            aria-label="Next slide"
-                                        >
-                                            <HiChevronRight className="text-xl sm:text-2xl" />
-                                        </button>
+                                    <div className="mt-8 md:mt-10 rounded-[28px] overflow-hidden border border-white/10 bg-black">
+                                        <img
+                                            src={carouselSlides[currentSlide].image}
+                                            alt={carouselSlides[currentSlide].title}
+                                            className="w-full h-[260px] sm:h-[320px] md:h-[420px] object-cover"
+                                        />
                                     </div>
 
-                                    {/* Dots Navigation */}
-                                    <div className="flex justify-center gap-2 sm:gap-3 mt-4 sm:mt-6">
+                                    <div className="flex justify-center gap-3 mt-8">
                                         {carouselSlides.map((_, index) => (
                                             <button
                                                 key={index}
                                                 onClick={() => setCurrentSlide(index)}
-                                                className={`
-                                                    w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full 
-                                                    transition-all duration-300 
-                                                    ${currentSlide === index
-                                                        ? 'bg-white scale-110'
-                                                        : 'bg-gray-600 hover:bg-gray-500'
-                                                    }
-                                                `}
+                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                                    currentSlide === index
+                                                        ? 'bg-white scale-125'
+                                                        : 'bg-gray-500 hover:bg-gray-400'
+                                                }`}
                                                 aria-label={`Go to slide ${index + 1}`}
+                                                aria-current={currentSlide === index ? 'true' : 'false'}
                                             />
                                         ))}
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </section>
 
-                            {/* Side by Side Layout */}
-                            <div className="mb-10 md:mb-16">
-                                <div className="relative">
-                                    {/* Carousel Container - Side by Side Layout */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-                                        {/* Left Side - Text Content */}
-                                        <div className="text-left order-2 md:order-1">
-                                            <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 md:mb-6">
-                                                {carouselSlides[currentSlide].title}
-                                            </h3>
-                                            <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-                                                {carouselSlides[currentSlide].description}
-                                            </p>
-                                        </div>
-
-                                        {/* Right Side - Image */}
-                                        <div className="relative group order-1 md:order-2">
-                                            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl md:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
-                                            <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 bg-gray-100">
-                                                <img
-                                                    src={carouselSlides[currentSlide].image}
-                                                    alt={carouselSlides[currentSlide].title}
-                                                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                    {/* Student Feature Split Section */}
+                    <section className="py-12 md:py-20">
+                        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+                            <div className="space-y-4 text-left">
+                                <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                                    {carouselSlides[currentSlide].title}
+                                </h3>
+                                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
+                                    {carouselSlides[currentSlide].description}
+                                </p>
                             </div>
 
-                            {/* Track Progress Section */}
-                            <div className="mt-12 md:mt-20 text-center">
-                                <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
+                            <div className="text-center">
+                                <div className="rounded-[32px] overflow-hidden border border-white/10 inline-block shadow-xl">
+                                    <img
+                                        src={carouselSlides[currentSlide].image}
+                                        alt={carouselSlides[currentSlide].title}
+                                        className="w-full h-[240px] sm:h-[280px] md:h-[360px] lg:h-[320px] object-cover"
+                                    />
+                                </div>
+                                <div className="flex justify-center gap-3 mt-6">
+                                    {carouselSlides.map((_, index) => (
+                                        <button
+                                            key={index}
+                                            onClick={() => setCurrentSlide(index)}
+                                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                                                currentSlide === index ? 'bg-white' : 'bg-gray-600'
+                                            }`}
+                                            aria-label={`Go to slide ${index + 1}`}
+                                            aria-current={currentSlide === index ? 'true' : 'false'}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Track Progress Section */}
+                    <section className="py-12 md:py-20">
+                        <div className="max-w-5xl mx-auto text-center space-y-6 md:space-y-8">
+                            <div>
+                                <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
                                     Track Progress with Visual Dashboards
-                                </h2>
-                                <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed max-w-4xl mx-auto px-2">
+                                </h3>
+                                <p className="text-sm sm:text-base md:text-lg text-gray-300 mt-3 leading-relaxed">
                                     Personal progress boards show completed lessons, time spent, quiz outcomes, weak areas, and recommended improvements to support strategic studying.
                                 </p>
                             </div>
 
-                            {/* Learn Anytime Section with Slider */}
-                            <div className="mt-12 md:mt-20">
-                                {/* Large Image */}
-                                <div className="relative group mb-6 md:mb-8 max-w-lg md:max-w-2xl mx-auto">
-                                    <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl md:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
-                                    <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 bg-gray-200">
+                            <div className="rounded-[32px] overflow-hidden border border-white/10 shadow-2xl inline-block">
+                                <img
+                                    src={aiTutorImage}
+                                    alt="Track Progress"
+                                    className="w-full h-[340px] sm:h-[400px] md:h-[460px] object-cover"
+                                />
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Learn Anytime Section */}
+                    <section className="py-12 md:py-20">
+                        <div className="max-w-6xl mx-auto text-center">
+                            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                                Learn Anytime, Anywhere
+                            </h3>
+                            <p className="text-sm sm:text-base md:text-lg text-gray-300 mt-3 mb-10 leading-relaxed">
+                                Students can access sessions from smartphones, laptops, tablets, smart TVs, or classroom projectors. The platform adjusts to bandwidth levels and offers offline revision options.
+                            </p>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                <div className="rounded-[28px] border-2 border-blue-400/70 p-1 bg-gradient-to-br from-blue-500/30 to-cyan-500/30">
+                                    <div className="rounded-[24px] overflow-hidden bg-black">
                                         <img
                                             src={aiTutorImage}
-                                            alt="AI Learning Interface"
-                                            className="w-full h-auto object-cover"
+                                            alt="Mobile Learning"
+                                            className="w-full h-[260px] sm:h-[320px] object-cover"
                                         />
                                     </div>
                                 </div>
 
-                                {/* Title and Description */}
-                                <div className="text-center mb-8 md:mb-12">
-                                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-3 md:mb-4">
-                                        Learn Anytime, Anywhere
-                                    </h2>
-                                    <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed max-w-4xl mx-auto px-2">
-                                        Students can access sessions from smartphones, laptops, tablets, smart TVs, or classroom projectors. The platform adjusts to bandwidth levels and offers offline revision options.
-                                    </p>
-                                </div>
-
-                                {/* Two Image Cards */}
-                                <div className="grid grid-cols-2 gap-4 md:gap-6 max-w-xs sm:max-w-lg md:max-w-3xl mx-auto">
-                                    <div className="relative group">
-                                        <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-xl md:rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
-                                        <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 bg-gray-200">
-                                            <img
-                                                src={aiTutorImage}
-                                                alt="Mobile Learning"
-                                                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="relative group">
-                                        <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-xl md:rounded-2xl blur opacity-50 group-hover:opacity-75 transition duration-500"></div>
-                                        <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 bg-gray-200">
-                                            <img
-                                                src={aiTutorImage}
-                                                alt="Multi-device Access"
-                                                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-105"
-                                            />
-                                        </div>
+                                <div className="rounded-[28px] border border-white/10 p-1 bg-[#0f0f0f]">
+                                    <div className="rounded-[24px] overflow-hidden">
+                                        <img
+                                            src={aiTutorImage}
+                                            alt="Desktop Learning"
+                                            className="w-full h-[260px] sm:h-[320px] object-cover"
+                                        />
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </section>
-
-                    {/* Bottom spacing for mobile */}
-                    <div className="h-8 md:h-0"></div>
                 </div>
             </main>
         </div>

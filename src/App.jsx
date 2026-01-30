@@ -12,6 +12,7 @@ import EdInaiDetail from './features/EdInaiDetail/EdInaiDetail'
 import EdInaiStudentPage from './features/EdInaiStudent/EdInaiStudentPage'
 import EdInaiAdminPage from './features/EdInaiAdmin/EdInaiAdminPage'
 import EdInaiSetupPage from './features/EdInai/EdInaiSetupPage'
+import StepsPage from './features/EdInai/StepsPage'
 
 import { useState } from 'react'
 
@@ -30,7 +31,8 @@ function AppContent() {
     location.pathname === '/terms' ||
     location.pathname === '/cookies' ||
     location.pathname === '/refund' ||
-    location.pathname === '/saas-landing'
+    location.pathname === '/saas-landing' ||
+    location.pathname === '/stepspage'
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -49,6 +51,7 @@ function AppContent() {
           <Route path="/edinai-student" element={<EdInaiStudentPage />} />
           <Route path="/edinai-admin" element={<EdInaiAdminPage />} />
           <Route path="/edinai-setup" element={<EdInaiSetupPage />} />
+          <Route path="/stepspage" element={<StepsPage />} />
 
         </Routes>
       </main>

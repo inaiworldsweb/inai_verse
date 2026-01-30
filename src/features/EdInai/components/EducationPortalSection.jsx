@@ -12,31 +12,39 @@ const slides = [
         image: adminImage,
         caption: 'Upload & Organize Curriculum',
         description:
-            'From scheduling to tracking, everything runs seamlessly powered by automation that reduces manual work and increases teaching efficiency.',
+            'Upload syllabi and academic content into a structured, AI-organized framework aligned with learning objectives.',
     },
     {
         id: 'student-view',
-        title: 'Student View – For Learners',
+        title: 'Admin View – For Education Centres',
         image: studentImage,
-        caption: 'Attend Live & Recorded Lectures',
+        caption: ' Schedule AI-Assisted Lectures ',
         description:
-            'This is AI for teaching that adapts to every learning style from visual to verbal—making lessons clear, fun, and unforgettable.',
+            'Plan and manage lectures efficiently using AI-assisted scheduling for consistent academic delivery.',
     },
     {
         id: 'developer-view',
-        title: 'Developer Studio – For Instructors',
+        title: 'Admin View – For Education Centres',
         image: developerImage,
-        caption: 'Create Immersive Lessons',
+        caption: 'Manage Students, Faculty, and Staff',
         description:
-            'Teachers assemble multimedia lectures, assessments, and lab demos with drag-and-drop ease, powered by Ed-INAI\'s content studio.',
+            'Centralize student records, faculty profiles, and staff management within a single administrative dashboard.',
     },
     {
         id: 'mentor-view',
-        title: 'Mentor Hub – For Virtual AI Guides',
+        title: 'Admin View – For Education Centres',
         image: mentorImage,
-        caption: 'Deliver AI-Led Coaching',
+        caption: 'Assign Roles & Permissions',
         description:
-            'AI mentors collaborate with institutions to host live sessions, answer questions, and keep batches on track across every learning mode.',
+            'Define role-based access controls to ensure secure and organized institutional operations.',
+    },
+     {
+        id: 'mentor-view',
+        title: 'Admin View – For Education Centres',
+        image: mentorImage,
+        caption: 'Access Analytics & Performance Reports',
+        description:
+            'Monitor academic performance, attendance, and engagement through real-time analytical reports.',
     },
 ]
 

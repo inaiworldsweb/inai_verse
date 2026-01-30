@@ -6,13 +6,33 @@ import featureImage from '../../Assetsa/b.png';
 import secondImage from '../../Assetsa/c.png';
 import lectureImage from '../../Assetsa/d.png';
 import assessmentImage from '../../Assetsa/f.png';
+import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
+import { EdInaiSidebar } from '../EdInai/components/shared';
+
+const sidebarItems = [
+    { label: 'What is edInai?', id: 'what-is-edinai' },
+    { label: 'Meet our faculties', id: 'meet-faculties' },
+    { label: 'Admin View – For Education Centres', id: 'admin-view' },
+    { label: 'Student View – For Learners', id: 'student-view' },
+    { label: 'Teach in Every Way Your Students Want to Learn', id: 'teach' },
+    { label: 'Learning Modes', id: 'learning-modes' },
+];
 
 const EdInaiDetail = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isPaymentLoading, setIsPaymentLoading] = useState(false);
     const [paymentMessage, setPaymentMessage] = useState(null);
+    const [activeSection, setActiveSection] = useState('what-is-edinai');
 
     const menuRef = useRef(null);
+
+    const handleSidebarClick = (id) => {
+        setActiveSection(id);
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
 
     const handlePurchase = () => {
         setIsPaymentLoading(false);
@@ -42,62 +62,66 @@ const EdInaiDetail = () => {
     }, []);
 
     return (
-        <div className="min-h-screen w-full bg-black text-white font-sans selection:bg-blue-500/30 overflow-x-hidden">
-            {/* Navigation Bar - Responsive */}
-            <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex justify-between items-center">
-                    {/* Breadcrumbs - Responsive */}
-                    <div className="flex items-center gap-1.5 sm:gap-3 text-xs sm:text-sm md:text-base text-gray-400 font-medium min-w-0">
-                        <Link
-                            to="/edinai"
-                            className="hover:text-white transition-colors duration-300 whitespace-nowrap"
-                        >
-                            EdInai
-                        </Link>
-                        <HiChevronRight className="text-gray-600 flex-shrink-0" />
-                        <span className="text-white truncate">
-                            <span className="hidden sm:inline">Inside the Ed-INAI Portal</span>
-                            <span className="sm:hidden">Portal</span>
-                        </span>
-                    </div>
+        <div className="flex min-h-screen bg-black text-white font-sans">
+            <EdInaiSidebar
+                logoImage={logoImage}
+                items={sidebarItems}
+                onItemClick={handleSidebarClick}
+                activeId={activeSection}
+            />
 
-                    {/* Actions */}
-                    <div className="flex items-center gap-2 sm:gap-4 flex-shrink-0">
-                        <Link
-                            to="/"
-                            className="p-1.5 sm:p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-all duration-300"
-                            aria-label="Home"
-                        >
-                            <HiHome className="text-lg sm:text-xl" />
-                        </Link>
+            <div className="flex-1 w-full min-w-0 bg-black text-white selection:bg-blue-500/30 overflow-x-hidden">
+                {/* Navigation Bar - Responsive */}
+                <nav className="sticky top-0 z-40 bg-black border-b border-white/10">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
+                        {/* Breadcrumbs */}
+                        <div className="flex items-center gap-2 text-sm sm:text-base md:text-lg text-white font-semibold">
+                            <Link to="/edinai" className="hover:text-white/80 transition-colors">
+                                Edinai
+                            </Link>
+                            <span className="text-white/40" aria-hidden="true">›</span>
+                            <span className="underline underline-offset-4 text-white whitespace-nowrap">
+                                Inside the Ed-INAI Portal
+                            </span>
+                        </div>
 
-                        <div className="relative" ref={menuRef}>
-                            <button
-                                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                className={`p-1.5 sm:p-2 rounded-full transition-all duration-300 ${isMenuOpen ? 'bg-white/10 text-white' : 'text-gray-400 hover:text-white hover:bg-white/10'}`}
-                                aria-label="Menu"
+                        {/* Actions */}
+                        <div className="flex items-center gap-3">
+                            <Link
+                                to="/"
+                                className="p-2.5 rounded-2xl border border-white/15 text-white hover:bg-white/10 transition-colors"
+                                aria-label="Home"
                             >
-                                <HiMenu className="text-lg sm:text-xl" />
-                            </button>
+                                <HiHome className="text-lg sm:text-xl" />
+                            </Link>
 
-                            {isMenuOpen && (
-                                <div className="absolute top-full right-0 mt-3 w-48 bg-[#111] border border-white/10 rounded-xl shadow-2xl overflow-hidden py-1 transform origin-top-right transition-all animate-in fade-in zoom-in-95 duration-200">
-                                    <Link
-                                        to="/setup-guide"
-                                        className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/5 hover:text-white transition-colors text-sm"
-                                        onClick={() => setIsMenuOpen(false)}
-                                    >
-                                        <HiCog className="text-lg" />
-                                        <span>Setup Guide</span>
-                                    </Link>
-                                </div>
-                            )}
+                            <div className="relative" ref={menuRef}>
+                                <button
+                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                    className={`p-2.5 rounded-2xl border border-white/15 transition-colors ${isMenuOpen ? 'bg-white/10 text-white' : 'text-white hover:bg-white/10'}`}
+                                    aria-label="Menu"
+                                >
+                                    <HiMenu className="text-lg sm:text-xl" />
+                                </button>
+
+                                {isMenuOpen && (
+                                    <div className="absolute top-full right-0 mt-2 w-48 bg-[#111] border border-white/10 rounded-xl shadow-2xl overflow-hidden py-1">
+                                        <Link
+                                            to="/setup-guide"
+                                            className="flex items-center gap-3 px-4 py-3 text-gray-300 hover:bg-white/5 hover:text-white transition-colors text-sm"
+                                            onClick={() => setIsMenuOpen(false)}
+                                        >
+                                            <HiCog className="text-lg" />
+                                            <span>Setup Guide</span>
+                                        </Link>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </nav>
+                </nav>
 
-            <main className="pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-20 px-4 sm:px-6 max-w-7xl mx-auto flex flex-col items-center">
+                <main className="pt-24 sm:pt-28 md:pt-32 pb-12 md:pb-20 px-4 sm:px-6 max-w-7xl mx-auto flex flex-col items-center">
 
                 {/* Hero Image Section */}
                 <div className="w-full max-w-md sm:max-w-lg md:max-w-xl mx-auto mb-10 md:mb-16 relative group">
@@ -120,56 +144,17 @@ const EdInaiDetail = () => {
                         Ed-INAI elevates digital learning with systems built for structured teaching, automated delivery, and personalized learner engagement.
                     </p>
 
-                    <div className="flex flex-col items-center gap-4">
-                        <button
-                            onClick={handlePurchase}
-                            disabled={isPaymentLoading}
-                            className={`
-                                group relative w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 
-                                bg-gradient-to-r from-blue-600 to-purple-600 rounded-full 
-                                text-white font-bold text-sm sm:text-base md:text-lg 
-                                shadow-lg shadow-purple-500/30 
-                                transition-all duration-300 hover:scale-105 hover:shadow-purple-500/50
-                                disabled:opacity-70 disabled:cursor-not-allowed
-                            `}
-                        >
-                            <span className="flex items-center justify-center gap-2">
-                                {isPaymentLoading ? (
-                                    <>
-                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        Processing...
-                                    </>
-                                ) : (
-                                    <>
-                                        <HiCreditCard className="text-lg sm:text-xl" />
-                                        <span className="hidden sm:inline">Get Started Now - ₹20,000</span>
-                                        <span className="sm:hidden">Get Started - ₹20,000</span>
-                                    </>
-                                )}
-                            </span>
-                            <div className="absolute inset-0 rounded-full bg-white/20 blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        </button>
-
-                        {paymentMessage && (
-                            <div className={`mt-4 px-4 py-2 rounded-lg text-xs sm:text-sm font-medium animate-in fade-in slide-in-from-top-2 ${paymentMessage.type === 'success' ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-red-500/20 text-red-400 border border-red-500/30'
-                                }`}>
-                                {paymentMessage.text}
-                            </div>
-                        )}
-                    </div>
+                    <div className="flex flex-col items-center gap-4"></div>
                 </div>
 
                 {/* Feature 1: Curriculum Mapping Engine (Text Left, Image Right) */}
                 <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-24 items-center mb-12 md:mb-16">
                     <div className="order-2 md:order-1 text-left">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight">
-                            Curriculum Mapping Engine
+                            Intelligent Curriculum Mapping System
                         </h2>
                         <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-                            Ed-INAI parses uploaded syllabus into topics, learning objectives, and dependencies. This mapping ensures lectures and assessments follow logical pedagogical order.
+                            ED-INAI intelligently analyzes uploaded curriculum and organizes them into structured topics, learning objectives, and dependencies - ensuring that lectures and assessments follow a logical, pedagogically sound sequence.
                         </p>
                     </div>
                     <div className="order-1 md:order-2">
@@ -199,10 +184,10 @@ const EdInaiDetail = () => {
                         </div>
                         <div className="order-1 md:order-2 flex flex-col items-center text-center">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight max-w-lg">
-                                Lecture Generation & Presentation Layer
+                            Lecture Generation & Presentation Layer
                             </h2>
                             <p className="text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed max-w-md">
-                                AI prepares lesson scripts, visual slides, and interactive prompts — delivering lectures with human-like clarity and pedagogical consistency.
+                               ED-INAI generates structured lesson Lecture , visual presentations, and interactive Lecture ensuring clear, consistent, and pedagogically aligned lectures.
                             </p>
                         </div>
                     </div>
@@ -254,7 +239,8 @@ const EdInaiDetail = () => {
                     </div>
                 </section>
 
-            </main>
+                </main>
+            </div>
         </div>
     );
 };
