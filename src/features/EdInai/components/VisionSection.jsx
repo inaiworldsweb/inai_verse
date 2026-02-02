@@ -38,7 +38,7 @@ const VisionSection = () => {
                         {implementationSteps.map(({ id, title }, index) => (
                             <div key={id} className="bg-white/[0.03] rounded-[15px] p-6 text-center">
                                 <figure className="rounded-[10px] overflow-hidden mb-4">
-                                    <img src={stepImage} alt={`Step ${index + 1}`} className="w-full h-[200px] object-cover" loading="lazy" />
+                                    <img src={stepImage} alt={`Step ${index + 1}`} className="w-full h-[140px] object-cover" loading="lazy" />
                                 </figure>
                                 <p className="text-sm text-white/80 leading-normal font-medium">{title}</p>
                             </div>
@@ -47,7 +47,7 @@ const VisionSection = () => {
                 </div>
 
                 <div className="text-center">
-                    <button type="button" className="bg-gradient-primary text-white border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-transform duration-200 hover:scale-105" onClick={handleLearnMore}>learn more</button>
+                    <button type="button" className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100" onClick={handleLearnMore}>learn more</button>
                 </div>
             </div>
         </section>

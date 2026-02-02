@@ -9,12 +9,9 @@ import step3Img from '../../assets/images/robotic_head_device_1768805995068.png'
 import step4Img from '../../assets/images/robotic_face_setup.png';
 
 const sidebarItems = [
-    { label: 'What is edInai?', id: 'what-is-edinai' },
-    { label: 'Meet our faculties', id: 'meet-faculties' },
-    { label: 'Admin View – For Education Centres', id: 'admin-view' },
-    { label: 'Student View – For Learners', id: 'student-view' },
-    { label: 'Teach in Every Way Your Students Want to Learn', id: 'teach' },
-    { label: 'Learning Modes', id: 'learning-modes' },
+    { label: 'How to Set Up Ed-INAI', id: 'how-to-set-up-edinai' },
+    { label: 'Integration & Technical Details', id: 'integration-technical-details' },
+    { label: 'Common Use Cases', id: 'common-use-cases' },
 ];
 
 const steps = [
@@ -63,7 +60,7 @@ const UseCasesSection = () => {
     const useCases = ['K-12 Schools', 'Colleges', 'Coaching Centers', 'Corporate Training'];
 
     return (
-        <section className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
+        <section id="common-use-cases" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <h2 className="text-center text-3xl lg:text-4xl font-bold mb-12">Common Use Cases</h2>
 
@@ -174,7 +171,7 @@ const SetupSteps = () => {
     }, []);
 
     return (
-        <section className="py-24 px-6 lg:px-20 bg-black">
+        <section id="how-to-set-up-edinai" className="py-24 px-6 lg:px-20 bg-black">
             <div className="max-w-[90rem] mx-auto w-full">
                 <div className="text-center mb-32">
                     <h2 className="text-6xl font-extrabold text-white mb-6 tracking-tight">How to Set Up Ed-INAI</h2>
@@ -265,7 +262,7 @@ const IntegrationSection = () => {
     const activeFeature = features[activeIndex];
 
     return (
-        <section className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
+        <section id="integration-technical-details" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <div className="flex items-center justify-between mb-10">
                     <h2 className="text-3xl lg:text-4xl font-bold">Integration & Technical Details</h2>
@@ -324,12 +321,27 @@ const IntegrationSection = () => {
 };
 
 const StepsPage = () => {
+    const [activeSection, setActiveSection] = useState('how-to-set-up-edinai');
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const handleSidebarClick = (id) => {
+        setActiveSection(id);
+        const section = document.getElementById(id);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className="flex min-h-screen bg-black text-white font-sans">
             <EdInaiSidebar
                 logoImage={logoImage}
                 items={sidebarItems}
-                activeId="steps"
+                onItemClick={handleSidebarClick}
+                activeId={activeSection}
             />
 
             <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">

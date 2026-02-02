@@ -233,7 +233,7 @@ const EdInaiPage = () => {
             </aside>
 
             {/* Main Content - Full width on mobile */}
-            <main className="flex-1 w-full min-w-0 overflow-y-auto px-4 sm:px-6 lg:px-8">
+            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
                 <PageHeader
                     title="Edinai"
                     breadcrumbs={[]}
@@ -244,8 +244,10 @@ const EdInaiPage = () => {
                     onPriceClick={handleGoToPrice}
                 />
 
-                {/* Hero Section - Responsive */}
-                <section className="py-10 md:py-16">
+                <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+
+                    {/* Hero Section - Responsive */}
+                    <section className="py-10 md:py-16">
                     {/* Hero Title and CTA - Centered */}
                     <div className="text-center mb-12 md:mb-20">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
@@ -346,12 +348,12 @@ const EdInaiPage = () => {
                             )
                         })}
                     </div>
-                </section>
+                    </section>
 
-                <MeetOurFaculties />
+                    <MeetOurFaculties />
 
-                <EducationPortalSection />
-                <StudentExperienceSection onLearnMore={handleGoToLearnMore} />
+                    <EducationPortalSection />
+                    <StudentExperienceSection onLearnMore={handleGoToLearnMore} />
 
                 {/* Teach Section - Responsive */}
                 <section className="py-10 md:py-16" id="teach-in-every-way-your-students-want-to-learn">
@@ -372,7 +374,7 @@ const EdInaiPage = () => {
                     </div>
                 </section>
 
-                <LearningModesSection />
+                    <LearningModesSection />
 
                 {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
                 <section className="py-10 md:py-16" id="why-ed-inai">
@@ -408,14 +410,15 @@ const EdInaiPage = () => {
                     </div>
                 </section>
 
-                <AutomationSection />
-                <ModernLearningSection />
-                <VisionSection />
-                <IntegrationOptionsSection />
-                <StreamsSection />
-                <AdaptSection />
-                <FaqSection />
-                <SiteFooter />
+                    <AutomationSection />
+                    <ModernLearningSection />
+                    <VisionSection />
+                    <IntegrationOptionsSection />
+                    <StreamsSection />
+                    <AdaptSection />
+                    <FaqSection />
+                    <SiteFooter />
+                </div>
             </main>
         </div>
     )

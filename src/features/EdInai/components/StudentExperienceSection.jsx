@@ -112,7 +112,7 @@ const StudentExperienceSection = () => {
                 <div className="text-center mt-8">
                     <button 
                         type="button" 
-                        className="bg-gradient-primary text-white border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-transform duration-200 hover:scale-105" 
+                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100" 
                         onClick={handleLearnMore}
                     >
                         learn more

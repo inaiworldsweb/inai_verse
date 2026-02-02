@@ -34,29 +34,31 @@ const LearningModesSection = () => {
                 <h2 className="text-[2.5rem] font-bold text-center mb-12 text-white">Learning Modes</h2>
 
                 {/* Two Column Layout */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Left Column - Large Feature Image with Overlay */}
-                    <div className="relative rounded-[20px] overflow-hidden group">
-                        <img
-                            src={featureImage}
-                            alt="Student learning with AI technology"
-                            className="w-full h-full object-cover min-h-[500px]"
-                            loading="lazy"
-                        />
-
-                        {/* Overlay Content */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-8">
-                            <h3 className="text-[2rem] font-bold text-white mb-2 leading-tight">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    {/* Left Column - Large Feature Image with Text Below */}
+                    <div className="space-y-6">
+                        <div className="rounded-[20px] overflow-hidden">
+                            <img
+                                src={featureImage}
+                                alt="Student learning with AI technology"
+                                className="w-full h-auto object-cover"
+                                loading="lazy"
+                            />
+                        </div>
+                        <div className="space-y-2">
+                            <h3 className="text-[2rem] font-bold text-white leading-tight">
                                 Introducing learning<br />mode for students
                             </h3>
-                            <span className="text-sm text-white/70 mb-4">Product Video</span>
-                            <button
-                                type="button"
-                                className="bg-white text-black px-6 py-2.5 rounded-full text-sm font-medium w-fit hover:bg-gray-200 transition-colors"
-                                onClick={() => navigate('/edinai-detail')}
-                            >
-                                learn more
-                            </button>
+                            <span className="text-sm text-white/70">Product Video</span>
+                            <div className="pt-2">
+                                <button
+                                    type="button"
+                                    className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
+                                    onClick={() => navigate('/edinai-detail')}
+                                >
+                                    learn more
+                                </button>
+                            </div>
                         </div>
                     </div>
 
@@ -65,7 +67,7 @@ const LearningModesSection = () => {
                         {modeCards.map(({ id, image, title, description }) => (
                             <article
                                 key={id}
-                                className="bg-white/5 rounded-[15px] overflow-hidden hover:bg-white/[0.07] transition-colors"
+                                className="bg-[#1a1a1a] rounded-[20px] overflow-hidden hover:bg-[#222] transition-colors border border-white/10"
                             >
                                 <div className="grid grid-cols-[140px_1fr] gap-4">
                                     {/* Card Image */}
