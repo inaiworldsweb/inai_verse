@@ -173,7 +173,7 @@ const PricingPage = () => {
                                                     </span>
                                                 )}
                                                 <div className="flex items-baseline gap-3">
-                                                    <span className="tracking-tight text-white text-[2.8rem] md:text-[3.4rem] font-semibold">
+                                                    <span className="tracking-tight text-white text-[2.2rem] md:text-[2.7rem] font-semibold">
                                                         {plan.price}
                                                     </span>
                                                     <span className="text-xs md:text-sm text-white/60 font-semibold uppercase tracking-widest">
