@@ -1,5 +1,4 @@
 import { useNavigate, Link } from 'react-router-dom'
-import { useState } from 'react'
 
 import PageHeader from '../components/PageHeader'
 
@@ -11,8 +10,12 @@ const pricingPlans = [
         id: 'easy-to-in',
         name: 'Easy to In',
         subtitle: 'Affordable package to start teaching easily',
-        price: '20K',
-        priceLabel: 'in/package',
+        price: '₹19,999',
+        originalPrice: '₹24,999',
+        discountBadge: '20% off',
+        checkoutPrice: '19999',
+        offerNote: 'Limited-time launch offer: You save 20% on this plan.',
+        priceLabel: '/month ',
         features: [
             '45 videos (1-year duration)',
             '720p max quality',
@@ -36,8 +39,11 @@ const pricingPlans = [
         id: 'education-ride',
         name: 'Education Ride',
         subtitle: 'More features for better teaching and learning.',
-        price: '50K',
-        priceLabel: 'in/package',
+        price: '₹49,999',
+        originalPrice: '₹64,999',
+        discountBadge: '23% off',
+        offerNote: 'Limited-time launch offer: You save 23% on this plan.',
+        priceLabel: '/month ',
         featured: true,
         features: [
             '120 videos (1-year duration)',
@@ -67,8 +73,11 @@ const pricingPlans = [
         id: 'deep-learning',
         name: 'Deep learning',
         subtitle: 'For deep learning and classic lecture design',
-        price: '100K',
-        priceLabel: 'in/package',
+        price: '₹99,999',
+        originalPrice: '₹1,49,999',
+        discountBadge: '33% off',
+        offerNote: 'Limited-time launch offer: You save 33% on this plan.',
+        priceLabel: '/month ',
         features: [
             '250 videos (1-year duration)',
             '1440p max quality',
@@ -109,7 +118,7 @@ const PricingPage = () => {
     const handleBuyNowClick = (plan) => {
         console.log('Buy now clicked for plan:', plan.name)
         // Open PayU checkout form with plan details
-        const priceInRupees = plan.price.replace('K', '000')
+        const priceInRupees = plan.checkoutPrice || plan.price.replace('K', '000')
         window.open(`/checkout.html?plan=${encodeURIComponent(plan.name)}&price=${priceInRupees}`, '_blank')
     }
 
@@ -146,36 +155,56 @@ const PricingPage = () => {
                                     key={plan.id}
                                     className="relative border border-white/20 rounded-2xl p-6 lg:p-10 flex flex-col bg-transparent transition-all duration-300 hover:border-white/40"
                                 >
-                                    {/* Plan Header - Centered */}
-                                    <div className="mb-10 text-center">
-                                        <h2 className="text-2xl font-bold mb-2">{plan.name}</h2>
-                                        <p className="text-[10px] text-white/70 font-medium leading-relaxed tracking-wide">{plan.subtitle}</p>
+                                    {/* Plan Header with price & CTA */}
+                                    <div className="mb-12 text-center">
+                                        <h2 className="text-2xl md:text-[28px] font-bold mb-3">{plan.name}</h2>
+                                        <p className="text-xs md:text-sm text-white/70 font-medium leading-relaxed tracking-wide">{plan.subtitle}</p>
+
+                                        <div className="mt-10 flex flex-col items-center gap-5">
+                                            <div className="flex flex-col items-center gap-3">
+                                                {plan.originalPrice && (
+                                                    <span className="text-white/50 font-semibold line-through tracking-wide text-[2.8rem] md:text-[3.2rem]">
+                                                        {plan.originalPrice}
+                                                    </span>
+                                                )}
+                                                {plan.discountBadge && (
+                                                    <span className="text-xs font-bold uppercase tracking-wide text-black bg-[#86ff78] px-4 py-1 rounded-full">
+                                                        {plan.discountBadge}
+                                                    </span>
+                                                )}
+                                                <div className="flex items-baseline gap-3">
+                                                    <span className="tracking-tight text-white text-[2.8rem] md:text-[3.4rem] font-semibold">
+                                                        {plan.price}
+                                                    </span>
+                                                    <span className="text-xs md:text-sm text-white/60 font-semibold uppercase tracking-widest">
+                                                        {plan.priceLabel}
+                                                    </span>
+                                                </div>
+                                                {plan.offerNote && (
+                                                    <p className="text-xs md:text-sm text-white/80 font-semibold tracking-wide text-center">
+                                                        {plan.offerNote}
+                                                    </p>
+                                                )}
+                                            </div>
+
+                                            <button
+                                                onClick={() => handleBuyNowClick(plan)}
+                                                className="w-full max-w-[200px] bg-white text-black py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 shadow-lg hover:bg-gray-200"
+                                            >
+                                                Buy now
+                                            </button>
+                                        </div>
                                     </div>
 
-                                    {/* Features List - Left Aligned */}
-                                    <ul className="space-y-2.5 mb-12 flex-grow">
+                                    {/* Features List */}
+                                    <ul className="space-y-3 mt-auto">
                                         {plan.features.map((feature, index) => (
-                                            <li key={index} className="flex items-start gap-3 text-[11px] leading-snug group">
-                                                <FiCheck className="w-3.5 h-3.5 text-white flex-shrink-0 mt-0.5 opacity-80" />
-                                                <span className="text-white/90">{feature}</span>
+                                            <li key={index} className="flex items-start gap-4 text-sm md:text-base leading-relaxed group">
+                                                <FiCheck className="w-4 h-4 text-white flex-shrink-0 mt-1 opacity-90" />
+                                                <span className="text-white/95">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
-
-                                    {/* Price and Button - Centered at bottom */}
-                                    <div className="mt-auto pt-8 flex flex-col items-center">
-                                        <div className="mb-8 flex items-baseline gap-2">
-                                            <span className="text-4xl font-bold">{plan.price}</span>
-                                            <span className="text-[10px] text-white/60 font-medium uppercase tracking-wider">{plan.priceLabel}</span>
-                                        </div>
-
-                                        <button
-                                            onClick={() => handleBuyNowClick(plan)}
-                                            className="w-full max-w-[170px] bg-white text-black py-2.5 rounded-full text-xs font-bold transition-all duration-300 hover:bg-gray-200 shadow-lg"
-                                        >
-                                            Buy now
-                                        </button>
-                                    </div>
                                 </div>
                             ))}
                         </div>

@@ -13,6 +13,10 @@ body {
   margin: 0;
 }
 
+button {
+  text-transform: capitalize;
+}
+
 .hide-scrollbar {
   scrollbar-width: none;
   -ms-overflow-style: none;

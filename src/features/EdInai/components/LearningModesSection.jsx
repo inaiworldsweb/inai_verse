@@ -7,7 +7,7 @@ const modeCards = [
         image: featureImage,
         title: 'Live Lectures via AI',
         description:
-            'Experience real-time, interactive teaching with virtual AI teachers like INAI, VIMAI, and ARIA. Visual explanations keep every concept engaging and personalised.',
+            'Experience real-time, interactive teaching with virtual AI teachers like INAI, VNAI, and AIRA. Visual explanations keep every concept engaging and personalised.',
     },
     {
         id: 'recorded-revisions',

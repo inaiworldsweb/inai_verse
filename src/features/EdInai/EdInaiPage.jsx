@@ -84,10 +84,8 @@ const overviewItems = [
         image: 'https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80',
         alt: 'Students experiencing immersive simulations in a futuristic setting',
         textLines: [
-            'Our virtual AI mentors "Inai, Aira, and VNAI" combine storytelling,',
-            'design thinking, and engineering intelligence to deliver',
-            'immersive, AI-driven lessons tailored for Indian classrooms,',
-            'ensuring inclusive, engaging, and effective learning.'
+            'Our virtual AI models INAI, VNAI, and AIRA bring intelligence, clarity, and engagement to every classroom,',
+            'making AI education in India more accessible, interactive, and effective.'
         ],
         variant: 'text-first',
         centerText: true,
@@ -96,8 +94,8 @@ const overviewItems = [
         image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',
         alt: 'AI assistant collaborating with a professional on a transparent interface',
         textLines: [
-            'Our virtual AI mentors Inai, Aira, and VNAI bring',
-            'storytelling, design, and engineering to life—delivering',
+            'Our virtual AI mentors INAI, VNAI, and AIRA bring',
+            'storytelling, design, and engineering to life delivering',
             'immersive, AI-driven lessons tailored for Indian classrooms,inclusive and',
             ' effective.',
         ],
@@ -268,7 +266,7 @@ const EdInaiPage = () => {
                             "
                         // onClick={() => navigate('/edinai-detail')}
                         >
-                            <span>get started</span>
+                            <span>Get Started</span>
                             <span aria-hidden="true">›</span>
                         </button>
                     </div>
@@ -301,10 +299,10 @@ const EdInaiPage = () => {
                     </p>
                 </section>
 
-                {/* What is Ed-INAI Section - Responsive */}
+                {/* What is EdInai Section - Responsive */}
                 <section className="py-10 md:py-16" id="what-is-edinai">
                     <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12">
-                        What is Ed-INAI?
+                        What is EdInai?
                     </h2>
                     <div className="flex flex-col gap-8 md:gap-12">
                         {overviewItems.map(({ image, alt, text, textLines, variant, centerText }, index) => {
