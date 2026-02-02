@@ -135,48 +135,6 @@ const SiteFooter = () => {
                 ))}
             </div>
 
-            {/* Copyright Bar */}
-            <div className="mt-8 pt-4 border-t border-white/10">
-                <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-white/60">
-                    <p className="m-0">
-                        All Rights Reserved © 2026 by INAI Worlds Pvt. Ltd.
-                    </p>
-                    <div className="flex gap-6">
-                        <button
-                            type="button"
-                            onClick={() => navigate('/privacy')}
-                            className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 transition-colors duration-200 hover:text-white"
-                        >
-                            Privacy Policy
-                        </button>
-                        <span className="text-white/30">|</span>
-                        <button
-                            type="button"
-                            onClick={() => navigate('/terms')}
-                            className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 transition-colors duration-200 hover:text-white"
-                        >
-                            Terms & Conditions
-                        </button>
-                        <span className="text-white/30">|</span>
-                        <button
-                            type="button"
-                            onClick={() => navigate('/cookies')}
-                            className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 transition-colors duration-200 hover:text-white"
-                        >
-                            Cookies
-                        </button>
-                        <span className="text-white/30">|</span>
-                        <button
-                            type="button"
-                            onClick={() => navigate('/refund')}
-                            className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 transition-colors duration-200 hover:text-white"
-                        >
-                            Refund & Cancellation
-                        </button>
-                    </div>
-                </div>
-            </div>
-
         </footer>
     )
 }

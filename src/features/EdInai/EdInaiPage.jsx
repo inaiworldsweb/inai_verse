@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageHeader from '../../components/PageHeader'
 import SideMenu from '../../components/SideMenu'
-import SiteFooter from '../../components/SiteFooter'
 import MeetOurFaculties from './components/MeetOurFaculties'
 import EducationPortalSection from './components/EducationPortalSection'
 import StudentExperienceSection from './components/StudentExperienceSection'
@@ -16,6 +15,7 @@ import IntegrationOptionsSection from './components/IntegrationOptionsSection'
 import FaqSection from './components/FaqSection'
 import AutomationSection from './components/AutomationSection'
 import ModernLearningSection from './components/ModernLearningSection'
+import SiteFooter from '../../components/SiteFooter'
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png'
 import heroImage from '../../Assetsa/a.png'
 import { HiMenu, HiX } from 'react-icons/hi'
@@ -278,7 +278,7 @@ const EdInaiPage = () => {
                         {/* Left Column - Heading */}
                         <div className="text-center lg:text-center rder-2 lg:order-1">
                             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
-                                Transform <br/>Teaching & Learning with ED-INAI 
+                                Transform <br/>Teaching & Learning with EdInai
                              
                             </h3>
                         </div>

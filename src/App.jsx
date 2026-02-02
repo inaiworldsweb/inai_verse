@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Header from './components/Header'
 import Sidebar from './components/Sidebar'
-import SiteFooter from './components/SiteFooter'
+import FooterLegalLine from './components/FooterLegalLine'
 import LandingPage from './pages/LandingPage/LandingPage'
 import PricingPage from './pages/PricingPage'
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage'
@@ -55,7 +55,7 @@ function AppContent() {
           <Route path="/stepspage" element={<StepsPage />} />
 
         </Routes>
-        <SiteFooter />
+        <FooterLegalLine />
       </main>
     </div>
   )
