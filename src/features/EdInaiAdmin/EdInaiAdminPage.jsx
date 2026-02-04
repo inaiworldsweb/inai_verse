@@ -11,7 +11,7 @@ const sidebarItems = [
     { label: 'Admin View – For Education Centres', id: 'admin-view', active: true },
     { label: 'Student View – For Learners', id: 'student-view' },
     { label: 'Teach in Every Way Your Students Want to Learn', id: 'teach' },
-    { label: 'Learning Modes', id: 'learning-modes' },
+
 ];
 
 const tabs = ['Upload', 'Schedule', 'Manage'];
