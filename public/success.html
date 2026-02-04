@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,6 @@
             margin: 0;
             text-align: center;
         }
-
         .container {
             background: white;
             padding: 2.5rem;
@@ -25,23 +23,19 @@
             width: 100%;
             max-width: 400px;
         }
-
         .icon {
             font-size: 4rem;
             color: #22c55e;
             margin-bottom: 1rem;
         }
-
         h1 {
             color: #15803d;
             margin: 0 0 0.5rem;
         }
-
         p {
             color: #666;
             margin-bottom: 1.5rem;
         }
-
         .details {
             background: #f9fafb;
             padding: 1rem;
@@ -50,23 +44,19 @@
             margin-bottom: 1.5rem;
             border: 1px solid #e5e7eb;
         }
-
         .row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
-
         .label {
             color: #6b7280;
         }
-
         .value {
             color: #111827;
             font-weight: 500;
         }
-
         .btn {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -77,13 +67,11 @@
             font-weight: 500;
             transition: background 0.2s;
         }
-
         .btn:hover {
             background-color: #16a34a;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="icon">✓</div>
@@ -93,19 +81,19 @@
         <div class="details">
             <div class="row">
                 <span class="label">Transaction ID:</span>
-                <span class="value">{{ txn_id }}</span>
+                <span class="value" id="txnId">-</span>
             </div>
             <div class="row">
                 <span class="label">Amount:</span>
-                <span class="value">₹{{ amount }}</span>
+                <span class="value" id="amount">-</span>
             </div>
             <div class="row">
                 <span class="label">Mode:</span>
-                <span class="value">{{ mode }}</span>
+                <span class="value" id="mode">-</span>
             </div>
             <div class="row">
                 <span class="label">Bank Ref:</span>
-                <span class="value">{{ bank_ref }}</span>
+                <span class="value" id="bankRef">-</span>
             </div>
         </div>
 
@@ -113,39 +101,30 @@
     </div>
 
     <script>
-        // Get URL parameters
+        // Parse URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         
-        // Get customer details from sessionStorage
-        const customerDetails = JSON.parse(sessionStorage.getItem('customerDetails') || '{}');
+        // Update transaction details
+        const txnId = urlParams.get('txnid') || urlParams.get('mihpayid') || 'N/A';
+        const status = urlParams.get('status') || 'success';
+        const amount = urlParams.get('amount') || '0.00';
+        const mode = urlParams.get('mode') || urlParams.get('payment_mode') || 'N/A';
+        const bankRef = urlParams.get('bank_ref_num') || urlParams.get('bank_ref_no') || 'N/A';
         
-        const paymentData = {
-            txn_id: urlParams.get('txn_id') || 'TXN' + Date.now(),
-            amount: urlParams.get('amount') || '0.00',
-            mode: urlParams.get('mode') || 'Online',
-            bank_ref: urlParams.get('bank_ref') || 'BANK' + Date.now(),
-            product_info: customerDetails.product_info || 'Product',
-            customer_email: customerDetails.customer_email || '',
-            customer_name: customerDetails.customer_name || 'Customer'
-        };
-
-        // Function to update page with data
-        function updatePage(data) {
-            document.getElementById('txn_id').textContent = data.txn_id || paymentData.txn_id;
-            document.getElementById('amount').textContent = '₹' + (data.amount || paymentData.amount);
-            document.getElementById('mode').textContent = data.mode || paymentData.mode;
-            document.getElementById('bank_ref').textContent = data.bank_ref || paymentData.bank_ref;
+        // Update the page
+        document.getElementById('txnId').textContent = txnId;
+        document.getElementById('amount').textContent = `₹${parseFloat(amount).toFixed(2)}`;
+        document.getElementById('mode').textContent = mode;
+        document.getElementById('bankRef').textContent = bankRef;
+        
+        // Handle error case (if any)
+        const error = urlParams.get('error');
+        if (error) {
+            document.querySelector('h1').textContent = 'Payment Error';
+            document.querySelector('p').textContent = error;
+            document.querySelector('.icon').textContent = '✗';
+            document.querySelector('.icon').style.color = '#ef4444';
         }
-
-        // Function to update page with payment details
-        function updatePaymentDetails() {
-            console.log('Payment data:', paymentData);
-            updatePage(paymentData);
-        }
-
-        // Call the function when page loads
-        document.addEventListener('DOMContentLoaded', updatePaymentDetails);
     </script>
 </body>
-
 </html>

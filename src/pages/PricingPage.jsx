@@ -116,10 +116,21 @@ const navItems = [
 const PricingPage = () => {
     const navigate = useNavigate()
     const handleBuyNowClick = (plan) => {
-        console.log('Buy now clicked for plan:', plan.name)
-        // Open PayU checkout form with plan details
-        const priceInRupees = plan.checkoutPrice || plan.price.replace('K', '000')
-        window.open(`/checkout.html?plan=${encodeURIComponent(plan.name)}&price=${priceInRupees}`, '_blank')
+        console.log('Buy now clicked for plan:', plan.name);
+        // Get the price, handling both checkoutPrice and price formats
+        let price = plan.checkoutPrice || plan.price;
+        // Remove any non-numeric characters except decimal point
+        price = price.replace(/[^\d.]/g, '');
+        // If price was in 'K' format (e.g., '19K'), convert to full amount
+        if (plan.price.includes('K')) {
+            price = (parseFloat(price) * 1000).toString();
+        }
+        // Ensure it's a valid number
+        price = parseFloat(price).toFixed(2);
+
+        // Encode the plan name and open checkout page
+        const encodedPlan = encodeURIComponent(plan.name);
+        navigate(`/checkout?plan=${encodedPlan}&amount=${price}`);
     }
 
     return (
@@ -189,9 +200,9 @@ const PricingPage = () => {
 
                                             <button
                                                 onClick={() => handleBuyNowClick(plan)}
-                                                className="w-full max-w-[200px] bg-white text-black py-3 rounded-full text-sm font-bold uppercase tracking-wide transition-all duration-300 shadow-lg hover:bg-gray-200"
+                                                className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${plan.featured ? 'bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] hover:opacity-90' : 'bg-white/10 hover:bg-white/20'}`}
                                             >
-                                                Buy now
+                                                Buy Now
                                             </button>
                                         </div>
                                     </div>

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,6 @@
             margin: 0;
             text-align: center;
         }
-
         .container {
             background: white;
             padding: 2.5rem;
@@ -25,23 +23,19 @@
             width: 100%;
             max-width: 400px;
         }
-
         .icon {
             font-size: 4rem;
             color: #ef4444;
             margin-bottom: 1rem;
         }
-
         h1 {
             color: #991b1b;
             margin: 0 0 0.5rem;
         }
-
         p {
             color: #666;
             margin-bottom: 1.5rem;
         }
-
         .details {
             background: #fef2f2;
             padding: 1rem;
@@ -50,23 +44,25 @@
             margin-bottom: 1.5rem;
             border: 1px solid #fecaca;
         }
-
         .row {
             display: flex;
             justify-content: space-between;
             margin-bottom: 0.5rem;
             font-size: 0.9rem;
         }
-
         .label {
             color: #6b7280;
         }
-
         .value {
             color: #111827;
             font-weight: 500;
         }
-
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
         .btn {
             display: inline-block;
             padding: 0.75rem 1.5rem;
@@ -76,23 +72,21 @@
             border-radius: 6px;
             font-weight: 500;
             transition: background 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
         }
-
         .btn:hover {
             background-color: #dc2626;
         }
-
         .btn-success {
             background-color: #22c55e;
-            margin-left: 0.5rem;
         }
-
         .btn-success:hover {
             background-color: #16a34a;
         }
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="icon">✗</div>
@@ -102,43 +96,37 @@
         <div class="details">
             <div class="row">
                 <span class="label">Transaction ID:</span>
-                <span class="value" id="txn_id">{{ txn_id }}</span>
+                <span class="value" id="txnId">-</span>
             </div>
             <div class="row">
                 <span class="label">Status:</span>
-                <span class="value" id="status">{{ status }}</span>
+                <span class="value" id="status">-</span>
             </div>
             <div class="row">
                 <span class="label">Error:</span>
-                <span class="value" id="error">{{ error }}</span>
+                <span class="value" id="errorMsg">-</span>
             </div>
         </div>
 
-        <a href="/" class="btn">Try Again</a>
-        <a href="/" class="btn btn-success">Make Another Payment</a>
+        <div class="action-buttons">
+            <a href="/checkout.html" class="btn">Try Again</a>
+            <a href="/" class="btn btn-success">Return to Home</a>
+        </div>
     </div>
 
     <script>
-        // Get URL parameters and update page
+        // Parse URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         
-        // Update transaction details if parameters exist
-        const txnId = urlParams.get('txn_id');
-        const status = urlParams.get('status');
-        const error = urlParams.get('error');
+        // Update transaction details
+        const txnId = urlParams.get('txnid') || urlParams.get('mihpayid') || 'N/A';
+        const status = urlParams.get('status') || 'failed';
+        const error = urlParams.get('error') || urlParams.get('error_Message') || 'Payment was not completed';
         
-        if (txnId) {
-            document.getElementById('txn_id').textContent = txnId;
-        }
-        
-        if (status) {
-            document.getElementById('status').textContent = status;
-        }
-        
-        if (error) {
-            document.getElementById('error').textContent = error;
-        }
+        // Update the page
+        document.getElementById('txnId').textContent = txnId;
+        document.getElementById('status').textContent = status;
+        document.getElementById('errorMsg').textContent = error;
     </script>
 </body>
-
 </html>

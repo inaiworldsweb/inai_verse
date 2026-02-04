@@ -1,47 +1,48 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import adminImage from '../../../Assetsa/d.png'
-import studentImage from '../../../Assetsa/e.png'
-import developerImage from '../../../Assetsa/d.png'
-import mentorImage from '../../../Assetsa/e.png'
+import uploadCurriculumImg from '../../../assets/Upload & Organize Curriculum.png'
+import scheduleLecturesImg from '../../../assets/Schedule AI-Assisted Lectures.png'
+import manageStaffImg from '../../../assets/Manage Students, Faculty, and Staff.png'
+import assignRolesImg from '../../../assets/Assign Roles & Permissions.png'
+import accessAnalyticsImg from '../../../assets/Access Analytics & Performance Reports.png'
 
 const slides = [
     {
-        id: 'admin-view',
+        id: 'upload-curriculum',
         title: 'Admin View – For Education Centres',
-        image: adminImage,
+        image: uploadCurriculumImg,
         caption: 'Upload & Organize Curriculum',
         description:
             'Upload syllabi and academic content into a structured, AI-organized framework aligned with learning objectives.',
     },
     {
-        id: 'student-view',
+        id: 'schedule-lectures',
         title: 'Admin View – For Education Centres',
-        image: studentImage,
-        caption: ' Schedule AI-Assisted Lectures ',
+        image: scheduleLecturesImg,
+        caption: 'Schedule AI-Assisted Lectures',
         description:
             'Plan and manage lectures efficiently using AI-assisted scheduling for consistent academic delivery.',
     },
     {
-        id: 'developer-view',
+        id: 'manage-staff',
         title: 'Admin View – For Education Centres',
-        image: developerImage,
+        image: manageStaffImg,
         caption: 'Manage Students, Faculty, and Staff',
         description:
             'Centralize student records, faculty profiles, and staff management within a single administrative dashboard.',
     },
     {
-        id: 'mentor-view',
+        id: 'assign-roles',
         title: 'Admin View – For Education Centres',
-        image: mentorImage,
+        image: assignRolesImg,
         caption: 'Assign Roles & Permissions',
         description:
             'Define role-based access controls to ensure secure and organized institutional operations.',
     },
-     {
-        id: 'mentor-view',
+    {
+        id: 'access-analytics',
         title: 'Admin View – For Education Centres',
-        image: mentorImage,
+        image: accessAnalyticsImg,
         caption: 'Access Analytics & Performance Reports',
         description:
             'Monitor academic performance, attendance, and engagement through real-time analytical reports.',
@@ -85,7 +86,7 @@ const EducationPortalSection = () => {
                 <header className="text-center">
                     <h2 className="text-[2.5rem] font-bold mb-4 text-white">Inside the Ed-INAI AI Education Platform</h2>
                     <p className="text-lg text-white/70 max-w-[700px] mx-auto">
-                         Administration to Learning, ED-INAI Automates, Optimizes, and Personalizes the Entire Education Journey
+                        Administration to Learning, ED-INAI Automates, Optimizes, and Personalizes the Entire Education Journey
 
                     </p>
                 </header>

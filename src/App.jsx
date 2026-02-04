@@ -14,6 +14,9 @@ import EdInaiStudentPage from './features/EdInaiStudent/EdInaiStudentPage'
 import EdInaiAdminPage from './features/EdInaiAdmin/EdInaiAdminPage'
 import EdInaiSetupPage from './features/EdInai/EdInaiSetupPage'
 import StepsPage from './features/EdInai/StepsPage'
+import PayUCheckout from './components/payment/PayUCheckout';
+import PaymentSuccess from './components/payment/PaymentSuccess';
+import PaymentFailure from './components/payment/PaymentFailure';
 
 import { useState } from 'react'
 
@@ -33,7 +36,9 @@ function AppContent() {
     location.pathname === '/cookies' ||
     location.pathname === '/refund' ||
     location.pathname === '/saas-landing' ||
-    location.pathname === '/stepspage'
+    location.pathname === '/stepspage' ||
+    location.pathname === '/checkout' ||
+    location.pathname.startsWith('/payment/')
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -53,7 +58,9 @@ function AppContent() {
           <Route path="/edinai-admin" element={<EdInaiAdminPage />} />
           <Route path="/edinai-setup" element={<EdInaiSetupPage />} />
           <Route path="/stepspage" element={<StepsPage />} />
-
+          <Route path="/checkout" element={<PayUCheckout />} />
+          <Route path="/payment/success" element={<PaymentSuccess />} />
+          <Route path="/payment/failure" element={<PaymentFailure />} />
         </Routes>
         <FooterLegalLine />
       </main>
