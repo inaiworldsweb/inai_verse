@@ -17,7 +17,7 @@ import AutomationSection from './components/AutomationSection'
 import ModernLearningSection from './components/ModernLearningSection'
 import SiteFooter from '../../components/SiteFooter'
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png'
-import heroImage from '../../Assetsa/a.png'
+import heroImage from '../../assets/transform-teaching.png'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 
@@ -246,17 +246,17 @@ const EdInaiPage = () => {
 
                     {/* Hero Section - Responsive */}
                     <section className="py-10 md:py-16">
-                    {/* Hero Title and CTA - Centered */}
-                    <div className="text-center mb-12 md:mb-20">
-                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
-                            India's First<br /> Virtual AI Teacher Platform
-                        </h2>
-                        <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-6 md:mb-8">
-                            Teach smarter with AI-powered virtual teachers trained on your syllabus
-                        </h3>
-                        <button
-                            type="button"
-                            className="
+                        {/* Hero Title and CTA - Centered */}
+                        <div className="text-center mb-12 md:mb-20">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
+                                India's First<br /> Virtual AI Teacher Platform
+                            </h2>
+                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-6 md:mb-8">
+                                Teach smarter with AI-powered virtual teachers trained on your syllabus
+                            </h3>
+                            <button
+                                type="button"
+                                className="
                                 w-full sm:w-auto
                                 bg-white text-black border-none 
                                 py-3 px-6 sm:px-8 rounded-full 
@@ -264,88 +264,88 @@ const EdInaiPage = () => {
                                 inline-flex items-center justify-center gap-2 
                                 transition-transform duration-200 hover:scale-105
                             "
-                        // onClick={() => navigate('/edinai-detail')}
-                        >
-                            <span>Get Started</span>
-                            <span aria-hidden="true">›</span>
-                        </button>
-                    </div>
-
-                    {/* Two Column Layout - Heading Left, Image Right */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16 max-w-[1200px] mx-auto">
-                        {/* Left Column - Heading */}
-                        <div className="text-center lg:text-center rder-2 lg:order-1">
-                            <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
-                                Transform <br/>Teaching & Learning with EdInai
-                             
-                            </h3>
+                            // onClick={() => navigate('/edinai-detail')}
+                            >
+                                <span>Get Started</span>
+                                <span aria-hidden="true">›</span>
+                            </button>
                         </div>
 
-                        {/* Right Column - Hero Image */}
-                        <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1 lg:order-2">
-                            <img
-                                src={heroImage}
-                                alt="AI-powered education experience"
-                                className="w-full h-auto object-cover"
-                            />
+                        {/* Two Column Layout - Heading Left, Image Right */}
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16 max-w-[1200px] mx-auto">
+                            {/* Left Column - Heading */}
+                            <div className="text-center lg:text-center rder-2 lg:order-1">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
+                                    Transform <br />Teaching & Learning with EdInai
+
+                                </h3>
+                            </div>
+
+                            {/* Right Column - Hero Image */}
+                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1 lg:order-2">
+                                <img
+                                    src={heroImage}
+                                    alt="AI-powered education experience"
+                                    className="w-full h-auto object-cover"
+                                />
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Description - Centered */}
-                    <p className="max-w-[900px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2">
-                        Ed-INAI is an advanced AI-powered education platform where virtual AI teachers conduct live,
-                        interactive lectures for schools and colleges across India. Experience the next generation of AI
-                        education built for the classrooms of the future.
-                    </p>
-                </section>
+                        {/* Description - Centered */}
+                        <p className="max-w-[900px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2">
+                            Ed-INAI is an advanced AI-powered education platform where virtual AI teachers conduct live,
+                            interactive lectures for schools and colleges across India. Experience the next generation of AI
+                            education built for the classrooms of the future.
+                        </p>
+                    </section>
 
-                {/* What is EdInai Section - Responsive */}
-                <section className="py-10 md:py-16" id="what-is-edinai">
-                    <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12">
-                        What is EdInai?
-                    </h2>
-                    <div className="flex flex-col gap-8 md:gap-12">
-                        {overviewItems.map(({ image, alt, text, textLines, variant, centerText }, index) => {
-                            const descriptionContent = textLines
-                                ? textLines.map((line, lineIndex) => (
-                                    <span key={`${index}-${lineIndex}`} className="block">
-                                        {line}
-                                    </span>
-                                ))
-                                : text
+                    {/* What is EdInai Section - Responsive */}
+                    <section className="py-10 md:py-16" id="what-is-edinai">
+                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12">
+                            What is EdInai?
+                        </h2>
+                        <div className="flex flex-col gap-8 md:gap-12">
+                            {overviewItems.map(({ image, alt, text, textLines, variant, centerText }, index) => {
+                                const descriptionContent = textLines
+                                    ? textLines.map((line, lineIndex) => (
+                                        <span key={`${index}-${lineIndex}`} className="block">
+                                            {line}
+                                        </span>
+                                    ))
+                                    : text
 
-                            const description = (
-                                <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 ${centerText ? 'text-center md:text-left' : ''}`}>
-                                    {descriptionContent}
-                                </p>
-                            )
+                                const description = (
+                                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 ${centerText ? 'text-center md:text-left' : ''}`}>
+                                        {descriptionContent}
+                                    </p>
+                                )
 
-                            const imageElement = (
-                                <div className="rounded-xl md:rounded-[20px] overflow-hidden">
-                                    <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" />
-                                </div>
-                            )
+                                const imageElement = (
+                                    <div className="rounded-xl md:rounded-[20px] overflow-hidden">
+                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" />
+                                    </div>
+                                )
 
-                            return (
-                                <div
-                                    key={index}
-                                    className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center"
-                                >
-                                    {variant === 'text-first' ? (
-                                        <>
-                                            <div className="order-2 md:order-1">{description}</div>
-                                            <div className="order-1 md:order-2">{imageElement}</div>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <div className="order-1">{imageElement}</div>
-                                            <div className="order-2">{description}</div>
-                                        </>
-                                    )}
-                                </div>
-                            )
-                        })}
-                    </div>
+                                return (
+                                    <div
+                                        key={index}
+                                        className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center"
+                                    >
+                                        {variant === 'text-first' ? (
+                                            <>
+                                                <div className="order-2 md:order-1">{description}</div>
+                                                <div className="order-1 md:order-2">{imageElement}</div>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <div className="order-1">{imageElement}</div>
+                                                <div className="order-2">{description}</div>
+                                            </>
+                                        )}
+                                    </div>
+                                )
+                            })}
+                        </div>
                     </section>
 
                     <MeetOurFaculties />
@@ -353,60 +353,60 @@ const EdInaiPage = () => {
                     <EducationPortalSection />
                     <StudentExperienceSection onLearnMore={handleGoToLearnMore} />
 
-                {/* Teach Section - Responsive */}
-                <section className="py-10 md:py-16" id="teach-in-every-way-your-students-want-to-learn">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-                        <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1">
-                            <img
-                                src={teachImage}
-                                alt="Educator using AI tools to customise lessons"
-                                className="w-full h-auto block"
-                                loading="lazy"
-                            />
+                    {/* Teach Section - Responsive */}
+                    <section className="py-10 md:py-16" id="teach-in-every-way-your-students-want-to-learn">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1">
+                                <img
+                                    src={teachImage}
+                                    alt="Educator using AI tools to customise lessons"
+                                    className="w-full h-auto block"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="order-2 text-center md:text-left">
+                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold leading-tight">
+                                    Teach the Way Every <br />Student Learns Best
+                                </h2>
+                            </div>
                         </div>
-                        <div className="order-2 text-center md:text-left">
-                            <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold leading-tight">
-                                Teach the Way Every <br />Student Learns Best
-                            </h2>
-                        </div>
-                    </div>
-                </section>
+                    </section>
 
                     <LearningModesSection />
 
-                {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
-                <section className="py-10 md:py-16" id="why-ed-inai">
-                    <div className="max-w-content mx-auto">
-                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
-                            Why EdINAI is the future of Indian education system 
-                        </h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-                            {futureHighlights.map(({ title, description }) => (
-                                <article
-                                    key={title}
-                                    className="bg-white/5 rounded-xl md:rounded-[20px] p-4 md:p-6 transition-transform duration-200 hover:-translate-y-1.5"
-                                >
-                                    <div className="rounded-lg md:rounded-[15px] overflow-hidden mb-3 md:mb-4">
-                                        <img
-                                            src={featureCardImage}
-                                            alt="AI-powered learning experience"
-                                            className="w-12 h-12 md:w-min md:h-min object-cover"
-                                            loading="lazy"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 md:mb-2">
-                                            {title}
-                                        </h3>
-                                        <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                                            {description}
-                                        </p>
-                                    </div>
-                                </article>
-                            ))}
+                    {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
+                    <section className="py-10 md:py-16" id="why-ed-inai">
+                        <div className="max-w-content mx-auto">
+                            <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
+                                Why EdINAI is the future of Indian education system
+                            </h2>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
+                                {futureHighlights.map(({ title, description }) => (
+                                    <article
+                                        key={title}
+                                        className="bg-white/5 rounded-xl md:rounded-[20px] p-4 md:p-6 transition-transform duration-200 hover:-translate-y-1.5"
+                                    >
+                                        <div className="rounded-lg md:rounded-[15px] overflow-hidden mb-3 md:mb-4">
+                                            <img
+                                                src={featureCardImage}
+                                                alt="AI-powered learning experience"
+                                                className="w-12 h-12 md:w-min md:h-min object-cover"
+                                                loading="lazy"
+                                            />
+                                        </div>
+                                        <div>
+                                            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 md:mb-2">
+                                                {title}
+                                            </h3>
+                                            <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                                                {description}
+                                            </p>
+                                        </div>
+                                    </article>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
 
                     <AutomationSection />
                     <ModernLearningSection />

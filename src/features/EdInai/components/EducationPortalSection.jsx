@@ -1,10 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import uploadCurriculumImg from '../../../assets/Upload & Organize Curriculum.png'
-import scheduleLecturesImg from '../../../assets/Schedule AI-Assisted Lectures.png'
+import scheduleLecturesImg from '../../../assets/Attend Live & Recorded Lectures.png'
 import manageStaffImg from '../../../assets/Manage Students, Faculty, and Staff.png'
 import assignRolesImg from '../../../assets/Assign Roles & Permissions.png'
 import accessAnalyticsImg from '../../../assets/Access Analytics & Performance Reports.png'
+import learnAnytimeImg from '../../../assets/Learn Anytime, Anywhere.png'
 
 const slides = [
     {
@@ -46,6 +47,14 @@ const slides = [
         caption: 'Access Analytics & Performance Reports',
         description:
             'Monitor academic performance, attendance, and engagement through real-time analytical reports.',
+    },
+    {
+        id: 'learn-anytime',
+        title: 'Student View – For Learners',
+        image: learnAnytimeImg,
+        caption: 'Learn Anytime, Anywhere',
+        description:
+            'Access learning resources across devices with flexible, uninterrupted study options.',
     },
 ]
 
