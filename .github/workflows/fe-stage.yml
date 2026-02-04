@@ -72,3 +72,8 @@ jobs:
               "sudo bash -lc \"ECR_REPOSITORY_BASE='\''${{ env.ECR_REPOSITORY_URI }}'\'' AWS_REGION='\''${{ env.AWS_REGION }}'\'' /opt/app/deploy-fe.sh staging\"",
               "sudo docker ps | head -n 20"
             ]}'
+
+
+
+
+            
