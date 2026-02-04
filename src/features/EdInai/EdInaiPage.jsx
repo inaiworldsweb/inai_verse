@@ -17,7 +17,7 @@ import AutomationSection from './components/AutomationSection'
 import ModernLearningSection from './components/ModernLearningSection'
 import SiteFooter from '../../components/SiteFooter'
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png'
-import heroImage from '../../assets/transform-teaching.png'
+import heroImage from '../../assets/TransformTeaching  Learning with EdInai.png'
 import { HiMenu, HiX } from 'react-icons/hi'
 import { Link } from 'react-router-dom'
 

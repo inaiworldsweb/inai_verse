@@ -11,16 +11,6 @@ const carouselSlides = [
         title: 'Attend Live & Recorded Lectures',
         description: 'Students can join scheduled sessions or revisit recordings with clear explanations, visuals, and concept breakdowns — ideal for reinforcement or missed classes.',
         image: aiTutorImage
-    },
-    {
-        title: 'Interactive AI Tutoring',
-        description: 'Get instant answers to your questions from AI tutors that understand context, provide examples, and adapt explanations to your learning level.',
-        image: aiTutorImage
-    },
-    {
-        title: 'Smart Assessment & Feedback',
-        description: 'Take AI-powered quizzes that adapt to your skill level, with instant feedback and personalized recommendations for improvement.',
-        image: aiTutorImage
     }
 ];
 
@@ -139,11 +129,10 @@ const EdInaiStudentPage = () => {
                                             <button
                                                 key={index}
                                                 onClick={() => setCurrentSlide(index)}
-                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                                    currentSlide === index
-                                                        ? 'bg-white scale-125'
-                                                        : 'bg-gray-500 hover:bg-gray-400'
-                                                }`}
+                                                className={`w-3 h-3 rounded-full transition-all duration-300 ${currentSlide === index
+                                                    ? 'bg-white scale-125'
+                                                    : 'bg-gray-500 hover:bg-gray-400'
+                                                    }`}
                                                 aria-label={`Go to slide ${index + 1}`}
                                                 aria-current={currentSlide === index ? 'true' : 'false'}
                                             />
@@ -154,42 +143,7 @@ const EdInaiStudentPage = () => {
                         </div>
                     </section>
 
-                    {/* Student Feature Split Section */}
-                    <section className="py-12 md:py-20">
-                        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-                            <div className="space-y-4 text-left">
-                                <h3 className="text-2xl sm:text-3xl font-bold text-white">
-                                    {carouselSlides[currentSlide].title}
-                                </h3>
-                                <p className="text-base sm:text-lg text-gray-300 leading-relaxed">
-                                    {carouselSlides[currentSlide].description}
-                                </p>
-                            </div>
 
-                            <div className="text-center">
-                                <div className="rounded-[32px] overflow-hidden border border-white/10 inline-block shadow-xl">
-                                    <img
-                                        src={carouselSlides[currentSlide].image}
-                                        alt={carouselSlides[currentSlide].title}
-                                        className="w-full h-[240px] sm:h-[280px] md:h-[360px] lg:h-[320px] object-cover"
-                                    />
-                                </div>
-                                <div className="flex justify-center gap-3 mt-6">
-                                    {carouselSlides.map((_, index) => (
-                                        <button
-                                            key={index}
-                                            onClick={() => setCurrentSlide(index)}
-                                            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                                                currentSlide === index ? 'bg-white' : 'bg-gray-600'
-                                            }`}
-                                            aria-label={`Go to slide ${index + 1}`}
-                                            aria-current={currentSlide === index ? 'true' : 'false'}
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </section>
 
                     {/* Track Progress Section */}
                     <section className="py-12 md:py-20">

@@ -35,7 +35,7 @@ const AutomationSection = () => {
 
                 {/* Secondary Description */}
                 <p className="text-sm text-white/70 leading-relaxed">
-                   With ED-INAI, institutions can elevate the level of education globally through AI-powered learning, multilingual delivery,
+                    With ED-INAI, institutions can elevate the level of education globally through AI-powered learning, multilingual delivery,
                     and consistent academic quality - without increasing operational complexity.
                 </p>
             </div>
