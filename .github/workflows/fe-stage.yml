@@ -1,0 +1,75 @@
+name: Frontend – Build, Push & Deploy (STAGING)
+
+on:
+  push:
+    branches: ["server"]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+env:
+  AWS_REGION: ap-south-1
+  AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID_MAIN }}
+
+  # FULL ECR URI (example: 7245...amazonaws.com/edu-main-fe)
+  ECR_REPOSITORY_URI: ${{ secrets.FRONTEND_ECR_REPOSITORY_MAIN }}
+
+  # EC2 instance-id
+  TARGET_INSTANCE_ID: ${{ secrets.FRONTEND_STAGING_INSTANCE_ID_MAIN }}
+
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME_MAIN }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Verify AWS identity
+        run: aws sts get-caller-identity
+
+      # ✅ Use docker-container driver so cache-to/cache-from (type=gha) works
+      - name: Set up Docker Buildx (docker-container)
+        uses: docker/setup-buildx-action@v3
+        with:
+          driver: docker-container
+
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Build & Push Docker Image (STAGING)
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: |
+            ${{ env.ECR_REPOSITORY_URI }}:${{ env.IMAGE_TAG }}
+            ${{ env.ECR_REPOSITORY_URI }}:staging
+            ${{ env.ECR_REPOSITORY_URI }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      # ✅ Auto deploy on EC2 via SSM (runs FE deploy script, replaces old container, prunes old images)
+      - name: Deploy on EC2 (SSM) - FE auto
+        run: |
+          aws ssm send-command \
+            --region "${{ env.AWS_REGION }}" \
+            --instance-ids "${{ env.TARGET_INSTANCE_ID }}" \
+            --document-name "AWS-RunShellScript" \
+            --comment "Deploy frontend STAGING (auto)" \
+            --parameters "commands=[
+              \"set -e\",
+              \"sudo bash -lc 'ECR_REPOSITORY_BASE=${{ env.ECR_REPOSITORY_URI }} AWS_REGION=${{ env.AWS_REGION }} /opt/app/deploy-fe.sh staging'\",
+              \"sudo docker ps | head -n 30\"
+            ]"
