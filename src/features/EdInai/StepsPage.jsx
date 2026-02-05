@@ -197,7 +197,7 @@ const SetupSteps = () => {
                     </div>
 
                     <div className="w-full lg:w-1/2 sticky top-32 lg:top-40 mb-20 lg:mb-0">
-                        <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] lg:aspect-square group bg-zinc-900">
+                        <div className="relative rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl aspect-[4/3] lg:aspect-square group bg-white/5">
                             <AnimatePresence mode="wait">
                                 <motion.img
                                     key={activeStep}
@@ -207,7 +207,7 @@ const SetupSteps = () => {
                                     animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
                                     exit={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
                                     transition={{ duration: 0.8, ease: 'easeOut' }}
-                                    className="absolute inset-0 w-full h-full object-cover opacity-90 transition-opacity hover:opacity-100"
+                                    className="absolute inset-0 w-full h-full object-contain opacity-90 transition-opacity hover:opacity-100"
                                 />
                             </AnimatePresence>
                             <div className="absolute inset-0 bg-gradient-to-tr from-black/40 via-transparent to-white/5 pointer-events-none" />
@@ -298,13 +298,13 @@ const IntegrationSection = () => {
                         transition={{ duration: 0.5, ease: 'easeOut' }}
                         className="rounded-[2.5rem] overflow-hidden border border-white/10 bg-black shadow-[0_25px_70px_rgba(0,0,0,0.55)]"
                     >
-                        <div className="h-[340px] relative overflow-hidden">
+                        <div className="h-[340px] relative overflow-hidden bg-white/5">
                             <img
                                 src={activeFeature.image}
                                 alt={activeFeature.title}
-                                className="w-full h-full object-cover"
+                                className="w-full h-full object-contain"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-60 pointer-events-none" />
                         </div>
 
                         <div className="px-6 py-6 flex flex-col gap-3">

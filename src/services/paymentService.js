@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://192.168.1.15:2522";
+export const API_BASE_URL = "http://192.168.1.207:1171";
 export const FRONTEND_URL = "http://localhost:5173";
 
 export const PAYMENT_ENDPOINTS = {

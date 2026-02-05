@@ -75,7 +75,7 @@ const StudentExperienceSection = () => {
 
     return (
         <section className="py-16 bg-black" id="student-view">
-            <div className="max-w-[800px] mx-auto text-center px-4">
+            <div className="max-w-medium mx-auto text-center px-4">
                 <h2 className="text-[2.5rem] font-bold mb-8 text-white">Student View – For Learners</h2>
 
                 <div className="bg-white/[0.03] rounded-[20px] p-8" aria-live="polite">

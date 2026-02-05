@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,6 +15,7 @@
             height: 100vh;
             margin: 0;
         }
+
         .container {
             background: white;
             padding: 2rem;
@@ -22,20 +24,24 @@
             width: 100%;
             max-width: 400px;
         }
+
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 1.5rem;
         }
+
         .form-group {
             margin-bottom: 1rem;
         }
+
         label {
             display: block;
             margin-bottom: 0.5rem;
             color: #666;
             font-size: 0.9rem;
         }
+
         input {
             width: 100%;
             padding: 0.75rem;
@@ -44,6 +50,7 @@
             box-sizing: border-box;
             font-size: 1rem;
         }
+
         button {
             width: 100%;
             padding: 0.75rem;
@@ -55,9 +62,11 @@
             cursor: pointer;
             transition: background 0.3s;
         }
+
         button:hover {
             background-color: #2563eb;
         }
+
         .error {
             color: #ef4444;
             font-size: 0.875rem;
@@ -67,6 +76,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h2>PayU Checkout</h2>
@@ -115,7 +125,7 @@
 
             try {
                 // 1. Create Order
-                const orderRes = await fetch('http://192.168.1.15:2522/api/payment/create-order', {
+                const orderRes = await fetch('http://192.168.1.207:1171/api/payment/create-order', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -134,10 +144,10 @@
                 console.log("Order created:", orderData);
 
                 // 2. Initiate Payment Parameters
-                const paymentRes = await fetch('http://192.168.1.15:2522/api/payment/payu-payment', {
+                const paymentRes = await fetch('http://192.168.1.207:1171/api/payment/payu-payment', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ 
+                    body: JSON.stringify({
                         order_id: orderData.order_id,
                         surl: successUrl,
                         furl: failureUrl
@@ -197,4 +207,5 @@
         }
     </script>
 </body>
+
 </html>

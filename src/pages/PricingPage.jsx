@@ -200,9 +200,9 @@ const PricingPage = () => {
 
                                             <button
                                                 onClick={() => handleBuyNowClick(plan)}
-                                                className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${plan.featured ? 'bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6] hover:opacity-90' : 'bg-white/10 hover:bg-white/20'}`}
+                                                className="w-full py-3 px-6 rounded-[50px] font-semibold transition-colors bg-white text-black hover:bg-gray-200"
                                             >
-                                                Buy Now
+                                                Buy now
                                             </button>
                                         </div>
                                     </div>
