@@ -1,39 +1,44 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import liveLecturesImg from '../../../assets/final/Attend Live & Recorded Lectures.png'
+import studyNotesImg from '../../../assets/final/Access AI-Generated Study Notes.png'
+import qaSupportImg from '../../../assets/final/Get Instant Q&A Support.png'
+import trackProgressImg from '../../../assets/final/Smart dashboard and real time feedback.png'
+import learnAnytimeImg from '../../../assets/final/Learn Anytime, Anywhere (1).jpg'
 
 const studentSlides = [
     {
         id: 'student-view-1',
         title: 'Student View – For Learners',
-        image: 'https://images.unsplash.com/photo-1513258496099-48168024aec0?auto=format&fit=crop&w=1400&q=80',
+        image: liveLecturesImg,
         caption: 'Attend Live & Recorded Lectures',
         description: 'Participate in live classes or revisit recorded lectures with clear explanations and structured content.',
     },
     {
         id: 'student-view-2',
         title: 'Student View – For Learners',
-        image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1400&q=80',
+        image: studyNotesImg,
         caption: 'Access AI-Generated Study Notes',
         description: 'Review automatically generated study notes designed to reinforce key concepts and support revision.',
     },
     {
         id: 'student-view-3',
         title: 'Student View – For Learners',
-        image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80',
+        image: qaSupportImg,
         caption: 'Get Instant Q&A Support',
         description: 'Receive immediate, AI-powered academic assistance for questions and concept clarification.',
     },
     {
         id: 'student-view-4',
         title: 'Student View – For Learners',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1400&q=80',
+        image: trackProgressImg,
         caption: 'Track Progress with Visual Dashboards',
         description: 'View learning progress, assessment results, and improvement areas through intuitive dashboards.',
     },
     {
         id: 'student-view-5',
         title: 'Student View – For Learners',
-        image: 'https://images.unsplash.com/photo-1517248135467-4c8ed0b89e31?auto=format&fit=crop&w=1400&q=80',
+        image: learnAnytimeImg,
         caption: 'Learn Anytime, Anywhere',
         description: 'Access learning resources across devices with flexible, uninterrupted study options.',
     },
@@ -81,11 +86,11 @@ const StudentExperienceSection = () => {
                         onClick={handleSlideClick}
                         aria-label={`View ${currentSlide.title}`}
                     >
-                        <img 
-                            src={currentSlide.image} 
-                            alt={currentSlide.title} 
-                            className="w-full h-auto block transition-transform duration-300 hover:scale-[1.02]" 
-                            loading="lazy" 
+                        <img
+                            src={currentSlide.image}
+                            alt={currentSlide.title}
+                            className="w-full h-auto block transition-transform duration-300 hover:scale-[1.02]"
+                            loading="lazy"
                         />
                     </button>
                     <div className="flex justify-center my-6">
@@ -93,9 +98,8 @@ const StudentExperienceSection = () => {
                             <button
                                 key={index}
                                 type="button"
-                                className={`w-2 h-2 rounded-full mx-1 transition-colors duration-200 ${
-                                    index === currentIndex ? 'bg-white' : 'bg-white/30 hover:bg-white/50'
-                                }`}
+                                className={`w-2 h-2 rounded-full mx-1 transition-colors duration-200 ${index === currentIndex ? 'bg-white' : 'bg-white/30 hover:bg-white/50'
+                                    }`}
                                 onClick={() => goToSlide(index)}
                                 aria-label={`Go to slide ${index + 1}`}
                                 aria-current={index === currentIndex ? 'true' : 'false'}
@@ -110,9 +114,9 @@ const StudentExperienceSection = () => {
                 </div>
 
                 <div className="text-center mt-8">
-                    <button 
-                        type="button" 
-                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100" 
+                    <button
+                        type="button"
+                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
                         onClick={handleLearnMore}
                     >
                         learn more

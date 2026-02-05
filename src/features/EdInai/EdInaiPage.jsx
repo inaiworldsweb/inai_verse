@@ -19,6 +19,12 @@ import SiteFooter from '../../components/SiteFooter'
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png'
 import heroImage from '../../assets/TransformTeaching  Learning with EdInai.png'
 import { HiMenu, HiX } from 'react-icons/hi'
+import aiTeachersImg from '../../assets/final/2. AI Teachers that Never Tire.png';
+import ready247Img from '../../assets/final/247 Ready to teach.png';
+import smartAutoImg from '../../assets/final/Smart Automation for Institutions.png';
+import futureReadyImg from '../../assets/final/Future-Ready Education.jfif';
+import personalizedImg from '../../assets/final/Personalized Learning.png';
+import dataDrivenImg from '../../assets/final/Data-Driven Insights.png';
 import { Link } from 'react-router-dom'
 
 const navItems = [
@@ -41,31 +47,37 @@ const futureHighlights = [
         title: 'AI Teachers that Never Tire',
         description:
             'INAI, VANI, and ARIA deliver consistent, intelligent lectures with human-like interaction and clarity.',
+        image: aiTeachersImg,
     },
     {
         title: '24/7 Ready to teach ',
         description:
             'Students can learn anytime through on-demand sessions, AI-generated study materials, and instant question support—beyond classroom hours.',
+        image: ready247Img,
     },
     {
         title: 'Smart Automation for Institutions',
         description:
             'ED-INAI automates scheduling, academic tracking, and performance monitoring significantly reducing manual workload for schools and colleges.',
+        image: smartAutoImg,
     },
     {
         title: 'Future-Ready Education',
         description:
             'Keeps curricula aligned with industry trends through continuous AI updates and localized content.',
+        image: futureReadyImg,
     },
     {
         title: 'Personalized Learning',
         description:
             'Adapts to every student\'s pace with real-time feedback, smart analytics, and multilingual delivery.',
+        image: personalizedImg,
     },
     {
         title: 'Data-Driven Insights',
         description:
             'Provides educators with dashboards that highlight learning gaps, attendance, and engagement in seconds.',
+        image: dataDrivenImg,
     },
 ]
 
@@ -381,16 +393,16 @@ const EdInaiPage = () => {
                                 Why EdINAI is the future of Indian education system
                             </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-                                {futureHighlights.map(({ title, description }) => (
+                                {futureHighlights.map(({ title, description, image }) => (
                                     <article
                                         key={title}
                                         className="bg-white/5 rounded-xl md:rounded-[20px] p-4 md:p-6 transition-transform duration-200 hover:-translate-y-1.5"
                                     >
                                         <div className="rounded-lg md:rounded-[15px] overflow-hidden mb-3 md:mb-4">
                                             <img
-                                                src={featureCardImage}
-                                                alt="AI-powered learning experience"
-                                                className="w-12 h-12 md:w-min md:h-min object-cover"
+                                                src={image}
+                                                alt={title}
+                                                className="w-full h-40 object-cover"
                                                 loading="lazy"
                                             />
                                         </div>

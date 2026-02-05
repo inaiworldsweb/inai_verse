@@ -1,8 +1,11 @@
 import { useState, useEffect } from 'react';
 import { HiChevronRight, HiChevronLeft } from "react-icons/hi";
-import heroImage from '../../Assetsa/a.png';
+import liveLecturesImg from '../../assets/final/Attend Live & Recorded Lectures.png';
+import learnAnytimeImg from '../../assets/final/Learn Anytime, Anywhere (1).jpg';
+import trackProgressImg from '../../assets/final/Smart dashboard and real time feedback.png';
+import aboutImg from '../../assets/final/Future-Ready Education.jfif';
+
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
-import aiTutorImage from '../../Assetsa/ai_tutor.jpg';
 import { EdInaiHeader, EdInaiSidebar } from '../EdInai/components/shared';
 
 // Carousel slides data
@@ -10,7 +13,7 @@ const carouselSlides = [
     {
         title: 'Attend Live & Recorded Lectures',
         description: 'Students can join scheduled sessions or revisit recordings with clear explanations, visuals, and concept breakdowns — ideal for reinforcement or missed classes.',
-        image: aiTutorImage
+        image: liveLecturesImg
     }
 ];
 
@@ -82,7 +85,7 @@ const EdInaiStudentPage = () => {
                                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-500/30 to-blue-500/30 rounded-3xl blur-xl opacity-60 group-hover:opacity-80 transition duration-500"></div>
                                     <div className="relative rounded-2xl md:rounded-3xl overflow-hidden border border-white/20 bg-black">
                                         <img
-                                            src={aiTutorImage}
+                                            src={aboutImg}
                                             alt="Ed-INAI Platform"
                                             className="w-full h-[320px] md:h-[420px] object-cover transition-transform duration-700 group-hover:scale-105"
                                         />
@@ -159,7 +162,7 @@ const EdInaiStudentPage = () => {
 
                             <div className="rounded-[32px] overflow-hidden border border-white/10 shadow-2xl inline-block">
                                 <img
-                                    src={aiTutorImage}
+                                    src={trackProgressImg}
                                     alt="Track Progress"
                                     className="w-full h-[340px] sm:h-[400px] md:h-[460px] object-cover"
                                 />
@@ -181,7 +184,7 @@ const EdInaiStudentPage = () => {
                                 <div className="rounded-[28px] border-2 border-blue-400/70 p-1 bg-gradient-to-br from-blue-500/30 to-cyan-500/30">
                                     <div className="rounded-[24px] overflow-hidden bg-black">
                                         <img
-                                            src={aiTutorImage}
+                                            src={learnAnytimeImg}
                                             alt="Mobile Learning"
                                             className="w-full h-[260px] sm:h-[320px] object-cover"
                                         />
@@ -191,7 +194,7 @@ const EdInaiStudentPage = () => {
                                 <div className="rounded-[28px] border border-white/10 p-1 bg-[#0f0f0f]">
                                     <div className="rounded-[24px] overflow-hidden">
                                         <img
-                                            src={aiTutorImage}
+                                            src={learnAnytimeImg}
                                             alt="Desktop Learning"
                                             className="w-full h-[260px] sm:h-[320px] object-cover"
                                         />

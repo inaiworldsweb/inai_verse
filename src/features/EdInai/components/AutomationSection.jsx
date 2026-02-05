@@ -1,4 +1,4 @@
-import featureImage from '../../../Assetsa/e.png'
+import featureImage from '../../../assets/final/smart automation for educational institute.png'
 
 const AutomationSection = () => {
     return (

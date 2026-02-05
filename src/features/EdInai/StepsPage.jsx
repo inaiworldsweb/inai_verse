@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import { EdInaiSidebar, EdInaiHeader } from './components/shared';
 
-import step1Img from '../../assets/images/robotic_face_setup.png';
-import step2Img from '../../assets/images/robotic_head_cloud_1768805975660.png';
-import step3Img from '../../assets/images/robotic_head_device_1768805995068.png';
-import step4Img from '../../assets/images/robotic_face_setup.png';
+import step1Img from '../../assets/final/inside edinai portal - create your admin profile.png';
+import step2Img from '../../assets/final/inside the ed inai- add your academic structure.png';
+import step3Img from '../../assets/final/inside the ed inai - schedule sessions.png';
+import step4Img from '../../assets/final/inside the ed inai - let ed inai execute.png';
 
 const sidebarItems = [
     { label: 'How to Set Up Ed-INAI', id: 'how-to-set-up-edinai' },

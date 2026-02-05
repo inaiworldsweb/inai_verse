@@ -1,11 +1,11 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import uploadCurriculumImg from '../../../assets/Upload & Organize Curriculum.png'
-import scheduleLecturesImg from '../../../assets/Attend Live & Recorded Lectures.png'
-import manageStaffImg from '../../../assets/Manage Students, Faculty, and Staff.png'
-import assignRolesImg from '../../../assets/Assign Roles & Permissions.png'
-import accessAnalyticsImg from '../../../assets/Access Analytics & Performance Reports.png'
-import learnAnytimeImg from '../../../assets/Learn Anytime, Anywhere.png'
+import uploadCurriculumImg from '../../../assets/final/Upload & Organize Curriculum.png'
+import scheduleLecturesImg from '../../../assets/final/Schedule AI-Assisted Lectures.png'
+import manageStaffImg from '../../../assets/final/Manage Students, Faculty, and Staff.png'
+import assignRolesImg from '../../../assets/final/Assign Roles & Permissions.png'
+import accessAnalyticsImg from '../../../assets/final/Access Analytics & Performance Reports.png'
+import learnAnytimeImg from '../../../assets/final/Learn Anytime, Anywhere (1).jpg'
 
 const slides = [
     {

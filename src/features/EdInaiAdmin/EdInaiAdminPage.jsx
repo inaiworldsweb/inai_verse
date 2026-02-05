@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { HiChevronRight, HiPlay } from "react-icons/hi";
-import adminHeroImage from '../../Assetsa/admin_hero.png';
-import aiFaceImage from '../../Assetsa/ai_face_admin.png';
+import adminHeroImage from '../../assets/final/Future-Ready Education.jfif';
+import videoHeroImage from '../../assets/final/AI Teachers that Never Tire (2).png';
+import uploadCurriculumImg from '../../assets/final/Upload & Organize Curriculum.png';
+import expertIntelligenceImg from '../../assets/final/Data-Driven Insights.png';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import { EdInaiHeader, EdInaiSidebar } from '../EdInai/components/shared';
 
@@ -123,7 +125,7 @@ const EdInaiAdminPage = () => {
                                 {/* Video container with play button */}
                                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-black">
                                     <img
-                                        src={aiFaceImage}
+                                        src={videoHeroImage}
                                         alt="AI-Powered Education Platform"
                                         className="w-full h-auto object-cover"
                                     />
@@ -170,7 +172,7 @@ const EdInaiAdminPage = () => {
                                 <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl md:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
                                 <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-100">
                                     <img
-                                        src={aiFaceImage}
+                                        src={uploadCurriculumImg}
                                         alt="AI Admin Interface"
                                         className="w-full h-auto object-cover"
                                     />
@@ -245,7 +247,7 @@ const EdInaiAdminPage = () => {
                                     <div className="absolute -inset-1 bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-xl md:rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition duration-500"></div>
                                     <div className="relative rounded-xl md:rounded-2xl overflow-hidden border border-white/10 shadow-2xl bg-gray-100">
                                         <img
-                                            src={aiFaceImage}
+                                            src={expertIntelligenceImg}
                                             alt="AI Intelligence Interface"
                                             className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
                                         />

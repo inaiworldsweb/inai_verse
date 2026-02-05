@@ -1,4 +1,4 @@
-import integrationImage from '../../../Assetsa/b.png'
+import integrationImage from '../../../assets/final/Smart Automation for Institutions.png'
 
 const integrationOptions = [
     {

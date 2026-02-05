@@ -1,24 +1,27 @@
 import { useNavigate } from 'react-router-dom'
-import featureImage from '../../../Assetsa/e.png'
+import liveLecturesImg from '../../../assets/final/live lecture via ai.png';
+import recordedRevisionsImg from '../../../assets/final/Recorded Revisions.png';
+import interactiveQuizzesImg from '../../../assets/final/Interactive quizzes and challenges.png';
+import learnAnytimeImg from '../../../assets/final/Learn Anytime, Anywhere (1).jpg';
 
 const modeCards = [
     {
         id: 'live-lectures',
-        image: featureImage,
+        image: liveLecturesImg,
         title: 'Live Lectures via AI',
         description:
             'Experience real-time, interactive teaching with virtual AI teachers like INAI, VNAI, and AIRA. Visual explanations keep every concept engaging and personalised.',
     },
     {
         id: 'recorded-revisions',
-        image: featureImage,
+        image: recordedRevisionsImg,
         title: 'Recorded Revisions',
         description:
             'Access AI-led lessons anytime for quick revisions and deeper understanding. Learners revisit topics at their own pace for flexible, self-directed study.',
     },
     {
         id: 'interactive-quizzes',
-        image: featureImage,
+        image: interactiveQuizzesImg,
         title: 'Interactive Quizzes and Challenges',
         description:
             'AI-generated quizzes and challenges test understanding in the moment, reinforcing memory with tailored feedback and immersive practice.',
@@ -39,7 +42,7 @@ const LearningModesSection = () => {
                     <div className="space-y-6">
                         <div className="rounded-[20px] overflow-hidden">
                             <img
-                                src={featureImage}
+                                src={learnAnytimeImg}
                                 alt="Student learning with AI technology"
                                 className="w-full h-auto object-cover"
                                 loading="lazy"
