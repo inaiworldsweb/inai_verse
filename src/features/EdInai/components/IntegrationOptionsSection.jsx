@@ -1,5 +1,5 @@
 import integrationImage from '../../../assets/final/Smart Automation for Institutions.png'
-
+// import integrationImage1 from '../../../assets/final/Schedule AI-Assisted Lectures.png'
 const integrationOptions = [
     {
         id: 'cloud-platform',
