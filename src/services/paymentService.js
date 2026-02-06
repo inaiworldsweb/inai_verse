@@ -1,4 +1,4 @@
-export const API_BASE_URL = "http://192.168.1.207:1171";
+export const API_BASE_URL = "https://api.inaiverse.com";
 export const FRONTEND_URL = "http://localhost:5173";
 
 export const PAYMENT_ENDPOINTS = {
