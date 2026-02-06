@@ -1,45 +1,103 @@
-import cloudImage from '../../../assets/Integration Options/100% Cloud-Based Platform.png'
-import multiDeviceImage from '../../../assets/Integration Options/Accessible via smart TV, web app, or projector.png'
-import systemIntegrationImage from '../../../assets/Integration Options/Seamlessly integrates with existing systems.png'
+// src/features/EdInai/components/IntegrationOptionsSection.jsx
+import React from 'react';
+import { motion } from 'framer-motion';
+
+// Import images from assets/images folder
+import cloudPlatformImg from '../../../assets/images/cloud-platform.png';
+import multiDeviceImg from '../../../assets/images/multi-device-access.png';
+import systemIntegrationImg from '../../../assets/images/system-integration.png';
 
 const integrationOptions = [
     {
         id: 'cloud-platform',
         title: '100% Cloud-Based Platform',
-        image: cloudImage
+        image: cloudPlatformImg,
     },
     {
         id: 'multi-device',
         title: 'Accessible via smart TV, web app, or projector',
-        image: multiDeviceImage
+        image: multiDeviceImg,
     },
     {
         id: 'system-integration',
         title: 'Seamlessly integrates with existing systems',
-        image: systemIntegrationImage
+        image: systemIntegrationImg,
     },
-]
+];
 
 const IntegrationOptionsSection = () => {
-    return (
-        <section className="py-16 bg-black" id="integration-options">
-            <div className="max-w-content mx-auto px-4">
-                <h3 className="text-[2rem] font-bold text-center mb-12 text-white">Integration Options</h3>
+    // Animation variants for staggered entrance
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+            },
+        },
+    };
 
-                <div className="grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-8">
-                    {integrationOptions.map(({ id, title, image }) => (
-                        <div key={id} className="bg-white/[0.03] rounded-[15px] p-6 text-center transition-transform duration-200 hover:-translate-y-1.5">
-                            <figure className="rounded-[10px] overflow-hidden mb-4">
-                                <img src={image} alt={title} className="w-full h-[200px] object-cover" loading="lazy" />
-                            </figure>
-                            <p className="text-base text-white/90 font-medium">{title}</p>
-                        </div>
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: "easeOut",
+            },
+        },
+    };
+
+    return (
+        <section className="py-12 bg-[#000000] text-white">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Heading Animation */}
+                <motion.h2
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="text-xl md:text-2xl font-bold mb-10 tracking-tight"
+                >
+                    Integration Options
+                </motion.h2>
+
+                {/* Grid with staggered animations */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-100px" }}
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
+                >
+                    {integrationOptions.map((option) => (
+                        <motion.div
+                            key={option.id}
+                            variants={itemVariants}
+                            whileHover={{ y: -5 }}
+                            className="group flex flex-col space-y-4 cursor-pointer"
+                        >
+                            <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-zinc-900 border border-zinc-800/10 shadow-lg relative">
+                                <motion.img
+                                    src={option.image}
+                                    alt={option.title}
+                                    whileHover={{ scale: 1.05 }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    className="w-full h-full object-cover"
+                                />
+                                {/* Subtle overlay on hover */}
+                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                            </div>
+                            <h3 className="text-sm md:text-base font-semibold leading-relaxed text-zinc-300 group-hover:text-white transition-colors duration-300 max-w-[90%]">
+                                {option.title}
+                            </h3>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default IntegrationOptionsSection
-
+export default IntegrationOptionsSection;

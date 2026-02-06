@@ -5,6 +5,7 @@ import './index.css'
 import './styles/globals.css'
 import React from 'react'
 
+
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />

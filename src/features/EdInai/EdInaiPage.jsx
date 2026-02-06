@@ -5,13 +5,13 @@ import SideMenu from '../../components/SideMenu'
 import MeetOurFaculties from './components/MeetOurFaculties'
 import EducationPortalSection from './components/EducationPortalSection'
 import StudentExperienceSection from './components/StudentExperienceSection'
-import teachImage from '../../assets/Vinai.webp'
-import featureCardImage from '../../assets/inai.webp'
 import LearningModesSection from './components/LearningModesSection'
 import StreamsSection from './components/StreamsSection'
 import VisionSection from './components/VisionSection'
 import AdaptSection from './components/AdaptSection'
 import IntegrationOptionsSection from './components/IntegrationOptionsSection'
+import teachImage from '../../assets/images/teach-the.png'
+import { motion } from 'framer-motion'
 import FaqSection from './components/FaqSection'
 import AutomationSection from './components/AutomationSection'
 import ModernLearningSection from './components/ModernLearningSection'
@@ -367,20 +367,37 @@ const EdInaiPage = () => {
 
                     {/* Teach Section - Responsive */}
                     <section className="py-10 md:py-16" id="teach-in-every-way-your-students-want-to-learn">
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1">
-                                <img
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+                            <motion.div
+                                initial={{ opacity: 0, x: -30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8 }}
+                                className="rounded-xl md:rounded-[20px] overflow-hidden order-1 border border-white/5"
+                            >
+                                <motion.img
                                     src={teachImage}
                                     alt="Educator using AI tools to customise lessons"
+                                    whileHover={{ scale: 1.02 }}
+                                    transition={{ duration: 0.5 }}
                                     className="w-full h-auto block"
                                     loading="lazy"
                                 />
-                            </div>
-                            <div className="order-2 text-center md:text-left">
-                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold leading-tight">
+                            </motion.div>
+                            <motion.div
+                                initial={{ opacity: 0, x: 30 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.8, delay: 0.2 }}
+                                className="order-2 text-center md:text-left"
+                            >
+                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[3rem] font-bold leading-tight text-white mb-6">
                                     Teach the Way Every <br />Student Learns Best
                                 </h2>
-                            </div>
+                                {/* <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-[500px] mx-auto md:mx-0">
+                                    ED-INAI empowers institutions with a personalized, AI-driven teaching assistant that adapts to individual student needs and institutional goals.
+                                </p> */}
+                            </motion.div>
                         </div>
                     </section>
 
