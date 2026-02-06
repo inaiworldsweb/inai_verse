@@ -65,7 +65,7 @@ const Checkout = () => {
 
     try {
       // 1. Create Order
-      const orderRes = await fetch('http://192.168.1.207:1171/api/payment/create-order', {
+      const orderRes = await fetch('https://api.inaiverse.com/api/payment/create-order', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(basePayload)
@@ -75,7 +75,7 @@ const Checkout = () => {
       console.log("Order created:", orderData);
 
       // 2. Initiate Payment Parameters
-      const paymentRes = await fetch('http://192.168.1.207:1171/api/payment/payu-payment', {
+      const paymentRes = await fetch('https://api.inaiverse.com/api/payment/payu-payment', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
