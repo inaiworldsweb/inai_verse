@@ -164,35 +164,39 @@ const PricingPage = () => {
                             {pricingPlans.map((plan) => (
                                 <div
                                     key={plan.id}
-                                    className="relative border border-white/20 rounded-2xl p-6 lg:p-10 flex flex-col bg-transparent transition-all duration-300 hover:border-white/40"
+                                    className="relative border border-white/20 rounded-2xl p-6 lg:p-10 flex flex-col bg-transparent transition-all duration-300 hover:border-white/40 overflow-hidden"
                                 >
-                                    {/* Plan Header with price & CTA */}
-                                    <div className="mb-12 text-center">
-                                        <h2 className="text-2xl md:text-[28px] font-bold mb-3">{plan.name}</h2>
-                                        <p className="text-xs md:text-sm text-white/70 font-medium leading-relaxed tracking-wide">{plan.subtitle}</p>
+                                    {/* Diagonal Status Ribbon */}
+                                    <div className="absolute top-0 right-0 overflow-hidden w-24 h-24 sm:w-32 sm:h-32 pointer-events-none">
+                                        <div className="absolute top-4 sm:top-6 -right-12 sm:-right-10 w-36 sm:w-40 bg-[#86ff78] text-black text-[9px] sm:text-[10px] font-black py-1.5 rotate-45 text-center shadow-[0_0_15px_rgba(134,255,120,0.5)] uppercase tracking-[0.15em] sm:tracking-[0.2em] border-y border-black/10">
+                                            {plan.featured ? '23% off' : (plan.id === 'easy-to-in' ? '20% off' : '33% off')}
+                                        </div>
+                                    </div>
 
-                                        <div className="mt-10 flex flex-col items-center gap-5">
+                                    {/* Plan Header with price & CTA */}
+                                    <div className="mb-8 md:mb-12 text-center">
+                                        <div className="flex flex-col items-center gap-2 mb-3">
+                                            <h2 className="text-xl sm:text-2xl md:text-[28px] font-bold px-8">{plan.name}</h2>
+                                        </div>
+                                        <p className="text-[11px] sm:text-xs md:text-sm text-white/70 font-medium leading-relaxed tracking-wide px-4">{plan.subtitle}</p>
+
+                                        <div className="mt-8 md:mt-10 flex flex-col items-center gap-5">
                                             <div className="flex flex-col items-center gap-3">
                                                 {plan.originalPrice && (
-                                                    <span className="text-white/50 font-semibold line-through tracking-wide text-[2.8rem] md:text-[3.2rem]">
+                                                    <span className="text-white/30 font-semibold line-through tracking-wide text-[2rem] sm:text-[2.2rem] md:text-[2.4rem]">
                                                         {plan.originalPrice}
                                                     </span>
                                                 )}
-                                                {plan.discountBadge && (
-                                                    <span className="text-xs font-bold uppercase tracking-wide text-black bg-[#86ff78] px-4 py-1 rounded-full">
-                                                        {plan.discountBadge}
-                                                    </span>
-                                                )}
-                                                <div className="flex items-baseline gap-3">
-                                                    <span className="tracking-tight text-white text-[2.2rem] md:text-[2.7rem] font-semibold">
+                                                <div className="flex items-baseline gap-2 sm:gap-3">
+                                                    <span className="tracking-tight text-white text-[2.2rem] sm:text-[2.6rem] md:text-[3.2rem] font-bold">
                                                         {plan.price}
                                                     </span>
-                                                    <span className="text-xs md:text-sm text-white/60 font-semibold uppercase tracking-widest">
+                                                    <span className="text-[10px] sm:text-xs md:text-sm text-white/50 font-semibold uppercase tracking-widest">
                                                         {plan.priceLabel}
                                                     </span>
                                                 </div>
                                                 {plan.offerNote && (
-                                                    <p className="text-xs md:text-sm text-white/80 font-semibold tracking-wide text-center">
+                                                    <p className="text-[10px] sm:text-[11px] md:text-xs text-white/80 font-semibold tracking-wide text-center bg-white/5 py-1.5 px-3 rounded-lg border border-white/5 mx-2">
                                                         {plan.offerNote}
                                                     </p>
                                                 )}
@@ -200,7 +204,7 @@ const PricingPage = () => {
 
                                             <button
                                                 onClick={() => handleBuyNowClick(plan)}
-                                                className="w-full py-3 px-6 rounded-[50px] font-semibold transition-colors bg-white text-black hover:bg-gray-200"
+                                                className="w-full py-3 sm:py-4 px-6 rounded-[50px] font-bold transition-all duration-300 bg-white text-black hover:bg-gray-200 shadow-sm text-sm sm:text-base"
                                             >
                                                 Buy now
                                             </button>

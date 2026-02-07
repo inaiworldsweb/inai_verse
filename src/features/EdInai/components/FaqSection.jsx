@@ -56,7 +56,7 @@ const FaqSection = () => {
     }
 
     return (
-        <section className="py-16 bg-black" id="faq">
+        <section className="py-10 md:py-16 bg-black" id="faq">
             <div className="max-w-narrow mx-auto px-4">
                 <h3 className="text-[2rem] font-bold text-center mb-12 text-white">Frequently Asked Questions</h3>
                 <div className="flex flex-col gap-4">

@@ -60,7 +60,7 @@ const VisionSection = () => {
     }
 
     return (
-        <section className="py-16 bg-black" id="vision">
+        <section className="py-10 md:py-16" id="vision">
             <div className="max-w-content mx-auto px-4">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -69,15 +69,15 @@ const VisionSection = () => {
                     transition={{ duration: 0.8 }}
                     className="my-6"
                 >
-                    <h3 className="text-[2rem] font-bold text-center mb-2 text-white">How to Implement ED-INAI in Your Institution?</h3>
-                    <p className="text-center text-white/70 mb-8">Implementation Steps</p>
+                    <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-center mb-2 text-white px-4">How to Implement ED-INAI in Your Institution?</h2>
+                    <p className="text-center text-white/70 mb-8 px-4 text-sm sm:text-base">Implementation Steps</p>
 
                     <motion.div
                         variants={containerVariants}
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, margin: "-100px" }}
-                        className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1240px] mx-auto"
+                        className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 max-w-[1240px] mx-auto"
                     >
                         {implementationSteps.map(({ id, title, image }) => (
                             <motion.div

@@ -53,7 +53,7 @@ const StudentExperienceSection = () => {
     useEffect(() => {
         const timer = setInterval(() => {
             setCurrentIndex((prevIndex) => (prevIndex + 1) % studentSlides.length)
-        }, 20000)
+        }, 2000)
 
         return () => clearInterval(timer)
     }, [])
@@ -83,12 +83,12 @@ const StudentExperienceSection = () => {
     const currentSlide = studentSlides[currentIndex]
 
     return (
-        <section className="py-16 bg-black" id="student-view">
+        <section className="py-10 md:py-16" id="student-view">
             <div className="max-w-medium mx-auto text-center px-4">
-                <h2 className="text-[2.5rem] font-bold mb-8 text-white">Student View – For Learners</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold mb-6 md:mb-8 text-white px-4">Student View – For Learners</h2>
 
-                <div className="bg-white/[0.03] rounded-[20px] p-8" aria-live="polite">
-                    <h3 className="text-2xl font-semibold mb-6 text-center text-white">{currentSlide.title}</h3>
+                <div className="bg-white/[0.03] rounded-[20px] p-4 md:p-10 border border-white/5" aria-live="polite">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-6 text-center text-white px-4 leading-snug">{currentSlide.title}</h3>
                     <button
                         type="button"
                         className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full p-0"

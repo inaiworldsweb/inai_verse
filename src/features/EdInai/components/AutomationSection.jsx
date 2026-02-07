@@ -2,7 +2,7 @@ import featureImage from '../../../assets/final/smart automation for educational
 
 const AutomationSection = () => {
     return (
-        <section className="py-16 bg-black">
+        <section className="py-10 md:py-16 bg-black">
             <div className="max-w-[900px] mx-auto px-4">
                 {/* Section Title */}
                 <h2 className="text-[2rem] font-bold text-white mb-4">How Do You generate and Manage Your Lecture?</h2>

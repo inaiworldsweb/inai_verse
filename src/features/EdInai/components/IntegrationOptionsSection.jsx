@@ -50,7 +50,7 @@ const IntegrationOptionsSection = () => {
     };
 
     return (
-        <section className="py-12 bg-[#000000] text-white">
+        <section className="py-10 md:py-12 bg-[#000000] text-white">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Heading Animation */}
                 <motion.h2

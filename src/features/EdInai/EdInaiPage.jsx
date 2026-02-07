@@ -259,9 +259,9 @@ const EdInaiPage = () => {
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Hero Section - Responsive */}
-                    <section className="py-10 md:py-16">
+                    <section className="py-8 md:py-16">
                         {/* Hero Title and CTA - Centered */}
-                        <div className="text-center mb-12 md:mb-20">
+                        <div className="text-center mb-8 md:mb-20">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
                                 India's First<br /> Virtual AI Teacher Platform
                             </h2>
@@ -288,7 +288,7 @@ const EdInaiPage = () => {
                         {/* Two Column Layout - Heading Left, Image Right */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16 max-w-[1200px] mx-auto">
                             {/* Left Column - Heading */}
-                            <div className="text-center lg:text-center rder-2 lg:order-1">
+                            <div className="text-center lg:text-center order-2 lg:order-1">
                                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
                                     Transform <br />Teaching & Learning with EdInai
 
@@ -314,7 +314,7 @@ const EdInaiPage = () => {
                     </section>
 
                     {/* What is EdInai Section - Responsive */}
-                    <section className="py-10 md:py-16" id="what-is-edinai">
+                    <section className="py-8 md:py-16" id="what-is-edinai">
                         <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12">
                             What is EdInai?
                         </h2>
@@ -368,7 +368,7 @@ const EdInaiPage = () => {
                     <StudentExperienceSection onLearnMore={handleGoToLearnMore} />
 
                     {/* Teach Section - Responsive */}
-                    <section className="py-10 md:py-16" id="teach-in-every-way-your-students-want-to-learn">
+                    <section className="py-8 md:py-16" id="teach-in-every-way-your-students-want-to-learn">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
                             <motion.div
                                 initial={{ opacity: 0, x: -30 }}
@@ -406,7 +406,7 @@ const EdInaiPage = () => {
                     <LearningModesSection />
 
                     {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
-                    <section className="py-10 md:py-16" id="why-ed-inai">
+                    <section className="py-8 md:py-16" id="why-ed-inai">
                         <div className="max-w-content mx-auto">
                             <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
                                 Why EdINAI is the future of Indian education system

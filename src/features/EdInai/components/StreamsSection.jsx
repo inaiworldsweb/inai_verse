@@ -66,26 +66,26 @@ const StreamsSection = () => {
     }, [])
 
     return (
-        <section className="py-16 bg-black" id="streams">
-            <div className="max-w-content mx-auto px-4">
-                <h2 className="text-[2.5rem] font-bold text-center mb-12 text-white animate-fade-in">
+        <section className="py-10 md:py-16 bg-black" id="streams">
+            <div className="max-w-[1200px] mx-auto px-4">
+                <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-center mb-10 md:mb-12 text-white animate-fade-in px-4">
                     Streams We Cover
                 </h2>
 
                 <div className="scroll-wrapper">
                     {streamRows.map(({ id, items, direction, duration }, index) => (
                         <div key={id} className="scroll-row">
-                            <div 
+                            <div
                                 ref={(el) => (scrollRefs.current[index] = el)}
                                 className={`scroll-content ${direction === 'right' ? 'scroll-right' : 'scroll-left'}`}
-                                style={{ 
+                                style={{
                                     animationDuration: `${duration}s`,
                                     '--animation-direction': direction === 'right' ? 'reverse' : 'normal'
                                 }}
                             >
                                 {items.map((label) => (
-                                    <span 
-                                        key={label} 
+                                    <span
+                                        key={label}
                                         className="stream-tag"
                                     >
                                         {label}
@@ -93,8 +93,8 @@ const StreamsSection = () => {
                                 ))}
                                 {/* Duplicate for infinite scroll */}
                                 {items.map((label) => (
-                                    <span 
-                                        key={`${label}-duplicate`} 
+                                    <span
+                                        key={`${label}-duplicate`}
                                         className="stream-tag"
                                     >
                                         {label}
