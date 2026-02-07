@@ -56,7 +56,7 @@ const EdInaiAdminPage = () => {
     };
 
     return (
-        <div className="flex min-h-screen bg-black text-white font-sans">
+        <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
             {/* Responsive Sidebar Component */}
             <EdInaiSidebar
                 logoImage={logoImage}

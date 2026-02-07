@@ -2,13 +2,23 @@ import { useNavigate } from 'react-router-dom'
 
 const productSections = [
     {
+        title: 'Inaiworld',
+        items: [
+            { label: 'Home', link: 'https://inaiworlds.com/#/' },
+            { label: 'About', link: 'https://inaiworlds.com/#/about' },
+            { label: 'blog', link: 'https://inaiworlds.com/#/blog' },
+            { label: 'Team', link: 'https://inaiworlds.com/#/team' },
+            { label: 'Career', link: 'https://career.inaiworlds.com/' },
+        ],
+    },
+    {
         title: 'EdInai',
         items: ['Overview', 'Features', 'Pricing', 'Faculty tools', 'Student portal'],
     },
-    {
-        title: 'No Code Development',
-        items: [],
-    },
+    // {
+    //     title: 'No Code Development',
+    //     items: [],
+    // },
     {
         title: 'INAI For Marketing',
         items: [],
@@ -95,13 +105,31 @@ const SiteFooter = () => {
                             {title}
                         </h3>
                         <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                            {items.map((item) => (
-                                <li key={item} className="m-0">
-                                    <button type="button" className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white">
-                                        {item}
-                                    </button>
-                                </li>
-                            ))}
+                            {items.map((item) => {
+                                const label = typeof item === 'string' ? item : item.label;
+                                const link = typeof item === 'object' ? item.link : null;
+
+                                return (
+                                    <li key={label} className="m-0">
+                                        {link ? (
+                                            <button
+                                                type="button"
+                                                onClick={() => window.location.assign(link)}
+                                                className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
+                                            >
+                                                {label}
+                                            </button>
+                                        ) : (
+                                            <button
+                                                type="button"
+                                                className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
+                                            >
+                                                {label}
+                                            </button>
+                                        )}
+                                    </li>
+                                );
+                            })}
                         </ul>
                     </section>
                 ))}
@@ -140,4 +168,3 @@ const SiteFooter = () => {
 }
 
 export default SiteFooter
-

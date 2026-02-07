@@ -53,7 +53,7 @@ function PageHeader({
     }
 
     return (
-        <header className="flex items-center justify-between py-4 px-8 border-b border-white/10 bg-black">
+        <header className="sticky top-0 z-50 flex items-center justify-between py-4 px-8 border-b border-white/10 bg-black/80 backdrop-blur-md">
             {/* Left Section - Back Button, Title, Breadcrumbs */}
             <div className="flex items-center gap-4">
                 {showBackButton && (

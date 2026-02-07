@@ -176,7 +176,7 @@ const EdInaiPage = () => {
     }
 
     return (
-        <div className="flex min-h-screen bg-black text-white">
+        <div className="flex h-screen overflow-hidden bg-black text-white">
             {/* Mobile Menu Button - Fixed position */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -224,7 +224,7 @@ const EdInaiPage = () => {
                         {/* Mobile Sidebar Content */}
                         <div className="pt-16 px-4">
                             <div className="flex items-center justify-center mb-6">
-                                <Link to="/edinai">
+                                <Link to="/">
                                     <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[80px] h-auto" />
                                 </Link>
                             </div>
@@ -237,7 +237,9 @@ const EdInaiPage = () => {
             {/* Desktop Sidebar - Hidden on mobile */}
             <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto border-r border-white/10">
                 <div className="flex items-center justify-center mb-4">
-                    <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
+                    <Link to="/">
+                        <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
+                    </Link>
                 </div>
                 <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
             </aside>
