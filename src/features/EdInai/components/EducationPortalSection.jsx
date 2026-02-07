@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import uploadCurriculumImg from '../../../assets/final/Upload & Organize Curriculum.png'
 import scheduleLecturesImg from '../../../assets/final/Schedule AI-Assisted Lectures.png'
@@ -62,6 +62,15 @@ const EducationPortalSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const navigate = useNavigate()
 
+    // Autoscroll logic
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length)
+        }, 20000)
+
+        return () => clearInterval(timer)
+    }, [])
+
     const goToSlide = (index) => {
         if (index < 0) {
             setCurrentIndex(slides.length - 1)
@@ -108,7 +117,7 @@ const EducationPortalSection = () => {
                         onClick={handleSlideClick}
                         aria-label={`View ${currentSlide.title}`}
                     >
-                        <img src={currentSlide.image} alt={currentSlide.title} className="w-full h-auto block transition-transform duration-300 hover:scale-[1.02]" loading="lazy" />
+                        <img src={currentSlide.image} alt={currentSlide.title} className="w-full aspect-video object-cover block transition-transform duration-300 hover:scale-[1.02]" loading="lazy" />
                     </button>
                     <div className="flex justify-center my-6">
                         <div className="flex gap-2" role="tablist" aria-label="Portal views">

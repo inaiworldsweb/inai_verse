@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import liveLecturesImg from '../../../assets/final/Attend Live & Recorded Lectures.png'
 import studyNotesImg from '../../../assets/final/Access AI-Generated Study Notes.png'
@@ -49,6 +49,15 @@ const StudentExperienceSection = () => {
     const [currentIndex, setCurrentIndex] = useState(0)
     const dots = Array.from({ length: studentSlides.length })
 
+    // Autoscroll logic
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prevIndex) => (prevIndex + 1) % studentSlides.length)
+        }, 20000)
+
+        return () => clearInterval(timer)
+    }, [])
+
     const handleLearnMore = () => {
         navigate('/edinai-student')
     }
@@ -89,7 +98,7 @@ const StudentExperienceSection = () => {
                         <img
                             src={currentSlide.image}
                             alt={currentSlide.title}
-                            className="w-full h-auto block transition-transform duration-300 hover:scale-[1.02]"
+                            className="w-full aspect-video object-cover block transition-transform duration-300 hover:scale-[1.02]"
                             loading="lazy"
                         />
                     </button>
