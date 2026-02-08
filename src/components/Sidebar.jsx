@@ -8,8 +8,8 @@ function Sidebar({ isOpen, onClose }) {
 
     const menuItems = [
         { name: 'Edinai', path: '/edinai' },
-        { name: 'No Code Development' },
-        { name: 'INAI For Marketing' },
+        { name: 'Miraai', path: '/miraai' },
+        { name: 'NCD' },
         { name: 'INAI For Corporate Agent' },
     ]
 

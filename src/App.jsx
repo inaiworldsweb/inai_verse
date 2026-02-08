@@ -14,6 +14,7 @@ import EdInaiStudentPage from './features/EdInaiStudent/EdInaiStudentPage'
 import EdInaiAdminPage from './features/EdInaiAdmin/EdInaiAdminPage'
 import EdInaiSetupPage from './features/EdInai/EdInaiSetupPage'
 import StepsPage from './features/EdInai/StepsPage'
+import Miraai from './pages/Miraai/Miraai'
 import PayUCheckout from './components/payment/PayUCheckout';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentFailure from './components/payment/PaymentFailure';
@@ -37,6 +38,7 @@ function AppContent() {
     location.pathname === '/refund' ||
     location.pathname === '/saas-landing' ||
     location.pathname === '/stepspage' ||
+    location.pathname === '/miraai' ||
     location.pathname === '/checkout' ||
     location.pathname.startsWith('/payment/')
 
@@ -58,6 +60,7 @@ function AppContent() {
           <Route path="/edinai-admin" element={<EdInaiAdminPage />} />
           <Route path="/edinai-setup" element={<EdInaiSetupPage />} />
           <Route path="/stepspage" element={<StepsPage />} />
+          <Route path="/miraai" element={<Miraai />} />
           <Route path="/checkout" element={<PayUCheckout />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/failure" element={<PaymentFailure />} />
