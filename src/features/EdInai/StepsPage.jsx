@@ -8,6 +8,12 @@ import step2Img from '../../assets/final/inside the ed inai- add your academic s
 import step3Img from '../../assets/final/inside the ed inai - schedule sessions.png';
 import step4Img from '../../assets/final/inside the ed inai - let ed inai execute.png';
 
+// Use Case Images
+import schoolsImg from '../../assets/images/Schools.jpg';
+import collegesImg from '../../assets/images/Colleges.jpg';
+import coachingImg from '../../assets/images/Coaching Institute.jpg';
+import corporateImg from '../../assets/images/Corporate Training.jpg';
+
 const sidebarItems = [
     { label: 'How to Set Up Ed-INAI', id: 'how-to-set-up-edinai' },
     { label: 'Integration & Technical Details', id: 'integration-technical-details' },
@@ -57,7 +63,12 @@ const StepItem = ({ step, index, activeStep, setStepRef }) => (
 );
 
 const UseCasesSection = () => {
-    const useCases = ['K-12 Schools', 'Colleges', 'Coaching Centers', 'Corporate Training'];
+    const useCases = [
+        { title: 'K-12 Schools', image: schoolsImg },
+        { title: 'Colleges', image: collegesImg },
+        { title: 'Coaching Centers', image: coachingImg },
+        { title: 'Corporate Training', image: corporateImg }
+    ];
 
     return (
         <section id="common-use-cases" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
@@ -65,21 +76,21 @@ const UseCasesSection = () => {
                 <h2 className="text-center text-3xl lg:text-4xl font-bold mb-12">Common Use Cases</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {useCases.map((title) => (
+                    {useCases.map((useCase) => (
                         <div
-                            key={title}
-                            className="rounded-[1.75rem] bg-gradient-to-b from-[#1c1c1c] to-black border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.45)] overflow-hidden"
+                            key={useCase.title}
+                            className="rounded-[1.75rem] bg-gradient-to-b from-[#1c1c1c] to-black border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.45)] overflow-hidden transition-transform duration-300 hover:scale-[1.02]"
                         >
                             <div className="h-[220px] overflow-hidden">
                                 <img
-                                    src={step2Img}
-                                    alt={title}
+                                    src={useCase.image}
+                                    alt={useCase.title}
                                     className="w-full h-full object-cover"
                                 />
                             </div>
 
                             <div className="px-5 py-4 flex items-center justify-between text-sm font-medium tracking-wide">
-                                <span>{title}</span>
+                                <span>{useCase.title}</span>
                                 <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs">○</span>
                             </div>
                         </div>
