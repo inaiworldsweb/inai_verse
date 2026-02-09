@@ -59,19 +59,30 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Deploy on EC2 (SSM) - FE auto
+      - name: Deploy on EC2 (SSM) - FE auto (no script)
         run: |
           aws ssm send-command \
             --region "${{ env.AWS_REGION }}" \
             --instance-ids "${{ env.TARGET_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
-            --comment "Deploy frontend STAGING (auto)" \
-            --parameters '{"commands":[
+            --comment "Deploy inaiworlds FE STAGING (auto)" \
+            --parameters commands='[
               "set -euo pipefail",
-              "echo \"[INFO] Starting FE deploy\"",
-              "sudo bash -lc \"ECR_REPOSITORY_BASE='\''${{ env.ECR_REPOSITORY_URI }}'\'' AWS_REGION='\''${{ env.AWS_REGION }}'\'' /opt/app/deploy-fe.sh staging\"",
-              "sudo docker ps | head -n 20"
-            ]}'
+              "echo \"[INFO] Deploy start\"",
+              "docker --version",
+              "aws --version",
+              "aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin $(echo ${{ env.ECR_REPOSITORY_URI }} | cut -d/ -f1)",
+              "echo \"[INFO] Pulling latest image\"",
+              "docker pull ${{ env.ECR_REPOSITORY_URI }}:latest",
+              "echo \"[INFO] Replacing container\"",
+              "docker rm -f inaiworlds 2>/dev/null || true",
+              "docker run -d --name inaiworlds --restart unless-stopped -p 3000:80 ${{ env.ECR_REPOSITORY_URI }}:latest",
+              "echo \"[INFO] Containers\"",
+              "docker ps | head -n 20",
+              "echo \"[INFO] Cleanup old images\"",
+              "docker image prune -f"
+            ]'
+
 
 
 
