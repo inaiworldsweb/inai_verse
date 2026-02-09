@@ -127,7 +127,7 @@ const EdInaiStudentPage = () => {
                                         />
                                     </div>
 
-                                    <div className="flex justify-center gap-3 mt-8">
+                                    {/* <div className="flex justify-center gap-3 mt-8">
                                         {carouselSlides.map((_, index) => (
                                             <button
                                                 key={index}
@@ -140,7 +140,7 @@ const EdInaiStudentPage = () => {
                                                 aria-current={currentSlide === index ? 'true' : 'false'}
                                             />
                                         ))}
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                         </div>

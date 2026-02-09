@@ -2,84 +2,66 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const MiraaiHero = () => {
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.2,
-                delayChildren: 0.3
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: [0.16, 1, 0.3, 1]
-            }
-        }
-    };
+    const stats = [
+        { label: 'Videos Created', value: '50,000+' },
+        { label: 'Images Generated', value: '100,000+' },
+        { label: 'Average Cost Savings', value: '70%' },
+        { label: 'Day Delivery', value: '2-4' },
+    ];
 
     return (
-        <motion.div
-            className="text-center mb-20 md:mb-24 max-w-4xl mx-auto flex flex-col items-center"
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-        >
-            <motion.h1
-                className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold text-white mb-6 md:mb-8 tracking-tight leading-tight px-4"
-                variants={itemVariants}
+        <div className="flex flex-col items-center justify-center min-h-[calc(100vh-160px)] relative py-12">
+            {/* Hero Content */}
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="max-w-[70rem] mx-auto text-center z-10"
             >
-                We Create <motion.span
-                    className="text-white inline-block"
-                    animate={{
-                        textShadow: ["0 0 0px rgba(255,255,255,0)", "0 0 15px rgba(255,255,255,0.4)", "0 0 0px rgba(255,255,255,0)"]
-                    }}
-                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                >
-                    Professional Videos
-                </motion.span><br /> & <br />Visuals for Your Brand <motion.span
-                    className="bg-clip-text text-transparent bg-gradient-to-r from-white via-white/80 to-white/40 inline-block"
-                    animate={{
-                        textShadow: ["0 0 10px rgba(255,255,255,0)", "0 0 20px rgba(255,255,255,0.3)", "0 0 10px rgba(255,255,255,0)"]
-                    }}
-                    transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                >
-                    Using AI
-                </motion.span>
-            </motion.h1>
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.05] text-white">
+                    We Create Professional Videos & Visuals <br className="hidden md:block" />
+                    for Your Brand Using AI
+                </h1>
 
-            <motion.p
-                className="text-zinc-400 text-xs sm:text-sm md:text-base max-w-3xl mx-auto leading-relaxed font-medium px-6 mb-8 md:mb-10"
-                variants={itemVariants}
-            >
-                No cameras. No studios. No crews. <br className="hidden sm:block" />
-                Just give us your ideas—we'll deliver broadcast-quality content in days using advanced AI technology.
-            </motion.p>
+                <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
+                    No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
+                    content in days using advanced AI technology.
+                </p>
 
-            <motion.button
-                variants={itemVariants}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="
-                    bg-white text-black border-none 
-                    py-3 px-8 rounded-full 
-                    text-sm font-semibold cursor-pointer 
-                    flex items-center gap-2 
-                    transition-all duration-200
-                    shadow-[0_0_20px_rgba(255,255,255,0.1)]
-                    hover:shadow-[0_0_30px_rgba(255,255,255,0.3)]
-                "
+                <div className="flex justify-center mb-24">
+                    <motion.button
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="px-10 py-4 bg-white text-black font-semibold rounded-full text-lg transition-all hover:bg-white/90 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                    >
+                        Start Your First Project
+                    </motion.button>
+                </div>
+            </motion.div>
+
+            {/* Stats Section - Bottom Bar Style */}
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.4 }}
+                className="w-full max-w-[1400px] bg-[#0A0A0A] border-y border-white/5 md:border-x md:rounded-lg overflow-hidden"
             >
-                Get Started <span aria-hidden="true">›</span>
-            </motion.button>
-        </motion.div>
+                <div className="grid grid-cols-2 md:grid-cols-4">
+                    {stats.map((stat, index) => (
+                        <div
+                            key={index}
+                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${index !== stats.length - 1 ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10' : ''
+                                }`}
+                        >
+                            <span className="text-2xl md:text-4xl font-bold mb-2 tracking-tight text-white">{stat.value}</span>
+                            <span className="text-white/40 text-[10px] md:text-xs font-bold uppercase tracking-[0.2em]">
+                                {stat.label}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </motion.div>
+        </div>
     );
 };
 
