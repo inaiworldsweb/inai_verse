@@ -12,7 +12,7 @@ permissions:
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
 
-  # FULL ECR URI (example: 7245...amazonaws.com/edu-main-fe)
+  # FULL ECR URI (example: 7245...amazonaws.com/inaiworlds)
   ECR_REPOSITORY_URI: ${{ secrets.ECR_REPOSITORY }}
 
   # EC2 instance-id (staging FE instance)
@@ -59,32 +59,31 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
-      - name: Deploy on EC2 (SSM) - FE auto (no script)
+      # ✅ Auto Deploy: remove old containers + pull latest + run + cleanup old images
+      - name: Deploy on EC2 (SSM) - FE auto (cleanup)
         run: |
           aws ssm send-command \
             --region "${{ env.AWS_REGION }}" \
             --instance-ids "${{ env.TARGET_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
-            --comment "Deploy inaiworlds FE STAGING (auto)" \
+            --comment "Deploy inaiworlds FE STAGING (auto + cleanup)" \
             --parameters commands='[
               "set -euo pipefail",
               "echo \"[INFO] Deploy start\"",
               "docker --version",
               "aws --version",
+              "echo \"[INFO] ECR login\"",
               "aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin $(echo ${{ env.ECR_REPOSITORY_URI }} | cut -d/ -f1)",
-              "echo \"[INFO] Pulling latest image\"",
+              "echo \"[INFO] Pull latest image\"",
               "docker pull ${{ env.ECR_REPOSITORY_URI }}:latest",
-              "echo \"[INFO] Replacing container\"",
+              "echo \"[INFO] Remove old containers (if any)\"",
               "docker rm -f inaiworlds 2>/dev/null || true",
+              "docker rm -f inaiworlds-fe 2>/dev/null || true",
+              "echo \"[INFO] Run new container\"",
               "docker run -d --name inaiworlds --restart unless-stopped -p 3000:80 ${{ env.ECR_REPOSITORY_URI }}:latest",
-              "echo \"[INFO] Containers\"",
-              "docker ps | head -n 20",
-              "echo \"[INFO] Cleanup old images\"",
-              "docker image prune -f"
+              "echo \"[INFO] Cleanup old images (unused + dangling)\"",
+              "docker image prune -a -f",
+              "echo \"[INFO] Status\"",
+              "docker ps -a | head -n 25",
+              "docker images | head -n 25"
             ]'
-
-
-
-
-
-            
