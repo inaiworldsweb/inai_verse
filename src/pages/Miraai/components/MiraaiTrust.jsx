@@ -56,34 +56,48 @@ const MiraaiTrust = () => {
                     </p>
                 </motion.div>
 
-                {/* Brand Cards Row */}
-                <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-                    {brands.map((brand, index) => (
+                {/* Brand Marquee Wrapper */}
+                <div className="relative w-full overflow-hidden mt-16 px-4">
+                    {/* Fading Edges Mask */}
+                    <div className="absolute inset-y-0 left-0 w-24 md:w-40 z-20 bg-gradient-to-r from-black to-transparent pointer-events-none" />
+                    <div className="absolute inset-y-0 right-0 w-24 md:w-40 z-20 bg-gradient-to-l from-black to-transparent pointer-events-none" />
+
+                    {/* Infinite Marquee Container */}
+                    <div className="flex overflow-hidden">
                         <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
-                            whileHover={{
-                                y: -10,
-                                borderColor: 'rgba(255, 255, 255, 0.2)',
-                                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                                scale: 1.02
+                            animate={{ x: "-50%" }}
+                            transition={{
+                                duration: 30,
+                                ease: "linear",
+                                repeat: Infinity
                             }}
-                            className={`
-                                flex items-center gap-6 px-10 py-6 rounded-[2rem] bg-[#0A0A0A] border border-white/5 
-                                transition-all duration-500 min-w-[240px] group cursor-default
-                            `}
+                            className="flex gap-4 md:gap-8 min-w-full py-8"
                         >
-                            <div className="flex-shrink-0">
-                                {brand.icon}
-                            </div>
-                            <span className="text-lg md:text-xl font-black text-white/80 group-hover:text-white transition-colors tracking-tight">
-                                {brand.name}
-                            </span>
+                            {/* Original + Duplicate Brands for seamless loop */}
+                            {[...brands, ...brands, ...brands, ...brands].map((brand, index) => (
+                                <motion.div
+                                    key={index}
+                                    whileHover={{
+                                        y: -5,
+                                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                                        scale: 1.02
+                                    }}
+                                    className={`
+                                        flex items-center gap-6 px-8 py-5 rounded-[1.5rem] bg-[#0A0A0A] border border-white/5 
+                                        transition-all duration-300 min-w-[200px] md:min-w-[240px] group cursor-default flex-shrink-0
+                                    `}
+                                >
+                                    <div className="flex-shrink-0">
+                                        {brand.icon}
+                                    </div>
+                                    <span className="text-base md:text-lg font-black text-white/60 group-hover:text-white transition-colors tracking-tight">
+                                        {brand.name}
+                                    </span>
+                                </motion.div>
+                            ))}
                         </motion.div>
-                    ))}
+                    </div>
                 </div>
             </div>
 

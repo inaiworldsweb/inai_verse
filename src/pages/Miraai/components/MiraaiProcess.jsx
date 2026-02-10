@@ -7,11 +7,12 @@ import step2Img from '../../../assets/final/inside the ed inai- add your academi
 import step3Img from '../../../assets/final/inside the ed inai - schedule sessions.png';
 import step4Img from '../../../assets/final/live lecture via ai.png';
 
-const MiraaiProcess = () => {
+const MiraaiProcess = ({ containerRef }) => {
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
-        offset: ["start center", "end center"]
+        container: containerRef,
+        offset: ["start 80%", "end 20%"]
     });
 
     const scaleY = useSpring(scrollYProgress, {
@@ -56,15 +57,15 @@ const MiraaiProcess = () => {
     ];
 
     return (
-        <section ref={sectionRef} className="py-32 bg-black overflow-hidden relative">
+        <section ref={sectionRef} className="py-20 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
-                <div className="text-center mb-40">
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-4xl md:text-5xl font-black mb-8 tracking-tighter"
+                        className="text-4xl md:text-5xl font-black mb-6 tracking-tighter"
                     >
                         Here's Exactly How We Work With You
                     </motion.h2>
@@ -80,25 +81,36 @@ const MiraaiProcess = () => {
                 </div>
 
                 <div className="relative">
-                    <div className="absolute left-1/2 top-0 bottom-0 w-[80px] -translate-x-1/2 hidden md:block z-10 overflow-visible">
-                        <svg className="w-full h-full" viewBox="0 0 80 1000" preserveAspectRatio="none" fill="none">
-                            <path d="M38 0V950 C38 980 10 1000 0 1000" stroke="rgba(255,255,255,0.05)" strokeWidth="2" />
-                            <path d="M42 0V950 C42 980 70 1000 80 1000" stroke="rgba(255,255,255,0.05)" strokeWidth="2" />
-                            <motion.path d="M38 0V950 C38 980 10 1000 0 1000" stroke="url(#line-gradient)" strokeWidth="2" strokeLinecap="round" style={{ pathLength: scaleY }} />
-                            <motion.path d="M42 0V950 C42 980 70 1000 80 1000" stroke="url(#line-gradient)" strokeWidth="2" strokeLinecap="round" style={{ pathLength: scaleY }} />
-                            <defs>
-                                <linearGradient id="line-gradient" x1="0" y1="0" x2="0" y2="1">
-                                    <stop offset="0%" stopColor="#4F46E5" />
-                                    <stop offset="50%" stopColor="#8B5CF6" />
-                                    <stop offset="100%" stopColor="#fff" />
-                                </linearGradient>
-                            </defs>
+                    {/* Supporting Line SVG */}
+                    <div className="absolute left-1/2 top-0 bottom-0 w-[4px] -translate-x-1/2 hidden md:block z-10 overflow-visible">
+                        <svg className="w-full h-full" viewBox="0 0 4 1000" preserveAspectRatio="none" fill="none">
+                            {/* Base Line (Low Opacity) */}
+                            <line x1="2" y1="0" x2="2" y2="1000" stroke="rgba(255,255,255,0.1)" strokeWidth="2" />
+                            {/* Active Progress Line (White) */}
+                            <motion.line
+                                x1="2" y1="0" x2="2" y2="1000"
+                                stroke="#fff"
+                                strokeWidth="4"
+                                strokeLinecap="round"
+                                style={{ pathLength: scaleY }}
+                            />
+                            {/* Glow effect for the active tip */}
+                            <motion.circle
+                                cx="2"
+                                cy="0"
+                                r="4"
+                                fill="#fff"
+                                style={{
+                                    translateY: useTransform(scaleY, [0, 1], [0, 1000]),
+                                    filter: "blur(4px)"
+                                }}
+                            />
                         </svg>
                     </div>
 
-                    <div className="space-y-40 md:space-y-20 relative px-4 md:px-0">
+                    <div className="space-y-12 md:space-y-4 relative px-4 md:px-0">
                         {steps.map((step, index) => (
-                            <div key={index} className={`relative flex flex-col md:flex-row items-center justify-between md:py-32 ${step.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
+                            <div key={index} className={`relative flex flex-col md:flex-row items-center justify-between md:py-12 ${step.side === 'right' ? 'md:flex-row-reverse' : ''}`}>
                                 <motion.div
                                     initial={{ opacity: 0, scale: 0.9, x: step.side === 'left' ? -100 : 100 }}
                                     whileInView={{ opacity: 1, scale: 1, x: 0 }}

@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import PageHeader from '../../components/PageHeader';
-import FooterLegalLine from '../../components/FooterLegalLine';
-import { EdInaiSidebar } from '../../features/EdInai/components/shared';
+import Sidebar from '../../components/Sidebar';
+// import FooterLegalLine from '../../components/FooterLegalLine';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import MiraaiHero from './components/MiraaiHero';
 import MiraaiGallery from './components/MiraaiGallery';
 import MiraaiProcess from './components/MiraaiProcess';
 import MiraaiTrust from './components/MiraaiTrust';
-import MiraaiBenefits from './components/MiraaiBenefits';
+// import MiraaiBenefits from './components/MiraaiBenefits';
 import MiraaiShowcase from './components/MiraaiShowcase';
 import MiraaiVision from './components/MiraaiVision';
 import MiraaiServices from './components/MiraaiServices';
@@ -23,22 +23,15 @@ import MiraaiFinalCTA from './components/MiraaiFinalCTA';
 
 const Miraai = () => {
     const [activeSection, setActiveSection] = useState('hero');
+    const scrollContainerRef = useRef(null);
 
     const navItems = [
-        { id: 'hero', label: 'Home' },
-        { id: 'gallery', label: 'Our Work' },
-        { id: 'process', label: 'Process' },
-        { id: 'trust', label: 'Trust' },
-        { id: 'showcase', label: 'Showcase' },
-        { id: 'vision', label: 'Our Vision' },
-        { id: 'services', label: 'Services' },
-        { id: 'whatyouget', label: 'What You Get' },
-        { id: 'simpletruth', label: 'The Truth' },
-        { id: 'cta', label: 'Is It For You?' },
-        { id: 'comparison', label: 'Comparison' },
-        { id: 'growthkiller', label: 'Growth killers' },
-        { id: 'whychoose', label: 'Why US' },
-        { id: 'finalcta', label: 'CTA' },
+        { id: 'hero', label: 'Hero Section' },
+        { id: 'services', label: 'What Exactly We Do' },
+        { id: 'growthkiller', label: 'Who Needs Our Services' },
+        { id: 'simpletruth', label: 'The Real Problem We Solve' },
+        { id: 'whychoose', label: 'Why Choose Miraai' },
+        { id: 'finalcta', label: 'Final CTA With Form Fill-Up' },
         { id: 'testimonials', label: 'Testimonials' },
         { id: 'faq', label: 'FAQ' },
     ];
@@ -53,16 +46,11 @@ const Miraai = () => {
 
     return (
         <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
-            {/* Sidebar component handles both mobile and desktop views */}
-            <EdInaiSidebar
-                logoImage={logoImage}
-                items={navItems}
-                onItemClick={handleSideMenuSelect}
-                activeId={activeSection}
-            />
+            {/* Original Sidebar */}
+            <Sidebar isOpen={true} />
 
             {/* Main Content Area */}
-            <main className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth">
+            <main ref={scrollContainerRef} className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth md:pl-[280px]">
                 <PageHeader
                     title="Miraai"
                     showBackButton={true}
@@ -77,7 +65,7 @@ const Miraai = () => {
 
 
                     <section id="gallery"><MiraaiGallery /></section>
-                    <section id="process"><MiraaiProcess /></section>
+                    <section id="process"><MiraaiProcess containerRef={scrollContainerRef} /></section>
                     <section id="trust"><MiraaiTrust /></section>
                     <section id="showcase"><MiraaiShowcase /></section>
                     <section id="vision"><MiraaiVision /></section>

@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 // Import local assets from Assetsa
 import asset1 from '../../../Assetsa/a.png';
@@ -19,11 +19,18 @@ const MiraaiGallery = () => {
         { url: asset6, category: 'Education', label: 'AI Mentorship' },
     ];
 
-    const doubledItems = [...galleryItems, ...galleryItems];
+    const [activeIndex, setActiveIndex] = useState(2);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % galleryItems.length);
+        }, 3000);
+        return () => clearInterval(interval);
+    }, [galleryItems.length]);
 
     return (
-        <section className="py-12 bg-black overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-16">
+        <section className="py-20 bg-black overflow-hidden relative">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-12">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -32,49 +39,65 @@ const MiraaiGallery = () => {
                 >
                     <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">AI Content & Ad Creation Gallery</span>
                 </motion.div>
+                <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
             </div>
 
-            <div className="relative w-full flex overflow-hidden py-10">
-                <motion.div
-                    className="flex gap-6 px-3"
-                    animate={{ x: [0, -360 * galleryItems.length] }}
-                    transition={{
-                        duration: 35,
-                        repeat: Infinity,
-                        ease: "linear",
-                        repeatType: "loop"
-                    }}
-                >
-                    {doubledItems.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            whileHover={{
-                                scale: 1.15,
-                                zIndex: 10,
-                                transition: { duration: 0.4, ease: "easeOut" }
-                            }}
-                            className="relative min-w-[280px] md:min-w-[340px] aspect-[4/5] rounded-[2.5rem] overflow-hidden group cursor-pointer border-[1px] border-white/10 hover:border-purple-500/50 transition-colors duration-500 shadow-2xl bg-[#0A0A0A]"
-                        >
-                            <img
-                                src={item.url}
-                                alt={item.category}
-                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-                            />
+            <div className="relative h-[450px] md:h-[600px] flex items-center justify-center">
+                <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
+                    {galleryItems.map((item, index) => {
+                        // Calculate offset from center
+                        const offset = index - activeIndex;
+                        const absOffset = Math.abs(offset);
 
-                            <div className="absolute inset-x-0 bottom-0 p-8 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 translate-y-4 group-hover:translate-y-0 transition-transform">
-                                <p className="text-purple-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                                    {item.category}
-                                </p>
-                                <h4 className="text-white text-lg font-bold tracking-tight leading-none italic">
-                                    {item.label}
-                                </h4>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
+                        // Only show local neighbors to prevent clutter
+                        if (absOffset > 2) return null;
 
-                <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none" />
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={false}
+                                animate={{
+                                    x: offset * 180, // Horizontal spread
+                                    scale: 1 - absOffset * 0.15, // Scale down neighbors
+                                    zIndex: 50 - absOffset, // Put center on top
+                                    opacity: 1 - absOffset * 0.3, // Fade neighbors
+                                    rotateY: offset * -20, // 3D tilt
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 30
+                                }}
+                                onClick={() => setActiveIndex(index)}
+                                className={`
+                                    absolute w-[240px] md:w-[320px] aspect-[4/5] rounded-[2rem] 
+                                    overflow-hidden cursor-pointer group
+                                    ${absOffset === 0 ? 'border-[3px] border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.4)]' : 'border border-white/10'}
+                                `}
+                            >
+                                <img
+                                    src={item.url}
+                                    alt={item.category}
+                                    className="w-full h-full object-cover"
+                                />
+
+                                {/* Info Overlay - only visible or bright on active */}
+                                <div className={`
+                                    absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black via-black/60 to-transparent
+                                    transition-opacity duration-500
+                                    ${absOffset === 0 ? 'opacity-100' : 'opacity-0'}
+                                `}>
+                                    <p className="text-purple-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-1">
+                                        {item.category}
+                                    </p>
+                                    <h4 className="text-white text-lg font-bold italic tracking-tight">
+                                        {item.label}
+                                    </h4>
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
             </div>
         </section>
     );
