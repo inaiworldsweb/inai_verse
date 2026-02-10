@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Import local assets
-import asset1 from '../../../assets/images/robotic_head_cloud_1768805975660.png';
-import asset2 from '../../../assets/images/robotic_head_device_1768805995068.png';
-import asset3 from '../../../assets/final/1.png';
-import asset4 from '../../../assets/final/Data-Driven Insights.png';
-import asset5 from '../../../assets/final/Smart Automation for Institutions.png';
-import asset6 from '../../../assets/final/AI Teachers that Never Tire (2).png';
+// Import local assets from Assetsa
+import asset1 from '../../../Assetsa/a.png';
+import asset2 from '../../../Assetsa/b.png';
+import asset3 from '../../../Assetsa/c.png';
+import asset4 from '../../../Assetsa/d.png';
+import asset5 from '../../../Assetsa/e.png';
+import asset6 from '../../../Assetsa/f.png';
 
 const MiraaiGallery = () => {
     const galleryItems = [
@@ -22,7 +22,7 @@ const MiraaiGallery = () => {
     const doubledItems = [...galleryItems, ...galleryItems];
 
     return (
-        <section className="py-24 bg-black overflow-hidden relative">
+        <section className="py-12 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-16">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}

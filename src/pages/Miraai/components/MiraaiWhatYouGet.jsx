@@ -20,7 +20,7 @@ const MiraaiWhatYouGet = () => {
     ];
 
     return (
-        <section className="py-32 bg-black overflow-hidden relative">
+        <section className="py-16 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-16">
                 <motion.h2
                     initial={{ opacity: 0, scale: 0.95 }}

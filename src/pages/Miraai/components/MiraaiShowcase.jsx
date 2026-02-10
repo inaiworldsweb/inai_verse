@@ -1,13 +1,13 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-// Import local assets
-import image1 from '../../../assets/2.jpg';
-import image2 from '../../../assets/5.png';
-import image3 from '../../../assets/images/robotic_face_setup.png';
-import image4 from '../../../assets/images/teach-the.png';
-import image5 from '../../../assets/images/cloud-platform.png';
-import image6 from '../../../assets/images/system-integration.png';
+// Import local assets from Assetsa
+import image1 from '../../../Assetsa/a.png';
+import image2 from '../../../Assetsa/b.png';
+import image3 from '../../../Assetsa/c.png';
+import image4 from '../../../Assetsa/d.png';
+import image5 from '../../../Assetsa/e.png';
+import image6 from '../../../Assetsa/f.png';
 
 const MiraaiShowcase = () => {
     const showcaseItems = [
@@ -22,7 +22,7 @@ const MiraaiShowcase = () => {
     const doubledItems = [...showcaseItems, ...showcaseItems];
 
     return (
-        <section className="pb-24 bg-black overflow-hidden relative">
+        <section className="pb-12 bg-black overflow-hidden relative">
             {/* Header / Subtitle Section removed as requested by user's comments */}
 
             <div className="relative w-full flex overflow-hidden py-10">

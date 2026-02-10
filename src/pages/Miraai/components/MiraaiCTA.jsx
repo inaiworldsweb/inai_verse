@@ -1,22 +1,77 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
-const QuestionCard = ({ icon, question, index }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8, delay: index * 0.15 }}
-        className="bg-[#111111] p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center group"
-    >
-        <div className="w-16 h-16 md:w-20 md:h-20 bg-[#1A1A1A] rounded-2xl flex items-center justify-center mb-8 border border-white/5 group-hover:border-white/10 transition-colors">
-            {icon}
-        </div>
-        <p className="text-white text-lg md:text-xl font-medium tracking-tight leading-relaxed">
-            {question}
-        </p>
-    </motion.div>
-);
+const QuestionCard = ({ icon, question, index }) => {
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
+
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+    const handleMouseMove = (e) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            style={{
+                rotateX,
+                rotateY,
+                transformStyle: "preserve-3d",
+            }}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: index * 0.15 }}
+            whileHover={{
+                scale: 1.05,
+                borderColor: "rgba(139, 92, 246, 0.8)",
+                backgroundColor: "rgba(139, 92, 246, 0.05)",
+                boxShadow: "0 25px 50px rgba(0,0,0,0.5), 0 0 40px rgba(139, 92, 246, 0.15)"
+            }}
+            className="bg-[#111111] p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center group relative overflow-hidden transition-all duration-300 border border-white/5"
+        >
+            {/* Glossy Brand Sweep Effect */}
+            <motion.div
+                style={{
+                    left: useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]),
+                    top: useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]),
+                }}
+                className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            />
+
+            <div style={{ transform: "translateZ(50px)" }} className="flex flex-col items-center">
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 group-hover:border-violet-400/50 group-hover:scale-110 transition-all duration-500 relative">
+                    <div className="absolute inset-0 blur-2xl bg-violet-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="group-hover:text-violet-400 transition-all duration-500 filter group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,1)]">
+                        {icon}
+                    </div>
+                </div>
+                <p className="text-white text-lg md:text-xl font-medium tracking-tight leading-relaxed group-hover:text-white transition-colors">
+                    {question}
+                </p>
+            </div>
+        </motion.div>
+    );
+};
 
 const MiraaiCTA = () => {
     return (

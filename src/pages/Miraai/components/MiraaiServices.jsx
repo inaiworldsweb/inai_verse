@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Importing a variety of local assets for all service items
-import thumb1 from '../../../assets/final/1.png';
-import thumb2 from '../../../assets/final/2. AI Teachers that Never Tire.png';
-import thumb3 from '../../../assets/final/Personalized Learning.png';
-import thumb4 from '../../../assets/final/Smart Automation for Institutions.png';
-import thumb5 from '../../../assets/final/Data-Driven Insights.png';
+// Importing assets from Assetsa for all service items
+import thumb1 from '../../../Assetsa/a.png';
+import thumb2 from '../../../Assetsa/b.png';
+import thumb3 from '../../../Assetsa/c.png';
+import thumb4 from '../../../Assetsa/d.png';
+import thumb5 from '../../../Assetsa/e.png';
 
 const MiraaiServices = () => {
     const [hoveredIndex, setHoveredIndex] = useState(3); // Default highlight index matching screenshot
@@ -40,7 +41,7 @@ const MiraaiServices = () => {
     ];
 
     return (
-        <section className="py-32 bg-black">
+        <section className="py-16 bg-black">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
 
                 {/* Section Header */}

@@ -14,13 +14,33 @@ import MiraaiServices from './components/MiraaiServices';
 import MiraaiWhatYouGet from './components/MiraaiWhatYouGet';
 import MiraaiSimpleTruth from './components/MiraaiSimpleTruth';
 import MiraaiCTA from './components/MiraaiCTA';
+import MiraaiWhyChoose from './components/MiraaiWhyChoose';
 import MiraaiComparison from './components/MiraaiComparison';
+import MiraaiGrowthKiller from './components/MiraaiGrowthKiller';
+import MiraaiTestimonials from './components/MiraaiTestimonials';
+import MiraaiFAQ from './components/MiraaiFAQ';
+import MiraaiFinalCTA from './components/MiraaiFinalCTA';
 
 const Miraai = () => {
     const [activeSection, setActiveSection] = useState('hero');
 
     const navItems = [
-        { id: 'hero', label: 'Miraai' },
+        { id: 'hero', label: 'Home' },
+        { id: 'gallery', label: 'Our Work' },
+        { id: 'process', label: 'Process' },
+        { id: 'trust', label: 'Trust' },
+        { id: 'showcase', label: 'Showcase' },
+        { id: 'vision', label: 'Our Vision' },
+        { id: 'services', label: 'Services' },
+        { id: 'whatyouget', label: 'What You Get' },
+        { id: 'simpletruth', label: 'The Truth' },
+        { id: 'cta', label: 'Is It For You?' },
+        { id: 'comparison', label: 'Comparison' },
+        { id: 'growthkiller', label: 'Growth killers' },
+        { id: 'whychoose', label: 'Why US' },
+        { id: 'finalcta', label: 'CTA' },
+        { id: 'testimonials', label: 'Testimonials' },
+        { id: 'faq', label: 'FAQ' },
     ];
 
     const handleSideMenuSelect = (item) => {
@@ -56,20 +76,23 @@ const Miraai = () => {
                     </section>
 
 
-                    <MiraaiGallery />
-                    <MiraaiProcess />
-                    <MiraaiTrust />
-                    <MiraaiShowcase />
-                    <MiraaiVision />
-                    <MiraaiServices />
-                    <MiraaiWhatYouGet />
-                    <MiraaiSimpleTruth />
-                    <MiraaiCTA />
-                    <MiraaiComparison />
+                    <section id="gallery"><MiraaiGallery /></section>
+                    <section id="process"><MiraaiProcess /></section>
+                    <section id="trust"><MiraaiTrust /></section>
+                    <section id="showcase"><MiraaiShowcase /></section>
+                    <section id="vision"><MiraaiVision /></section>
+                    <section id="services"><MiraaiServices /></section>
+                    <section id="whatyouget"><MiraaiWhatYouGet /></section>
+                    <section id="simpletruth"><MiraaiSimpleTruth /></section>
+                    <section id="cta"><MiraaiCTA /></section>
+                    <section id="comparison"><MiraaiComparison /></section>
+                    <section id="growthkiller"><MiraaiGrowthKiller /></section>
+                    <section id="whychoose"><MiraaiWhyChoose /></section>
+                    <section id="finalcta"><MiraaiFinalCTA /></section>
+                    <section id="testimonials"><MiraaiTestimonials /></section>
+                    <section id="faq"><MiraaiFAQ /></section>
 
                     {/* <MiraaiBenefits /> */}
-
-                    {/* <MiraaiFAQ /> */}
                 </div>
 
 
