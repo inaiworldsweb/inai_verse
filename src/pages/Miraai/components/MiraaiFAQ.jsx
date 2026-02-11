@@ -43,7 +43,7 @@ const FAQItem = ({ question, answer, index }) => {
             }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
-            className="mb-4 w-full"
+            className="mb-2 w-full"
         >
             <div
                 onClick={() => setIsOpen(!isOpen)}
@@ -59,7 +59,7 @@ const FAQItem = ({ question, answer, index }) => {
                     className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                 />
 
-                <div className="p-8 md:p-10 flex items-center justify-between relative z-10">
+                <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
                     <h3 className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-violet-400' : 'text-white/90 group-hover:text-white'
                         }`}>
                         {question}
@@ -82,7 +82,7 @@ const FAQItem = ({ question, answer, index }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="px-8 pb-10 md:px-10 md:pb-12 border-t border-white/5 pt-6">
+                            <div className="px-4 pb-6 md:px-6 md:pb-8 border-t border-white/5 pt-4">
                                 <p className="text-white/60 text-base md:text-lg leading-relaxed font-medium">
                                     {answer}
                                 </p>
@@ -120,15 +120,15 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section className="py-24 bg-black">
+        <section className="py-8 bg-black">
             <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-8"
                 >
-                    <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight">
+                    <h2 className="text-[40px] font-black text-white tracking-tight">
                         Frequently Asked Questions
                     </h2>
                 </motion.div>

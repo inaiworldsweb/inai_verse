@@ -1,63 +1,86 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const TestimonialCard = ({ quote, name, role, city, isActive }) => (
-    <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: isActive ? 1 : 0.5, scale: isActive ? 1 : 0.9 }}
-        transition={{ duration: 0.5 }}
-        className={`p-8 md:p-12 rounded-[2.5rem] bg-[#0A0A0A] border border-white/5 flex flex-col items-start text-left min-w-[320px] md:min-w-[500px] max-w-2xl mx-4 ${isActive ? 'shadow-2xl shadow-blue-500/5 border-white/10' : 'blur-[1px]'}`}
-    >
-        <div className="mb-6">
-            <svg className="w-8 h-8 md:w-10 md:h-10 text-white/20 mb-4" fill="currentColor" viewBox="0 0 32 32">
-                <path d="M10 8c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8zm14 0c-3.3 0-6 2.7-6 6v10h10V14h-6c0-2.2 1.8-4 4-4V8z" />
-            </svg>
-            <p className="text-white/80 text-base md:text-lg font-medium leading-relaxed italic mb-8">
+const TestimonialCard = ({ quote, name, role }) => (
+    <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+        <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 h-full transition-all duration-300 hover:border-white/20">
+            <div className="flex items-center mb-4">
+                {[...Array(5)].map((_, i) => (
+                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                ))}
+            </div>
+            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6 font-light">
                 "{quote}"
             </p>
+            <div className="flex items-center">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-bold mr-4">
+                    {name.charAt(0)}
+                </div>
+                <div>
+                    <h4 className="text-white text-lg font-medium">
+                        {name}
+                    </h4>
+                    <p className="text-white/60 text-sm">
+                        {role}
+                    </p>
+                </div>
+            </div>
         </div>
-        <div>
-            <h4 className="text-white text-lg md:text-xl font-bold tracking-tight">
-                {name}
-            </h4>
-            <p className="text-white/40 text-sm md:text-base font-medium">
-                {role} ({city})
-            </p>
-        </div>
-    </motion.div>
+    </div>
 );
 
 const MiraaiTestimonials = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
 
     const testimonials = [
         {
             quote: "Miraai transformed our product marketing. Their team delivered high-quality videos and creatives within days. Our sales and engagement improved significantly.",
             name: "Rajesh Patel",
-            role: "E-Commerce Business Owner",
-            city: "Surat"
+            role: "E-Commerce Business Owner (Surat)"
         },
         {
             quote: "The speed and quality Miraai provides is unmatched. We used to wait weeks for ads, now we get them in days. It's been a game changer for our digital growth.",
             name: "Anjali Sharma",
-            role: "Marketing Director",
-            city: "Mumbai"
+            role: "Marketing Director (Mumbai)"
         },
         {
             quote: "I was skeptical about AI at first, but the expert human touch Miraai adds makes all the difference. The branding is consistent and the videos are top-notch.",
             name: "Vikram Mehta",
-            role: "SaaS Founder",
-            city: "Bangalore"
+            role: "SaaS Founder (Bangalore)"
+        },
+        {
+            quote: "The content creation process has never been easier. Miraai's platform is intuitive and their team is always ready to help with any creative needs.",
+            name: "Priya Nair",
+            role: "Brand Manager (Delhi)"
         }
     ];
 
-    const nextSlide = useCallback(() => {
-        setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, [testimonials.length]);
+    const nextSlide = () => {
+        setCurrentIndex((prev) => {
+            const next = isMobile ? prev + 1 : prev + 2;
+            return next >= testimonials.length ? 0 : next;
+        });
+    };
 
     const prevSlide = () => {
-        setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+        setCurrentIndex((prev) => {
+            const previous = isMobile ? prev - 1 : prev - 2;
+            return previous < 0 ? (isMobile ? testimonials.length - 1 : testimonials.length - 2) : previous;
+        });
     };
 
     useEffect(() => {
@@ -65,86 +88,111 @@ const MiraaiTestimonials = () => {
 
         const interval = setInterval(() => {
             nextSlide();
-        }, 3000); // Fast auto-scroll every 3 seconds
+        }, 5000);
 
         return () => clearInterval(interval);
-    }, [nextSlide, isPaused]);
+    }, [isPaused, currentIndex, isMobile]);
+
+    // Get current cards to display (1 for mobile, 2 for desktop)
+    const visibleCards = isMobile 
+        ? [testimonials[currentIndex]]
+        : [
+            testimonials[currentIndex],
+            testimonials[(currentIndex + 1) % testimonials.length]
+        ].filter(Boolean);
 
     return (
-        <section className="py-16 bg-black overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 flex flex-col items-center">
-
+        <section className="py-16 md:py-24 bg-black overflow-hidden relative">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-24 max-w-3xl">
+                <div className="text-center mb-12 md:mb-20">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-5xl font-bold text-white mb-6 tracking-tight"
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
                     >
-                        What Our Clients Say About Miraai
+                        What Our Clients Say
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/40 text-lg md:text-xl font-medium"
+                        className="text-white/60 text-lg md:text-xl max-w-3xl mx-auto"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
                 </div>
 
-                {/* Slider Container */}
-                <div
-                    className="relative w-full flex items-center justify-center"
-                    onMouseEnter={() => setIsPaused(true)}
-                    onMouseLeave={() => setIsPaused(false)}
+                {/* Carousel Container */}
+                <div 
+                    className="relative px-8 md:px-12"
+                    onMouseEnter={() => !isMobile && setIsPaused(true)}
+                    onMouseLeave={() => !isMobile && setIsPaused(false)}
                 >
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-0 md:left-10 z-20 p-4 rounded-full bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all group"
+                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all items-center justify-center"
+                        aria-label="Previous testimonial"
                     >
-                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 19l-7-7 7-7" />
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
                         </svg>
                     </button>
 
-                    <div className="flex items-center justify-center w-full max-w-6xl overflow-visible px-10 md:px-0">
+                    {/* Testimonials Grid */}
+                    <div className="overflow-hidden">
                         <AnimatePresence mode="wait">
-                            <TestimonialCard
-                                key={activeIndex}
-                                {...testimonials[activeIndex]}
-                                isActive={true}
-                            />
+                            <motion.div
+                                key={currentIndex}
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: -20 }}
+                                transition={{ duration: 0.3 }}
+                                className="flex flex-wrap -mx-4"
+                            >
+                                {visibleCards.map((testimonial, index) => (
+                                    <TestimonialCard
+                                        key={`${currentIndex}-${index}`}
+                                        {...testimonial}
+                                    />
+                                ))}
+                            </motion.div>
                         </AnimatePresence>
                     </div>
 
+                    {/* Next Button */}
                     <button
                         onClick={nextSlide}
-                        className="absolute right-0 md:right-10 z-20 p-4 rounded-full bg-white/5 border border-white/10 text-white/40 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all group"
+                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all items-center justify-center"
+                        aria-label="Next testimonial"
                     >
-                        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 5l7 7-7 7" />
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
-                </div>
 
-                {/* Dots Indicator */}
-                <div className="flex gap-3 mt-16">
-                    {testimonials.map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => setActiveIndex(index)}
-                            className={`h-1.5 rounded-full transition-all duration-300 ${activeIndex === index ? 'w-10 bg-white' : 'w-2 bg-white/20 hover:bg-white/40'}`}
-                        />
-                    ))}
+                    {/* Mobile Navigation Dots */}
+                    <div className="md:hidden flex justify-center mt-8 space-x-2">
+                        {testimonials.map((_, index) => (
+                            <button
+                                key={index}
+                                onClick={() => setCurrentIndex(index)}
+                                className={`w-2.5 h-2.5 rounded-full transition-all ${currentIndex === index ? 'bg-white w-6' : 'bg-white/30'}`}
+                                aria-label={`Go to testimonial ${index + 1}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
 
-            {/* Background Decorative Gradient */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.03)_0%,transparent_70%)] pointer-events-none" />
+            {/* Background Elements */}
+            <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-1/4 -right-20 w-96 h-96 bg-purple-500/5 rounded-full filter blur-3xl"></div>
+                <div className="absolute bottom-1/4 -left-20 w-96 h-96 bg-blue-500/5 rounded-full filter blur-3xl"></div>
+            </div>
         </section>
     );
 };

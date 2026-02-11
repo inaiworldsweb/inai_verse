@@ -39,16 +39,16 @@ const MiraaiTrust = () => {
     ];
 
     return (
-        <section className="pt-32 pb-0 bg-black relative">
+        <section className="py-8 bg-black relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="mb-16"
+                    className="mb-8"
                 >
-                    <h2 className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white">
+                    <h2 className="text-[40px] font-black mb-6 tracking-tight text-white">
                         Trusted By Global Giants
                     </h2>
                     <p className="text-white/40 text-base md:text-lg font-medium tracking-tight uppercase tracking-widest">
@@ -57,7 +57,7 @@ const MiraaiTrust = () => {
                 </motion.div>
 
                 {/* Brand Marquee Wrapper */}
-                <div className="relative w-full overflow-hidden mt-16 px-4">
+                <div className="relative w-full overflow-hidden mt-8 px-4">
                     {/* Fading Edges Mask */}
                     <div className="absolute inset-y-0 left-0 w-24 md:w-40 z-20 bg-gradient-to-r from-black to-transparent pointer-events-none" />
                     <div className="absolute inset-y-0 right-0 w-24 md:w-40 z-20 bg-gradient-to-l from-black to-transparent pointer-events-none" />

@@ -6,7 +6,7 @@ import visionImg from '../../../assets/final/1.png';
 
 const MiraaiVision = () => {
     return (
-        <section className="py-12 bg-black">
+        <section className="py-8 bg-black">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 flex flex-col items-center">
                 {/* Large Impact Visual */}
                 <motion.div

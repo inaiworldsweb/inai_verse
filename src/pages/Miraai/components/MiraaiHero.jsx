@@ -18,12 +18,12 @@ const MiraaiHero = () => {
                 transition={{ duration: 0.8 }}
                 className="max-w-[70rem] mx-auto text-center z-10"
             >
-                <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-[1.05] text-white">
+                <h1 className="text-[40px] font-bold tracking-tight mb-8 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     for Your Brand Using AI
                 </h1>
 
-                <p className="text-white/50 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
+                <p className="text-white/50 text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>

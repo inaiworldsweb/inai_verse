@@ -30,15 +30,15 @@ const MiraaiBenefits = () => {
     ];
 
     return (
-        <section className="py-32 bg-black relative">
+        <section className="py-8 bg-black relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
-                <div className="text-center mb-24">
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-3xl md:text-5xl font-black mb-6 tracking-tight text-white"
+                        className="text-[40px] font-black mb-6 tracking-tight text-white"
                     >
                         Why Choose Miraai?
                     </motion.h2>

@@ -1,72 +1,113 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
-// Import local assets from Assetsa
-import image1 from '../../../Assetsa/a.png';
-import image2 from '../../../Assetsa/b.png';
-import image3 from '../../../Assetsa/c.png';
-import image4 from '../../../Assetsa/d.png';
-import image5 from '../../../Assetsa/e.png';
-import image6 from '../../../Assetsa/f.png';
+// Import model images - using different images than MiraaiGallery.jsx
+import img1 from '../../../assets/images/Miraai/video/download 1.gif';
+import img2 from '../../../assets/images/Miraai/video/download 2.gif';
+import img3 from '../../../assets/images/Miraai/video/download 3.gif';
+import img4 from '../../../assets/images/Miraai/video/download 4.gif';
+import img5 from '../../../assets/images/Miraai/video/download 5.gif';
+import img6 from '../../../assets/images/Miraai/video/download 6.gif';
+
+const showcaseItems = [
+    { url: img1 },
+    { url: img2 },
+    { url: img3 },
+    { url: img4 },
+    { url: img5 },
+    { url: img6 },
+];
 
 const MiraaiShowcase = () => {
-    const showcaseItems = [
-        { url: image1, category: 'AI Production', label: 'Scene Depth' },
-        { url: image2, category: 'Visual FX', label: 'Magic Particles' },
-        { url: image3, category: 'Robotic Vision', label: 'Tech Demo' },
-        { url: image4, category: 'Education AI', label: 'Next-Gen Learning' },
-        { url: image5, category: 'Cloud Infrastructure', label: 'Global Scale' },
-        { url: image6, category: 'System Core', label: 'Seamless Integration' },
-    ];
+    const [activeIndex, setActiveIndex] = useState(2);
 
-    const doubledItems = [...showcaseItems, ...showcaseItems];
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setActiveIndex((prev) => (prev + 1) % showcaseItems.length);
+        }, 2500);
+        return () => clearInterval(interval);
+    }, [showcaseItems.length]);
 
     return (
-        <section className="pb-12 bg-black overflow-hidden relative">
-            {/* Header / Subtitle Section removed as requested by user's comments */}
-
-            <div className="relative w-full flex overflow-hidden py-10">
+        <section className="py-8 bg-black overflow-hidden relative">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-12">
                 <motion.div
-                    className="flex gap-6 px-3"
-                    animate={{ x: [0, -360 * showcaseItems.length] }}
-                    transition={{
-                        duration: 40,
-                        repeat: Infinity,
-                        ease: "linear",
-                        repeatType: "loop"
-                    }}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
+                    className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
                 >
-                    {doubledItems.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            whileHover={{
-                                scale: 1.1,
-                                zIndex: 10,
-                                transition: { duration: 0.4, ease: "easeOut" }
-                            }}
-                            className="relative min-w-[280px] md:min-w-[340px] aspect-video rounded-[2rem] overflow-hidden group cursor-pointer border-[1px] border-white/10 hover:border-blue-500/50 transition-colors duration-500 shadow-2xl bg-[#0A0A0A]"
-                        >
-                            <img
-                                src={item.url}
-                                alt={item.category}
-                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-70 group-hover:opacity-100"
-                            />
-
-                            <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                <p className="text-blue-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-1">
-                                    {item.category}
-                                </p>
-                                <h4 className="text-white text-base font-bold tracking-tight leading-none italic">
-                                    {item.label}
-                                </h4>
-                            </div>
-                        </motion.div>
-                    ))}
+                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">AI Content Showcase</span>
                 </motion.div>
+                <h2 className="text-[40px] font-black text-white tracking-tighter">Explore Our Creative Portfolio</h2>
+            </div>
 
-                {/* Perspective Fades */}
-                <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black via-black/80 to-transparent z-20 pointer-events-none" />
-                <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black via-black/80 to-transparent z-20 pointer-events-none" />
+            <div className="relative h-[450px] md:h-[600px] flex items-center justify-center">
+                <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
+                    {showcaseItems.map((item, index) => {
+                        // Calculate circular offset
+                        let offset = index - activeIndex;
+                        const len = showcaseItems.length;
+
+                        // Adjust for circular wrapping
+                        if (offset > len / 2) offset -= len;
+                        else if (offset < -len / 2) offset += len;
+
+                        const absOffset = Math.abs(offset);
+
+                        // Only show local neighbors (limit to 2 on each side)
+                        if (absOffset > 2) return null;
+
+                        return (
+                            <motion.div
+                                key={index}
+                                initial={false}
+                                animate={{
+                                    x: offset * 200, // Horizontal spread
+                                    scale: 1 - absOffset * 0.15, // Scale down neighbors
+                                    zIndex: 50 - absOffset, // Put center on top
+                                    opacity: 1 - absOffset * 0.3, // Fade neighbors
+                                    rotateY: offset * -20, // 3D tilt
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 30
+                                }}
+                                onClick={() => setActiveIndex(index)}
+                                className={`
+                                    absolute w-[280px] md:w-[360px] aspect-[4/5] rounded-[2rem] 
+                                    overflow-hidden cursor-pointer group
+                                    ${absOffset === 0 ? 'border-[3px] border-blue-500 shadow-[0_0_30px_rgba(59,130,246,0.4)]' : 'border border-white/10'}
+                                `}
+                            >
+                                <div className="relative w-full h-full overflow-hidden">
+                                    <img
+                                        src={item.url}
+                                        alt={`Showcase ${index + 1}`}
+                                        className="w-full h-full object-cover"
+                                        style={{
+                                            fontFamily: 'Arial, sans-serif',
+                                            color: 'transparent',
+                                            textIndent: '-9999px',
+                                            fontSize: '0',
+                                            lineHeight: '0',
+                                            objectFit: 'cover',
+                                            objectPosition: 'center',
+                                            userSelect: 'none',
+                                        }}
+                                    />
+                                </div>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            <div className="flex justify-center mt-12">
+                <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors">
+                    View All Works
+                </button>
             </div>
         </section>
     );

@@ -29,7 +29,7 @@ const MiraaiFinalCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 md:mb-8 tracking-tight leading-tight"
+                        className="text-[40px] font-bold text-white mb-6 md:mb-8 tracking-tight leading-tight"
                     >
                         Ready To Grow Your Brand With Professional Content?
                     </motion.h2>
@@ -39,7 +39,7 @@ const MiraaiFinalCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.3 }}
-                        className="text-white/80 text-base md:text-xl font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed"
+                        className="text-white/80 text-[25px] font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-relaxed"
                     >
                         Let Our AI-Powered Expert Team Handle Your Videos, Ads, And Branding <br className="hidden md:block" />
                         So You Can Focus On Your Business.

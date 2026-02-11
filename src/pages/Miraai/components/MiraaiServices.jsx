@@ -41,7 +41,7 @@ const MiraaiServices = () => {
     ];
 
     return (
-        <section className="py-16 bg-black">
+        <section className="py-8 bg-black">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
 
                 {/* Section Header */}
@@ -51,7 +51,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-3xl md:text-4xl font-bold mb-6 tracking-tight text-white leading-tight"
+                        className="text-[40px] font-bold mb-6 tracking-tight text-white leading-tight"
                     >
                         Here's Exactly What Miraai Does For Your Brand
                     </motion.h2>
@@ -60,7 +60,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-white/40 text-base md:text-lg font-medium tracking-tight"
+                        className="text-white/40 text-[25px] font-medium tracking-tight"
                     >
                         We're your AI-powered creative production team. You brief us. We create. Simple.
                     </motion.p>
@@ -72,6 +72,7 @@ const MiraaiServices = () => {
                         <motion.div
                             key={index}
                             onMouseEnter={() => setHoveredIndex(index)}
+                            onClick={() => setHoveredIndex(index)}
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

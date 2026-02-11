@@ -2,8 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const ProgressItem = ({ label, percentage, subtext, index }) => (
-    <div className="mb-10 w-full text-left">
-        <div className="flex justify-between items-end mb-4">
+    <div className="w-full text-left h-[90px] flex flex-col justify-center">
+        <div className="flex justify-between items-end mb-2">
             <h4 className="text-white text-base md:text-lg font-bold tracking-tight">{label}</h4>
             <span className="text-white/60 font-bold text-lg">{percentage}%</span>
         </div>
@@ -28,9 +28,9 @@ const BetterWayCard = ({ text, index }) => (
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="p-6 md:p-8 rounded-2xl bg-[#0A0A0A] border border-white/5 hover:border-white/20 transition-all duration-300 flex items-center group w-full mb-4"
+        className="p-6 md:p-8 rounded-2xl bg-[#0A0A0A] border border-white/5 hover:border-white/20 transition-all duration-300 flex items-center group w-full h-[90px]"
     >
-        <div className="w-2 h-2 rounded-full bg-white mr-6 group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+        <div className="w-2 h-2 rounded-full bg-white mr-6 group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(255,255,255,0.5)] shrink-0" />
         <p className="text-white/80 group-hover:text-white transition-colors text-base md:text-lg font-bold tracking-tight">
             {text}
         </p>
@@ -53,7 +53,7 @@ const MiraaiGrowthKiller = () => {
     ];
 
     return (
-        <section className="py-16 bg-black overflow-hidden">
+        <section className="py-8 bg-black overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 flex flex-col items-center">
 
                 {/* Main Header */}
@@ -61,9 +61,9 @@ const MiraaiGrowthKiller = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-24 max-w-4xl"
+                    className="text-center mb-12 max-w-4xl"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tighter leading-none">
+                    <h2 className="text-[40px] font-bold text-white mb-8 tracking-tighter leading-none">
                         When Content Production Becomes <br /> The Growth Killer
                     </h2>
                 </motion.div>
@@ -72,14 +72,14 @@ const MiraaiGrowthKiller = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-24 w-full">
 
                     {/* Left side: The Breaking Point */}
-                    <div className="bg-[#050505] border border-white/5 p-10 md:p-16 rounded-[3rem] relative overflow-hidden flex flex-col items-center">
+                    <div className="bg-[#050505] border border-white/5 p-10 md:p-16 rounded-[3rem] relative overflow-hidden flex flex-col items-center h-full justify-start">
                         <div className="relative z-10 w-full">
                             <div className="mb-12 text-center">
                                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">The Breaking Point</h3>
                                 <p className="text-white/40 text-sm md:text-base font-medium">Most growing businesses hit the same wall</p>
                             </div>
 
-                            <div className="w-full">
+                            <div className="w-full h-full flex flex-col gap-3">
                                 {problems.map((item, index) => (
                                     <ProgressItem key={index} index={index} {...item} />
                                 ))}
@@ -90,14 +90,14 @@ const MiraaiGrowthKiller = () => {
                     </div>
 
                     {/* Right side: There's A Better Way */}
-                    <div className="bg-[#050505] border border-white/5 p-10 md:p-16 rounded-[3rem] relative overflow-hidden flex flex-col items-center">
+                    <div className="bg-[#050505] border border-white/5 p-10 md:p-16 rounded-[3rem] relative overflow-hidden flex flex-col items-center h-full justify-start">
                         <div className="relative z-10 w-full flex flex-col items-center">
                             <div className="mb-12 text-center">
                                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 tracking-tight">There's A Better Way</h3>
                                 <p className="text-white/40 text-sm md:text-base font-medium">With Miraai, you can:</p>
                             </div>
 
-                            <div className="w-full space-y-4">
+                            <div className="w-full h-full flex flex-col gap-3">
                                 {solutions.map((text, index) => (
                                     <BetterWayCard key={index} index={index} text={text} />
                                 ))}
@@ -114,7 +114,7 @@ const MiraaiGrowthKiller = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.5 }}
-                    className="mt-24 text-center"
+                    className="mt-4 text-center"
                 >
                     <p className="text-white text-lg md:text-2xl font-medium opacity-80 mb-2">That's exactly what Miraai does.</p>
                     <div className="h-px w-24 bg-white/20 mx-auto" />

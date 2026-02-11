@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-// Import local assets from Assetsa
-import asset1 from '../../../Assetsa/a.png';
-import asset2 from '../../../Assetsa/b.png';
-import asset3 from '../../../Assetsa/c.png';
-import asset4 from '../../../Assetsa/d.png';
-import asset5 from '../../../Assetsa/e.png';
-import asset6 from '../../../Assetsa/f.png';
+// Import local assets from Miraai model folder
+import asset1 from '../../../assets/images/Miraai/model/Laxmi Fashion Shoot (1).webp';
+import asset2 from '../../../assets/images/Miraai/model/Perfume (1).webp';
+import asset3 from '../../../assets/images/Miraai/model/Perfume (2).webp';
+import asset4 from '../../../assets/images/Miraai/model/Perfume (4).webp';
+import asset5 from '../../../assets/images/Miraai/model/Rasmika Shoot (1).webp';
+import asset6 from '../../../assets/images/Miraai/model/Rasmika Shoot (8).webp';
 
 const MiraaiGallery = () => {
     const galleryItems = [
-        { url: asset1, category: 'AI Core', label: 'Cloud Processing' },
-        { url: asset2, category: 'Edge Computing', label: 'Device Integration' },
-        { url: asset3, category: 'Creative AI', label: 'Image Synthesis' },
-        { url: asset4, category: 'Analytics', label: 'Data Visualization' },
-        { url: asset5, category: 'Automation', label: 'Smart Systems' },
-        { url: asset6, category: 'Education', label: 'AI Mentorship' },
+        { url: asset1,  },
+        { url: asset2,  },
+        { url: asset3, },
+        { url: asset4,  },
+        { url: asset5,  },
+        { url: asset6,  },
     ];
 
     const [activeIndex, setActiveIndex] = useState(2);
@@ -24,12 +24,12 @@ const MiraaiGallery = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % galleryItems.length);
-        }, 3000);
+        }, 2500);
         return () => clearInterval(interval);
     }, [galleryItems.length]);
 
     return (
-        <section className="py-20 bg-black overflow-hidden relative">
+        <section className="py-8 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-12">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -39,17 +39,23 @@ const MiraaiGallery = () => {
                 >
                     <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">AI Content & Ad Creation Gallery</span>
                 </motion.div>
-                <h2 className="text-3xl md:text-5xl font-black text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
+                <h2 className="text-[40px] font-black text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
             </div>
 
             <div className="relative h-[450px] md:h-[600px] flex items-center justify-center">
                 <div className="relative w-full max-w-5xl h-full flex items-center justify-center">
                     {galleryItems.map((item, index) => {
-                        // Calculate offset from center
-                        const offset = index - activeIndex;
+                        // Calculate circular offset
+                        let offset = index - activeIndex;
+                        const len = galleryItems.length;
+
+                        // Adjust for circular wrapping
+                        if (offset > len / 2) offset -= len;
+                        else if (offset < -len / 2) offset += len;
+
                         const absOffset = Math.abs(offset);
 
-                        // Only show local neighbors to prevent clutter
+                        // Only show local neighbors (limit to 2 on each side)
                         if (absOffset > 2) return null;
 
                         return (
@@ -57,7 +63,7 @@ const MiraaiGallery = () => {
                                 key={index}
                                 initial={false}
                                 animate={{
-                                    x: offset * 180, // Horizontal spread
+                                    x: offset * 200, // Horizontal spread
                                     scale: 1 - absOffset * 0.15, // Scale down neighbors
                                     zIndex: 50 - absOffset, // Put center on top
                                     opacity: 1 - absOffset * 0.3, // Fade neighbors
@@ -70,16 +76,38 @@ const MiraaiGallery = () => {
                                 }}
                                 onClick={() => setActiveIndex(index)}
                                 className={`
-                                    absolute w-[240px] md:w-[320px] aspect-[4/5] rounded-[2rem] 
+                                    absolute w-[280px] md:w-[360px] aspect-[4/5] rounded-[2rem] 
                                     overflow-hidden cursor-pointer group
                                     ${absOffset === 0 ? 'border-[3px] border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.4)]' : 'border border-white/10'}
                                 `}
                             >
-                                <img
-                                    src={item.url}
-                                    alt={item.category}
-                                    className="w-full h-full object-cover"
-                                />
+                                <div className="relative w-full h-full overflow-hidden">
+                                    <img
+                                        src={item.url}
+                                        alt={item.category}
+                                        className="w-full h-full object-cover"
+                                        style={{
+                                            // Ensure no text appears on the image
+                                            fontFamily: 'Arial, sans-serif',
+                                            color: 'transparent',
+                                            textIndent: '-9999px',
+                                            fontSize: '0',
+                                            lineHeight: '0',
+                                            // Force image to cover the container
+                                            objectFit: 'cover',
+                                            objectPosition: 'center',
+                                            // Prevent any text selection or highlighting
+                                            userSelect: 'none',
+                                            WebkitUserSelect: 'none',
+                                            MozUserSelect: 'none',
+                                            msUserSelect: 'none'
+                                        }}
+                                        onError={(e) => {
+                                            // Fallback in case image fails to load
+                                            e.target.style.content = 'none';
+                                        }}
+                                    />
+                                </div>
 
                                 {/* Info Overlay - only visible or bright on active */}
                                 <div className={`

@@ -75,8 +75,8 @@ const QuestionCard = ({ icon, question, index }) => {
 
 const MiraaiCTA = () => {
     return (
-        <section className="py-24 px-4 sm:px-6 lg:px-20 bg-black">
-            <div className="max-w-[1200px] mx-auto bg-[#050505] rounded-[4rem] p-12 md:p-24 border border-white/5 relative overflow-hidden">
+        <section className="py-8 px-4 sm:px-6 lg:px-20 bg-black">
+            <div className="max-w-[1200px] mx-auto bg-[#050505] rounded-[4rem] p-8 md:p-12 border border-white/5 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
 
