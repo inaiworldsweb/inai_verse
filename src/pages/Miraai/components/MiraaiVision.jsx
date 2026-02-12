@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
-import HeroImage from "../../../assets/centerimage.avif";
+// import HeroImage from "../../../assets/centerimage.avif";
 
 const SynProHeroSection = () => {
     const containerRef = useRef(null);
