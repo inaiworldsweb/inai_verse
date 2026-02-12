@@ -27,15 +27,15 @@ import MiraaiWhoNeeds from './components/MiraaiWhoNeeds';
 
 // Navigation configuration - All components included
 const navConfig = [
-    { id: 'hero', label: 'Hero Section' },
-    { id: 'services', label: 'What Exactly We Do' },
-    { id: 'whoneeds', label: 'Who Needs Our Services' },
-    { id: 'growthkiller', label: 'Growth Killer' },
-    { id: 'simpletruth', label: 'The Real Problem We Solve' },
-    { id: 'whychoose', label: 'WHY CHOOSE MIRAAI' },
-    { id: 'finalcta', label: 'Final CTA With Form Fill-Up' },
+    { id: 'hero', label: 'Hero section' },
+    { id: 'services', label: 'What exactly we do' },
+    { id: 'whoneeds', label: 'Who needs our services' },
+    { id: 'growthkiller', label: 'Growth killer' },
+    { id: 'simpletruth', label: 'The real problem we solve' },
+    { id: 'whychoose', label: 'Why choose miraai' },
+    { id: 'finalcta', label: 'Final CTA with form fill-up' },
     { id: 'testimonials', label: 'Testimonials' },
-    { id: 'faq', label: 'Frequently Asked Questions' },
+    { id: 'faq', label: 'Frequently asked questions' },
 ];
 
 const Miraai = () => {
@@ -115,7 +115,7 @@ const Miraai = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main ref={scrollContainerRef} className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth">
+            <main ref={scrollContainerRef} className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0">
                 <PageHeader
                     title="Miraai"
                     showBackButton={true}
@@ -127,28 +127,28 @@ const Miraai = () => {
                     onPriceClick={handleGoToPrice}
                 />
 
-                <div className="w-full font-['Inter']">
+                <div className="w-full font-['Inter'] space-y-0">
                     <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
                         <MiraaiHero />
                     </section>
 
-                    <section id="gallery"><MiraaiGallery /></section>
-                    <section id="process"><MiraaiProcess containerRef={scrollContainerRef} /></section>
-                    <section id="trust"><MiraaiTrust /></section>
-                    <section id="showcase"><MiraaiShowcase /></section>
-                    {/* <section id="vision"><MiraaiVision /></section> */}
-                    <section id="services"><MiraaiServices /></section>
-                    {/* <section id="benefits"><MiraaiBenefits /></section> */}
-                    <section id="whatyouget"><MiraaiWhatYouGet /></section>
-                     <section id="whoneeds"><MiraaiWhoNeeds /></section>
-                    <section id="simpletruth"><MiraaiSimpleTruth /></section>
-                    <section id="cta"><MiraaiCTA /></section>
-                    <section id="comparison"><MiraaiComparison /></section>
-                    <section id="growthkiller"><MiraaiGrowthKiller /></section>
-                    <section id="whychoose"><MiraaiWhyChoose /></section>
-                    <section id="finalcta"><MiraaiFinalCTA /></section>
-                    <section id="testimonials"><MiraaiTestimonials /></section>
-                    <section id="faq"><MiraaiFAQ /></section>
+                    <section id="gallery" className="!mt-0"><MiraaiGallery /></section>
+                    <section id="process" className="!mt-0"><MiraaiProcess containerRef={scrollContainerRef} /></section>
+                    <section id="trust" className="!mt-0"><MiraaiTrust /></section>
+                    <section id="showcase" className="!mt-0"><MiraaiShowcase /></section>
+                    {/* <section id="vision" className="!mt-0"><MiraaiVision /></section> */}
+                    <section id="services" className="!mt-0"><MiraaiServices /></section>
+                    {/* <section id="benefits" className="!mt-0"><MiraaiBenefits /></section> */}
+                    <section id="whatyouget" className="!mt-0"><MiraaiWhatYouGet /></section>
+                    <section id="whoneeds" className="!mt-0"><MiraaiWhoNeeds /></section>
+                    <section id="simpletruth" className="!mt-0"><MiraaiSimpleTruth /></section>
+                    <section id="cta" className="!mt-0"><MiraaiCTA /></section>
+                    <section id="comparison" className="!mt-0"><MiraaiComparison /></section>
+                    <section id="growthkiller" className="!mt-0"><MiraaiGrowthKiller /></section>
+                    <section id="whychoose" className="!mt-0"><MiraaiWhyChoose /></section>
+                    <section id="finalcta" className="!mt-0"><MiraaiFinalCTA /></section>
+                    <section id="testimonials" className="!mt-0"><MiraaiTestimonials /></section>
+                    <section id="faq" className="!mt-0"><MiraaiFAQ /></section>
                 </div>
             </main>
         </div>

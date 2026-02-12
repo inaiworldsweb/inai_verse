@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root {
   color-scheme: dark;
 }
@@ -24,4 +25,9 @@ button {
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
 }

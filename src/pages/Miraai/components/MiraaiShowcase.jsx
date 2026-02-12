@@ -105,7 +105,7 @@ const MiraaiShowcase = () => {
             </div>
 
             <div className="flex justify-center mt-12">
-                <button className="px-8 py-3 bg-blue-600 text-white rounded-full font-medium hover:bg-blue-700 transition-colors">
+                <button className="px-8 py-3 bg-white text-black border border-gray-200 rounded-full font-medium hover:bg-gray-100 transition-all hover:scale-105">
                     View All Works
                 </button>
             </div>

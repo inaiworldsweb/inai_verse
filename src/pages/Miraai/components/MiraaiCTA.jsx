@@ -42,10 +42,7 @@ const QuestionCard = ({ icon, question, index }) => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.15 }}
             whileHover={{
-                scale: 1.05,
                 borderColor: "rgba(139, 92, 246, 0.8)",
-                backgroundColor: "rgba(139, 92, 246, 0.05)",
-                boxShadow: "0 25px 50px rgba(0,0,0,0.5), 0 0 40px rgba(139, 92, 246, 0.15)"
             }}
             className="bg-[#111111] p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center group relative overflow-hidden transition-all duration-300 border border-white/5"
         >
@@ -59,13 +56,10 @@ const QuestionCard = ({ icon, question, index }) => {
             />
 
             <div style={{ transform: "translateZ(50px)" }} className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 group-hover:border-violet-400/50 group-hover:scale-110 transition-all duration-500 relative">
-                    <div className="absolute inset-0 blur-2xl bg-violet-600/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="group-hover:text-violet-400 transition-all duration-500 filter group-hover:drop-shadow-[0_0_8px_rgba(139,92,246,1)]">
-                        {icon}
-                    </div>
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 transition-all duration-300 relative">
+                    {icon}
                 </div>
-                <p className="text-white text-lg md:text-xl font-medium tracking-tight leading-relaxed group-hover:text-white transition-colors">
+                <p className="text-white text-lg md:text-xl font-medium tracking-tight leading-relaxed">
                     {question}
                 </p>
             </div>
@@ -136,10 +130,8 @@ const MiraaiCTA = () => {
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
                         transition={{ duration: 0.5, delay: 0.7 }}
-                        className="px-8 py-4 bg-white text-black text-base md:text-lg font-black rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] hover:shadow-[0_25px_50px_rgba(255,255,255,0.15)] transition-all"
+                        className="px-8 py-4 bg-white text-black text-base md:text-lg font-black rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
                     >
                         Get Started Now
                     </motion.button>

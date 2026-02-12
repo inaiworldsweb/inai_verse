@@ -55,14 +55,10 @@ const MiraaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                         key={item.id}
                         onClick={() => handleItemClick(item.id)}
                         className={`
-                            flex items-center justify-between py-4 px-6 
-                            bg-transparent border-none cursor-pointer 
-                            transition-all duration-300 text-left w-full 
-                            rounded-xl group
+                            w-full flex items-center justify-between px-6 py-4 rounded-xl transition-all group
                             ${activeId === item.id
-                                ? 'bg-white/5 text-white'
-                                : 'text-[#A1A1A1] hover:text-white hover:bg-white/5'
-                            }
+                                ? 'bg-white text-black border-l-4 border-purple-500'
+                                : 'bg-white text-black hover:bg-gray-100'}
                         `}
                         type="button"
                     >
@@ -71,7 +67,7 @@ const MiraaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                         </span>
                         <span aria-hidden="true" className={`
                             text-xl flex-shrink-0 transition-transform duration-300 font-light
-                            ${activeId === item.id ? 'text-white' : 'text-white/20 group-hover:text-white'}
+                            ${activeId === item.id ? 'text-white' : 'text-white/60 group-hover:text-white'}
                         `}>›</span>
                     </button>
                 ))}
@@ -82,15 +78,15 @@ const MiraaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
     return (
         <>
             {/* Mobile Menu Button - Fixed position */}
-            {/* ... (mobile menu button code remains same) ... */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
                 className="
                     lg:hidden fixed top-6 left-6 z-50
-                    p-3 bg-black/50 backdrop-blur-xl border border-white/10 
-                    rounded-2xl text-white
-                    hover:bg-white/10 transition-all active:scale-95
-                    shadow-2xl
+                    w-12 h-12 flex items-center justify-center
+                    rounded-full bg-white border border-gray-200
+                    text-black hover:bg-gray-100
+                    transition-all duration-300
+                    focus:outline-none focus:ring-2 focus:ring-gray-200
                 "
                 aria-label="Open navigation menu"
             >
@@ -118,9 +114,9 @@ const MiraaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                             onClick={() => setIsMobileMenuOpen(false)}
                             className="
                                 absolute top-6 right-6 p-2.5 
-                                text-white/50 hover:text-white 
-                                hover:bg-white/10 rounded-xl
-                                transition-all active:scale-90
+                                rounded-full bg-white border border-gray-200
+                                text-black hover:bg-gray-100
+                                transition-all duration-300
                             "
                             aria-label="Close navigation menu"
                         >

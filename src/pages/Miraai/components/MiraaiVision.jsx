@@ -1,58 +1,147 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useEffect, useState } from "react";
+import HeroImage from "../../../assets/centerimage.avif";
 
-// Using a high-quality local asset for the vision section
-import visionImg from '../../../assets/final/1.png';
+const SynProHeroSection = () => {
+    const containerRef = useRef(null);
+    const [progress, setProgress] = useState(0);
 
-const MiraaiVision = () => {
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!containerRef.current) return;
+
+            const { top, height } =
+                containerRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            const totalScroll = height - windowHeight;
+            const currentScroll = -top;
+
+            const p = Math.max(
+                0,
+                Math.min(1, currentScroll / totalScroll)
+            );
+
+            setProgress(p);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+
+        return () =>
+            window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+    // ---------- IMAGE CONTROL ----------
+
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const scaleProgress = easeOut(progress);
+
+    const startScale = 3;
+    const endScale = 0.4;
+
+    const currentScale =
+        startScale - scaleProgress * (startScale - endScale);
+
+    // ---------- TEXT CONTROL ----------
+
+    const textStart = 0.4;
+    const raw = Math.max(0, progress - textStart);
+    const textProgress = Math.min(1, raw * 1.5);
+    const eased = easeOut(textProgress);
+
+    const spreadX = window.innerWidth;
+    const spreadY = window.innerHeight;
+
+    const topOffset = -spreadY * (1 - eased);
+    const leftOffset = -spreadX * (1 - eased);
+    const rightOffset = spreadX * (1 - eased);
+    const bottomOffset = spreadY * (1 - eased);
+
+    const opacity = eased;
+
     return (
-        <section className="py-8 bg-black">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 flex flex-col items-center">
-                {/* Large Impact Visual */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.98 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full aspect-video md:aspect-[21/9] rounded-[3rem] overflow-hidden mb-16 border border-white/5 shadow-2xl relative group"
-                >
-                    <img
-                        src={visionImg}
-                        alt="Miraai Vision"
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s]"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                </motion.div>
+        <div
+            ref={containerRef}
+            className="relative h-[250vh] bg-black text-white"
+        >
+            <div className="sticky top-0 h-screen flex items-center justify-center overflow-hidden">
 
-                {/* Narrative Impact Text */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="text-center px-4"
-                >
-                    <h2 className="text-xl md:text-3xl font-bold tracking-tight text-white leading-[1.3] max-w-4xl mx-auto">
-                        Miraai helps brands scale professional creative
-                        <motion.span
-                            initial={{ width: 0, opacity: 0 }}
-                            whileInView={{ width: "auto", opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8, delay: 0.8 }}
-                            className="inline-flex align-middle mx-3 overflow-hidden rounded-xl border border-white/20 shadow-xl"
+                <div className="relative w-full max-w-7xl flex flex-col items-center justify-center">
+
+                    {/* TOP TEXT */}
+                    <div
+                        style={{
+                            opacity,
+                            transform: `translateY(${topOffset + 100}px)`
+                        }}
+                    >
+                        <p className="text-[40px] font-bold text-center whitespace-nowrap">
+                            Miraai helps brands scale Professional
+                        </p>
+                    </div>
+
+                    {/* MIDDLE ROW */}
+                    <div className="flex items-center justify-center">
+
+                        {/* LEFT TEXT */}
+                        <div
+                            style={{
+                                opacity,
+                                transform: `translateX(${leftOffset + 140}px)`
+                            }}
+                        >
+                            <p className="text-[40px] font-bold">
+                                Creative
+                            </p>
+                        </div>
+
+                        {/* IMAGE */}
+                        <div
+                            className="relative w-[70vw] md:w-[28vw]  rounded-lg overflow-hidden shadow-2xl"
+                            style={{
+                                height: "336px",
+                                transform: `scale(${currentScale} )`,
+                                transformOrigin: "center center"
+                            }}
                         >
                             <img
-                                src={visionImg}
-                                className="w-12 h-8 md:w-20 md:h-12 object-cover"
-                                alt="Miraai Inline Visual"
+                                src={HeroImage}
+                                alt="Hero"
+                                className="w-full h-full object-cover"
                             />
-                        </motion.span>
-                        content 10x faster with up to 70% cost savings.
-                    </h2>
-                </motion.div>
+                        </div>
+
+                        {/* RIGHT TEXT */}
+                        <div
+                            style={{
+                                opacity,
+                                transform: `translateX(${rightOffset - 140}px)`
+                            }}
+                        >
+                            <p className="text-[40px] font-bold">
+                                Content
+                            </p>
+                        </div>
+
+                    </div>
+
+                    {/* BOTTOM TEXT */}
+                    <div
+                        style={{
+                            opacity,
+                            transform: `translateY(${bottomOffset - 100}px)`
+                        }}
+                        className="text-center"
+                    >
+                        <p className="text-[40px] font-bold">
+                            10× faster with up to 70% cost savings.
+                        </p>
+                    </div>
+
+                </div>
             </div>
-        </section>
+        </div>
     );
 };
 
-export default MiraaiVision;
+export default SynProHeroSection;

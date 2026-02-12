@@ -43,10 +43,10 @@ function AppContent() {
     location.pathname.startsWith('/payment/')
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white flex flex-col">
       {!isSpecialPage && <Header onMenuClick={() => setSidebarOpen((v) => !v)} />}
       {!isSpecialPage && <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />}
-      <main className={!isSpecialPage ? "md:pl-[280px]" : ""}>
+      <main className={`flex-1 ${!isSpecialPage ? "md:pl-[280px]" : ""}`}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/pricing" element={<PricingPage />} />
@@ -65,8 +65,8 @@ function AppContent() {
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/failure" element={<PaymentFailure />} />
         </Routes>
-        <FooterLegalLine />
       </main>
+      <FooterLegalLine />
     </div>
   )
 }

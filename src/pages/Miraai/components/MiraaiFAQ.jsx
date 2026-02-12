@@ -47,8 +47,7 @@ const FAQItem = ({ question, answer, index }) => {
         >
             <div
                 onClick={() => setIsOpen(!isOpen)}
-                className={`w-full bg-[#0A0A0A] border rounded-[2rem] transition-all duration-300 group cursor-pointer overflow-hidden ${isOpen ? 'border-violet-500/50' : 'border-white/5'
-                    } hover:border-violet-500/30`}
+                className={`w-full bg-[#0A0A0A] border rounded-[2rem] transition-all duration-300 group cursor-pointer overflow-hidden ${isOpen ? 'border-white/30' : 'border-white/10'}`}
             >
                 {/* Glossy Brand Sweep */}
                 <motion.div
@@ -60,15 +59,13 @@ const FAQItem = ({ question, answer, index }) => {
                 />
 
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
-                    <h3 className={`text-lg md:text-xl font-bold tracking-tight transition-colors duration-300 ${isOpen ? 'text-violet-400' : 'text-white/90 group-hover:text-white'
-                        }`}>
+                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-white">
                         {question}
                     </h3>
                     <motion.div
                         animate={{ rotate: isOpen ? 180 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className={`w-10 h-10 rounded-full flex items-center justify-center border transition-colors duration-300 ${isOpen ? 'bg-violet-500/10 border-violet-500/50 text-violet-400' : 'bg-white/5 border-white/10 text-white/40'
-                            }`}
+                        className="w-10 h-10 rounded-full flex items-center justify-center border border-white/20 bg-white/5 text-white"
                     >
                         <FiChevronDown size={20} />
                     </motion.div>
@@ -82,8 +79,8 @@ const FAQItem = ({ question, answer, index }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="px-4 pb-6 md:px-6 md:pb-8 border-t border-white/5 pt-4">
-                                <p className="text-white/60 text-base md:text-lg leading-relaxed font-medium">
+                            <div className="px-4 pb-6 md:px-6 md:pb-8 border-t border-white/10 pt-4">
+                                <p className="text-white text-base md:text-lg leading-relaxed">
                                     {answer}
                                 </p>
                             </div>

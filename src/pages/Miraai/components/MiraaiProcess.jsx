@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 
 // Import local assets
@@ -7,50 +7,24 @@ import step2Img from '../../../assets/images/Miraai/Customize & Brand.png';
 import step3Img from  '../../../assets/images/Miraai/AI Generation.png';
 import step4Img from '../../../assets/images/Miraai/Review & Deploy.png';
 
-// Add the ElectronBorder component
-const ElectronBorder = () => {
+// Border Animation Component
+const BorderAnimation = () => {
   return (
-    <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
-      {/* Border Glow */}
-      <div className="absolute inset-0 border-2 border-transparent rounded-[2rem]">
-        <div className="absolute inset-0 rounded-[2rem] bg-gradient-to-r from-blue-500/10 via-purple-500/10 to-blue-500/10 animate-pulse" />
+    <div className="absolute inset-0 z-0 rounded-[2rem] overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+      <div className="absolute inset-0">
+        <div className="
+          absolute inset-[-100%]
+          bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,white_360deg)]
+          group-hover:animate-[spin_3s_linear_infinite]
+          rounded-[2rem]
+        "></div>
       </div>
-      
-      {/* Animated Electron Dots */}
-      {[...Array(4)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-3 h-3 rounded-full bg-gradient-to-r from-blue-400 to-purple-500 shadow-[0_0_15px_rgba(99,102,241,0.8)]"
-          initial={{
-            opacity: 0.8,
-            x: i % 2 === 0 ? -10 : '100%',
-            y: i < 2 ? -10 : '100%'
-          }}
-          animate={{
-            x: i % 2 === 0 ? ['-10%', '110%', '110%', '-10%'] : ['110%', '-10%', '-10%', '110%'],
-            y: i < 2 ? ['-10%', '-10%', '110%', '110%'] : ['110%', '110%', '-10%', '-10%'],
-          }}
-          transition={{
-            duration: 8,
-            ease: 'linear',
-            repeat: Infinity,
-            repeatType: 'loop',
-            times: [0, 0.5, 0.5001, 1],
-            delay: i * 0.5
-          }}
-          style={{
-            left: i % 2 === 0 ? 0 : 'auto',
-            right: i % 2 !== 0 ? 0 : 'auto',
-            top: i < 2 ? 0 : 'auto',
-            bottom: i >= 2 ? 0 : 'auto',
-          }}
-        />
-      ))}
     </div>
   );
 };
 
 const MiraaiProcess = ({ containerRef }) => {
+    const [hoveredIndex, setHoveredIndex] = useState(null);
     const sectionRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: sectionRef,
@@ -159,31 +133,25 @@ const MiraaiProcess = ({ containerRef }) => {
                                     whileInView={{ opacity: 1, scale: 1, x: 0 }}
                                     viewport={{ once: true, margin: "-100px" }}
                                     transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="w-full md:w-[42%] aspect-square rounded-[2rem] overflow-hidden bg-[#0A0A0A] border-[1px] border-white/5 relative group"
+                                    className="w-full md:w-[42%] aspect-square rounded-[2rem] overflow-hidden bg-[#0A0A0A] border-[1px] border-white/5 relative group p-[2px]"
                                 >
-                                    {/* Add the ElectronBorder component here */}
-                                    <ElectronBorder />
-                                    
-                                    <img 
-                                        src={step.image} 
-                                        alt={step.title} 
-                                        className="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-all duration-1000 group-hover:scale-105 relative z-10" 
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 z-10" />
+                                    <div className="
+                                        relative z-10
+                                        bg-[#0A0A0A]
+                                        rounded-[calc(2rem-2px)]
+                                        h-full w-full
+                                        overflow-hidden
+                                    ">
+                                        <img 
+                                            src={step.image} 
+                                            alt={step.title} 
+                                            className="w-full h-full object-cover opacity-60 relative z-10" 
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90 z-10" />
 
-                                    {/* Scanning Line Effect */}
-                                    <motion.div
-                                        className="absolute top-0 bottom-0 w-[2px] bg-gradient-to-b from-transparent via-white to-transparent shadow-[0_0_20px_rgba(255,255,255,0.8)] z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                                        animate={{ left: ["-20%", "120%"] }}
-                                        transition={{
-                                            duration: 1.5,
-                                            ease: "linear",
-                                            repeat: Infinity,
-                                            repeatDelay: 0.5
-                                        }}
-                                    >
-                                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[4px] h-[100px] bg-white/50 blur-lg rounded-full" />
-                                    </motion.div>
+                                    </div>
+
+                                    <BorderAnimation />
                                 </motion.div>
 
                                 <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 hidden md:block">

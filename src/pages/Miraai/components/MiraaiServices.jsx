@@ -41,17 +41,16 @@ const MiraaiServices = () => {
     ];
 
     return (
-        <section className="py-8 bg-black">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
-
+        <section className="py-6 bg-white">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-24">
+                <div className="text-center mb-4">
                     <motion.h2
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[40px] font-bold mb-6 tracking-tight text-white leading-tight"
+                        className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white leading-tight"
                     >
                         Here's Exactly What Miraai Does For Your Brand
                     </motion.h2>
@@ -60,7 +59,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-white/40 text-[25px] font-medium tracking-tight"
+                        className="text-white/60 text-lg md:text-xl font-medium tracking-tight"
                     >
                         We're your AI-powered creative production team. You brief us. We create. Simple.
                     </motion.p>
@@ -78,17 +77,17 @@ const MiraaiServices = () => {
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className={`
-                                relative min-h-[100px] md:min-h-[120px] rounded-2xl transition-all duration-300 cursor-pointer
-                                flex items-center justify-between px-10 md:px-16 overflow-hidden
+                                relative min-h-[80px] md:min-h-[90px] rounded-xl transition-all duration-300 cursor-pointer
+                                flex items-center justify-between px-6 md:px-10 overflow-hidden
                                 ${hoveredIndex === index
                                     ? 'bg-white text-black'
-                                    : 'bg-transparent text-white border border-white/5'}
+                                    : 'bg-transparent text-gray-800 border border-gray-200'}
                             `}
                         >
                             {/* Title - Left Aligned */}
                             <h3 className={`
                                 text-lg md:text-xl font-bold tracking-tight transition-colors duration-300
-                                ${hoveredIndex === index ? 'text-black' : 'text-white'}
+                                ${hoveredIndex === index ? 'text-black' : 'text-gray-800'}
                             `}>
                                 {service.title}
                             </h3>
@@ -113,7 +112,7 @@ const MiraaiServices = () => {
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, x: -20 }}
-                                            className="text-xs md:text-sm font-medium leading-relaxed text-white/30"
+                                            className="text-xs md:text-sm font-medium leading-relaxed text-gray-500"
                                         >
                                             {service.description}
                                         </motion.p>
@@ -122,7 +121,7 @@ const MiraaiServices = () => {
                             </div>
 
                             {/* Decorative line for non-hovered items */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-white/5" />
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200" />
                         </motion.div>
                     ))}
                 </div>

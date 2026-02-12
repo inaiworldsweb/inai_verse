@@ -46,12 +46,12 @@ const MiraaiTrust = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8, ease: "easeOut" }}
-                    className="mb-8"
+                    className="mb-8 text-center"
                 >
-                    <h2 className="text-[40px] font-black mb-6 tracking-tight text-white">
+                    <h2 className="text-[40px] font-black mb-4 tracking-tight text-white">
                         Trusted By Global Giants
                     </h2>
-                    <p className="text-white/40 text-base md:text-lg font-medium tracking-tight uppercase tracking-widest">
+                    <p className="text-white/40 text-sm md:text-base font-medium uppercase tracking-wider">
                         Creating Content For 500+ Brands
                     </p>
                 </motion.div>

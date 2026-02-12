@@ -134,7 +134,7 @@ const MiraaiTestimonials = () => {
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all items-center justify-center"
+                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
                         aria-label="Previous testimonial"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +166,7 @@ const MiraaiTestimonials = () => {
                     {/* Next Button */}
                     <button
                         onClick={nextSlide}
-                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white/5 border border-white/10 text-white/60 hover:text-white hover:bg-white/10 transition-all items-center justify-center"
+                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
                         aria-label="Next testimonial"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,7 +180,7 @@ const MiraaiTestimonials = () => {
                             <button
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
-                                className={`w-2.5 h-2.5 rounded-full transition-all ${currentIndex === index ? 'bg-white w-6' : 'bg-white/30'}`}
+                                className={`w-2.5 h-2.5 rounded-full transition-all ${currentIndex === index ? 'bg-white w-6' : 'bg-white/70'}`}
                                 aria-label={`Go to testimonial ${index + 1}`}
                             />
                         ))}

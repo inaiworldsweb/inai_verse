@@ -125,8 +125,10 @@ const MiraaiWhatYouGet = () => {
                 <motion.button 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3 }}
-                    className="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105"
+                    whileHover={{ scale: 1.05, backgroundColor: '#f8f9fa' }}
+                    whileTap={{ scale: 0.98 }}
+                    transition={{ duration: 0.3 }}
+                    className="bg-white text-black font-medium py-3 px-8 rounded-full border border-gray-200 hover:bg-gray-100 transition-all"
                 >
                     Get Started with Miraai
                 </motion.button>

@@ -20,7 +20,7 @@ const MiraaiHero = () => {
             >
                 <h1 className="text-[40px] font-bold tracking-tight mb-8 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
-                    for Your Brand Using AI
+                    For Your Brand Using AI
                 </h1>
 
                 <p className="text-white/50 text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
@@ -30,9 +30,9 @@ const MiraaiHero = () => {
 
                 <div className="flex justify-center mb-24">
                     <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="px-10 py-4 bg-white text-black font-semibold rounded-full text-lg transition-all hover:bg-white/90 shadow-[0_0_30px_rgba(255,255,255,0.1)]"
+                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
+                        whileTap={{ scale: 0.98 }}
+                        className="px-10 py-4 bg-white/90 text-black font-semibold rounded-full text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
                         Start Your First Project
                     </motion.button>
