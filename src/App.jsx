@@ -15,6 +15,7 @@ import EdInaiAdminPage from './features/EdInaiAdmin/EdInaiAdminPage'
 import EdInaiSetupPage from './features/EdInai/EdInaiSetupPage'
 import StepsPage from './features/EdInai/StepsPage'
 import Miraai from './pages/Miraai/Miraai'
+import MiraaiPrices from './pages/Miraai/MiraaiPrice'
 import PayUCheckout from './components/payment/PayUCheckout';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentFailure from './components/payment/PaymentFailure';
@@ -61,6 +62,7 @@ function AppContent() {
           <Route path="/edinai-setup" element={<EdInaiSetupPage />} />
           <Route path="/stepspage" element={<StepsPage />} />
           <Route path="/miraai" element={<Miraai />} />
+          <Route path="/MiraaiPrice" element={<MiraaiPrices />} />
           <Route path="/checkout" element={<PayUCheckout />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/failure" element={<PaymentFailure />} />

@@ -41,16 +41,16 @@ const MiraaiServices = () => {
     ];
 
     return (
-        <section className="py-6 bg-white">
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 bg-black min-h-screen">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-4">
+                <div className="text-center mb-12">
                     <motion.h2
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-3xl md:text-4xl font-bold mb-4 tracking-tight text-white leading-tight"
+                        transition={{ duration: 0.5 }}
+                        className="text-5xl font-bold mb-4 text-white"
                     >
                         Here's Exactly What Miraai Does For Your Brand
                     </motion.h2>
@@ -58,8 +58,8 @@ const MiraaiServices = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-white/60 text-lg md:text-xl font-medium tracking-tight"
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto"
                     >
                         We're your AI-powered creative production team. You brief us. We create. Simple.
                     </motion.p>
@@ -81,13 +81,13 @@ const MiraaiServices = () => {
                                 flex items-center justify-between px-6 md:px-10 overflow-hidden
                                 ${hoveredIndex === index
                                     ? 'bg-white text-black'
-                                    : 'bg-transparent text-gray-800 border border-gray-200'}
+                                    : 'bg-gray-900/50 text-gray-200 border border-gray-800 hover:border-gray-600'}
                             `}
                         >
                             {/* Title - Left Aligned */}
                             <h3 className={`
                                 text-lg md:text-xl font-bold tracking-tight transition-colors duration-300
-                                ${hoveredIndex === index ? 'text-black' : 'text-gray-800'}
+                                ${hoveredIndex === index ? 'text-black' : 'text-gray-200'}
                             `}>
                                 {service.title}
                             </h3>
@@ -112,7 +112,7 @@ const MiraaiServices = () => {
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             exit={{ opacity: 0, x: -20 }}
-                                            className="text-xs md:text-sm font-medium leading-relaxed text-gray-500"
+                                            className="text-xs md:text-sm font-medium leading-relaxed text-gray-400"
                                         >
                                             {service.description}
                                         </motion.p>
@@ -121,7 +121,7 @@ const MiraaiServices = () => {
                             </div>
 
                             {/* Decorative line for non-hovered items */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-200" />
+                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-800" />
                         </motion.div>
                     ))}
                 </div>

@@ -4,6 +4,7 @@ import { HiMenu, HiX } from 'react-icons/hi';
 import PageHeader from '../../components/PageHeader';
 import SideMenu from '../../components/SideMenu';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
+import MiraaiPrice from './MiraaiPrice';
 
 // Components Imports
 import MiraaiHero from './components/MiraaiHero';
@@ -58,7 +59,7 @@ const Miraai = () => {
     };
 
     const handleBack = () => navigate(-1);
-    const handleGoToPrice = () => navigate('/pricing');
+    const handleGoToPrice = () => window.open('/MiraaiPrice', '_blank');
 
     return (
         <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
