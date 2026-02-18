@@ -14,7 +14,7 @@ function LandingPage() {
 
                     {/* Subtitle */}
                     <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center tracking-tight">
-                        We are for people, We are for new{' '}
+                        We are for people, We are for Digital{' '}
                         <span className="inline-flex">
                             <span className="text-[#FF671F]">IN</span>
                             <span className="text-white">D</span>
