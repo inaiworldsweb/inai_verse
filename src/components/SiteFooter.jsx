@@ -16,10 +16,6 @@ const productSections = [
         title: 'EdInai',
         items: ['Overview', 'Features', 'Pricing', 'Faculty tools', 'Student portal'],
     },
-    // {
-    //     title: 'No Code Development',
-    //     items: [],
-    // },
     {
         title: 'INAI For Marketing',
         items: [],
@@ -93,99 +89,81 @@ const socialLinks = [
 
 const SiteFooter = () => {
     const navigate = useNavigate()
+    
     return (
-        <footer className="bg-dark-card py-12 px-8 pb-8 border-t border-white/10" aria-label="Global footer">
+        <footer className="bg-dark-card py-12 px-8 pb-8 border-t border-white/10 overflow-hidden" aria-label="Global footer">
+            {/* Top Links Section */}
             <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8 mb-8" role="list">
                 {productSections.map(({ title, items }) => (
                     <section
                         key={title}
-                        className=""
                         aria-labelledby={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`}
                     >
                         <h3 id={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-semibold mb-4 text-white">
                             {title}
                         </h3>
                         <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                            {items.map((item) => {
+                            {items.map((item, idx) => {
                                 const label = typeof item === 'string' ? item : item.label;
                                 const link = typeof item === 'object' ? item.link : null;
 
                                 return (
-                                    <li key={label} className="m-0">
-                                        {link ? (
-                                            <button
-                                                type="button"
-                                                onClick={() => window.location.assign(link)}
-                                                className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
-                                            >
-                                                {label}
-                                            </button>
-                                        ) : (
-                                            <button
-                                                type="button"
-                                                className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
-                                            >
-                                                {label}
-                                            </button>
-                                        )}
+                                    <li key={idx} className="m-0">
+                                        <button
+                                            type="button"
+                                            onClick={() => link ? window.location.assign(link) : null}
+                                            className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
+                                        >
+                                            {label}
+                                        </button>
                                     </li>
                                 );
                             })}
                         </ul>
                     </section>
                 ))}
-                {supportSections.map(({ title, items }) => (
-                    <section
-                        key={title}
-                        className=""
-                        aria-labelledby={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`}
-                    >
-                        <h3 id={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-semibold mb-4 text-white">
-                            {title}
-                        </h3>
-                        <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                            {items.map((item) => (
-                                <li key={item} className="m-0">
-                                    <button type="button" className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white">
-                                        {item}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                ))}
             </div>
 
-            {/* Marquee Text */}
-            <div className="w-auto -mx-8 border-y border-white/20 overflow-hidden bg-black py-6 mb-8">
+            {/* Marquee Text - Fixed Scrollbar Issue */}
+            <div className="relative w-full overflow-hidden py-6 mb-8">
                 <motion.div
                     className="flex whitespace-nowrap"
-                    animate={{ x: "-50%" }}
-                    transition={{ ease: "linear", duration: 0.25, repeat: Infinity }}
+                    animate={{ x: ["0%", "-50%"] }}
+                    transition={{ 
+                        ease: "linear", 
+                        duration: 6, 
+                        repeat: Infinity 
+                    }}
                 >
+                    {/* Double the content to create seamless loop */}
                     <div className="flex items-center gap-12 pr-12">
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
                     </div>
                     <div className="flex items-center gap-12 pr-12">
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
-                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[80px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
                     </div>
                 </motion.div>
             </div>
 
-            <div className="flex gap-4 justify-center pt-8" role="navigation" aria-label="Social media">
+            {/* Social Links */}
+            <div className="flex gap-4 justify-center pt-8 border-t border-white/5" role="navigation" aria-label="Social media">
                 {socialLinks.map(({ name, icon }) => (
-                    <button key={name} type="button" className="bg-white/5 border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 [&_svg]:w-5 [&_svg]:h-5 [&_svg]:fill-white/80" aria-label={name}>
+                    <button 
+                        key={name} 
+                        type="button" 
+                        className="bg-white/5 border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 [&_svg]:w-5 [&_svg]:h-5 [&_svg]:fill-white/80" 
+                        aria-label={name}
+                    >
                         {icon}
                     </button>
                 ))}
             </div>
-
         </footer>
     )
 }
