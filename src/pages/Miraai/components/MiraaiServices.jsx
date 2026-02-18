@@ -173,8 +173,8 @@ const MiraaiServices = () => {
                                 <span className="text-xs font-mono text-blue-400 mb-3 block tracking-widest uppercase">
                                     {service.id} — Capability
                                 </span>
-                                <h3 className="text-3xl font-bold text-white mb-4 leading-tight">{service.title}</h3>
-                                <p className="text-gray-400 text-lg leading-relaxed">{service.description}</p>
+                                <h3 className="text-[25px] text-white mb-4 leading-tight">{service.title}</h3>
+                                <p className="text-gray-400 text-[15px] leading-relaxed">{service.description}</p>
                             </div>
                         </motion.div>
                     ))}
