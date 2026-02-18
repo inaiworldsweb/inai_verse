@@ -88,7 +88,7 @@ const MiraaiProcess = ({ containerRef }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[25px] md:text-[40px] font-black mb-6 tracking-tighter"
+            className="text-[25px] md:text-[40px] font-bold mb-6 tracking-tighter"
           >
             Here's Exactly How We Work With You
           </motion.h2>
@@ -139,9 +139,8 @@ const MiraaiProcess = ({ containerRef }) => {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center justify-between md:py-12 ${
-                  step.side === "right" ? "md:flex-row-reverse" : ""
-                }`}
+                className={`relative flex flex-col md:flex-row items-center justify-between md:py-12 ${step.side === "right" ? "md:flex-row-reverse" : ""
+                  }`}
               >
                 {/* Image */}
                 <motion.div
@@ -170,11 +169,11 @@ const MiraaiProcess = ({ containerRef }) => {
                   transition={{ duration: 1, delay: 0.2 }}
                   className="w-full md:w-[42%] text-center md:text-left pt-16 md:pt-0"
                 >
-                  <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] uppercase tracking-[0.4em] font-black mb-8">
+                  <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-[10px] uppercase tracking-[0.4em] font-bold mb-8">
                     Step 0{step.number}
                   </div>
 
-                  <h3 className=" font-black mb-6 tracking-tight text-[25px] md:text-[40px]  text-white">
+                  <h3 className=" font-bold mb-6 tracking-tight text-[25px] md:text-[40px]  text-white">
                     {step.title}
                   </h3>
 
@@ -188,7 +187,7 @@ const MiraaiProcess = ({ containerRef }) => {
                 </motion.div>
 
                 {/* Mobile Step Number */}
-                <div className="md:hidden absolute -top-10 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-xl shadow-2xl border-4 border-black">
+                <div className="md:hidden absolute -top-10 left-1/2 -translate-x-1/2 w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-bold text-xl shadow-2xl border-4 border-black">
                   {step.number}
                 </div>
               </div>

@@ -142,7 +142,7 @@ const Miraai = () => {
 
                     <section id="gallery" className="!mt-0"><MiraaiGallery /></section>
                     <section id="process" className="!mt-0"><MiraaiProcess containerRef={scrollContainerRef} /></section>
-                    <section id="trust" className="!mt-0"><MiraaiTrust /></section>
+                    {/* <section id="trust" className="!mt-0"><MiraaiTrust /></section> */}
                     <section id="showcase" className="!mt-0"><MiraaiShowcase /></section>
                     {/* <section id="vision" className="!mt-0"><MiraaiVision /></section> */}
                     <section id="services" className="!mt-0"><MiraaiServices /></section>

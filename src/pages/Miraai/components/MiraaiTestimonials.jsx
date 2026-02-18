@@ -40,7 +40,7 @@ const MiraaiTestimonials = () => {
         const handleResize = () => {
             setIsMobile(window.innerWidth < 768);
         };
-        
+
         handleResize();
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
@@ -94,7 +94,7 @@ const MiraaiTestimonials = () => {
     }, [isPaused, currentIndex, isMobile]);
 
     // Get current cards to display (1 for mobile, 2 for desktop)
-    const visibleCards = isMobile 
+    const visibleCards = isMobile
         ? [testimonials[currentIndex]]
         : [
             testimonials[currentIndex],
@@ -110,7 +110,7 @@ const MiraaiTestimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-4"
                     >
                         What Our Clients Say
                     </motion.h2>
@@ -119,22 +119,22 @@ const MiraaiTestimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/60 text-lg md:text-xl max-w-3xl mx-auto"
+                        className="text-white/60 text-[15px] md:text-[25px] max-w-3xl mx-auto"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
                 </div>
 
                 {/* Carousel Container */}
-                <div 
-                    className="relative px-8 md:px-12"
+                <div
+                    className="relative px-8 md:px-20"
                     onMouseEnter={() => !isMobile && setIsPaused(true)}
                     onMouseLeave={() => !isMobile && setIsPaused(false)}
                 >
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
+                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
                         aria-label="Previous testimonial"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +166,7 @@ const MiraaiTestimonials = () => {
                     {/* Next Button */}
                     <button
                         onClick={nextSlide}
-                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
+                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
                         aria-label="Next testimonial"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

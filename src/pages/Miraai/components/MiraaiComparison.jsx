@@ -55,7 +55,7 @@ const MiraaiComparison = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[40px] font-bold text-white mb-6 tracking-tight"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight"
                     >
                         The Real Problem We Solve
                     </motion.h2>
@@ -64,7 +64,7 @@ const MiraaiComparison = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/40 text-[25px] font-medium"
+                        className="text-white/40 text-[15px] md:text-[25px] font-medium"
                     >
                         Do It Yourself vs Miraai Expert Team
                     </motion.p>
