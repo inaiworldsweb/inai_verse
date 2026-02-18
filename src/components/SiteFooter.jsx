@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 const productSections = [
     {
@@ -155,7 +156,29 @@ const SiteFooter = () => {
                 ))}
             </div>
 
-            <div className="flex gap-4 justify-center pt-8 border-t border-white/10" role="navigation" aria-label="Social media">
+            {/* Marquee Text */}
+            <div className="w-auto -mx-8 border-y border-white/20 overflow-hidden bg-black py-6 mb-8">
+                <motion.div
+                    className="flex whitespace-nowrap"
+                    animate={{ x: "-50%" }}
+                    transition={{ ease: "linear", duration: 0.25, repeat: Infinity }}
+                >
+                    <div className="flex items-center gap-12 pr-12">
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                    </div>
+                    <div className="flex items-center gap-12 pr-12">
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                        <span className="text-[60px] md:text-[100px] font-medium text-white tracking-tighter shrink-0">INAI WORLDS</span>
+                    </div>
+                </motion.div>
+            </div>
+
+            <div className="flex gap-4 justify-center pt-8" role="navigation" aria-label="Social media">
                 {socialLinks.map(({ name, icon }) => (
                     <button key={name} type="button" className="bg-white/5 border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 [&_svg]:w-5 [&_svg]:h-5 [&_svg]:fill-white/80" aria-label={name}>
                         {icon}

@@ -54,7 +54,7 @@ const MiraaiWhatYouGet = () => {
                         What You Get With Miraai
                     </span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-black text-white tracking-tighter uppercase">
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
             </div>
@@ -76,8 +76,8 @@ const MiraaiWhatYouGet = () => {
                                     initial={false}
                                     animate={{
                                         // Mobile: 160px spacing, Desktop: 250px spacing
-                                        x: typeof window !== 'undefined' && window.innerWidth < 768 
-                                           ? offset * 160 : offset * 250,
+                                        x: typeof window !== 'undefined' && window.innerWidth < 768
+                                            ? offset * 160 : offset * 250,
                                         scale: 1 - absOffset * 0.15,
                                         zIndex: 50 - absOffset,
                                         opacity: 1 - absOffset * 0.3,
@@ -117,7 +117,7 @@ const MiraaiWhatYouGet = () => {
 
             {/* CTA Button */}
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 mt-16 text-center">
-                <motion.button 
+                <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     whileHover={{ scale: 1.05, backgroundColor: '#f8f9fa' }}

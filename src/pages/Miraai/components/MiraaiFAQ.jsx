@@ -58,7 +58,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 />
 
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
-                    <h3 className="text-lg md:text-xl font-bold tracking-tight text-white">
+                    <h3 className="text-lg md:text-xl font-medium tracking-tight text-white">
                         {question}
                     </h3>
                     <motion.div
@@ -126,7 +126,7 @@ const MiraaiFAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-[25px] md:text-[40px] font-black text-white tracking-tight">
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tight">
                         Frequently Asked Questions
                     </h2>
                 </motion.div>

@@ -61,7 +61,7 @@ const MiraaiGallery = () => {
                 >
                     <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">AI Content & Ad Creation Gallery</span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-black text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
             </div>
 
             <div className="relative h-[400px] md:h-[550px] flex items-center justify-center">
@@ -81,7 +81,7 @@ const MiraaiGallery = () => {
                                     animate={{
                                         // Responsive positioning: smaller X for mobile
                                         x: typeof window !== 'undefined' && window.innerWidth < 768
-                                           ? offset * 150 : offset * 250,
+                                            ? offset * 150 : offset * 250,
                                         scale: 1 - absOffset * 0.15,
                                         zIndex: 50 - absOffset,
                                         opacity: absOffset > 2 ? 0 : 1,

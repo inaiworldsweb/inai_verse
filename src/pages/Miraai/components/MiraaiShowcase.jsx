@@ -50,7 +50,7 @@ const MiraaiShowcase = () => {
                 >
                     <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">AI Content Showcase</span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-black text-white tracking-tighter">Explore Our Creative Portfolio</h2>
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">Explore Our Creative Portfolio</h2>
             </div>
 
             <div className="relative h-[400px] md:h-[550px] flex items-center justify-center">
@@ -70,7 +70,7 @@ const MiraaiShowcase = () => {
                                     animate={{
                                         // Responsive horizontal spread
                                         x: typeof window !== 'undefined' && window.innerWidth < 768
-                                           ? offset * 160 : offset * 240,
+                                            ? offset * 160 : offset * 240,
                                         scale: 1 - absOffset * 0.15,
                                         zIndex: 50 - absOffset,
                                         opacity: 1 - absOffset * 0.3,
