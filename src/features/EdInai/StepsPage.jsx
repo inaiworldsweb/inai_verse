@@ -4,9 +4,9 @@ import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import { EdInaiSidebar, EdInaiHeader } from './components/shared';
 
 import step1Img from '../../assets/final/inside edinai portal - create your admin profile.png';
-import step2Img from '../../assets/final/inside the ed inai- add your academic structure.png';
-import step3Img from '../../assets/final/inside the ed inai - schedule sessions.png';
-import step4Img from '../../assets/final/inside the ed inai - let ed inai execute.png';
+import academicWorkflowImg from '../../assets/Academic Workflow Management.png';
+import studentEngagementImg from '../../assets/Student Engagement & Learning Support.png';
+import examPreparationImg from '../../assets/Exam Preparation & Performance Support.png';
 
 // Use Case Images
 import schoolsImg from '../../assets/images/Schools.jpg';
@@ -237,28 +237,23 @@ const IntegrationSection = () => {
 
     const features = [
         {
-            title: 'Cloud-Native & Scalable',
+            title: 'Academic Workflow Management',
             description:
-                '100% cloud-hosted no servers required. Scales from single classrooms to multi-branch institutions.',
-            image: step2Img,
+                'ED-INAI streamlines daily academic operations including class scheduling, content distribution, assessment management, and reporting—ensuring smooth coordination across departments.',
+            image: academicWorkflowImg,
         },
         {
-            title: 'Device Compatibility',
-            description: 'Compatible with web browsers, mobile apps, smart TVs, and projector setups.',
-            image: step3Img,
+            title: 'Student Engagement & Learning Support',
+            description: 'Enhance student participation through AI-driven tutoring, personalized study plans, interactive assessments, and continuous learning support.',
+            image: studentEngagementImg,
         },
         {
-            title: 'Integrations & APIs',
+            title: 'Exam Preparation & Performance Support',
             description:
-                'Integrates with existing LMS, ERP, attendance systems, and content repositories via APIs and standard connectors.',
-            image: step2Img,
+                'Support students with AI-driven revision plans, mock tests, performance analysis, and exam-focused guidance.',
+            image: examPreparationImg,
         },
-        {
-            title: 'Security & Privacy',
-            description:
-                'Role-based access control, encrypted data storage, secure authentication, and compliance with privacy best practices.',
-            image: step3Img,
-        },
+       
     ];
 
     const goToSlide = (direction) => {
@@ -276,7 +271,7 @@ const IntegrationSection = () => {
         <section id="integration-technical-details" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <div className="flex items-center justify-between mb-10">
-                    <h2 className="text-3xl lg:text-4xl font-bold">Integration & Technical Details</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold">Platform Capabilities & Institutional Support</h2>
 
                     <div className="flex gap-3">
                         <button

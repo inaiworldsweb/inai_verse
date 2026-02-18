@@ -5,14 +5,15 @@ import videoHeroImage from '../../assets/final/AI Teachers that Never Tire (2).p
 import uploadCurriculumImg from '../../assets/final/Upload & Organize Curriculum.png';
 import expertIntelligenceImg from '../../assets/final/Data-Driven Insights.png';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
-import Sidebar from '../../components/Sidebar';
+import { EdInaiHeader, EdInaiSidebar } from '../EdInai/components/shared';
 
 const sidebarItems = [
-    { label: 'What Is Edinai?', id: 'what-is-edinai' },
-    { label: 'Meet Our Faculties', id: 'meet-faculties' },
+    { label: 'What is edInai?', id: 'what-is-edinai' },
+    { label: 'Meet our faculties', id: 'meet-faculties' },
     { label: 'Admin View – For Education Centres', id: 'admin-view', active: true },
     { label: 'Student View – For Learners', id: 'student-view' },
-    { label: 'Teach In Every Way Your Students Want To Learn', id: 'teach' },
+    { label: 'Teach in Every Way Your Students Want to Learn', id: 'teach' },
+
 ];
 
 const tabs = ['Upload', 'Schedule', 'Manage'];
@@ -56,11 +57,16 @@ const EdInaiAdminPage = () => {
 
     return (
         <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
-            {/* Original Sidebar */}
-            <Sidebar isOpen={true} />
+            {/* Responsive Sidebar Component */}
+            <EdInaiSidebar
+                logoImage={logoImage}
+                items={sidebarItems}
+                onItemClick={handleSidebarClick}
+                activeId={activeSection}
+            />
 
             {/* Main Content Area - Full width on mobile */}
-            <main className="flex-1 w-full min-w-0 overflow-y-auto md:pl-[280px]">
+            <main className="flex-1 w-full min-w-0 overflow-y-auto">
                 {/* Shared Header Component */}
                 <EdInaiHeader activeView="admin" />
 
