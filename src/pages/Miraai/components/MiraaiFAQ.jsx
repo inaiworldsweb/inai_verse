@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
 import { FiChevronDown } from 'react-icons/fi';
 
-const FAQItem = ({ question, answer, index }) => {
-    const [isOpen, setIsOpen] = useState(false);
+const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
 
     // 3D Tilt Logic
     const x = useMotionValue(0);
@@ -46,7 +45,7 @@ const FAQItem = ({ question, answer, index }) => {
             className="mb-2 w-full"
         >
             <div
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={onToggle}
                 className={`w-full bg-[#0A0A0A] border rounded-[2rem] transition-all duration-300 group cursor-pointer overflow-hidden ${isOpen ? 'border-white/30' : 'border-white/10'}`}
             >
                 {/* Glossy Brand Sweep */}
@@ -55,7 +54,7 @@ const FAQItem = ({ question, answer, index }) => {
                         left: useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]),
                         top: useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]),
                     }}
-                    className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0"
                 />
 
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
@@ -80,7 +79,7 @@ const FAQItem = ({ question, answer, index }) => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
                             <div className="px-4 pb-6 md:px-6 md:pb-8 border-t border-white/10 pt-4">
-                                <p className="text-white text-base md:text-lg leading-relaxed">
+                                <p className="text-white text-[15px] leading-relaxed">
                                     {answer}
                                 </p>
                             </div>
@@ -93,6 +92,8 @@ const FAQItem = ({ question, answer, index }) => {
 };
 
 const MiraaiFAQ = () => {
+    const [openIndex, setOpenIndex] = useState(null);
+
     const faqs = [
         {
             question: "What services does Miraai provide?",
@@ -117,7 +118,7 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section className="py-8 bg-black">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-8 bg-black">
             <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -125,7 +126,7 @@ const MiraaiFAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-[40px] font-black text-white tracking-tight">
+                    <h2 className="text-[25px] md:text-[40px] font-black text-white tracking-tight">
                         Frequently Asked Questions
                     </h2>
                 </motion.div>
@@ -137,6 +138,8 @@ const MiraaiFAQ = () => {
                             index={index}
                             question={faq.question}
                             answer={faq.answer}
+                            isOpen={openIndex === index}
+                            onToggle={() => setOpenIndex(openIndex === index ? null : index)}
                         />
                     ))}
                 </div>
