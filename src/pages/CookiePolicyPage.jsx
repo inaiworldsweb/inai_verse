@@ -77,7 +77,7 @@ const CookiePolicyPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-black text-white font-['Inter']">
             <PageHeader
                 title="Cookie Policy"
                 showBackButton={true}
@@ -89,7 +89,7 @@ const CookiePolicyPage = () => {
             {/* Hero Section */}
             <div className="pt-24 pb-12 px-4 border-b border-white/10">
                 <div className="max-w-[1400px] mx-auto text-center">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
+                    <h1 className="text-[25px] md:text-[40px] font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
                         Cookie Policy
                     </h1>
                     <p className="text-white/60 text-lg">Last Updated: 25 December 2025</p>
@@ -103,7 +103,7 @@ const CookiePolicyPage = () => {
                     <aside className="hidden lg:block lg:w-80 flex-shrink-0">
                         <div className="sticky top-24">
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                                <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
                                 <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 custom-scrollbar">
                                     {sections.map((section) => (
                                         <button
@@ -138,7 +138,7 @@ const CookiePolicyPage = () => {
                     {tocOpen && (
                         <div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 p-6 overflow-y-auto">
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-md mx-auto mt-20">
-                                <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
                                 <nav className="space-y-1">
                                     {sections.map((section) => (
                                         <button
@@ -173,7 +173,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 1: What Are Cookies */}
                             <section id="what-are-cookies" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     1. What Are Cookies?
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -188,13 +188,13 @@ const CookiePolicyPage = () => {
 
                             {/* Section 2: Types of Cookies */}
                             <section id="types-of-cookies" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     2. Types of Cookies We Use
                                 </h2>
 
                                 <div className="space-y-6">
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">2.1 Strictly Necessary Cookies</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">2.1 Strictly Necessary Cookies</h3>
                                         <p className="text-white/80 mb-4">These cookies are essential for:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside mb-4">
                                             <li>Website functionality</li>
@@ -205,7 +205,7 @@ const CookiePolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">2.2 Performance & Analytics Cookies</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">2.2 Performance & Analytics Cookies</h3>
                                         <p className="text-white/80 mb-4">These cookies help us understand how users interact with the Website by collecting information such as:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside mb-4">
                                             <li>Pages visited</li>
@@ -216,7 +216,7 @@ const CookiePolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">2.3 Functionality Cookies</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">2.3 Functionality Cookies</h3>
                                         <p className="text-white/80 mb-4">These cookies allow the Website to:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Remember user preferences</li>
@@ -226,7 +226,7 @@ const CookiePolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">2.4 Advertising & Marketing Cookies</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">2.4 Advertising & Marketing Cookies</h3>
                                         <p className="text-white/80 mb-4">These cookies may be used to:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside mb-4">
                                             <li>Deliver relevant advertisements</li>
@@ -240,7 +240,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 3: Third-Party Cookies */}
                             <section id="third-party" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     3. Third-Party Cookies
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -258,7 +258,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 4: How We Use Cookie Data */}
                             <section id="how-we-use" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     4. How We Use Cookie Data
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -275,7 +275,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 5: Managing Cookies */}
                             <section id="managing" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     5. Managing & Disabling Cookies
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -291,7 +291,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 6: Consent & GDPR */}
                             <section id="consent" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     6. Consent & GDPR Compliance
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -306,7 +306,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 7: Data Protection */}
                             <section id="data-protection" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     7. Data Protection & Privacy
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -318,7 +318,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 8: Changes */}
                             <section id="changes" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     8. Changes to This Cookie Policy
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -330,7 +330,7 @@ const CookiePolicyPage = () => {
 
                             {/* Section 9: Contact */}
                             <section id="contact" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     9. Contact Information
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">

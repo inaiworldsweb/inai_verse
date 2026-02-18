@@ -92,7 +92,7 @@ const PrivacyPolicyPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-black text-white font-['Inter']">
             <PageHeader
                 title="Privacy Policy"
                 showBackButton={true}
@@ -104,7 +104,7 @@ const PrivacyPolicyPage = () => {
             {/* Hero Section */}
             <div className="pt-24 pb-12 px-4 border-b border-white/10">
                 <div className="max-w-[1400px] mx-auto text-center">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
+                    <h1 className="text-[25px] md:text-[40px] font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
                         Privacy Policy
                     </h1>
                     <p className="text-white/60 text-lg">Last Updated: 25 December 2025</p>
@@ -118,7 +118,7 @@ const PrivacyPolicyPage = () => {
                     <aside className="hidden lg:block lg:w-80 flex-shrink-0">
                         <div className="sticky top-24">
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                                <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
                                 <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 custom-scrollbar">
                                     {sections.map((section) => (
                                         <button
@@ -153,7 +153,7 @@ const PrivacyPolicyPage = () => {
                     {tocOpen && (
                         <div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 p-6 overflow-y-auto">
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-md mx-auto mt-20">
-                                <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
                                 <nav className="space-y-1">
                                     {sections.map((section) => (
                                         <button
@@ -188,7 +188,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 1: Company Identification */}
                             <section id="company" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     1. Company Identification
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-3">
@@ -200,7 +200,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 2: Applicability & Scope */}
                             <section id="applicability" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     2. Applicability & Scope
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -219,13 +219,13 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 3: Categories of Information */}
                             <section id="categories" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     3. Categories of Information We Collect
                                 </h2>
 
                                 <div className="space-y-6">
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">3.1 Personal Information</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">3.1 Personal Information</h3>
                                         <p className="text-white/80 mb-4">We may collect personal information including but not limited to:</p>
                                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-white/80 list-disc list-inside">
                                             <li>Full name</li>
@@ -241,7 +241,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">3.2 Sensitive Personal Data</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">3.2 Sensitive Personal Data</h3>
                                         <p className="text-white/80 mb-4">We do not intentionally collect sensitive personal data such as biometric data, health data, government-issued identifiers, or financial passwords unless:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Explicitly required for service delivery</li>
@@ -251,7 +251,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">3.3 AI Inputs, Outputs & Content</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">3.3 AI Inputs, Outputs & Content</h3>
                                         <p className="text-white/80 mb-4">When using our AI-based Services, we may collect:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>User prompts, inputs, queries, files, datasets, and instructions</li>
@@ -262,7 +262,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">3.4 Automatically Collected Information</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">3.4 Automatically Collected Information</h3>
                                         <p className="text-white/80 mb-4">We automatically collect technical and usage information such as:</p>
                                         <ul className="grid grid-cols-1 md:grid-cols-2 gap-2 text-white/80 list-disc list-inside">
                                             <li>IP address</li>
@@ -276,7 +276,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">3.5 Cookies, Pixels & Tracking Technologies</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">3.5 Cookies, Pixels & Tracking Technologies</h3>
                                         <p className="text-white/80 mb-4">We use cookies, pixels, tags, SDKs, and similar technologies for:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Website functionality and authentication</li>
@@ -292,7 +292,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 4: Sources of Data */}
                             <section id="sources" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     4. Sources of Data
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -309,7 +309,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 5: Purposes of Data Processing */}
                             <section id="purposes" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     5. Purposes of Data Processing
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -331,7 +331,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 6: Legal Bases */}
                             <section id="legal-bases" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     6. Legal Bases for Processing
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -348,7 +348,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 7: Data Sharing */}
                             <section id="sharing" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     7. Data Sharing & Disclosure
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -369,7 +369,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 8: International Transfers */}
                             <section id="transfers" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     8. International Data Transfers
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -381,7 +381,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 9: Data Retention */}
                             <section id="retention" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     9. Data Retention
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -398,7 +398,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 10: User Rights */}
                             <section id="rights" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     10. User Rights & Choices
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -419,20 +419,20 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 11: Payments */}
                             <section id="payments" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     11. Payments, Pricing & Transactions
                                 </h2>
 
                                 <div className="space-y-6">
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">11.1 Paid Products & Services</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">11.1 Paid Products & Services</h3>
                                         <p className="text-white/80">
                                             INAI Worlds Private Limited may offer multiple products, services, subscriptions, licenses, AI tools, APIs, or custom solutions, each with different pricing, billing cycles, features, and terms. Pricing details for each product or service are displayed on the Website, proposals, dashboards, invoices, or shared directly with clients.
                                         </p>
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">11.2 Payment Information</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">11.2 Payment Information</h3>
                                         <p className="text-white/80 mb-4">When you make a purchase or payment, we or our authorized payment service providers may collect:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Billing name and address</li>
@@ -446,7 +446,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">11.3 Multiple Products & Variable Pricing</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">11.3 Multiple Products & Variable Pricing</h3>
                                         <p className="text-white/80 mb-4">Since our offerings may vary (including SaaS, AI models, APIs, enterprise solutions, or custom development):</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Prices may differ per product or client</li>
@@ -457,7 +457,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">11.4 Refunds, Cancellations & Adjustments</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">11.4 Refunds, Cancellations & Adjustments</h3>
                                         <p className="text-white/80 mb-4">Refunds, cancellations, credits, or payment adjustments (if any) are governed by the specific product agreement, proposal, or refund policy applicable to that service. Unless explicitly stated:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Fees are non refundable</li>
@@ -467,7 +467,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">11.5 Failed or Disputed Payments</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">11.5 Failed or Disputed Payments</h3>
                                         <p className="text-white/80 mb-4">INAI Worlds reserves the right to:</p>
                                         <ul className="space-y-2 text-white/80 list-disc list-inside">
                                             <li>Suspend or restrict Services for failed or disputed payments</li>
@@ -477,7 +477,7 @@ const PrivacyPolicyPage = () => {
                                     </div>
 
                                     <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
-                                        <h3 className="text-xl font-semibold mb-4 text-white">11.6 Invoices & Records</h3>
+                                        <h3 className="text-[25px] md:text-[40px] font-semibold mb-4 text-white">11.6 Invoices & Records</h3>
                                         <p className="text-white/80">
                                             Invoices, receipts, or payment confirmations may be issued electronically and shared via email or dashboard.
                                         </p>
@@ -487,7 +487,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 12: Marketing */}
                             <section id="marketing" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     12. Marketing Communications
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -499,7 +499,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 13: Security */}
                             <section id="security" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     13. Data Security Practices
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -515,7 +515,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 14: Automated Processing */}
                             <section id="automated" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     14. Automated Processing & Profiling
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -527,7 +527,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 15: AI Disclaimer */}
                             <section id="ai-disclaimer" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     15. Artificial Intelligence Disclaimer
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -543,7 +543,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 16: Third-Party Links */}
                             <section id="third-party" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     16. Third-Party Links & Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -555,7 +555,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 17: Children's Privacy */}
                             <section id="children" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     17. Children's Privacy
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -567,7 +567,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 18: Business Transfers */}
                             <section id="business-transfers" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     18. Business Transfers
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -579,7 +579,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 19: Indemnification */}
                             <section id="indemnification" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     19. Indemnification
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -591,7 +591,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 20: Limitation of Liability */}
                             <section id="liability" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     20. Limitation of Liability
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -603,7 +603,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 21: Regulatory Compliance */}
                             <section id="compliance" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     21. Regulatory Compliance
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -619,7 +619,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 22: Governing Law */}
                             <section id="governing-law" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     22. Governing Law & Jurisdiction
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -631,7 +631,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 23: Changes */}
                             <section id="changes" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     23. Changes to This Policy
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -643,7 +643,7 @@ const PrivacyPolicyPage = () => {
 
                             {/* Section 24: Contact */}
                             <section id="contact" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     24. Contact Information
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">

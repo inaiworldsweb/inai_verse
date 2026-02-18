@@ -88,7 +88,7 @@ const TermsPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-black text-white font-['Inter']">
             <PageHeader
                 title="Terms & Conditions"
                 showBackButton={true}
@@ -100,7 +100,7 @@ const TermsPage = () => {
             {/* Hero Section */}
             <div className="pt-24 pb-12 px-4 border-b border-white/10">
                 <div className="max-w-[1400px] mx-auto text-center">
-                    <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
+                    <h1 className="text-[25px] md:text-[40px] font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
                         Terms & Conditions
                     </h1>
                     <p className="text-white/60 text-lg">Last Updated: 25 December 2025</p>
@@ -114,7 +114,7 @@ const TermsPage = () => {
                     <aside className="hidden lg:block lg:w-80 flex-shrink-0">
                         <div className="sticky top-24">
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                                <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
                                 <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 custom-scrollbar">
                                     {sections.map((section) => (
                                         <button
@@ -149,7 +149,7 @@ const TermsPage = () => {
                     {tocOpen && (
                         <div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 p-6 overflow-y-auto">
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-md mx-auto mt-20">
-                                <h2 className="text-xl font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
                                 <nav className="space-y-1">
                                     {sections.map((section) => (
                                         <button
@@ -184,7 +184,7 @@ const TermsPage = () => {
 
                             {/* Section 1: Company Information */}
                             <section id="company" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     1. Company Information
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-3">
@@ -196,7 +196,7 @@ const TermsPage = () => {
 
                             {/* Section 2: Eligibility & Acceptance */}
                             <section id="eligibility" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     2. Eligibility & Acceptance
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -210,7 +210,7 @@ const TermsPage = () => {
 
                             {/* Section 3: Scope of Services */}
                             <section id="scope" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     3. Scope of Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -228,7 +228,7 @@ const TermsPage = () => {
 
                             {/* Section 4: User Accounts */}
                             <section id="accounts" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     4. User Accounts & Responsibilities
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -243,7 +243,7 @@ const TermsPage = () => {
 
                             {/* Section 5: Acceptable Use */}
                             <section id="acceptable-use" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     5. Acceptable Use Policy
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -262,7 +262,7 @@ const TermsPage = () => {
 
                             {/* Section 6: AI Disclaimer */}
                             <section id="ai-disclaimer" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     6. Artificial Intelligence Use Disclaimer
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -278,7 +278,7 @@ const TermsPage = () => {
 
                             {/* Section 7: IP Rights */}
                             <section id="ip-rights" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     7. Intellectual Property Rights
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -292,7 +292,7 @@ const TermsPage = () => {
 
                             {/* Section 8: User Content */}
                             <section id="user-content" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     8. User Content & Data
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -306,7 +306,7 @@ const TermsPage = () => {
 
                             {/* Section 9: Payments */}
                             <section id="payments" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     9. Payments & Billing
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -322,7 +322,7 @@ const TermsPage = () => {
 
                             {/* Section 10: Termination */}
                             <section id="termination" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     10. Suspension & Termination
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -338,7 +338,7 @@ const TermsPage = () => {
 
                             {/* Section 11: Third-Party */}
                             <section id="third-party" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     11. Third-Party Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -350,7 +350,7 @@ const TermsPage = () => {
 
                             {/* Section 12: Disclaimers */}
                             <section id="disclaimers" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     12. Disclaimers
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -364,7 +364,7 @@ const TermsPage = () => {
 
                             {/* Section 13: Liability */}
                             <section id="liability" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     13. Limitation of Liability
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -379,7 +379,7 @@ const TermsPage = () => {
 
                             {/* Section 14: Indemnification */}
                             <section id="indemnification" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     14. Indemnification
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -394,7 +394,7 @@ const TermsPage = () => {
 
                             {/* Section 15: Force Majeure */}
                             <section id="force-majeure" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     15. Force Majeure
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -406,7 +406,7 @@ const TermsPage = () => {
 
                             {/* Section 16: Governing Law */}
                             <section id="governing-law" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     16. Governing Law & Jurisdiction
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -418,7 +418,7 @@ const TermsPage = () => {
 
                             {/* Section 17: Changes */}
                             <section id="changes" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     17. Changes to Terms
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -430,7 +430,7 @@ const TermsPage = () => {
 
                             {/* Section 18: Severability */}
                             <section id="severability" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     18. Severability
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -442,7 +442,7 @@ const TermsPage = () => {
 
                             {/* Section 19: Entire Agreement */}
                             <section id="entire-agreement" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     19. Entire Agreement
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -454,7 +454,7 @@ const TermsPage = () => {
 
                             {/* Section 20: Contact */}
                             <section id="contact" className="mb-12 scroll-mt-24">
-                                <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     20. Contact Information
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
