@@ -135,7 +135,7 @@ const Miraai = () => {
                     onPriceClick={handleGoToPrice}
                 />
 
-                <div className="w-full font-['Inter'] space-y-0">
+                <div className="w-full font-['Inter'] space-y-0 [&_*]:capitalize">
                     <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
                         <MiraaiHero />
                     </section>
