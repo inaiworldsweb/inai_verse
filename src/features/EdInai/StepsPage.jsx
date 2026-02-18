@@ -31,19 +31,19 @@ const steps = [
         number: '2',
         title: 'Add Your Academic Structure',
         description: 'Upload subjects, chapters, resources, and assessment content. Ed-INAI converts this material into structured modules and aligned lecture flows.',
-        image: step2Img,
+        image: academicWorkflowImg,
     },
     {
         number: '3',
         title: 'Schedule Sessions',
         description: 'Use the built-in scheduler to set timings, select batches, choose delivery mode, and attach materials. Configure reminders and interaction settings as needed.',
-        image: step3Img,
+        image: academicWorkflowImg,
     },
     {
         number: '4',
         title: 'Let Ed-INAI Execute',
         description: 'The platform conducts sessions, manages queries, generates notes, records sessions, and updates analytics in real time. Admins can monitor progress or adjust parameters anytime.',
-        image: step4Img,
+        image: academicWorkflowImg,
     },
 ];
 
@@ -325,40 +325,53 @@ const IntegrationSection = () => {
         </section>
     );
 };
-
 const StepsPage = () => {
     const [activeSection, setActiveSection] = useState('how-to-set-up-edinai');
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    const handleSidebarClick = (id) => {
-        setActiveSection(id);
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setActiveSection(id);
         }
     };
 
-    return (
-        <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
-            <EdInaiSidebar
-                logoImage={logoImage}
-                items={sidebarItems}
-                onItemClick={handleSidebarClick}
-                activeId={activeSection}
-            />
-
-            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
-                <EdInaiHeader activeView="student" showSubNav={false} />
-
-                <SetupSteps />
-                <IntegrationSection />
-                <UseCasesSection />
-            </main>
-        </div>
-    );
+    // Basic error boundary to prevent crashes
+    try {
+        return (
+            <div className="min-h-screen bg-black text-white">
+                <EdInaiHeader />
+                <div className="flex flex-col md:flex-row">
+                    <EdInaiSidebar items={sidebarItems} activeItem={activeSection} onItemClick={scrollToSection} />
+                    <main className="flex-1 p-4 md:p-8">
+                        <div id="how-to-set-up-edinai">
+                            <SetupSteps />
+                        </div>
+                        <div id="integration-technical-details" className="mt-20">
+                            <IntegrationSection />
+                        </div>
+                        <div id="common-use-cases" className="mt-20">
+                            <UseCasesSection />
+                        </div>
+                    </main>
+                </div>
+            </div>
+        );
+    } catch (error) {
+        console.error('Error rendering StepsPage:', error);
+        return (
+            <div className="min-h-screen bg-black text-white p-8">
+                <h1 className="text-2xl font-bold text-red-500">Error Loading Page</h1>
+                <p className="mt-4">There was an error loading the page. Please check the console for details.</p>
+                <button 
+                    onClick={() => window.location.reload()} 
+                    className="mt-4 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+                >
+                    Reload Page
+                </button>
+            </div>
+        );
+    }
 };
 
 export default StepsPage;

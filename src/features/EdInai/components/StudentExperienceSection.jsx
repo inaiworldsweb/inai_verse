@@ -129,7 +129,7 @@ const StudentExperienceSection = () => {
                     <button
                         type="button"
                         className="bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
-                        onClick={handleLearnMore}
+                        // onClick={handleLearnMore}
                     >
                         learn more
                     </button>
