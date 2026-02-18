@@ -1,65 +1,29 @@
 import React from 'react';
-import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const QuestionCard = ({ icon, question, index }) => {
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-
-    const mouseXSpring = useSpring(x);
-    const mouseYSpring = useSpring(y);
-
-    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-    const handleMouseMove = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        const xPct = mouseX / width - 0.5;
-        const yPct = mouseY / height - 0.5;
-        x.set(xPct);
-        y.set(yPct);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
+    const enhancedIcon = React.isValidElement(icon)
+        ? React.cloneElement(icon, {
+            className: `${icon.props.className ?? ''} transform transition-all duration-300 group-hover:text-white/70 group-hover:scale-110 group-hover:-rotate-6`.trim(),
+        })
+        : icon;
 
     return (
         <motion.div
-            style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-            }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: index * 0.15 }}
-            whileHover={{
-                borderColor: "rgba(139, 92, 246, 0.8)",
-            }}
-            className="bg-[#111111] p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center group relative overflow-hidden transition-all duration-300 border border-white/5"
+            className="group bg-[#111111] p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center relative overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-400/30 hover:bg-[#141414] hover:shadow-[0_22px_70px_rgba(0,0,0,0.55),0_0_0_1px_rgba(139,92,246,0.08),0_18px_60px_rgba(139,92,246,0.10)]"
         >
             {/* Glossy Brand Sweep Effect */}
-            <motion.div
-                style={{
-                    left: useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]),
-                    top: useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]),
-                }}
-                className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-            />
+            <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/15 via-purple-500/0 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div style={{ transform: "translateZ(50px)" }} className="flex flex-col items-center">
-                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 transition-all duration-300 relative">
-                    {icon}
+                <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
+                    {enhancedIcon}
                 </div>
-                <p className="text-white text-[20px] md:text-[20px] font-medium tracking-tight leading-relaxed">
+                <p className="text-white text-[15px] md:text-[25px] font-medium tracking-tight leading-relaxed">
                     {question}
                 </p>
             </div>
@@ -69,7 +33,7 @@ const QuestionCard = ({ icon, question, index }) => {
 
 const MiraaiCTA = () => {
     return (
-        <section className="py-8 px-4 sm:px-6 lg:px-20 bg-black">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-8 px-4 sm:px-6 lg:px-20 bg-black">
             <div className="max-w-[1200px] mx-auto bg-[#050505] rounded-[4rem] p-8 md:p-12 border border-white/5 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.03)_0%,transparent_60%)] pointer-events-none" />
@@ -131,9 +95,12 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.7 }}
-                        className="px-8 py-4 bg-white text-black text-base md:text-lg font-black rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
+                        className="group relative overflow-hidden px-8 py-4 bg-white text-black text-[15px] font-black rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
                     >
-                        Get Started Now
+                        <span className="relative block h-[1.2em] overflow-hidden">
+                            <span className="block transition-transform duration-300 group-hover:-translate-y-full">Get Started Now</span>
+                            <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Get Started Now</span>
+                        </span>
                     </motion.button>
                 </div>
             </div>
