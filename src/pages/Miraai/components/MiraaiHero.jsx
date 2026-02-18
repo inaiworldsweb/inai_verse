@@ -18,12 +18,12 @@ const MiraaiHero = () => {
                 transition={{ duration: 0.8 }}
                 className="max-w-[70rem] mx-auto text-center z-10"
             >
-                <h1 className="text-[40px] font-bold tracking-tight mb-8 leading-[1.05] text-white">
+                <h1 className="text-[25px] md:text-[40px] font-bold tracking-tight mb-8 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-white/50 text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium">
+                <p className="text-white/50 text-[15px] md:text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>
@@ -32,7 +32,7 @@ const MiraaiHero = () => {
                     <motion.button
                         whileHover={{ scale: 1.05, backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
                         whileTap={{ scale: 0.98 }}
-                        className="px-10 py-4 bg-white/90 text-black font-semibold rounded-full text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
+                        className="px-6 py-3 md:px-10 md:py-4 bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
                         Start Your First Project
                     </motion.button>

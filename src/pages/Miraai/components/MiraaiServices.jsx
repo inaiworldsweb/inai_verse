@@ -1,12 +1,13 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 
-// Importing assets
-import thumb1 from '../../../Assetsa/a.png';
-import thumb2 from '../../../Assetsa/b.png';
-import thumb3 from '../../../Assetsa/c.png';
-import thumb4 from '../../../Assetsa/d.png';
-import thumb5 from '../../../Assetsa/e.png';
+// Importing a variety of local assets for all service items
+// Importing assets from Assetsa for all service items
+import thumb1 from '../../../Assetsa/N-1.webp';
+import thumb2 from '../../../Assetsa/N-2.webp';
+import thumb3 from '../../../Assetsa/N-3.webp';
+import thumb4 from '../../../Assetsa/N-4.webp';
+import thumb5 from '../../../Assetsa/N-5.webp';
 
 const services = [
     {
@@ -97,8 +98,8 @@ const MiraaiServices = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed"
+                        transition={{ duration: 0.5, delay: 0.1 }}
+                        className="text-gray-400 text-[15px] md:text-[25px] font-['Inter'] max-w-3xl mx-auto"
                     >
                         Scroll to explore how we transform your production workflow with AI.
                     </motion.p>
