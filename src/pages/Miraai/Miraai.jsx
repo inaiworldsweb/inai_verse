@@ -50,7 +50,6 @@ const navConfig = [
 
 const Miraai = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-    const scrollContainerRef = useRef(null);
     const navigate = useNavigate();
 
     // Extract labels for the SideMenu component
@@ -71,7 +70,7 @@ const Miraai = () => {
     const handleGoToPrice = () => window.open('/MiraaiPrice', '_blank');
 
     return (
-        <div className="flex h-screen overflow-hidden bg-black text-white font-sans tracking-wide">
+        <div className="flex min-h-screen bg-black text-white font-sans tracking-wide">
             {/* Mobile Sidebar Overlay */}
             {isMobileMenuOpen && (
                 <div
@@ -125,7 +124,7 @@ const Miraai = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main ref={scrollContainerRef} className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24">
+            <main className="flex-1 w-full min-w-0 flex flex-col bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24">
                 <PageHeader
                     title="Miraai"
                     showBackButton={true}
@@ -143,7 +142,7 @@ const Miraai = () => {
                     </section>
 
                     <section id="gallery" className="!mt-0"><MiraaiGallery /></section>
-                    <section id="process" className="!mt-0"><MiraaiProcess containerRef={scrollContainerRef} /></section>
+                    <section id="process" className="!mt-0"><MiraaiProcess /></section>
                     {/* <section id="trust" className="!mt-0"><MiraaiTrust /></section> */}
                     <section id="showcase" className="!mt-0"><MiraaiShowcase /></section>
                     {/* <section id="vision" className="!mt-0"><MiraaiVision /></section> */}
