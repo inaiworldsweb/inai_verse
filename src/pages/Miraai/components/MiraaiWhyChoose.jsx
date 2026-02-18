@@ -12,7 +12,7 @@ const FeatureCard = ({ title, description, index }) => (
         <h3 className="text-white text-lg md:text-xl font-bold mb-4 tracking-tight group-hover:text-white transition-colors">
             {title}
         </h3>
-        <p className="text-white/40 text-sm md:text-base font-medium leading-relaxed group-hover:text-white/60 transition-colors">
+        <p className="text-white/40 text-[15px] font-medium leading-relaxed group-hover:text-white/60 transition-colors">
             {description}
         </p>
     </motion.div>
@@ -57,13 +57,13 @@ const MiraaiWhyChoose = () => {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-[40px] font-bold text-white tracking-tight">
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tight">
                         Why Choose Miraai?
                     </h2>
                 </motion.div>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 w-full">
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}

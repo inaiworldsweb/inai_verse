@@ -4,29 +4,29 @@ import { FiVideo, FiZap, FiDollarSign, FiClock } from "react-icons/fi";
 
 const TruthCard = ({ title, description, icon: Icon, index }) => {
   return (
-   <motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.5, delay: index * 0.1 }}
-  className="relative group rounded-2xl p-[2px] overflow-hidden isolate bg-[#0A0A0A]"
->
-  {/* --- THE SMOOTH SNAKE BORDER --- */}
-  <div className="
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
+      className="relative group rounded-2xl p-[2px] overflow-hidden isolate bg-[#0A0A0A]"
+    >
+      {/* --- THE SMOOTH SNAKE BORDER --- */}
+      <div className="
     absolute inset-0 z-0
     opacity-0 group-hover:opacity-100
     transition-opacity duration-500
   ">
-    {/* Yeh div ghoomega aur mask ki wajah se sirf border dikhega */}
-    <div className="
+        {/* Yeh div ghoomega aur mask ki wajah se sirf border dikhega */}
+        <div className="
       absolute inset-[-100%]
       bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,white_360deg)]
       group-hover:animate-[spin_3s_linear_infinite]
     "></div>
-  </div>
+      </div>
 
-  {/* --- INNER CONTENT (Masking the center) --- */}
-  <div className="
+      {/* --- INNER CONTENT (Masking the center) --- */}
+      <div className="
     relative z-10
     bg-[#0A0A0A]
     rounded-[14px]
@@ -34,21 +34,21 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
     p-6 md:p-8
     border border-white/5
   ">
-    <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6">
-      <Icon className="text-white text-xl md:text-2xl" />
-    </div>
+        <div className="w-12 h-12 rounded-lg bg-white/5 flex items-center justify-center mb-6">
+          <Icon className="text-white text-xl md:text-2xl" />
+        </div>
 
-    <h3 className="text-white text-xl font-bold mb-3 tracking-tight">
-      {title}
-    </h3>
+        <h3 className="text-white text-xl font-bold mb-3 tracking-tight">
+          {title}
+        </h3>
 
-    <p className="text-white/50 text-sm leading-relaxed font-medium">
-      {description}
-    </p>
-  </div>
+        <p className="text-white/50 text-sm leading-relaxed font-medium">
+          {description}
+        </p>
+      </div>
 
 
-</motion.div>
+    </motion.div>
   );
 };
 
@@ -81,16 +81,16 @@ const MiraaiSimpleTruth = () => {
   ];
 
   return (
-    <section className="py-8 bg-black overflow-hidden">
+    <section className="py-12 md:py-20 bg-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-          {/* Left Side */}
-          <div className="w-full lg:w-1/3 lg:sticky lg:top-32 self-start flex flex-col justify-center h-full pt-10">
+        <div className="flex flex-col items-center gap-12 lg:gap-16">
+          {/* Header Section - Centered */}
+          <div className="w-full max-w-3xl text-center flex flex-col items-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[40px] font-bold text-white mb-6 md:mb-8 tracking-tighter"
+              className="text-[25px] md:text-[40px] font-bold text-white mb-6 md:mb-8 tracking-tighter"
             >
               The Simple Truth
             </motion.h2>
@@ -100,16 +100,16 @@ const MiraaiSimpleTruth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-white/80 text-[25px] md:leading-relaxed font-medium max-w-md"
+              className="text-white/80 text-[15px] md:text-[25px] md:leading-relaxed font-medium max-w-2xl text-center"
             >
               We handle everything from concept to final delivery. You just tell
               us what you need.
             </motion.p>
           </div>
 
-          {/* Right Grid */}
-          <div className="w-full lg:w-2/3">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          {/* Cards Grid */}
+          <div className="w-full max-w-6xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
               {truths.map((truth, index) => (
                 <TruthCard key={index} index={index} {...truth} />
               ))}

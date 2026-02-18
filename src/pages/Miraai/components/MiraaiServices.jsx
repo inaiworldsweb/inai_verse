@@ -50,7 +50,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl font-bold mb-4 text-white"
+                        className="text-[25px] md:text-[40px] font-bold mb-4 text-white"
                     >
                         Here's Exactly What Miraai Does For Your Brand
                     </motion.h2>

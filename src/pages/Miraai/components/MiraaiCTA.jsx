@@ -59,7 +59,7 @@ const QuestionCard = ({ icon, question, index }) => {
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 transition-all duration-300 relative">
                     {icon}
                 </div>
-                <p className="text-white text-lg md:text-xl font-medium tracking-tight leading-relaxed">
+                <p className="text-white text-[20px] md:text-[20px] font-medium tracking-tight leading-relaxed">
                     {question}
                 </p>
             </div>
@@ -80,7 +80,7 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-2xl md:text-4xl font-black text-white mb-12 tracking-tight leading-tight"
+                        className="text-[25px] md:text-[40px] font-black text-white mb-12 tracking-tight leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>
@@ -122,8 +122,8 @@ const MiraaiCTA = () => {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="mb-12"
                     >
-                        <p className="text-lg md:text-2xl text-white font-medium mb-2 opacity-80 uppercase tracking-widest">If you answered YES to any of these</p>
-                        <h3 className="text-3xl md:text-5xl font-black text-white tracking-tighter">Miraai is for you.</h3>
+                        <p className="text-[15px] md:text-[20px] text-white font-medium mb-2 opacity-80 uppercase tracking-widest">If you answered YES to any of these</p>
+                        <h3 className="text-[25px] md:text-[40px] font-black text-white tracking-tighter">Miraai is for you.</h3>
                     </motion.div>
 
                     <motion.button
