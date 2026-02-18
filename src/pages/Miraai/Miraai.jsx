@@ -29,10 +29,17 @@ import MiraaiWhoNeeds from './components/MiraaiWhoNeeds';
 // Navigation configuration - All components included
 const navConfig = [
     { id: 'hero', label: 'Hero section' },
+    { id: 'gallery', label: 'Gallery' },
+    { id: 'process', label: 'Process' },
+    { id: 'trust', label: 'Trusted by' },
+    { id: 'showcase', label: 'Showcase' },
     { id: 'services', label: 'What exactly we do' },
+    { id: 'whatyouget', label: 'What you get' },
     { id: 'whoneeds', label: 'Who needs our services' },
-    { id: 'growthkiller', label: 'Growth killer' },
     { id: 'simpletruth', label: 'The real problem we solve' },
+    { id: 'cta', label: 'Get Started' },
+    { id: 'comparison', label: 'Comparison' },
+    { id: 'growthkiller', label: 'Growth killer' },
     { id: 'whychoose', label: 'Why choose miraai' },
     { id: 'finalcta', label: 'Final CTA with form fill-up' },
     { id: 'testimonials', label: 'Testimonials' },
@@ -62,7 +69,7 @@ const Miraai = () => {
     const handleGoToPrice = () => window.open('/MiraaiPrice', '_blank');
 
     return (
-        <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
+        <div className="flex h-screen overflow-hidden bg-black text-white font-sans tracking-wide">
             {/* Mobile Sidebar Overlay */}
             {isMobileMenuOpen && (
                 <div
@@ -106,7 +113,7 @@ const Miraai = () => {
             )}
 
             {/* Desktop Sidebar - Hidden on mobile */}
-            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto border-r border-white/10">
+            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto border-r border-white/10 custom-scrollbar">
                 <div className="flex items-center justify-center mb-4">
                     <Link to="/">
                         <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
@@ -116,7 +123,7 @@ const Miraai = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main ref={scrollContainerRef} className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0">
+            <main ref={scrollContainerRef} className="flex-1 w-full min-w-0 flex flex-col overflow-y-auto bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24">
                 <PageHeader
                     title="Miraai"
                     showBackButton={true}

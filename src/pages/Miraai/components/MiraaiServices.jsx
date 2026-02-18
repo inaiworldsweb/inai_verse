@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Importing a variety of local assets for all service items
 // Importing assets from Assetsa for all service items
-import thumb1 from '../../../Assetsa/a.png';
-import thumb2 from '../../../Assetsa/b.png';
-import thumb3 from '../../../Assetsa/c.png';
-import thumb4 from '../../../Assetsa/d.png';
-import thumb5 from '../../../Assetsa/e.png';
+import thumb1 from '../../../Assetsa/N-1.webp';
+import thumb2 from '../../../Assetsa/N-2.webp';
+import thumb3 from '../../../Assetsa/N-3.webp';
+import thumb4 from '../../../Assetsa/N-4.webp';
+import thumb5 from '../../../Assetsa/N-5.webp';
 
 const MiraaiServices = () => {
     const [hoveredIndex, setHoveredIndex] = useState(3); // Default highlight index matching screenshot
@@ -50,7 +50,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-5xl font-bold mb-4 text-white"
+                        className="text-[25px] md:text-[40px] font-bold mb-4 text-white"
                     >
                         Here's Exactly What Miraai Does For Your Brand
                     </motion.h2>
@@ -59,7 +59,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto"
+                        className="text-gray-400 text-[15px] md:text-[25px] font-['Inter'] max-w-3xl mx-auto"
                     >
                         We're your AI-powered creative production team. You brief us. We create. Simple.
                     </motion.p>
