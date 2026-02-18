@@ -10,7 +10,7 @@ import MiraaiPrice from './MiraaiPrice';
 import MiraaiHero from './components/MiraaiHero';
 import MiraaiGallery from './components/MiraaiGallery';
 import MiraaiProcess from './components/MiraaiProcess';
-import MiraaiTrust from './components/MiraaiTrust';
+
 import MiraaiShowcase from './components/MiraaiShowcase';
 import MiraaiVision from './components/MiraaiVision';
 import MiraaiServices from './components/MiraaiServices';
@@ -33,7 +33,7 @@ const navConfig = [
     { id: 'hero', label: 'Hero section' },
     { id: 'gallery', label: 'Gallery' },
     { id: 'process', label: 'Process' },
-    { id: 'trust', label: 'Trusted by' },
+
     { id: 'showcase', label: 'Showcase' },
     { id: 'services', label: 'What exactly we do' },
     { id: 'whatyouget', label: 'What you get' },
@@ -143,7 +143,7 @@ const Miraai = () => {
 
                     <section id="gallery" className="!mt-0"><MiraaiGallery /></section>
                     <section id="process" className="!mt-0"><MiraaiProcess /></section>
-                    <section id="trust" className="!mt-0"><MiraaiTrust /></section>
+
                     <section id="showcase" className="!mt-0"><MiraaiShowcase /></section>
                     {/* <section id="vision" className="!mt-0"><MiraaiVision /></section> */}
                     <section id="services" className="!mt-0"><MiraaiServices /></section>

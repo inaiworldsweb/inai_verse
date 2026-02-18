@@ -15,11 +15,11 @@ const TestimonialCard = ({ quote, name, role }) => (
                 "{quote}"
             </p>
             <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl font-bold mr-4">
+                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl mr-4">
                     {name.charAt(0)}
                 </div>
                 <div>
-                    <h4 className="text-white text-lg font-medium">
+                    <h4 className="text-white text-lg">
                         {name}
                     </h4>
                     <p className="text-white/60 text-sm">
@@ -110,7 +110,7 @@ const MiraaiTestimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-4"
+                        className="text-[25px] md:text-[40px] text-white mb-4"
                     >
                         What Our Clients Say
                     </motion.h2>

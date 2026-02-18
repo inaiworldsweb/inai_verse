@@ -8,10 +8,10 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
   return (
     <div className="w-full text-left min-h-[100px] flex flex-col justify-center py-2">
       <div className="flex justify-between items-center mb-2 w-full">
-        <h4 className="text-white text-sm sm:text-base md:text-lg font-bold tracking-tight pr-2">
+        <h4 className="text-white text-sm sm:text-base md:text-lg tracking-tight pr-2">
           {label}
         </h4>
-        <span className="text-white/60 font-bold text-base md:text-lg whitespace-nowrap ml-2">
+        <span className="text-white/60 text-base md:text-lg whitespace-nowrap ml-2">
           {progressPercentage}%
         </span>
       </div>
@@ -34,7 +34,7 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
         </div>
       </div>
 
-      <p className="text-white/30 text-xs mt-2 font-medium tracking-tight uppercase">
+      <p className="text-white/30 text-xs mt-2 tracking-tight uppercase">
         {subtext}
       </p>
     </div>
@@ -50,7 +50,7 @@ const BetterWayCard = ({ text, index }) => (
     className="p-5 md:p-6 xl:p-8 rounded-2xl bg-[#0A0A0A] border border-white/5 hover:border-white/20 transition-all duration-300 flex items-center group w-full min-h-[90px] h-auto"
   >
     <div className="w-2 h-2 rounded-full bg-white mr-6 group-hover:scale-150 transition-transform duration-300 shadow-[0_0_10px_rgba(255,255,255,0.5)] shrink-0" />
-    <p className="text-white/80 group-hover:text-white transition-colors text-base md:text-lg font-bold tracking-tight">
+    <p className="text-white/80 group-hover:text-white transition-colors text-base md:text-lg tracking-tight">
       {text}
     </p>
   </motion.div>
@@ -81,7 +81,7 @@ const MiraaiGrowthKiller = () => {
           viewport={{ once: true }}
           className="text-center mb-16 max-w-4xl"
         >
-          <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tighter leading-tight">
+          <h2 className="text-[25px] md:text-[40px] text-white mb-6 tracking-tighter leading-tight">
             When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
           </h2>
         </motion.div>
@@ -92,8 +92,8 @@ const MiraaiGrowthKiller = () => {
           <div className="bg-[#050505] border border-white/5 p-6 md:p-8 lg:p-10 xl:p-12 rounded-[2.5rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
               <div className="mb-10 text-center lg:text-left">
-                <h3 className="text-[25px] md:text-3xl font-bold text-white mb-2 tracking-tight">The Breaking Point</h3>
-                <p className="text-white/40 text-[15px] md:text-base font-medium">Most growing businesses hit the same wall</p>
+                <h3 className="text-[25px] md:text-3xl text-white mb-2 tracking-tight">The Breaking Point</h3>
+                <p className="text-white/40 text-[15px] md:text-base">Most growing businesses hit the same wall</p>
               </div>
 
               <div className="w-full flex flex-col gap-4">
@@ -109,8 +109,8 @@ const MiraaiGrowthKiller = () => {
           <div className="bg-[#050505] border border-white/5 p-6 md:p-8 lg:p-10 xl:p-12 rounded-[2.5rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
               <div className="mb-10 text-center lg:text-left">
-                <h3 className="text-[25px] md:text-3xl font-bold text-white mb-2 tracking-tight">There's A Better Way</h3>
-                <p className="text-white/40 text-[15px] md:text-base font-medium">With Miraai, you can:</p>
+                <h3 className="text-[25px] md:text-3xl text-white mb-2 tracking-tight">There's A Better Way</h3>
+                <p className="text-white/40 text-[15px] md:text-base">With Miraai, you can:</p>
               </div>
 
               <div className="w-full flex flex-col gap-4">
@@ -131,7 +131,7 @@ const MiraaiGrowthKiller = () => {
           transition={{ delay: 0.5 }}
           className="mt-12 text-center"
         >
-          <p className="text-white text-lg md:text-2xl font-medium opacity-80 mb-4">That's exactly what Miraai does.</p>
+          <p className="text-white text-lg md:text-2xl opacity-80 mb-4">That's exactly what Miraai does.</p>
           <div className="h-px w-25 bg-white/20 mx-auto" />
         </motion.div>
       </div>

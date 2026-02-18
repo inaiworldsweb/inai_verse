@@ -59,9 +59,9 @@ const MiraaiGallery = () => {
                     transition={{ duration: 0.8 }}
                     className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
                 >
-                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">AI Content & Ad Creation Gallery</span>
+                    <span className="text-white/60 text-xs md:text-sm tracking-[0.3em] uppercase">AI Content & Ad Creation Gallery</span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
+                <h2 className="text-[25px] md:text-[40px] text-white tracking-tighter">Visualizing The Future Of Creativity</h2>
             </div>
 
             <div className="relative h-[400px] md:h-[550px] flex items-center justify-center">

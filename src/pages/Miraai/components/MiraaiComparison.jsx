@@ -55,7 +55,7 @@ const MiraaiComparison = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight"
+                        className="text-[25px] md:text-[40px] text-white mb-6 tracking-tight"
                     >
                         The Real Problem We Solve
                     </motion.h2>
@@ -64,7 +64,7 @@ const MiraaiComparison = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/40 text-[15px] md:text-[25px] font-medium"
+                        className="text-white/40 text-[15px] md:text-[25px]"
                     >
                         Do It Yourself vs Miraai Expert Team
                     </motion.p>
@@ -74,13 +74,13 @@ const MiraaiComparison = () => {
                 <div className="hidden lg:flex flex-col items-center">
                     {/* Modular Header Row */}
                     <div className="grid grid-cols-3 gap-6 w-full max-w-6xl mb-6">
-                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center font-bold text-lg shadow-xl shadow-white/5">
+                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center text-lg shadow-xl shadow-white/5">
                             Area
                         </div>
-                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center font-bold text-lg shadow-xl shadow-white/5">
+                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center text-lg shadow-xl shadow-white/5">
                             Do It Yourself
                         </div>
-                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center font-bold text-lg shadow-xl shadow-white/5">
+                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center text-lg shadow-xl shadow-white/5">
                             Miraai Expert Team
                         </div>
                     </div>
@@ -97,12 +97,12 @@ const MiraaiComparison = () => {
                                 className="grid grid-cols-3 gap-6"
                             >
                                 {/* Area Column */}
-                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center justify-start text-white font-bold text-base">
+                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center justify-start text-white text-base">
                                     {row.area}
                                 </div>
 
                                 {/* DIY Column */}
-                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center gap-4 text-white font-medium text-sm group hover:border-red-500/20 transition-all">
+                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center gap-4 text-white text-sm group hover:border-red-500/20 transition-all">
                                     <span className="flex-shrink-0 text-red-500/60 group-hover:text-red-500 transition-colors">
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
@@ -112,7 +112,7 @@ const MiraaiComparison = () => {
                                 </div>
 
                                 {/* Miraai Column */}
-                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center gap-4 text-white font-bold text-sm group hover:border-green-500/40 transition-all">
+                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center gap-4 text-white text-sm group hover:border-green-500/40 transition-all">
                                     <span className="flex-shrink-0 text-green-500/80 group-hover:text-green-500 transition-colors">
                                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
@@ -141,12 +141,12 @@ const MiraaiComparison = () => {
                             className="sticky bg-[#0E0E0E] border border-white/10 p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center space-y-8 shadow-2xl mb-12"
                         >
                             <div className="space-y-2">
-                                <h3 className="text-white text-2xl md:text-3xl font-black tracking-tight">{row.area}</h3>
+                                <h3 className="text-white text-2xl md:text-3xl tracking-tight">{row.area}</h3>
                                 <div className="h-1 w-12 bg-violet-500/50 mx-auto rounded-full" />
                             </div>
 
                             <div className="w-full space-y-6">
-                                <div className="flex items-center gap-4 text-white font-semibold text-sm md:text-base text-left bg-red-500/5 p-4 rounded-2xl border border-red-500/10">
+                                <div className="flex items-center gap-4 text-white text-sm md:text-base text-left bg-red-500/5 p-4 rounded-2xl border border-red-500/10">
                                     <span className="flex-shrink-0 text-red-500">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
@@ -154,7 +154,7 @@ const MiraaiComparison = () => {
                                     </span>
                                     {row.diy}
                                 </div>
-                                <div className="flex items-center gap-4 text-white font-bold text-sm md:text-base text-left bg-green-500/10 p-4 rounded-2xl border border-green-500/20">
+                                <div className="flex items-center gap-4 text-white text-sm md:text-base text-left bg-green-500/10 p-4 rounded-2xl border border-green-500/20">
                                     <span className="flex-shrink-0 text-green-400">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />

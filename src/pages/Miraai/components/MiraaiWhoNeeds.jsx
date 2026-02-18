@@ -196,7 +196,6 @@ export default function WhoNeedsOurServices() {
 
         .center-statement {
           font-size: 28px;
-          font-weight: 700;
           line-height: 1.4;
           text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
@@ -211,7 +210,7 @@ export default function WhoNeedsOurServices() {
         .card-image { width: 100%; height: 100%; object-fit: cover; }
         .card-label {
           background: #1A1A1A; padding: 6px 12px; border-radius: 8px;
-          font-size: 11px; font-weight: 600; margin-top: -12px;
+          font-size: 11px; margin-top: -12px;
           position: relative; z-index: 20; border: 1px solid rgba(255,255,255,0.12);
           white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }

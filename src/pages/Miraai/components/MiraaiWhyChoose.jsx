@@ -9,10 +9,10 @@ const FeatureCard = ({ title, description, index }) => (
         transition={{ duration: 0.6, delay: index * 0.1 }}
         className="p-8 md:p-10 rounded-3xl bg-[#0A0A0A] border border-white/5 hover:border-white/20 transition-all duration-300 flex flex-col items-start text-left group"
     >
-        <h3 className="text-white text-lg md:text-xl font-bold mb-4 tracking-tight group-hover:text-white transition-colors">
+        <h3 className="text-white text-lg md:text-xl mb-4 tracking-tight group-hover:text-white transition-colors">
             {title}
         </h3>
-        <p className="text-white/40 text-[15px] font-medium leading-relaxed group-hover:text-white/60 transition-colors">
+        <p className="text-white/40 text-[15px] leading-relaxed group-hover:text-white/60 transition-colors">
             {description}
         </p>
     </motion.div>
@@ -57,7 +57,7 @@ const MiraaiWhyChoose = () => {
                     viewport={{ once: true }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tight">
+                    <h2 className="text-[25px] md:text-[40px] text-white tracking-tight">
                         Why Choose Miraai?
                     </h2>
                 </motion.div>

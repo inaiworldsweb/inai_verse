@@ -50,11 +50,11 @@ const MiraaiWhatYouGet = () => {
                     transition={{ duration: 0.8 }}
                     className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
                 >
-                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
+                    <span className="text-white/60 text-xs md:text-sm tracking-[0.3em] uppercase">
                         What You Get With Miraai
                     </span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter uppercase">
+                <h2 className="text-[25px] md:text-[40px] text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
             </div>

@@ -23,7 +23,7 @@ const QuestionCard = ({ icon, question, index }) => {
                 <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-purple-600/20 to-indigo-600/20 rounded-2xl flex items-center justify-center mb-8 border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
                     {enhancedIcon}
                 </div>
-                <p className="text-white text-[15px] md:text-[25px] font-medium tracking-tight leading-relaxed">
+                <p className="text-white text-[15px] md:text-[25px] tracking-tight leading-relaxed">
                     {question}
                 </p>
             </div>
@@ -44,7 +44,7 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-12 tracking-tight leading-tight"
+                        className="text-[25px] md:text-[40px] text-white mb-12 tracking-tight leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>
@@ -86,8 +86,8 @@ const MiraaiCTA = () => {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="mb-12"
                     >
-                        <p className="text-[15px] md:text-[20px] text-white font-medium mb-2 opacity-80 tracking-widest">If you answered YES to any of these</p>
-                        <h3 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">Miraai is for you.</h3>
+                        <p className="text-[15px] md:text-[20px] text-white mb-2 opacity-80 tracking-widest">If you answered YES to any of these</p>
+                        <h3 className="text-[25px] md:text-[40px] text-white tracking-tighter">Miraai is for you.</h3>
                     </motion.div>
 
                     <motion.button
@@ -95,7 +95,7 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: 0.7 }}
-                        className="group relative overflow-hidden px-8 py-4 bg-white text-black text-[15px] font-black rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
+                        className="group relative overflow-hidden px-8 py-4 bg-white text-black text-[15px] rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
                     >
                         <span className="relative block h-[1.2em] overflow-hidden">
                             <span className="block transition-transform duration-300 group-hover:-translate-y-full">Get Started Now</span>

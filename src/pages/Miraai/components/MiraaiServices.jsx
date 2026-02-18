@@ -66,7 +66,7 @@ const ServiceItem = ({ service, index, setInView }) => {
             <span className="text-sm font-mono text-gray-500 mb-4 block tracking-widest">
                 /{service.id}
             </span>
-            <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+            <h3 className="text-[25px] text-white mb-6 leading-tight">
                 {service.title}
             </h3>
             <p className="text-lg md:text-xl text-gray-400 leading-relaxed max-w-lg">
@@ -90,7 +90,7 @@ const MiraaiServices = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500"
+                        className="text-[25px] md:text-[40px] text-white mb-6 tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-500"
                     >
                         Our Capabilities.
                     </motion.h2>

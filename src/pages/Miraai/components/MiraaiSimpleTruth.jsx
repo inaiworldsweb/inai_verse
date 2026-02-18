@@ -38,11 +38,11 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
           <Icon className="text-white text-xl md:text-2xl" />
         </div>
 
-        <h3 className="text-white text-xl font-bold mb-3 tracking-tight">
+        <h3 className="text-white text-xl mb-3 tracking-tight">
           {title}
         </h3>
 
-        <p className="text-white/50 text-sm leading-relaxed font-medium">
+        <p className="text-white/50 text-sm leading-relaxed">
           {description}
         </p>
       </div>
@@ -90,7 +90,7 @@ const MiraaiSimpleTruth = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[25px] md:text-[40px] font-bold text-white mb-6 md:mb-8 tracking-tighter"
+              className="text-[25px] md:text-[40px] text-white mb-6 md:mb-8 tracking-tighter"
             >
               The Simple Truth
             </motion.h2>
@@ -100,7 +100,7 @@ const MiraaiSimpleTruth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-white/80 text-[15px] md:text-[25px] md:leading-relaxed font-medium max-w-2xl text-center"
+              className="text-white/80 text-[15px] md:text-[25px] md:leading-relaxed max-w-2xl text-center"
             >
               We handle everything from concept to final delivery. You just tell
               us what you need.
