@@ -25,6 +25,8 @@ import MiraaiFinalCTA from './components/MiraaiFinalCTA';
 import MiraaiTestimonials from './components/MiraaiTestimonials';
 import MiraaiFAQ from './components/MiraaiFAQ';
 import MiraaiWhoNeeds from './components/MiraaiWhoNeeds';
+import SiteFooter from '../../components/SiteFooter'
+
 
 // Navigation configuration - All components included
 const navConfig = [
@@ -157,9 +159,13 @@ const Miraai = () => {
                     <section id="finalcta" className="!mt-0"><MiraaiFinalCTA /></section>
                     <section id="testimonials" className="!mt-0"><MiraaiTestimonials /></section>
                     <section id="faq" className="!mt-0"><MiraaiFAQ /></section>
+                    <section id="footer" className="!mt-0">
+                        <SiteFooter />
+                    </section>
                 </div>
             </main>
         </div>
+
     );
 };
 

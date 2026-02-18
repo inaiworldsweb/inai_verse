@@ -20,11 +20,11 @@ const productSections = [
     //     items: [],
     // },
     {
-        title: 'INAI For Marketing',
+        title: 'Miraai',
         items: [],
     },
     {
-        title: 'INAI For Corporate Agent',
+        title: 'Vantage AI',
         items: [],
     },
 ]
@@ -93,74 +93,76 @@ const socialLinks = [
 const SiteFooter = () => {
     const navigate = useNavigate()
     return (
-        <footer className="bg-dark-card py-12 px-8 pb-8 border-t border-white/10" aria-label="Global footer">
-            <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8 mb-8" role="list">
-                {productSections.map(({ title, items }) => (
-                    <section
-                        key={title}
-                        className=""
-                        aria-labelledby={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`}
-                    >
-                        <h3 id={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-semibold mb-4 text-white">
-                            {title}
-                        </h3>
-                        <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                            {items.map((item) => {
-                                const label = typeof item === 'string' ? item : item.label;
-                                const link = typeof item === 'object' ? item.link : null;
+        <footer className="w-full bg-dark-card py-12 pb-8 border-t border-white/10" aria-label="Global footer">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
+                <div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8 mb-8" role="list">
+                    {productSections.map(({ title, items }) => (
+                        <section
+                            key={title}
+                            className=""
+                            aria-labelledby={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`}
+                        >
+                            <h3 id={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-semibold mb-4 text-white">
+                                {title}
+                            </h3>
+                            <ul className="list-none p-0 m-0 flex flex-col gap-2">
+                                {items.map((item) => {
+                                    const label = typeof item === 'string' ? item : item.label;
+                                    const link = typeof item === 'object' ? item.link : null;
 
-                                return (
-                                    <li key={label} className="m-0">
-                                        {link ? (
-                                            <button
-                                                type="button"
-                                                onClick={() => window.location.assign(link)}
-                                                className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
-                                            >
-                                                {label}
-                                            </button>
-                                        ) : (
-                                            <button
-                                                type="button"
-                                                className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
-                                            >
-                                                {label}
-                                            </button>
-                                        )}
+                                    return (
+                                        <li key={label} className="m-0">
+                                            {link ? (
+                                                <button
+                                                    type="button"
+                                                    onClick={() => window.location.assign(link)}
+                                                    className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
+                                                >
+                                                    {label}
+                                                </button>
+                                            ) : (
+                                                <button
+                                                    type="button"
+                                                    className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white"
+                                                >
+                                                    {label}
+                                                </button>
+                                            )}
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </section>
+                    ))}
+                    {supportSections.map(({ title, items }) => (
+                        <section
+                            key={title}
+                            className=""
+                            aria-labelledby={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`}
+                        >
+                            <h3 id={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-semibold mb-4 text-white">
+                                {title}
+                            </h3>
+                            <ul className="list-none p-0 m-0 flex flex-col gap-2">
+                                {items.map((item) => (
+                                    <li key={item} className="m-0">
+                                        <button type="button" className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white">
+                                            {item}
+                                        </button>
                                     </li>
-                                );
-                            })}
-                        </ul>
-                    </section>
-                ))}
-                {supportSections.map(({ title, items }) => (
-                    <section
-                        key={title}
-                        className=""
-                        aria-labelledby={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`}
-                    >
-                        <h3 id={`footer-${title.replace(/\s+/g, '-').toLowerCase()}`} className="text-base font-semibold mb-4 text-white">
-                            {title}
-                        </h3>
-                        <ul className="list-none p-0 m-0 flex flex-col gap-2">
-                            {items.map((item) => (
-                                <li key={item} className="m-0">
-                                    <button type="button" className="bg-transparent border-none text-white/60 cursor-pointer text-sm p-0 text-left transition-colors duration-200 hover:text-white">
-                                        {item}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </section>
-                ))}
-            </div>
+                                ))}
+                            </ul>
+                        </section>
+                    ))}
+                </div>
 
-            <div className="flex gap-4 justify-center pt-8 border-t border-white/10" role="navigation" aria-label="Social media">
-                {socialLinks.map(({ name, icon }) => (
-                    <button key={name} type="button" className="bg-white/5 border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 [&_svg]:w-5 [&_svg]:h-5 [&_svg]:fill-white/80" aria-label={name}>
-                        {icon}
-                    </button>
-                ))}
+                <div className="flex gap-4 justify-center pt-8 border-t border-white/10" role="navigation" aria-label="Social media">
+                    {socialLinks.map(({ name, icon }) => (
+                        <button key={name} type="button" className="bg-white/5 border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-200 hover:bg-white/10 hover:-translate-y-0.5 [&_svg]:w-5 [&_svg]:h-5 [&_svg]:fill-white/80" aria-label={name}>
+                            {icon}
+                        </button>
+                    ))}
+                </div>
             </div>
 
         </footer>
