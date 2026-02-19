@@ -26,6 +26,7 @@ import MiraaiTestimonials from './components/MiraaiTestimonials';
 import MiraaiFAQ from './components/MiraaiFAQ';
 import MiraaiWhoNeeds from './components/MiraaiWhoNeeds';
 import SiteFooter from '../../components/SiteFooter'
+import SynProHeroSection from './components/SynProHeroSection';
 
 
 // Navigation configuration - All components included
@@ -145,6 +146,7 @@ const Miraai = () => {
                     <section id="process" className="!mt-0"><MiraaiProcess /></section>
 
                     <section id="showcase" className="!mt-0"><MiraaiShowcase /></section>
+                    <section id="showcase" className="!mt-0"><SynProHeroSection /></section>
                     {/* <section id="vision" className="!mt-0"><MiraaiVision /></section> */}
                     <section id="services" className="!mt-0"><MiraaiServices /></section>
                     {/* <section id="benefits" className="!mt-0"><MiraaiBenefits /></section> */}

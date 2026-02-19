@@ -7,12 +7,13 @@ const FeatureCard = ({ title, description, index }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: index * 0.1 }}
-        className="p-8 md:p-10 rounded-3xl bg-[#0A0A0A] border border-white/5 hover:border-white/20 transition-all duration-300 flex flex-col items-start text-left group"
+        style={{ width: '342px', height: '162px', borderWidth: '1px' }}
+        className="p-[20px] rounded-[10px] bg-[#0A0A0A] border-transparent hover:border-white/20 transition-all duration-300 flex flex-col items-start text-left gap-[10px] group mx-auto"
     >
-        <h3 className="text-white text-lg md:text-xl mb-4 tracking-tight group-hover:text-white transition-colors">
+        <h3 className="text-white text-lg md:text-xl tracking-tight m-0">
             {title}
         </h3>
-        <p className="text-white/40 text-[15px] leading-relaxed group-hover:text-white/60 transition-colors">
+        <p className="text-white/40 text-[15px] leading-relaxed m-0">
             {description}
         </p>
     </motion.div>
@@ -63,7 +64,7 @@ const MiraaiWhyChoose = () => {
                 </motion.div>
 
                 {/* Features Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 w-full">
+                <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full">
                     {features.map((feature, index) => (
                         <FeatureCard
                             key={index}
