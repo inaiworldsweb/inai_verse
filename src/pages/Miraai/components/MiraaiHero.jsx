@@ -23,7 +23,7 @@ const MiraaiHero = () => {
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-white/50 text-[15px] md:text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
+                <p className="text-white/50 text-[15px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>
@@ -32,7 +32,7 @@ const MiraaiHero = () => {
                     <motion.button
                         whileHover={{ scale: 1.05, backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
                         whileTap={{ scale: 0.98 }}
-                        className="px-6 py-3 md:px-10 md:py-4 bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
+                        className="min-w-[160px] md:min-w-[260px] h-[48px] md:h-[54px] px-4 md:px-6 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
                         Start Your First Project
                     </motion.button>
@@ -44,17 +44,17 @@ const MiraaiHero = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.4 }}
-                className="w-full max-w-[1400px] bg-[#0A0A0A] border-y border-white/5 md:border-x md:rounded-lg overflow-hidden"
+                className="w-full max-w-[1070px] h-auto md:h-[164px] bg-[#0A0A0A] overflow-hidden mx-auto"
             >
-                <div className="grid grid-cols-2 md:grid-cols-4">
+                <div className="grid grid-cols-1 md:grid-cols-4 h-full">
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${index !== stats.length - 1 ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10' : ''
+                            className={`flex flex-col items-center justify-center h-full gap-2 md:gap-[10px] py-6 md:py-8 lg:py-8 xl:pt-[39px] xl:pb-[39px] px-4 md:px-6 lg:px-8 xl:px-[80px] border-[#333333] border-solid ${index !== stats.length - 1 ? 'border-b md:border-b-0 md:border-r' : ''
                                 }`}
                         >
-                            <span className="text-2xl md:text-4xl mb-2 tracking-tight text-white">{stat.value}</span>
-                            <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em]">
+                            <span className="text-xl md:text-2xl lg:text-3xl tracking-tight text-white mb-1 font-bold">{stat.value}</span>
+                            <span className="text-[#999999] font-['Inter'] text-sm sm:text-base md:text-base lg:text-lg xl:text-lg leading-[1.2] md:leading-[100%] tracking-[0%] text-center capitalize whitespace-normal xl:whitespace-nowrap">
                                 {stat.label}
                             </span>
                         </div>
