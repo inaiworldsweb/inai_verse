@@ -102,7 +102,7 @@ const MiraaiProcess = ({ containerRef }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[25px] md:text-[40px] font-black mb-6 text-white"
+            className="text-[25px] md:text-[40px] font-normal mb-6 text-white tracking-tight"
           >
             Here's Exactly How We Work With You
           </motion.h2>
@@ -112,7 +112,7 @@ const MiraaiProcess = ({ containerRef }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-white/40 text-[16px] md:text-[25px] max-w-3xl mx-auto"
+            className="text-white/60 text-[18px] w-full mx-auto"
           >
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
           </motion.p>
@@ -160,9 +160,8 @@ const MiraaiProcess = ({ containerRef }) => {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center justify-between ${
-                  step.side === "right" ? "md:flex-row-reverse" : ""
-                }`}
+                className={`relative flex flex-col md:flex-row items-center justify-between ${step.side === "right" ? "md:flex-row-reverse" : ""
+                  }`}
               >
 
                 {/* NUMBER CIRCLE */}
@@ -185,11 +184,11 @@ const MiraaiProcess = ({ containerRef }) => {
                   transition={{ duration: 0.8 }}
                   className="w-full md:w-[42%] text-center md:text-left"
                 >
-                  <h3 className="text-[23px] md:text-[38px] font-black mb-4 text-white leading-tight">
+                  <h3 className="text-[23px] md:text-[38px] font-normal mb-4 text-white leading-tight tracking-tight">
                     {step.title}
                   </h3>
 
-                  <h4 className="text-white/40 font-bold mb-6 uppercase text-[13px] md:text-[18px]">
+                  <h4 className="text-white/40 font-normal mb-6 uppercase text-[13px] md:text-[18px]">
                     {step.subtitle}
                   </h4>
 

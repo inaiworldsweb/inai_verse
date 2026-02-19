@@ -40,30 +40,21 @@ const MiraaiWhatYouGet = () => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
-        
+
         // Gap adjusted specifically for 245px cards
-        const desktopSteps = [0, 175, 340, 500]; 
+        const desktopSteps = [0, 175, 340, 500];
         const mobileSteps = [0, 85, 160, 230];
-        
+
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? mobileSteps : desktopSteps;
-        
+
         return steps[absOffset] * direction;
     };
 
     return (
         <section className="py-20 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 text-center mb-12">
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
-                >
-                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
-                        What You Get With Miraai
-                    </span>
-                </motion.div>
-                <h2 className="text-[25px] md:text-[45px] font-black text-white tracking-tighter uppercase">
+                <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
             </div>
@@ -87,7 +78,7 @@ const MiraaiWhatYouGet = () => {
                                         zIndex: 50 - absOffset,
                                         opacity: 1,
                                         // Rotate hata diya taaki stretch na ho
-                                        rotateY: 0, 
+                                        rotateY: 0,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.6)'
                                     }}
                                     transition={{
@@ -100,13 +91,13 @@ const MiraaiWhatYouGet = () => {
                                     onHoverEnd={() => setIsHovered(false)}
                                     onClick={() => setActiveIndex(index)}
                                     // Fixed Container Size
-                                    style={{ 
-                                        width: '245px', 
-                                        height: '315px' 
+                                    style={{
+                                        width: '245px',
+                                        height: '315px'
                                     }}
                                     className={`absolute rounded-2xl overflow-hidden cursor-pointer
-                                        ${absOffset === 0 
-                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
+                                        ${absOffset === 0
+                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]'
                                             : 'border border-white/10'}`}
                                 >
                                     {/* Wrapper div to force aspect ratio and prevent image stretch */}
@@ -119,7 +110,7 @@ const MiraaiWhatYouGet = () => {
                                             draggable="false"
                                         />
                                         <div className={`absolute inset-0 transition-opacity duration-300 
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`} 
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`}
                                         />
                                     </div>
                                 </motion.div>
@@ -130,7 +121,7 @@ const MiraaiWhatYouGet = () => {
             </div>
 
             <div className="max-w-[1400px] mx-auto px-4 mt-16 text-center">
-                <motion.button 
+                <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     whileHover={{ scale: 1.05 }}
