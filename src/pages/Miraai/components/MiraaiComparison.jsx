@@ -47,15 +47,15 @@ const MiraaiComparison = () => {
 
     return (
         <section className="py-16 bg-black">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
+            <div className="max-w-[1400px] h-screen mx-auto px-4 sm:px-6 lg:px-20">
 
                 {/* Headers */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-12">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[25px] md:text-[40px] text-white mb-6 tracking-tight"
+                        className="text-[25px] md:text-[40px] text-white mb-3 md:mb-4 tracking-tight"
                     >
                         The Real Problem We Solve
                     </motion.h2>
@@ -64,64 +64,64 @@ const MiraaiComparison = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/40 text-[15px] md:text-[25px]"
+                        className="text-white/40 text-[15px] md:text-[25px] mt-0"
                     >
                         Do It Yourself vs Miraai Expert Team
                     </motion.p>
                 </div>
 
                 {/* Desktop View (Modular Grid) */}
-                <div className="hidden lg:flex flex-col items-center">
-                    {/* Modular Header Row */}
-                    <div className="grid grid-cols-3 gap-6 w-full max-w-6xl mb-6">
-                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center text-lg shadow-xl shadow-white/5">
-                            Area
-                        </div>
-                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center text-lg shadow-xl shadow-white/5">
-                            Do It Yourself
-                        </div>
-                        <div className="bg-white text-black py-5 rounded-xl flex items-center justify-center text-lg shadow-xl shadow-white/5">
-                            Miraai Expert Team
-                        </div>
-                    </div>
-
-                    {/* Modular Rows */}
-                    <div className="w-full max-w-6xl space-y-4">
-                        {comparisonData.map((row, index) => (
-                            <motion.div
-                                key={index}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.05 }}
-                                className="grid grid-cols-3 gap-6"
-                            >
-                                {/* Area Column */}
-                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center justify-start text-white text-base">
-                                    {row.area}
+                <div className="hidden lg:block">
+                    <div className="w-full">
+                        <div className="w-full min-w-0 flex flex-col items-center">
+                            <div className="grid grid-cols-[1fr_1.5fr_1.5fr] gap-4 w-full max-w-[1100px] mb-5 min-w-0">
+                                <div className="bg-white text-black py-4 rounded-xl flex items-center justify-start px-6 text-sm font-medium min-h-[56px] shadow-[0_12px_28px_rgba(0,0,0,0.6)] border border-black/10 min-w-0 whitespace-normal">
+                                    Area
                                 </div>
-
-                                {/* DIY Column */}
-                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center gap-4 text-white text-sm group hover:border-red-500/20 transition-all">
-                                    <span className="flex-shrink-0 text-red-500/60 group-hover:text-red-500 transition-colors">
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
-                                        </svg>
-                                    </span>
-                                    {row.diy}
+                                <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-medium min-h-[56px] shadow-[0_12px_28px_rgba(0,0,0,0.6)] border border-black/10 min-w-0 whitespace-normal text-center px-4">
+                                    Do It Yourself
                                 </div>
-
-                                {/* Miraai Column */}
-                                <div className="bg-[#0A0A0A] border border-white/5 p-6 rounded-xl flex items-center gap-4 text-white text-sm group hover:border-green-500/40 transition-all">
-                                    <span className="flex-shrink-0 text-green-500/80 group-hover:text-green-500 transition-colors">
-                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
-                                        </svg>
-                                    </span>
-                                    {row.miraai}
+                                <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-medium min-h-[56px] shadow-[0_12px_28px_rgba(0,0,0,0.6)] border border-black/10 min-w-0 whitespace-normal text-center px-4">
+                                    Miraai Expert Team
                                 </div>
-                            </motion.div>
-                        ))}
+                            </div>
+
+                            <div className="w-full max-w-[1100px] space-y-3 pb-1">
+                                {comparisonData.map((row, index) => (
+                                    <motion.div
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: index * 0.05 }}
+                                        className="grid grid-cols-[1fr_1.5fr_1.5fr] gap-4 min-w-0"
+                                    >
+                                        <div className="bg-[#0A0A0A] border border-white/5 p-4 rounded-lg flex items-center justify-start text-white text-sm min-h-[60px] shadow-[0_10px_30px_rgba(0,0,0,0.6)] transition-colors duration-200 hover:bg-white/10 min-w-0 whitespace-normal">
+                                            {row.area}
+                                        </div>
+
+                                        <div className="bg-[#0A0A0A] border border-white/5 p-4 rounded-lg flex items-center gap-3 text-white text-sm min-h-[60px] shadow-[0_10px_30px_rgba(0,0,0,0.6)] group transition-colors duration-200 hover:bg-white/10 hover:border-red-500/20 min-w-0 whitespace-normal leading-snug">
+                                            <span className="flex-shrink-0 text-red-500/60 group-hover:text-red-500 transition-colors">
+                                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
+                                                </svg>
+                                            </span>
+                                            {row.diy}
+                                        </div>
+
+                                        <div className="bg-[#0A0A0A] border border-white/5 p-4 rounded-lg flex items-center gap-3 text-white text-sm min-h-[60px] shadow-[0_10px_30px_rgba(0,0,0,0.6)] group transition-colors duration-200 hover:bg-white/10 hover:border-blue-500/30 min-w-0 whitespace-normal leading-snug">
+                                            <span className="flex-shrink-0 text-blue-500/90 group-hover:text-blue-500 transition-colors">
+                                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4" />
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
+                                                </svg>
+                                            </span>
+                                            {row.miraai}
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -138,7 +138,7 @@ const MiraaiComparison = () => {
                                 top: `${80 + (index * 24)}px`,
                                 zIndex: index + 10
                             }}
-                            className="sticky bg-[#0E0E0E] border border-white/10 p-10 md:p-12 rounded-[2.5rem] flex flex-col items-center text-center space-y-8 shadow-2xl mb-12"
+                            className="sticky bg-[#0E0E0E] border border-white/10 p-10 md:p-12 rounded-[1.75rem] flex flex-col items-center text-center space-y-8 shadow-2xl mb-12"
                         >
                             <div className="space-y-2">
                                 <h3 className="text-white text-2xl md:text-3xl tracking-tight">{row.area}</h3>
@@ -146,7 +146,7 @@ const MiraaiComparison = () => {
                             </div>
 
                             <div className="w-full space-y-6">
-                                <div className="flex items-center gap-4 text-white text-sm md:text-base text-left bg-red-500/5 p-4 rounded-2xl border border-red-500/10">
+                                <div className="flex items-center gap-4 text-white text-sm md:text-base text-left bg-red-500/5 p-4 rounded-xl border border-red-500/10 transition-colors duration-200 hover:bg-white/10 active:bg-white/15">
                                     <span className="flex-shrink-0 text-red-500">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
@@ -154,10 +154,11 @@ const MiraaiComparison = () => {
                                     </span>
                                     {row.diy}
                                 </div>
-                                <div className="flex items-center gap-4 text-white text-sm md:text-base text-left bg-green-500/10 p-4 rounded-2xl border border-green-500/20">
-                                    <span className="flex-shrink-0 text-green-400">
+                                <div className="flex items-center gap-4 text-white text-sm md:text-base text-left bg-blue-500/10 p-4 rounded-xl border border-blue-500/20 transition-colors duration-200 hover:bg-white/10 active:bg-white/15">
+                                    <span className="flex-shrink-0 text-blue-400">
                                         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M5 13l4 4L19 7" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" />
                                         </svg>
                                     </span>
                                     {row.miraai}
