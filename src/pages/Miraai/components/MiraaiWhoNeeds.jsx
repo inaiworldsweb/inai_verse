@@ -181,7 +181,7 @@ export default function WhoNeedsOurServices() {
         .who-needs-container { width: 100%; max-width: 1200px; margin: 0 auto; text-align: center; }
 
         .section-heading { 
-          font-size: 25px; 
+          font-size: 40px; 
           font-weight: 400; 
           letter-spacing: -1px; 
           margin-bottom: 20px; 
@@ -204,7 +204,7 @@ export default function WhoNeedsOurServices() {
         .mobile-center-text { padding: 20px 0; }
 
         .center-statement {
-          font-size: 15px;
+          font-size: 25px;
           line-height: 1.4;
           text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
@@ -225,7 +225,7 @@ export default function WhoNeedsOurServices() {
         }
 
         @media (max-width: 768px) {
-          .center-statement { font-size: 15px; padding: 0 10px; }
+          .center-statement { font-size: 25px; padding: 0 10px; }
           .card-image-box { width: 140px; height: 140px; }
           .who-needs-section { padding: 40px 10px; height: auto; }
           .mobile-grid {
