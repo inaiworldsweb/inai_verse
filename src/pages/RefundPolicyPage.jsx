@@ -83,7 +83,7 @@ const RefundPolicyPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white font-['Inter']">
+        <div className="min-h-screen bg-black text-white font-['Inter'] tracking-wide capitalize">
             <PageHeader
                 title="Refund & Cancellation Policy"
                 showBackButton={true}
