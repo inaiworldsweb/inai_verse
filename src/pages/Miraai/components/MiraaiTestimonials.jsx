@@ -3,29 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const TestimonialCard = ({ quote, name, role }) => (
     <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0">
-        <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-6 h-full transition-all duration-300 hover:border-white/20">
-            <div className="flex items-center mb-4">
-                {[...Array(5)].map((_, i) => (
-                    <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                ))}
+        <div className="bg-[#050505] rounded-2xl p-8 md:p-10 h-full flex flex-col justify-between">
+            <div>
+                <p className="text-white/60 text-[15px] md:text-[16px] leading-relaxed mb-8 font-light tracking-wide">
+                    "{quote}"
+                </p>
             </div>
-            <p className="text-white/80 text-base md:text-lg leading-relaxed mb-6 font-light">
-                "{quote}"
-            </p>
-            <div className="flex items-center">
-                <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-white text-xl mr-4">
-                    {name.charAt(0)}
-                </div>
-                <div>
-                    <h4 className="text-white text-lg">
-                        {name}
-                    </h4>
-                    <p className="text-white/60 text-sm">
-                        {role}
-                    </p>
-                </div>
+
+            <div>
+                <h4 className="text-white text-[16px] font-medium tracking-tight">
+                    {name} <span className="text-white/60 font-light"> – {role}</span>
+                </h4>
             </div>
         </div>
     </div>
@@ -102,24 +90,24 @@ const MiraaiTestimonials = () => {
         ].filter(Boolean);
 
     return (
-        <section className="py-16 md:py-24 bg-black overflow-hidden relative">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-20 md:py-32 bg-black overflow-hidden relative">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-12 md:mb-20">
+                <div className="text-center mb-16 md:mb-24">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[25px] md:text-[40px] text-white mb-4"
+                        className="text-[32px] md:text-[48px] font-bold text-white mb-6 tracking-tight"
                     >
-                        What Our Clients Say
+                        What Our Clients Say About Miraai
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/60 text-[15px] md:text-[25px] max-w-3xl mx-auto"
+                        className="text-white/60 text-[18px] w-full mx-auto font-light lg:whitespace-nowrap"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
@@ -127,14 +115,14 @@ const MiraaiTestimonials = () => {
 
                 {/* Carousel Container */}
                 <div
-                    className="relative px-8 md:px-20"
+                    className="relative px-0 md:px-12"
                     onMouseEnter={() => !isMobile && setIsPaused(true)}
                     onMouseLeave={() => !isMobile && setIsPaused(false)}
                 >
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
+                        className="hidden md:flex absolute left-0 lg:-left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#111] text-white/50 hover:text-white hover:bg-[#222] transition-all items-center justify-center border border-white/5"
                         aria-label="Previous testimonial"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -166,7 +154,7 @@ const MiraaiTestimonials = () => {
                     {/* Next Button */}
                     <button
                         onClick={nextSlide}
-                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white border border-white/20 text-black hover:bg-gray-100 transition-all items-center justify-center"
+                        className="hidden md:flex absolute right-0 lg:-right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-[#111] text-white/50 hover:text-white hover:bg-[#222] transition-all items-center justify-center"
                         aria-label="Next testimonial"
                     >
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
