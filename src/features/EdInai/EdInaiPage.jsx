@@ -176,7 +176,7 @@ const EdInaiPage = () => {
     }
 
     return (
-        <div className="flex h-screen overflow-hidden bg-black text-white">
+        <div className="flex min-h-screen bg-black text-white">
             {/* Mobile Menu Button - Fixed position */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -245,7 +245,7 @@ const EdInaiPage = () => {
             </aside>
 
             {/* Main Content - Full width on mobile */}
-            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
+            <main className="flex-1 w-full min-w-0 bg-black">
                 <PageHeader
                     title="Edinai"
                     breadcrumbs={[]}
