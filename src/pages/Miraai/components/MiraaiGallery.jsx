@@ -41,14 +41,14 @@ const MiraaiGallery = () => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
-
+        
         // Balanced spacing for 65% visibility
-        const desktopSteps = [0, 175, 340, 500];
+        const desktopSteps = [0, 175, 340, 500]; 
         const mobileSteps = [0, 85, 160, 230];
-
+        
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? mobileSteps : desktopSteps;
-
+        
         return steps[absOffset] * direction;
     };
 
@@ -60,7 +60,7 @@ const MiraaiGallery = () => {
                     whileInView={{ opacity: 1 }}
                     className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
                 >
-                    <span className="text-white/60 text-sm md:text-base uppercase">
+                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
                         AI Content & Ad Creation Gallery
                     </span>
                 </motion.div>
@@ -99,13 +99,13 @@ const MiraaiGallery = () => {
                                     onClick={() => setActiveIndex(index)}
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
-                                    style={{
-                                        width: '245px',
+                                    style={{ 
+                                        width: '245px', 
                                         height: '315px'
                                     }}
                                     className={`absolute rounded-2xl overflow-hidden cursor-pointer
-                                        ${absOffset === 0
-                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]'
+                                        ${absOffset === 0 
+                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
                                             : 'border border-white/10'}`}
                                 >
                                     <div className="w-full h-full relative">
@@ -116,7 +116,7 @@ const MiraaiGallery = () => {
                                             draggable="false"
                                         />
                                         <div className={`absolute inset-0 transition-opacity duration-300 
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/20'}`}
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/20'}`} 
                                         />
                                     </div>
                                 </motion.div>
