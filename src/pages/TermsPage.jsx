@@ -88,7 +88,7 @@ const TermsPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white font-['Inter']">
+        <div className="min-h-screen bg-black text-white font-['Inter'] tracking-wide capitalize">
             <PageHeader
                 title="Terms & Conditions"
                 showBackButton={true}
