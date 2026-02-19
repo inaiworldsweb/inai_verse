@@ -102,7 +102,7 @@ const MiraaiProcess = ({ containerRef }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-[25px] md:text-[40px] font-normal mb-6 text-white tracking-tight"
+            className="text-[25px] md:text-[40px] font-light mb-6 text-white tracking-tight"
           >
             Here's Exactly How We Work With You
           </motion.h2>
