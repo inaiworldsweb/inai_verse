@@ -58,13 +58,13 @@ const MiraaiGallery = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
+                    className="inline-block mb-6"
                 >
-                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
+                    <span className="text-white/60 text-[20px] uppercase tracking-tighter">
                         AI Content & Ad Creation Gallery
                     </span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[45px] font-black text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[45px] font-light text-white tracking-tighter">
                     Visualizing The Future Of Creativity
                 </h2>
             </div>
