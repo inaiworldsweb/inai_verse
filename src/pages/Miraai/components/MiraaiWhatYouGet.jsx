@@ -44,16 +44,7 @@ const MiraaiWhatYouGet = () => {
         <section className="py-20 bg-black overflow-hidden relative">
             {/* Header Section */}
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-12">
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
-                    className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
-                >
-                    <span className="text-white/60 text-xs md:text-sm tracking-[0.3em] uppercase">
-                        What You Get With Miraai
-                    </span>
-                </motion.div>
+
                 <h2 className="text-[25px] md:text-[40px] text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
@@ -77,7 +68,7 @@ const MiraaiWhatYouGet = () => {
                                     animate={{
                                         // Mobile: 160px spacing, Desktop: 250px spacing
                                         x: typeof window !== 'undefined' && window.innerWidth < 768
-                                            ? offset * 160 : offset * 250,
+                                            ? offset * 160 : offset * 350,
                                         scale: 1 - absOffset * 0.15,
                                         zIndex: 50 - absOffset,
                                         opacity: 1 - absOffset * 0.3,

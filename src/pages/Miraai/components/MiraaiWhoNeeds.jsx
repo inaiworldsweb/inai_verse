@@ -13,9 +13,9 @@ const cardsData = [
 ];
 
 const cardPositions = [
-  { x: -320, y: -170 }, { x: 0, y: -190 }, { x: 320, y: -170 },
-  { x: -380, y: 10 }, { x: 380, y: 10 },
-  { x: -320, y: 210 }, { x: 0, y: 240 }, { x: 320, y: 210 },
+  { x: -320, y: -160 }, { x: 0, y: -180 }, { x: 320, y: -160 },
+  { x: -380, y: 0 }, { x: 380, y: 0 },
+  { x: -320, y: 160 }, { x: 0, y: 180 }, { x: 320, y: 160 },
 ];
 
 const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile }) => {
@@ -73,7 +73,7 @@ export default function WhoNeedsOurServices() {
   const [isInView, setIsInView] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    const checkMobile = () => setIsMobile(window.innerWidth <= 1024);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -91,7 +91,7 @@ export default function WhoNeedsOurServices() {
   return (
     <section className={`who-needs-section ${isMobile ? 'mobile' : ''}`}>
       <div className="who-needs-container">
-        <h2 className="section-heading">WHO NEEDS OUR SERVICES</h2>
+        <h2 className="section-heading">Who Needs Our Services</h2>
 
         {!isMobile ? (
           // DESKTOP VIEW
@@ -168,16 +168,25 @@ export default function WhoNeedsOurServices() {
 
       <style>{`
         .who-needs-section {
-          min-height: 100vh;
+          height: 100vh;
+          min-height: 700px;
           background: #000;
           color: #fff;
           display: flex;
           align-items: center;
-          padding: 80px 20px;
+          justify-content: center;
+          padding: 0 20px;
           overflow: hidden;
         }
         .who-needs-container { width: 100%; max-width: 1200px; margin: 0 auto; text-align: center; }
-        .section-heading { font-size: 16px; letter-spacing: 4px; margin-bottom: 60px; color: rgba(255,255,255,0.4); }
+
+        .section-heading { 
+          font-size: 25px; 
+          font-weight: 400; 
+          letter-spacing: -1px; 
+          margin-bottom: 20px; 
+          color: #ffffff;
+        }
 
         /* Desktop Stage */
         .main-stage { position: relative; height: 600px; display: flex; align-items: center; justify-content: center; }
@@ -187,15 +196,15 @@ export default function WhoNeedsOurServices() {
         .mobile-layout { display: flex; flex-direction: column; gap: 40px; align-items: center; }
         .mobile-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr);
+          grid-template-columns: repeat(4, 1fr);
           gap: 25px;
           width: 100%;
-          max-width: 400px;
+          max-width: 900px;
         }
         .mobile-center-text { padding: 20px 0; }
 
         .center-statement {
-          font-size: 28px;
+          font-size: 15px;
           line-height: 1.4;
           text-shadow: 0 0 20px rgba(0,0,0,0.8);
         }
@@ -216,9 +225,13 @@ export default function WhoNeedsOurServices() {
         }
 
         @media (max-width: 768px) {
-          .center-statement { font-size: 20px; padding: 0 10px; }
+          .center-statement { font-size: 15px; padding: 0 10px; }
           .card-image-box { width: 140px; height: 140px; }
           .who-needs-section { padding: 40px 10px; height: auto; }
+          .mobile-grid {
+             grid-template-columns: repeat(2, 1fr);
+             max-width: 400px;
+          }
         }
 
         @media (max-width: 380px) {
