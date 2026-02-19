@@ -70,7 +70,12 @@ function PageHeader({
                 {title && (
                     <div className="flex items-center gap-2">
                         <span className="text-white/50" aria-hidden="true">›</span>
-                        <span className="text-white font-medium text-base">{title}</span>
+                        <img
+                            src="/miralogo.png"
+                            alt="Miraai logo"
+                            className="w-50 h-20 object-contain"
+                        />
+                      
                     </div>
                 )}
 
@@ -97,10 +102,13 @@ function PageHeader({
                 {showPriceButton && (
                     <button
                         type="button"
-                        className="bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
+                        className="group bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors overflow-hidden"
                         onClick={handlePrice}
                     >
-                        Price
+                        <span className="relative block h-[1.2em]">
+                            <span className="block transition-transform duration-300 group-hover:-translate-y-[120%]">Price</span>
+                            <span className="absolute left-0 top-[120%] block transition-transform duration-300 group-hover:-translate-y-[120%]">Price</span>
+                        </span>
                     </button>
                 )}
 

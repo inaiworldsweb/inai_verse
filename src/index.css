@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 
+
 :root {
   color-scheme: dark;
 }
@@ -8,6 +9,7 @@
 html,
 body {
   height: 100%;
+font-family: inter;
 }
 
 body {

@@ -8,30 +8,25 @@ import img3 from '../../../assets/images/Miraai/model/Perfume (1).webp';
 import img4 from '../../../assets/images/Miraai/video/download 2.gif';
 import img5 from '../../../assets/images/Miraai/model/Rasmika Shoot (1).webp';
 import img6 from '../../../assets/images/Miraai/video/download 3.gif';
+import img7 from '../../../assets/images/Miraai/video/download 7.gif';
+
+const galleryItems = [
+    { url: img1 }, { url: img2 }, { url: img3 },
+    { url: img4 }, { url: img5 }, { url: img6 }, { url: img7 }
+];
 
 const MiraaiWhatYouGet = () => {
-    const galleryItems = [
-        { url: img1 },
-        { url: img2 },
-        { url: img3 },
-        { url: img4 },
-        { url: img5 },
-        { url: img6 }
-    ];
-
     const [activeIndex, setActiveIndex] = useState(2);
     const [isHovered, setIsHovered] = useState(false);
 
-    // Smooth Auto-rotation logic
     useEffect(() => {
         if (isHovered) return;
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % galleryItems.length);
         }, 3000);
         return () => clearInterval(interval);
-    }, [galleryItems.length, isHovered]);
+    }, [isHovered]);
 
-    // This logic ensures the carousel loops in one direction without jumping
     const getNormalizedOffset = (index) => {
         let offset = index - activeIndex;
         const len = galleryItems.length;
@@ -40,72 +35,91 @@ const MiraaiWhatYouGet = () => {
         return offset;
     };
 
+    // Spacing logic for 65% visibility - No stretching
+    const getXPos = (offset) => {
+        const absOffset = Math.abs(offset);
+        if (absOffset === 0) return 0;
+        const direction = offset > 0 ? 1 : -1;
+        
+        // Gap adjusted specifically for 245px cards
+        const desktopSteps = [0, 175, 340, 500]; 
+        const mobileSteps = [0, 85, 160, 230];
+        
+        const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+        const steps = isMobile ? mobileSteps : desktopSteps;
+        
+        return steps[absOffset] * direction;
+    };
+
     return (
         <section className="py-20 bg-black overflow-hidden relative">
-            {/* Header Section */}
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center mb-12">
+            <div className="max-w-[1400px] mx-auto px-4 text-center mb-12">
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
                     className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
                 >
-                    <span className="text-white/60 text-xs md:text-sm tracking-[0.3em] uppercase">
+                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
                         What You Get With Miraai
                     </span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] text-white tracking-tighter uppercase">
+                <h2 className="text-[25px] md:text-[45px] font-black text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
             </div>
 
-            {/* Carousel Container */}
-            <div className="relative h-[450px] md:h-[600px] flex items-center justify-center">
-                <div className="relative w-full max-w-5xl h-full flex items-center justify-center" style={{ perspective: '1200px' }}>
+            <div className="relative h-[500px] md:h-[620px] flex items-center justify-center">
+                <div className="relative w-full max-w-[1400px] h-full flex items-center justify-center">
                     <AnimatePresence initial={false}>
                         {galleryItems.map((item, index) => {
                             const offset = getNormalizedOffset(index);
                             const absOffset = Math.abs(offset);
 
-                            // Only render the center and its immediate neighbors for performance
-                            if (absOffset > 2) return null;
+                            if (absOffset > 3) return null;
 
                             return (
                                 <motion.div
                                     key={index}
                                     initial={false}
                                     animate={{
-                                        // Mobile: 160px spacing, Desktop: 250px spacing
-                                        x: typeof window !== 'undefined' && window.innerWidth < 768
-                                            ? offset * 160 : offset * 250,
-                                        scale: 1 - absOffset * 0.15,
+                                        x: getXPos(offset),
+                                        scale: absOffset === 0 ? 1.1 : 0.9,
                                         zIndex: 50 - absOffset,
-                                        opacity: 1 - absOffset * 0.3,
-                                        rotateY: offset * -15, // Low rotation angle to stop stretching
-                                        filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.4)',
+                                        opacity: 1,
+                                        // Rotate hata diya taaki stretch na ho
+                                        rotateY: 0, 
+                                        filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.6)'
                                     }}
                                     transition={{
                                         type: "spring",
                                         stiffness: 150,
-                                        damping: 25,
-                                        mass: 1
+                                        damping: 20,
+                                        mass: 0.8
                                     }}
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
                                     onClick={() => setActiveIndex(index)}
-                                    className={`absolute w-[240px] md:w-[320px] aspect-[3/4] rounded-[2rem] overflow-hidden cursor-pointer
-                                        ${absOffset === 0 ? 'border-[3px] border-purple-500 shadow-[0_0_30px_rgba(168,85,247,0.4)]' : 'border border-white/10'}`}
+                                    // Fixed Container Size
+                                    style={{ 
+                                        width: '245px', 
+                                        height: '315px' 
+                                    }}
+                                    className={`absolute rounded-2xl overflow-hidden cursor-pointer
+                                        ${absOffset === 0 
+                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
+                                            : 'border border-white/10'}`}
                                 >
-                                    <div className="relative w-full h-full overflow-hidden">
+                                    {/* Wrapper div to force aspect ratio and prevent image stretch */}
+                                    <div className="w-full h-full relative bg-zinc-900 overflow-hidden">
                                         <img
                                             src={item.url}
                                             alt="Miraai Gallery"
-                                            className="w-full h-full object-cover pointer-events-none"
-                                            style={{
-                                                width: '100%',
-                                                height: '100%',
-                                                objectFit: 'cover'
-                                            }}
+                                            // 'object-cover' ensures the image fills the 245x315 area without stretching
+                                            className="w-full h-full object-cover select-none block"
+                                            draggable="false"
+                                        />
+                                        <div className={`absolute inset-0 transition-opacity duration-300 
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`} 
                                         />
                                     </div>
                                 </motion.div>
@@ -115,15 +129,13 @@ const MiraaiWhatYouGet = () => {
                 </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 mt-16 text-center">
-                <motion.button
+            <div className="max-w-[1400px] mx-auto px-4 mt-16 text-center">
+                <motion.button 
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ scale: 1.05, backgroundColor: '#f8f9fa' }}
+                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    transition={{ duration: 0.3 }}
-                    className="bg-white text-black font-medium py-3 px-8 rounded-full border border-gray-200 hover:bg-gray-100 transition-all uppercase"
+                    className="bg-white text-black font-bold py-4 px-10 rounded-full hover:bg-gray-200 transition-all uppercase text-sm tracking-widest"
                 >
                     Get Started with Miraai
                 </motion.button>
