@@ -50,11 +50,18 @@ const MiraaiFinalCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.4 }}
-                        whileHover={{ scale: 1.05 }}
+                        whileHover={{}}
                         whileTap={{ scale: 0.95 }}
-                        className="px-8 py-3 md:px-10 md:py-4 bg-white text-black text-sm md:text-lg font-bold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] hover:shadow-[0_25px_50px_rgba(255,255,255,0.25)] transition-all"
+                        className="group px-8 py-3 md:px-10 md:py-4 bg-white text-black text-sm md:text-lg font-bold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] hover:shadow-[0_25px_50px_rgba(255,255,255,0.25)] transition-all"
                     >
-                        Contact Our Team
+                        <span className="relative block h-[1.2em] overflow-hidden">
+                            <span className="block leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
+                                Contact Our Team
+                            </span>
+                            <span className="absolute left-0 top-[120%] block leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
+                                Contact Our Team
+                            </span>
+                        </span>
                     </motion.button>
                 </div>
             </motion.div>
