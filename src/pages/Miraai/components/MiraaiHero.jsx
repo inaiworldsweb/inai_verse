@@ -11,6 +11,7 @@ const MiraaiHero = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-160px)] relative py-12">
+            
             {/* Hero Content */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -32,15 +33,7 @@ const MiraaiHero = () => {
                     <motion.button
                         whileHover={{ backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
                         whileTap={{ scale: 0.98 }}
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-                        className="px-6 py-3 md:px-10 md:py-4 bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
-=======
                         className="group min-w-[160px] md:min-w-[260px] h-[48px] md:h-[54px] px-4 md:px-6 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
->>>>>>> Stashed changes
-=======
-                        className="group min-w-[160px] md:min-w-[260px] h-[48px] md:h-[54px] px-4 md:px-6 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
->>>>>>> Stashed changes
                     >
                         <span className="relative block h-[1.2em] overflow-hidden w-full">
                             <span className="w-full flex items-center justify-center leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
@@ -54,7 +47,7 @@ const MiraaiHero = () => {
                 </div>
             </motion.div>
 
-            {/* Stats Section - Bottom Bar Style */}
+            {/* Stats Section */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -65,10 +58,15 @@ const MiraaiHero = () => {
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${index !== stats.length - 1 ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10' : ''
-                                }`}
+                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${
+                                index !== stats.length - 1
+                                    ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10'
+                                    : ''
+                            }`}
                         >
-                            <span className="text-2xl md:text-4xl mb-2 tracking-tight text-white">{stat.value}</span>
+                            <span className="text-2xl md:text-4xl mb-2 tracking-tight text-white">
+                                {stat.value}
+                            </span>
                             <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em]">
                                 {stat.label}
                             </span>

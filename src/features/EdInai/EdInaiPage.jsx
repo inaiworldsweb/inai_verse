@@ -280,6 +280,7 @@ const EdInaiPage = () => {
                             <button
                                 type="button"
                                 className="
+                                group
                                 w-full sm:w-auto
                                 bg-white text-black border-none 
                                 py-3 px-6 sm:px-8 rounded-full 
@@ -289,7 +290,14 @@ const EdInaiPage = () => {
                             "
                             // onClick={() => navigate('/edinai-detail')}
                             >
-                                <span>Get Started</span>
+                                <span className="relative block h-[1.2em] overflow-hidden">
+                                    <span className="block leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
+                                        Get Started
+                                    </span>
+                                    <span className="absolute left-0 top-[120%] block leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
+                                        Get Started
+                                    </span>
+                                </span>
                                 <span aria-hidden="true">›</span>
                             </button>
                         </div>
