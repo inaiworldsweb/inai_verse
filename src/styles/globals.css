@@ -122,6 +122,50 @@
         @apply opacity-100 translate-y-0;
     }
 
+    img[data-zoom-reveal] {
+        transform: scale(1.15);
+        opacity: 0;
+        filter: blur(6px);
+        transition:
+            transform var(--zr-duration, 700ms) var(--zr-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+            opacity var(--zr-duration, 700ms) var(--zr-ease, cubic-bezier(0.22, 1, 0.36, 1)),
+            filter var(--zr-duration, 700ms) var(--zr-ease, cubic-bezier(0.22, 1, 0.36, 1));
+        transition-delay: var(--zr-delay, 0ms);
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        transform-origin: center center;
+    }
+
+    img[data-zoom-reveal].is-visible {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+    }
+
+    img[data-zoom-reveal].is-visible:hover {
+        transform: scale(1.05);
+        transition-duration: 200ms;
+        transition-timing-function: ease-out;
+        box-shadow: 0 10px 30px rgba(14, 165, 233, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    @media (max-width: 767px) {
+        img[data-zoom-reveal] {
+            --zr-duration: 525ms;
+            filter: none;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        img[data-zoom-reveal] {
+            transform: none !important;
+            filter: none !important;
+        }
+        img[data-zoom-reveal].is-visible {
+            opacity: 1;
+        }
+    }
+
     /* Reduced motion support */
     @media (prefers-reduced-motion: reduce) {
 

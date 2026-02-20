@@ -112,11 +112,16 @@ const EducationPortalSection = () => {
                     <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-6 text-center text-white px-4 leading-snug">{currentSlide.title}</h3>
                     <button
                         type="button"
-                        className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full p-0"
+                        className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full max-w-[900px] mx-auto p-0 flex items-center justify-center h-[240px] sm:h-[280px] md:h-[340px]"
                         onClick={handleSlideClick}
                         aria-label={`View ${currentSlide.title}`}
                     >
-                        <img src={currentSlide.image} alt={currentSlide.title} className="w-full aspect-video object-cover block transition-transform duration-300 hover:scale-[1.02]" loading="lazy" />
+                        <img
+                            src={currentSlide.image}
+                            alt={currentSlide.title}
+                            className="max-w-full max-h-full object-contain block transition-transform duration-300 hover:scale-[1.02]"
+                            loading="lazy"
+                        />
                     </button>
                     <div className="flex justify-center my-6">
                         <div className="flex gap-2" role="tablist" aria-label="Portal views">
