@@ -123,8 +123,6 @@ const overviewItems = [
 const EdInaiPage = () => {
     const navigate = useNavigate()
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-<<<<<<< Updated upstream
-=======
     // Scroll-based horizontal animation setup
 const targetRef = useRef(null);
 const { scrollYProgress } = useScroll({
@@ -149,7 +147,6 @@ const x = useTransform(
         easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
         once: false,
     })
->>>>>>> Stashed changes
 
     const handleBreadcrumbClick = (target) => {
         if (target === 'top') {
@@ -457,7 +454,7 @@ const x = useTransform(
             <motion.h2 
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                className="text-2xl md:text-[3rem] mb-10 font-bold text-center text-white tracking-tight px-4"
+                className="text-2xl md:text-[3rem] font-bold text-center text-white tracking-tight px-4"
             >
                 Why <span className="text-blue-500">EdINAI</span> is the Future
             </motion.h2>
