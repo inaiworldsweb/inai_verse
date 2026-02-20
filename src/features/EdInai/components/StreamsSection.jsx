@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 
 const streamRows = [
     {
@@ -22,48 +22,10 @@ const streamRows = [
 ]
 
 const StreamsSection = () => {
-    const scrollRefs = useRef([])
-
-    useEffect(() => {
-        // Clone content for infinite scroll
-        scrollRefs.current.forEach((ref) => {
-            if (ref && ref.children.length === 1) {
-                const originalContent = ref.children[0]
-                const clone = originalContent.cloneNode(true)
-                ref.appendChild(clone)
-            }
-        })
-
-        // Pause on hover functionality
-        const handleMouseEnter = () => {
-            scrollRefs.current.forEach((ref) => {
-                if (ref) {
-                    ref.style.animationPlayState = 'paused'
-                }
-            })
-        }
-
-        const handleMouseLeave = () => {
-            scrollRefs.current.forEach((ref) => {
-                if (ref) {
-                    ref.style.animationPlayState = 'running'
-                }
-            })
-        }
-
-        const streamTags = document.querySelectorAll('.stream-tag')
-        streamTags.forEach((tag) => {
-            tag.addEventListener('mouseenter', handleMouseEnter)
-            tag.addEventListener('mouseleave', handleMouseLeave)
-        })
-
-        return () => {
-            streamTags.forEach((tag) => {
-                tag.removeEventListener('mouseenter', handleMouseEnter)
-                tag.removeEventListener('mouseleave', handleMouseLeave)
-            })
-        }
-    }, [])
+    // Number of times to repeat items in one segment to ensure it covers the screen width
+    // Original had 1 set + 1 duplicate (implicitly). We'll use 6 sets per segment to be safe.
+    // We render [Segment][Segment] and scroll -50% (width of one segment).
+    const REPEAT_COUNT = 6;
 
     return (
         <section className="py-10 md:py-16 bg-black" id="streams">
@@ -73,33 +35,36 @@ const StreamsSection = () => {
                 </h2>
 
                 <div className="scroll-wrapper">
-                    {streamRows.map(({ id, items, direction, duration }, index) => (
+                    {streamRows.map(({ id, items, direction, duration }) => (
                         <div key={id} className="scroll-row">
                             <div
-                                ref={(el) => (scrollRefs.current[index] = el)}
-                                className={`scroll-content ${direction === 'right' ? 'scroll-right' : 'scroll-left'}`}
+                                className={`scroll-track ${direction === 'right' ? 'scroll-right' : 'scroll-left'}`}
                                 style={{
-                                    animationDuration: `${duration}s`,
-                                    '--animation-direction': direction === 'right' ? 'reverse' : 'normal'
+                                    // Adjust duration proportional to content length to maintain visual speed
+                                    // Distance increased by REPEAT_COUNT, so time must increase by REPEAT_COUNT
+                                    animationDuration: `${duration * REPEAT_COUNT}s`,
                                 }}
                             >
-                                {items.map((label) => (
-                                    <span
-                                        key={label}
-                                        className="stream-tag"
-                                    >
-                                        {label}
-                                    </span>
-                                ))}
-                                {/* Duplicate for infinite scroll */}
-                                {items.map((label) => (
-                                    <span
-                                        key={`${label}-duplicate`}
-                                        className="stream-tag"
-                                    >
-                                        {label}
-                                    </span>
-                                ))}
+                                {/* Segment 1 */}
+                                <div className="scroll-segment">
+                                    {Array.from({ length: REPEAT_COUNT }).map((_, i) => (
+                                        items.map((label, j) => (
+                                            <span key={`seg1-${i}-${j}`} className="stream-tag">
+                                                {label}
+                                            </span>
+                                        ))
+                                    ))}
+                                </div>
+                                {/* Segment 2 (Duplicate for seamless loop) */}
+                                <div className="scroll-segment">
+                                    {Array.from({ length: REPEAT_COUNT }).map((_, i) => (
+                                        items.map((label, j) => (
+                                            <span key={`seg2-${i}-${j}`} className="stream-tag">
+                                                {label}
+                                            </span>
+                                        ))
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     ))}
@@ -114,6 +79,8 @@ const StreamsSection = () => {
                     position: relative;
                     align-items: center;
                     justify-content: center;
+                    overflow: hidden; /* Hide overflow from the wrapper/rows */
+                    width: 100%;
                 }
 
                 .scroll-wrapper::before,
@@ -141,29 +108,38 @@ const StreamsSection = () => {
                     display: flex;
                     width: 100%;
                     position: relative;
-                    justify-content: center;
-                    align-items: center;
                     overflow: hidden;
+                    /* Mask for cleaner edges if gradient isn't enough */
+                    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
                 }
 
-                .scroll-content {
+                .scroll-track {
                     display: flex;
-                    gap: 20px;
-                    padding: 0 10px;
-                    justify-content: flex-start;
+                    width: max-content; /* Allow it to be as wide as needed */
+                    /* Gap between the two segments */
+                    /* We put gap inside segments, but need gap between seg 1 end and seg 2 start? 
+                       Actually flex gap handles it if we put gap on track? No, standard seamless puts two blocks together.
+                       If segments have internal gap/padding, it works.
+                    */
+                }
+
+                .scroll-segment {
+                    display: flex;
+                    gap: 20px; /* Gap between items */
+                    padding-right: 20px; /* Gap between segments (matches item gap) */
                     align-items: center;
-                    min-width: max-content;
+                    flex-shrink: 0;
                 }
 
                 .scroll-left {
-                    animation: scroll-left 30s linear infinite;
+                    animation: scroll-left linear infinite;
                 }
 
                 .scroll-right {
-                    animation: scroll-right 25s linear infinite;
+                    animation: scroll-right linear infinite;
                 }
 
-                .scroll-row:hover .scroll-content {
+                .scroll-row:hover .scroll-track {
                     animation-play-state: paused;
                 }
 
@@ -181,6 +157,7 @@ const StreamsSection = () => {
                     backdrop-filter: blur(10px);
                     position: relative;
                     overflow: hidden;
+                    user-select: none;
                 }
 
                 .stream-tag:hover {
@@ -216,16 +193,16 @@ const StreamsSection = () => {
                         transform: translateX(0);
                     }
                     100% {
-                        transform: translateX(-50%);
+                        transform: translateX(-50%); /* Move half the total width (one segment width) */
                     }
                 }
 
                 @keyframes scroll-right {
                     0% {
-                        transform: translateX(-50%);
+                        transform: translateX(-50%); /* Start from -50% */
                     }
                     100% {
-                        transform: translateX(0);
+                        transform: translateX(0); /* Move to 0 */
                     }
                 }
 
@@ -238,14 +215,9 @@ const StreamsSection = () => {
                         padding: 12px 24px; 
                         font-size: 0.9rem;
                     }
-                    .scroll-content {
+                    .scroll-segment {
                         gap: 15px;
-                    }
-                }
-
-                @media (max-width: 480px) {
-                    .scroll-content { 
-                        animation-duration: 20s !important; 
+                        padding-right: 15px;
                     }
                 }
             `}</style>

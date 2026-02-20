@@ -27,8 +27,12 @@ const SideMenu = ({ className = '', items = [], variant = 'landing', onSelectIte
     return (
         <aside className={`flex flex-col ${className}`}>
             {logoSrc && (
-                <div className="p-4 text-center">
-                    <img src={logoSrc} alt="Logo" className="max-w-[150px] h-auto" />
+                <div className="flex justify-center p-4 w-full">
+                    <img 
+                        src={logoSrc} 
+                        alt="Logo" 
+                        className="max-w-[150px] h-auto mx-auto" 
+                    />
                 </div>
             )}
             <nav className="flex flex-col gap-2">

@@ -38,8 +38,8 @@ const navConfig = [
     { id: 'showcase', label: 'Showcase' },
     { id: 'services', label: 'What exactly we do' },
     { id: 'whatyouget', label: 'What you get' },
-    { id: 'whoneeds', label: 'Who needs our services' },
     { id: 'simpletruth', label: 'The real problem we solve' },
+    { id: 'whoneeds', label: 'Who needs our services' },
     { id: 'cta', label: 'Get Started' },
     { id: 'comparison', label: 'Comparison' },
     { id: 'growthkiller', label: 'Growth killer' },
@@ -125,7 +125,7 @@ const Miraai = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1 w-full min-w-0 flex flex-col bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24">
+            <main className="flex-1 w-full min-w-0 flex flex-col bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24 overflow-x-hidden">
                 <PageHeader
                     title="Miraai"
                     showTitleText={false}
@@ -152,8 +152,8 @@ const Miraai = () => {
                     <section id="services" className="!mt-0"><MiraaiServices /></section>
                     {/* <section id="benefits" className="!mt-0"><MiraaiBenefits /></section> */}
                     <section id="whatyouget" className="!mt-0"><MiraaiWhatYouGet /></section>
-                    <section id="whoneeds" className="!mt-0"><MiraaiWhoNeeds /></section>
                     <section id="simpletruth" className="!mt-0"><MiraaiSimpleTruth /></section>
+                    <section id="whoneeds" className="!mt-0"><MiraaiWhoNeeds /></section>
                     <section id="cta" className="!mt-0"><MiraaiCTA /></section>
                     <section id="comparison" className="!mt-0"><MiraaiComparison /></section>
                     <section id="growthkiller" className="!mt-0"><MiraaiGrowthKiller /></section>

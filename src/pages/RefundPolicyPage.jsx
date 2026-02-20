@@ -83,7 +83,7 @@ const RefundPolicyPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white font-['Inter']">
+        <div className="min-h-screen bg-black text-white font-['Inter'] tracking-wide capitalize">
             <PageHeader
                 title="Refund & Cancellation Policy"
                 showBackButton={true}
@@ -95,7 +95,7 @@ const RefundPolicyPage = () => {
             {/* Hero Section */}
             <div className="pt-24 pb-12 px-4 border-b border-white/10">
                 <div className="max-w-[1400px] mx-auto text-center">
-                    <h1 className="text-[25px] md:text-[40px] font-bold mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
+                    <h1 className="text-[25px] md:text-[40px] mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
                         Refund & Cancellation Policy
                     </h1>
                     <p className="text-white/60 text-lg">Last Updated: 25 December 2025</p>
@@ -109,7 +109,7 @@ const RefundPolicyPage = () => {
                     <aside className="hidden lg:block lg:w-80 flex-shrink-0">
                         <div className="sticky top-24">
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] mb-4">Table of Contents</h2>
                                 <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 custom-scrollbar">
                                     {sections.map((section) => (
                                         <button
@@ -117,8 +117,8 @@ const RefundPolicyPage = () => {
                                             data-section-id={section.id}
                                             onClick={() => scrollToSection(section.id)}
                                             className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200 ${activeSection === section.id
-                                                    ? 'bg-white/10 text-white font-medium'
-                                                    : 'text-white/60 hover:text-white hover:bg-white/5'
+                                                ? 'bg-white/10 text-white font-medium'
+                                                : 'text-white/60 hover:text-white hover:bg-white/5'
                                                 }`}
                                         >
                                             <span className="font-mono text-xs mr-2">{section.number}.</span>
@@ -144,7 +144,7 @@ const RefundPolicyPage = () => {
                     {tocOpen && (
                         <div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 p-6 overflow-y-auto">
                             <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-md mx-auto mt-20">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-4">Table of Contents</h2>
+                                <h2 className="text-[25px] md:text-[40px] mb-4">Table of Contents</h2>
                                 <nav className="space-y-1">
                                     {sections.map((section) => (
                                         <button
@@ -163,7 +163,7 @@ const RefundPolicyPage = () => {
 
                     {/* Content */}
                     <main className="flex-1 min-w-0">
-                        <div className="prose prose-invert max-w-none">
+                        <div className="prose prose-invert max-w-none [&_h2]:font-normal [&_h3]:font-normal">
                             {/* Introduction */}
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8">
                                 <p className="text-white/80 leading-relaxed mb-4">
@@ -172,14 +172,14 @@ const RefundPolicyPage = () => {
                                 <p className="text-white/80 leading-relaxed mb-4">
                                     This Policy is drafted to keep the Company on the maximum safe side, while maintaining transparency for customers using different products and pricing models.
                                 </p>
-                                <p className="text-white/80 leading-relaxed font-medium">
+                                <p className="text-white/80 leading-relaxed">
                                     By making any payment or using any paid Service, you acknowledge that you have read, understood, and agreed to this Policy.
                                 </p>
                             </div>
 
                             {/* Section 1: Scope */}
                             <section id="scope" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     1. Scope of Products & Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -197,7 +197,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 2: General Refund Policy */}
                             <section id="general-refund" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     2. General Refund Policy
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -213,7 +213,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 3: Subscriptions */}
                             <section id="subscriptions" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     3. Subscription-Based Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -229,7 +229,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 4: One-Time Purchases */}
                             <section id="one-time" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     4. One-Time Purchases & Digital Products
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -243,7 +243,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 5: Usage-Based */}
                             <section id="usage-based" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     5. Usage-Based, API & Credit-Based Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -258,7 +258,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 6: Custom Enterprise */}
                             <section id="custom-enterprise" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     6. Custom, Enterprise & Development Services
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -273,7 +273,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 7: Free Trials */}
                             <section id="free-trials" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     7. Free Trials, Demos & Promotional Offers
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -288,7 +288,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 8: Failed Payments */}
                             <section id="failed-payments" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     8. Failed, Duplicate or Incorrect Payments
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -306,7 +306,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 9: Refund Processing */}
                             <section id="refund-processing" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     9. Refund Processing (If Approved)
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -321,7 +321,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 10: Taxes */}
                             <section id="taxes" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     10. Taxes & Government Charges
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -334,7 +334,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 11: Suspension */}
                             <section id="suspension" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     11. Suspension or Termination by Company
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -349,7 +349,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 12: Chargebacks */}
                             <section id="chargebacks" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     12. Chargebacks & Payment Disputes
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -365,7 +365,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 13: Modifications */}
                             <section id="modifications" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     13. Policy Modifications
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -377,7 +377,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 14: Governing Law */}
                             <section id="governing-law" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     14. Governing Law & Jurisdiction
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">
@@ -389,7 +389,7 @@ const RefundPolicyPage = () => {
 
                             {/* Section 15: Contact */}
                             <section id="contact" className="mb-12 scroll-mt-24">
-                                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
+                                <h2 className="text-[25px] md:text-[40px] mb-6 bg-gradient-to-r from-white to-white/60 bg-clip-text text-transparent">
                                     15. Contact Information
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8">

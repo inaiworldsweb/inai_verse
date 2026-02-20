@@ -62,11 +62,13 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                         {question}
                     </h3>
                     <motion.div
-                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        animate={{ rotate: isOpen ? 90 : 0 }}
                         transition={{ duration: 0.3 }}
                         className="w-10 h-10 rounded-full flex items-center justify-center border border-white/20 bg-white/5 text-white"
                     >
-                        <FiChevronDown size={20} />
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
                     </motion.div>
                 </div>
 

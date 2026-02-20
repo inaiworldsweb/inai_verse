@@ -4,13 +4,13 @@ import ctaBg from '../../../Assetsa/e.png';
 
 const MiraaiFinalCTA = () => {
     return (
-        <section className="py-12 bg-black w-full px-4 sm:px-6 lg:px-20">
+        <section className="py-20 bg-black w-full px-6 md:px-8 lg:px-20">
             <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative w-full h-[400px] md:h-[500px] rounded-[2rem] md:rounded-[3rem] overflow-hidden flex items-center justify-center text-center px-6"
+                className="relative w-full min-h-[400px] md:h-[400px] h-auto py-16 md:py-0 rounded-[2rem] md:rounded-[3rem] overflow-hidden flex items-center justify-center text-center px-6"
             >
                 {/* Background Image with Overlay */}
                 <div className="absolute inset-0">

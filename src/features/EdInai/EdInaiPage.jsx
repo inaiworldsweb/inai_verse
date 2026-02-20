@@ -17,7 +17,7 @@ import AutomationSection from './components/AutomationSection'
 import ModernLearningSection from './components/ModernLearningSection'
 import SiteFooter from '../../components/SiteFooter'
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png'
-import heroImage from '../../assets/TransformTeaching  Learning with EdInai.png'
+import heroImage from '../../assets/crop_TransformTeaching  Learning with EdInai.png'
 import { HiMenu, HiX } from 'react-icons/hi'
 import aiTeachersImg from '../../assets/final/2. AI Teachers that Never Tire.png';
 import ready247Img from '../../assets/final/247 Ready to teach.png';
@@ -28,6 +28,7 @@ import dataDrivenImg from '../../assets/final/Data-Driven Insights.png';
 import edinaiHeaderLogo from '../../assets/EdInai Logo.png'
 
 import { Link } from 'react-router-dom'
+import { useZoomReveal } from '../../hooks/useZoomReveal'
 
 const navItems = [
     'What is edinai?',
@@ -37,10 +38,10 @@ const navItems = [
     'Teach in Every Way Your Students Want to Learn',
     'Learning Modes',
     'Why Ed-INAI Is the Future',
-    'Streams We Cover',
     'Our Vision',
-    'Adapt and Evolve',
     'Integration Options',
+    'Streams We Cover',
+    'Adapt and Evolve',
     'FAQ',
 ]
 
@@ -120,6 +121,14 @@ const overviewItems = [
 const EdInaiPage = () => {
     const navigate = useNavigate()
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    useZoomReveal({
+        selector: '#what-is-edinai img[data-zoom-reveal]',
+        threshold: 0.2,
+        stagger: 120,
+        duration: 700,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        once: false,
+    })
 
     const handleBreadcrumbClick = (target) => {
         if (target === 'top') {
@@ -178,7 +187,7 @@ const EdInaiPage = () => {
     }
 
     return (
-        <div className="flex h-screen overflow-hidden bg-black text-white">
+        <div className="flex min-h-screen bg-black text-white">
             {/* Mobile Menu Button - Fixed position */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -237,7 +246,7 @@ const EdInaiPage = () => {
             )}
 
             {/* Desktop Sidebar - Hidden on mobile */}
-            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto border-r border-white/10">
+            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen border-r border-white/10">
                 <div className="flex items-center justify-center mb-4">
                     <Link to="/">
                         <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
@@ -247,7 +256,7 @@ const EdInaiPage = () => {
             </aside>
 
             {/* Main Content - Full width on mobile */}
-            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
+            <main className="flex-1 w-full min-w-0 bg-black">
                 <PageHeader
                     title=""
                     breadcrumbs={[]}
@@ -268,13 +277,13 @@ const EdInaiPage = () => {
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Hero Section - Responsive */}
-                    <section className="py-8 md:py-16">
+                    <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-8 md:py-0">
                         {/* Hero Title and CTA - Centered */}
-                        <div className="text-center mb-8 md:mb-20">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
+                        <div className="text-center">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-2 md:mb-4">
                                 India's First<br /> Virtual AI Teacher Platform
                             </h2>
-                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-6 md:mb-8">
+                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-3 md:mb-6">
                                 Teach smarter with AI-powered virtual teachers trained on your syllabus
                             </h3>
                             <button
@@ -303,7 +312,7 @@ const EdInaiPage = () => {
                         </div>
 
                         {/* Two Column Layout - Heading Left, Image Right */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16 max-w-[1200px] mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mt-8 md:mt-12 mb-10 md:mb-16 max-w-[1200px] mx-auto">
                             {/* Left Column - Heading */}
                             <div className="text-center lg:text-center order-2 lg:order-1">
                                 <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
@@ -313,7 +322,7 @@ const EdInaiPage = () => {
                             </div>
 
                             {/* Right Column - Hero Image */}
-                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1 lg:order-2">
+                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1 lg:order-2 w-[85%] sm:w-[80%] lg:w-[90%] mx-auto">
                                 <img
                                     src={heroImage}
                                     alt="AI-powered education experience"
@@ -323,7 +332,7 @@ const EdInaiPage = () => {
                         </div>
 
                         {/* Description - Centered */}
-                        <p className="max-w-[900px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2">
+                        <p className="max-w-[930px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2">
                             Ed-INAI is an advanced AI-powered education platform where virtual AI teachers conduct live,
                             interactive lectures for schools and colleges across India. Experience the next generation of AI
                             education built for the classrooms of the future.
@@ -353,7 +362,7 @@ const EdInaiPage = () => {
 
                                 const imageElement = (
                                     <div className="rounded-xl md:rounded-[20px] overflow-hidden">
-                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" />
+                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" data-zoom-reveal />
                                     </div>
                                 )
 
