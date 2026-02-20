@@ -36,8 +36,8 @@ const pricingPlans = [
         ],
     },
     {
-        id: 'education-ride',
-        name: 'Education Ride',
+        id: 'go-for-ride',
+        name: 'Go For Ride',
         subtitle: 'More features for better teaching and learning.',
         price: '₹49,999',
         originalPrice: '₹64,999',
