@@ -27,6 +27,9 @@ import personalizedImg from '../../assets/final/Personalized Learning.png';
 import dataDrivenImg from '../../assets/final/Data-Driven Insights.png';
 import { Link } from 'react-router-dom'
 
+import { useRef } from "react";
+import { useTransform, useScroll } from "framer-motion";
+
 const navItems = [
     'What is edinai?',
     'Meet our faculties',
@@ -118,6 +121,24 @@ const overviewItems = [
 const EdInaiPage = () => {
     const navigate = useNavigate()
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+//for horizontal scroll section
+const targetRef = useRef(null);
+const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"] 
+});
+
+// X movement ko thoda aur smooth kiya hai taaki 5th/6th card perfect rukein
+const x = useTransform(scrollYProgress, [0, 0.9], ["0%", "-70%"]);
+//------------------
+    useZoomReveal({
+        selector: '#what-is-edinai img[data-zoom-reveal]',
+        threshold: 0.2,
+        stagger: 120,
+        duration: 700,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        once: false,
+    })
 
     const handleBreadcrumbClick = (target) => {
         if (target === 'top') {
@@ -405,39 +426,85 @@ const EdInaiPage = () => {
 
                     <LearningModesSection />
 
-                    {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
-                    <section className="py-8 md:py-16" id="why-ed-inai">
-                        <div className="max-w-content mx-auto">
-                            <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
-                                Why EdINAI is the future of Indian education system
-                            </h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-                                {futureHighlights.map(({ title, description, image }) => (
-                                    <article
-                                        key={title}
-                                        className="bg-white/5 rounded-xl md:rounded-[20px] p-4 md:p-6 transition-transform duration-200 hover:-translate-y-1.5"
-                                    >
-                                        <div className="rounded-lg md:rounded-[15px] overflow-hidden mb-3 md:mb-4">
-                                            <img
-                                                src={image}
-                                                alt={title}
-                                                className="w-full h-40 object-cover"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 md:mb-2">
-                                                {title}
-                                            </h3>
-                                            <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                                                {description}
-                                            </p>
-                                        </div>
-                                    </article>
-                                ))}
+              {/* --- HORIZONTAL SCROLL SECTION START --- */}
+<section ref={targetRef} className="relative h-[250vh] bg-black">
+    <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        
+        {/* Fixed Top Heading */}
+        <div className="w-full py-8 md:py-12 bg-black z-20">
+            <motion.h2 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-2xl md:text-[3rem] font-bold text-center text-white tracking-tight"
+            >
+                Why EdINAI is the Future
+            </motion.h2>
+            <div className="h-1 w-20 bg-blue-600 mx-auto mt-4 rounded-full opacity-50" />
+        </div>
+
+        {/* Horizontal Cards Container */}
+        <div className="flex-1 flex items-center relative">
+            <motion.div 
+                style={{ x }} 
+                className="flex gap-6 md:gap-10 px-10 md:px-20 items-center"
+            >
+                {futureHighlights.map(({ title, description, image }, index) => (
+                    <article
+                        key={index}
+                        className="group relative h-[380px] w-[280px] md:h-[480px] md:w-[360px] flex-shrink-0 bg-[#0A0A0A] rounded-[30px] p-5 md:p-6 border border-white/10 shadow-2xl transition-all duration-500 hover:border-blue-500/30"
+                    >
+                        {/* Image Area */}
+                        <div className="relative h-[55%] w-full rounded-[20px] overflow-hidden mb-5 bg-[#111]">
+                            
+                            {/* Agar first image hai (index 0), toh piche ek blur version dikhayenge taaki gaps na dikhen */}
+                            {index === 0 && (
+                                <img
+                                    src={image}
+                                    alt=""
+                                    className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30"
+                                />
+                            )}
+
+                            <img
+                                src={image}
+                                alt={title}
+                                /* Yahan hai main logic: index 0 par contain, baaki par cover */
+                                className={`relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-110 ${
+                                    index === 0 ? 'object-contain' : 'object-cover'
+                                }`}
+                            />
+                            
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70 z-20" />
+                            
+                            <div className="absolute top-3 left-3 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 px-3 py-1 rounded-full text-[10px] text-blue-400 font-bold uppercase tracking-widest z-30">
+                                0{index + 1}
                             </div>
                         </div>
-                    </section>
+
+                        {/* Content Area */}
+                        <div className="space-y-3 relative z-10">
+                            <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                                {title}
+                            </h3>
+                            <p className="text-xs md:text-sm text-white/40 font-light leading-relaxed line-clamp-4">
+                                {description}
+                            </p>
+                        </div>
+
+                        <div className="absolute -inset-1 bg-blue-600/5 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10" />
+                    </article>
+                ))}
+                
+                <div className="w-[10vw] flex-shrink-0" />
+            </motion.div>
+        </div>
+
+        {/* Indicator */}
+        <div className="w-full py-6 opacity-20 text-center">
+            <p className="text-white text-[10px] tracking-[0.3em] uppercase">Keep Scrolling</p>
+        </div>
+    </div>
+</section>
 
                     <AutomationSection />
                     <ModernLearningSection />
