@@ -124,11 +124,18 @@ const MiraaiWhatYouGet = () => {
                 <motion.button
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="bg-white text-black font-bold py-4 px-10 rounded-full hover:bg-gray-200 transition-all uppercase text-sm tracking-widest"
+                    className="group bg-white text-black font-bold py-4 px-10 rounded-full hover:bg-gray-200 transition-all uppercase text-sm tracking-widest"
                 >
-                    Get Started with Miraai
+                    <span className="relative inline-block overflow-hidden align-top">
+                        <span className="invisible">Get Started with Miraai</span>
+                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-inter">
+                            Get Started with Miraai
+                        </span>
+                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-inter">
+                            Get Started with Miraai
+                        </span>
+                    </span>
                 </motion.button>
             </div>
         </section>
