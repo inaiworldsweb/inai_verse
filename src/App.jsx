@@ -27,7 +27,9 @@ function AppContent() {
   const location = useLocation()
 
   // Check if current route is a special page (no sidebar/header)
-  const isSpecialPage = location.pathname === '/edinai' ||
+  const isSpecialPage = 
+    location.pathname === '/' || 
+    location.pathname === '/edinai' ||
     location.pathname === '/edinai-detail' ||
     location.pathname === '/edinai-student' ||
     location.pathname === '/edinai-admin' ||
@@ -40,13 +42,18 @@ function AppContent() {
     location.pathname === '/saas-landing' ||
     location.pathname === '/stepspage' ||
     location.pathname === '/miraai' ||
+    location.pathname === '/MiraaiPrice' ||
     location.pathname === '/checkout' ||
     location.pathname.startsWith('/payment/')
 
   return (
     <div className="min-h-screen bg-black text-white flex flex-col">
-      {!isSpecialPage && <Header onMenuClick={() => setSidebarOpen((v) => !v)} />}
-      {!isSpecialPage && <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />}
+      {!isSpecialPage && location.pathname !== '/' && (
+        <>
+          <Header onMenuClick={() => setSidebarOpen((v) => !v)} />
+          <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+        </>
+      )}
       <main className={`flex-1 ${!isSpecialPage ? "md:pl-[280px]" : ""}`}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -68,7 +75,7 @@ function AppContent() {
           <Route path="/payment/failure" element={<PaymentFailure />} />
         </Routes>
       </main>
-      <FooterLegalLine />
+      {location.pathname !== '/' && <FooterLegalLine />}
     </div>
   )
 }

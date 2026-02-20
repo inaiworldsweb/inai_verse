@@ -40,14 +40,14 @@ const MiraaiShowcase = () => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
-
+        
         // desktopSteps: 175px gap ensures 65% of 245px width is visible
-        const desktopSteps = [0, 175, 340, 500];
+        const desktopSteps = [0, 175, 340, 500]; 
         const mobileSteps = [0, 85, 160, 230];
-
+        
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? mobileSteps : desktopSteps;
-
+        
         return steps[absOffset] * direction;
     };
 
@@ -100,13 +100,13 @@ const MiraaiShowcase = () => {
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
                                     onClick={() => setActiveIndex(index)}
-                                    style={{
-                                        width: '245px',
+                                    style={{ 
+                                        width: '245px', 
                                         height: '315px'
                                     }}
                                     className={`absolute rounded-2xl overflow-hidden cursor-pointer
-                                        ${absOffset === 0
-                                            ? 'border-[3px] border-blue-500 shadow-[0_0_50px_rgba(59,130,246,0.5)]'
+                                        ${absOffset === 0 
+                                            ? 'border-[3px] border-blue-500 shadow-[0_0_50px_rgba(59,130,246,0.5)]' 
                                             : 'border border-white/10'}`}
                                 >
                                     <div className="w-full h-full relative overflow-hidden bg-gray-900">
@@ -118,7 +118,7 @@ const MiraaiShowcase = () => {
                                         />
                                         {/* Smooth overlay for side cards */}
                                         <div className={`absolute inset-0 transition-opacity duration-300 
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`}
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`} 
                                         />
                                     </div>
                                 </motion.div>
