@@ -57,13 +57,13 @@ const MiraaiShowcase = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="inline-block px-6 py-2 rounded-full bg-white/5 border border-white/10 mb-6"
+                    className="inline-block px-6 py-2 mb-6"
                 >
-                    <span className="text-white/60 text-xs md:text-sm font-bold tracking-[0.3em] uppercase">
+                    <span className="text-white/60 text-sm md:text-base uppercase tracking-tighter">
                         AI Content Showcase
                     </span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[45px] font-black text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter">
                     Explore Our Creative Portfolio
                 </h2>
             </div>
