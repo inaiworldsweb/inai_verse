@@ -129,7 +129,7 @@ const StudentExperienceSection = () => {
                     <button
                         type="button"
                         className="group bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100"
-                        // onClick={handleLearnMore}
+                        onClick={handleLearnMore}
                     >
                         <span className="relative inline-block overflow-hidden align-top">
                             <span className="invisible">Learn more</span>
