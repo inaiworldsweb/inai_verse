@@ -17,15 +17,8 @@ function LandingPage() {
             {/* Layout Wrapper */}
             <div className="flex">
 
-                    {/* Subtitle */}
-                    <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center tracking-tight">
-                        We are for people, We are for Digital{' '}
-                        <span className="inline-flex">
-                            <span className="text-[#FF671F]">IN</span>
-                            <span className="text-white">D</span>
-                            <span className="text-[#046A38]">IA</span>
-                        </span>
-                    </h2>
+                {/* Sidebar Space (Desktop Only) */}
+                <div className="hidden md:block w-64 border-r border-gray-800"></div>
 
                 {/* Main Content */}
                 <main className="flex-1 min-h-screen flex flex-col relative">
