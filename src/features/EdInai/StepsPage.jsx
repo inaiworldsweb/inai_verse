@@ -1,7 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { HiMenu, HiX } from 'react-icons/hi';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
-import { EdInaiSidebar, EdInaiHeader } from './components/shared';
+import SideMenu from '../../components/SideMenu';
+import { EdInaiHeader } from './components/shared';
 
 import step1Img from '../../assets/final/inside edinai portal - create your admin profile.png';
 import academicWorkflowImg from '../../assets/Academic Workflow Management.png';
@@ -15,10 +18,16 @@ import coachingImg from '../../assets/images/Coaching Institute.jpg';
 import corporateImg from '../../assets/images/Corporate Training.jpg';
 
 const sidebarItems = [
-    { label: 'How to Set Up Ed-INAI', id: 'how-to-set-up-edinai' },
-    { label: 'Integration & Technical Details', id: 'integration-technical-details' },
-    { label: 'Common Use Cases', id: 'common-use-cases' },
+    'How to Set Up Ed-INAI',
+    'Integration & Technical Details',
+    'Common Use Cases',
 ];
+
+const sectionMap = {
+    'How to Set Up Ed-INAI': 'how-to-set-up-edinai',
+    'Integration & Technical Details': 'integration-technical-details',
+    'Common Use Cases': 'common-use-cases',
+};
 
 const steps = [
     {
@@ -53,10 +62,10 @@ const StepItem = ({ step, index, activeStep, setStepRef }) => (
         className={`mb-32 min-h-[40vh] relative pl-10 border-l-[3px] transition-all duration-700 ${activeStep === index ? 'border-white opacity-100' : 'border-white/5 opacity-50'
             }`}
     >
-        <h3 className={`text-3xl font-bold mb-4 tracking-tight ${activeStep === index ? 'text-white' : 'text-white/30'}`}>
+        <h3 className={`text-[15px] md:text-[25px] font-bold mb-4 tracking-tight capitalize ${activeStep === index ? 'text-white' : 'text-white/30'}`}>
             Step {step.number}: {step.title}
         </h3>
-        <p className={`text-lg leading-relaxed max-w-lg ${activeStep === index ? 'text-gray-400' : 'text-white/20'}`}>
+        <p className={`text-lg leading-relaxed max-w-lg capitalize tracking-normal ${activeStep === index ? 'text-gray-400' : 'text-white/20'}`}>
             {step.description}
         </p>
     </div>
@@ -73,7 +82,7 @@ const UseCasesSection = () => {
     return (
         <section id="common-use-cases" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
-                <h2 className="text-center text-3xl lg:text-4xl font-bold mb-12">Common Use Cases</h2>
+                <h2 className="text-center text-[25px] md:text-[40px] font-bold mb-12 capitalize tracking-tight">Common Use Cases</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {useCases.map((useCase) => (
@@ -90,7 +99,7 @@ const UseCasesSection = () => {
                             </div>
 
                             <div className="px-5 py-4 flex items-center justify-between text-sm font-medium tracking-wide">
-                                <span>{useCase.title}</span>
+                                <span className="capitalize tracking-wide">{useCase.title}</span>
                                 <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs">○</span>
                             </div>
                         </div>
@@ -182,11 +191,11 @@ const SetupSteps = () => {
     }, []);
 
     return (
-        <section id="how-to-set-up-edinai" className="py-24 px-6 lg:px-20 bg-black">
+        <section id="how-to-set-up-edinai" className="pt-0 pb-24 px-6 lg:px-20 bg-black">
             <div className="max-w-[90rem] mx-auto w-full">
                 <div className="text-center mb-32">
-                    <h2 className="text-6xl font-extrabold text-white mb-6 tracking-tight">How to Set Up Ed-INAI</h2>
-                    <p className="text-zinc-400 text-xl max-w-3xl mx-auto font-bold leading-relaxed">
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight capitalize">How to Set Up Ed-INAI</h2>
+                    <p className="text-zinc-400 text-xl max-w-3xl mx-auto font-bold leading-relaxed capitalize tracking-normal">
                         Ed-INAI is cloud-based and built for rapid deployment. Typical onboarding completes within days, not weeks.
                     </p>
                 </div>
@@ -253,7 +262,7 @@ const IntegrationSection = () => {
                 'Support students with AI-driven revision plans, mock tests, performance analysis, and exam-focused guidance.',
             image: examPreparationImg,
         },
-       
+
     ];
 
     const goToSlide = (direction) => {
@@ -271,7 +280,7 @@ const IntegrationSection = () => {
         <section id="integration-technical-details" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <div className="flex items-center justify-between mb-10">
-                    <h2 className="text-3xl lg:text-4xl font-bold">Platform Capabilities & Institutional Support</h2>
+                    <h2 className="text-[25px] md:text-[40px] font-bold capitalize tracking-tight">Platform Capabilities & Institutional Support</h2>
 
                     <div className="flex gap-3">
                         <button
@@ -285,7 +294,7 @@ const IntegrationSection = () => {
                         </button>
                         <button
                             onClick={() => goToSlide('right')}
-                            className="w-11 h-11 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition"
+                            className="w-11 h-11 rounded-full border border-white/25 flex items-center justify-center text-white/70 hover:text-white hover:border-white transition"
                             aria-label="Scroll right"
                         >
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -314,8 +323,8 @@ const IntegrationSection = () => {
                         </div>
 
                         <div className="px-6 py-6 flex flex-col gap-3">
-                            <h3 className="text-2xl font-bold text-white">{activeFeature.title}</h3>
-                            <p className="text-sm text-gray-300 leading-relaxed">
+                            <h3 className="text-[15px] md:text-[25px] font-bold text-white capitalize tracking-normal">{activeFeature.title}</h3>
+                            <p className="text-sm text-gray-300 leading-relaxed capitalize tracking-normal">
                                 {activeFeature.description}
                             </p>
                         </div>
@@ -327,23 +336,93 @@ const IntegrationSection = () => {
 };
 const StepsPage = () => {
     const [activeSection, setActiveSection] = useState('how-to-set-up-edinai');
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-    const scrollToSection = (id) => {
+    const scrollToSection = (item) => {
+        const id = sectionMap[item];
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
             setActiveSection(id);
         }
+        setIsMobileMenuOpen(false);
     };
 
     // Basic error boundary to prevent crashes
     try {
         return (
-            <div className="min-h-screen bg-black text-white">
-                <EdInaiHeader />
-                <div className="flex flex-col md:flex-row">
-                    <EdInaiSidebar items={sidebarItems} activeItem={activeSection} onItemClick={scrollToSection} />
-                    <main className="flex-1 p-4 md:p-8">
+            <div className="flex min-h-screen bg-black text-white">
+                {/* Mobile Menu Button - Fixed position */}
+                <button
+                    onClick={() => setIsMobileMenuOpen(true)}
+                    className="
+                        lg:hidden fixed top-4 left-4 z-50
+                        p-2.5 bg-[#111] border border-white/10 
+                        rounded-xl text-white
+                        hover:bg-white/10 transition-colors
+                        shadow-lg
+                    "
+                    aria-label="Open navigation menu"
+                >
+                    <HiMenu className="w-5 h-5" />
+                </button>
+
+                {/* Mobile Sidebar Overlay */}
+                {isMobileMenuOpen && (
+                    <div
+                        className="lg:hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-sm"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                        <aside
+                            className="
+                                w-[280px] max-w-[85vw] h-full bg-[#111] 
+                                border-r border-white/10 shadow-2xl
+                                overflow-y-auto
+                                animate-in slide-in-from-left duration-300
+                            "
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="
+                                    absolute top-4 right-4 p-2 
+                                    text-white/70 hover:text-white 
+                                    hover:bg-white/10 rounded-lg
+                                    transition-colors
+                                "
+                                aria-label="Close navigation menu"
+                            >
+                                <HiX className="w-5 h-5" />
+                            </button>
+
+                            {/* Mobile Sidebar Content */}
+                            <div className="pt-16 px-4">
+                                <div className="flex items-center justify-center mb-6">
+                                    <Link to="/">
+                                        <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[80px] h-auto" />
+                                    </Link>
+                                </div>
+                                <SideMenu items={sidebarItems} variant="login" onSelectItem={scrollToSection} />
+                            </div>
+                        </aside>
+                    </div>
+                )}
+
+                {/* Desktop Sidebar - Sticky */}
+                <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-hidden border-r border-white/10">
+                    <div className="flex items-center justify-center mb-4">
+                        <Link to="/">
+                            <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
+                        </Link>
+                    </div>
+                    <SideMenu items={sidebarItems} variant="login" onSelectItem={scrollToSection} />
+                </aside>
+
+                {/* Main Content */}
+                <main className="flex-1 w-full min-w-0 bg-black">
+                    <EdInaiHeader />
+                    <div className="max-w-[1200px] mx-auto px-4 md:px-8 pt-2 md:pt-4 pb-8 md:pb-12">
                         <div id="how-to-set-up-edinai">
                             <SetupSteps />
                         </div>
@@ -353,8 +432,8 @@ const StepsPage = () => {
                         <div id="common-use-cases" className="mt-20">
                             <UseCasesSection />
                         </div>
-                    </main>
-                </div>
+                    </div>
+                </main>
             </div>
         );
     } catch (error) {
@@ -363,8 +442,8 @@ const StepsPage = () => {
             <div className="min-h-screen bg-black text-white p-8">
                 <h1 className="text-2xl font-bold text-red-500">Error Loading Page</h1>
                 <p className="mt-4">There was an error loading the page. Please check the console for details.</p>
-                <button 
-                    onClick={() => window.location.reload()} 
+                <button
+                    onClick={() => window.location.reload()}
                     className="mt-4 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
                 >
                     Reload Page

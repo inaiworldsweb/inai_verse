@@ -42,19 +42,25 @@ const VisionSection = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15
+                staggerChildren: 0.2
             }
         }
     }
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: {
+            opacity: 0,
+            rotateY: -70,
+            x: -30,
+            perspective: 1000
+        },
         visible: {
             opacity: 1,
-            y: 0,
+            rotateY: 0,
+            x: 0,
             transition: {
-                duration: 0.6,
-                ease: "easeOut"
+                duration: 1.8,
+                ease: [0.22, 1, 0.36, 1]
             }
         }
     }
@@ -69,8 +75,8 @@ const VisionSection = () => {
                     transition={{ duration: 0.8 }}
                     className="my-6"
                 >
-                    <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-center mb-2 text-white px-4">How to Implement ED-INAI in Your Institution?</h2>
-                    <p className="text-center text-white/70 mb-8 px-4 text-sm sm:text-base">Implementation Steps</p>
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-center mb-2 text-white px-4 capitalize tracking-tight">How to Implement ED-INAI in Your Institution?</h2>
+                    <p className="text-center text-white/70 mb-8 px-4 text-sm sm:text-base capitalize tracking-normal">Implementation Steps</p>
 
                     <motion.div
                         variants={containerVariants}
@@ -84,7 +90,9 @@ const VisionSection = () => {
                                 key={id}
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.02, y: -5 }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 className="bg-white/[0.03] rounded-[15px] p-6 text-center border border-white/5 transition-colors hover:border-white/10"
+                                style={{ transformStyle: "preserve-3d" }}
                             >
                                 <figure className="rounded-[10px] overflow-hidden mb-4 bg-zinc-900 border border-white/5">
                                     <motion.img
@@ -96,7 +104,7 @@ const VisionSection = () => {
                                         loading="lazy"
                                     />
                                 </figure>
-                                <p className="text-sm text-white/80 leading-normal font-medium px-4">{title}</p>
+                                <p className="text-sm text-white/80 leading-normal font-medium px-4 capitalize tracking-normal">{title}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -111,10 +119,18 @@ const VisionSection = () => {
                 >
                     <button
                         type="button"
-                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95"
-                        // onClick={handleLearnMore}
+                        className="group bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95"
+                        onClick={handleLearnMore}
                     >
-                        learn more
+                        <span className="relative inline-block overflow-hidden align-top">
+                            <span className="invisible">learn more</span>
+                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">
+                                Learn more
+                            </span>
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">
+                                Learn more
+                            </span>
+                        </span>
                     </button>
                 </motion.div>
             </div>

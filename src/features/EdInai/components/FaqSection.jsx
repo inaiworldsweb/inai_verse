@@ -58,7 +58,7 @@ const FaqSection = () => {
     return (
         <section className="py-10 md:py-16 bg-black" id="faq">
             <div className="max-w-narrow mx-auto px-4">
-                <h3 className="text-[2rem] font-bold text-center mb-12 text-white">Frequently Asked Questions</h3>
+                <h3 className="text-[25px] md:text-[40px] font-bold text-center mb-12 text-white capitalize tracking-tight">Frequently Asked Questions</h3>
                 <div className="flex flex-col gap-4">
                     {faqItems.map(({ question, answer }, index) => {
                         const isOpen = openIndex === index
@@ -68,7 +68,7 @@ const FaqSection = () => {
                             <div key={question} className={`bg-white/[0.03] rounded-[10px] overflow-hidden transition-colors duration-200 ${isOpen ? 'bg-white/5' : ''}`}>
                                 <button
                                     type="button"
-                                    className="w-full flex items-center justify-between py-5 px-6 bg-transparent border-none text-white text-left cursor-pointer text-base font-medium transition-colors duration-200 hover:text-white/80"
+                                    className="w-full flex items-center justify-between py-5 px-6 bg-transparent border-none text-white text-left cursor-pointer text-base font-medium transition-colors duration-200 hover:text-white/80 capitalize tracking-wide"
                                     onClick={() => handleToggle(index)}
                                     aria-expanded={isOpen}
                                     aria-controls={contentId}
@@ -77,7 +77,7 @@ const FaqSection = () => {
                                     <span className={`text-2xl transition-transform duration-300 text-white/60 ${isOpen ? 'rotate-90' : ''}`} aria-hidden="true">›</span>
                                 </button>
                                 <div id={contentId} className="overflow-hidden" hidden={!isOpen}>
-                                    <p className="px-6 pb-5 text-white/70 leading-relaxed text-[0.9375rem]">{answer}</p>
+                                    <p className="px-6 pb-5 text-white/70 leading-relaxed text-[0.9375rem] capitalize tracking-normal">{answer}</p>
                                 </div>
                             </div>
                         )

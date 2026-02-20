@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState ,useRef} from 'react'
 import { useNavigate } from 'react-router-dom'
 import PageHeader from '../../components/PageHeader'
 import SideMenu from '../../components/SideMenu'
@@ -11,13 +11,13 @@ import VisionSection from './components/VisionSection'
 import AdaptSection from './components/AdaptSection'
 import IntegrationOptionsSection from './components/IntegrationOptionsSection'
 import teachImage from '../../assets/images/teach-the.png'
-import { motion } from 'framer-motion'
+import { motion , useScroll, useTransform } from 'framer-motion'
 import FaqSection from './components/FaqSection'
 import AutomationSection from './components/AutomationSection'
 import ModernLearningSection from './components/ModernLearningSection'
 import SiteFooter from '../../components/SiteFooter'
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png'
-import heroImage from '../../assets/TransformTeaching  Learning with EdInai.png'
+import heroImage from '../../assets/crop_TransformTeaching  Learning with EdInai.png'
 import { HiMenu, HiX } from 'react-icons/hi'
 import aiTeachersImg from '../../assets/final/2. AI Teachers that Never Tire.png';
 import ready247Img from '../../assets/final/247 Ready to teach.png';
@@ -25,7 +25,10 @@ import smartAutoImg from '../../assets/final/Smart Automation for Institutions.p
 import futureReadyImg from '../../assets/final/Future-Ready Education.jfif';
 import personalizedImg from '../../assets/final/Personalized Learning.png';
 import dataDrivenImg from '../../assets/final/Data-Driven Insights.png';
+import edinaiHeaderLogo from '../../assets/EdInai Logo.png'
+
 import { Link } from 'react-router-dom'
+import { useZoomReveal } from '../../hooks/useZoomReveal'
 
 const navItems = [
     'What is edinai?',
@@ -35,10 +38,12 @@ const navItems = [
     'Teach in Every Way Your Students Want to Learn',
     'Learning Modes',
     'Why Ed-INAI Is the Future',
-    'Streams We Cover',
+    'Smart Automation',
+    'Modern Learning',
     'Our Vision',
-    'Adapt and Evolve',
     'Integration Options',
+    'Streams We Cover',
+    'Adapt and Evolve',
     'FAQ',
 ]
 
@@ -118,6 +123,30 @@ const overviewItems = [
 const EdInaiPage = () => {
     const navigate = useNavigate()
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    // Scroll-based horizontal animation setup
+const targetRef = useRef(null);
+const { scrollYProgress } = useScroll({
+    target: targetRef,
+});
+
+// Logic: 
+// Mobile (innerWidth < 768) par "-82%" move hoga taaki 6th card center aaye.
+// Desktop par "-65%" move hoga taaki 5th aur 6th card screen par rahein aur exit ho jaye.
+const x = useTransform(
+    scrollYProgress, 
+    [0, 1], 
+    ["0%", typeof window !== 'undefined' && window.innerWidth < 768 ? "-82%" : "-64%"]
+);
+//-------------------------------------------------------------------------------------
+
+    useZoomReveal({
+        selector: '#what-is-edinai img[data-zoom-reveal]',
+        threshold: 0.2,
+        stagger: 120,
+        duration: 700,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        once: false,
+    })
 
     const handleBreadcrumbClick = (target) => {
         if (target === 'top') {
@@ -142,6 +171,8 @@ const EdInaiPage = () => {
             'Teach in Every Way Your Students Want to Learn': 'teach-in-every-way-your-students-want-to-learn',
             'Learning Modes': 'learning-modes',
             'Why Ed-INAI Is the Future': 'why-ed-inai',
+            'Smart Automation': 'automation',
+            'Modern Learning': 'modern-learning',
             'Streams We Cover': 'streams',
             'Our Vision': 'vision',
             'Adapt and Evolve': 'adapt',
@@ -176,7 +207,7 @@ const EdInaiPage = () => {
     }
 
     return (
-        <div className="flex h-screen overflow-hidden bg-black text-white">
+        <div className="flex min-h-screen bg-black text-white">
             {/* Mobile Menu Button - Fixed position */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -245,58 +276,74 @@ const EdInaiPage = () => {
             </aside>
 
             {/* Main Content - Full width on mobile */}
-            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
+            <main className="flex-1 w-full min-w-0 bg-black">
                 <PageHeader
-                    title="Edinai"
+                    title=""
                     breadcrumbs={[]}
-                    showBackButton={false}
+                    showBackButton={true}
+                    showLogo={true}
+                    logoSrc={edinaiHeaderLogo}
+                    logoAlt="EdInai logo"
+                    showTitleText={false}
+                    logoClassName="h-[26px] md:h-[32px] w-auto max-w-[140px] object-contain"
+                    titleWrapperClassName="flex items-center"
                     showPriceButton={true}
                     showHomeButton={true}
                     showMenuButton={true}
+                    onBackClick={handleBack}
                     onPriceClick={handleGoToPrice}
                 />
 
                 <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
 
                     {/* Hero Section - Responsive */}
-                    <section className="py-8 md:py-16">
+                    <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-8 md:py-0">
                         {/* Hero Title and CTA - Centered */}
-                        <div className="text-center mb-8 md:mb-20">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-6 md:mb-8">
+                        <div className="text-center">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-2 md:mb-4 capitalize tracking-tight">
                                 India's First<br /> Virtual AI Teacher Platform
                             </h2>
-                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-6 md:mb-8">
+                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-3 md:mb-6 capitalize tracking-normal">
                                 Teach smarter with AI-powered virtual teachers trained on your syllabus
                             </h3>
                             <button
                                 type="button"
                                 className="
+                                group
                                 w-full sm:w-auto
                                 bg-white text-black border-none 
                                 py-3 px-6 sm:px-8 rounded-full 
                                 text-sm font-semibold cursor-pointer 
                                 inline-flex items-center justify-center gap-2 
-                                transition-transform duration-200 hover:scale-105
+                                transition-transform duration-200
                             "
                             // onClick={() => navigate('/edinai-detail')}
                             >
-                                <span>Get Started</span>
+                                <span className="relative inline-block overflow-hidden align-top font-['Inter']">
+                                    <span className="invisible">Get Started</span>
+                                    <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                                        Get Started
+                                    </span>
+                                    <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                                        Get Started
+                                    </span>
+                                </span>
                                 <span aria-hidden="true">›</span>
                             </button>
                         </div>
 
                         {/* Two Column Layout - Heading Left, Image Right */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-10 md:mb-16 max-w-[1200px] mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mt-8 md:mt-12 mb-10 md:mb-16 max-w-[1200px] mx-auto">
                             {/* Left Column - Heading */}
                             <div className="text-center lg:text-center order-2 lg:order-1">
-                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight capitalize tracking-tight">
                                     Transform <br />Teaching & Learning with EdInai
 
                                 </h3>
                             </div>
 
                             {/* Right Column - Hero Image */}
-                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1 lg:order-2">
+                            <div className="rounded-xl md:rounded-[20px] overflow-hidden order-1 lg:order-2 w-[85%] sm:w-[80%] lg:w-[90%] mx-auto">
                                 <img
                                     src={heroImage}
                                     alt="AI-powered education experience"
@@ -306,7 +353,7 @@ const EdInaiPage = () => {
                         </div>
 
                         {/* Description - Centered */}
-                        <p className="max-w-[900px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2">
+                        <p className="max-w-[930px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2 capitalize tracking-normal">
                             Ed-INAI is an advanced AI-powered education platform where virtual AI teachers conduct live,
                             interactive lectures for schools and colleges across India. Experience the next generation of AI
                             education built for the classrooms of the future.
@@ -315,7 +362,7 @@ const EdInaiPage = () => {
 
                     {/* What is EdInai Section - Responsive */}
                     <section className="py-8 md:py-16" id="what-is-edinai">
-                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12">
+                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 capitalize tracking-tight">
                             What is EdInai?
                         </h2>
                         <div className="flex flex-col gap-8 md:gap-12">
@@ -329,14 +376,14 @@ const EdInaiPage = () => {
                                     : text
 
                                 const description = (
-                                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 ${centerText ? 'text-center md:text-left' : ''}`}>
+                                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 capitalize tracking-normal ${centerText ? 'text-center md:text-left' : ''}`}>
                                         {descriptionContent}
                                     </p>
                                 )
 
                                 const imageElement = (
                                     <div className="rounded-xl md:rounded-[20px] overflow-hidden">
-                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" />
+                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" data-zoom-reveal />
                                     </div>
                                 )
 
@@ -393,7 +440,7 @@ const EdInaiPage = () => {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 className="order-2 text-center md:text-left"
                             >
-                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[3rem] font-bold leading-tight text-white mb-6">
+                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[3rem] font-bold leading-tight text-white mb-6 capitalize tracking-tight">
                                     Teach the Way Every <br />Student Learns Best
                                 </h2>
                                 {/* <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-[500px] mx-auto md:mx-0">
@@ -405,39 +452,84 @@ const EdInaiPage = () => {
 
                     <LearningModesSection />
 
-                    {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
-                    <section className="py-8 md:py-16" id="why-ed-inai">
-                        <div className="max-w-content mx-auto">
-                            <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
-                                Why EdINAI is the future of Indian education system
-                            </h2>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
-                                {futureHighlights.map(({ title, description, image }) => (
-                                    <article
-                                        key={title}
-                                        className="bg-white/5 rounded-xl md:rounded-[20px] p-4 md:p-6 transition-transform duration-200 hover:-translate-y-1.5"
-                                    >
-                                        <div className="rounded-lg md:rounded-[15px] overflow-hidden mb-3 md:mb-4">
-                                            <img
-                                                src={image}
-                                                alt={title}
-                                                className="w-full h-40 object-cover"
-                                                loading="lazy"
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 md:mb-2">
-                                                {title}
-                                            </h3>
-                                            <p className="text-sm md:text-base text-white/70 leading-relaxed">
-                                                {description}
-                                            </p>
-                                        </div>
-                                    </article>
-                                ))}
+                   {/* --- HORIZONTAL SCROLL SECTION START --- */}
+{/* --- FINAL PERFECT HORIZONTAL SCROLL SECTION --- */}
+<section ref={targetRef} className="relative h-[300vh] bg-black">
+    {/* Sticky Wrapper */}
+    <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
+        
+        {/* Fixed Top Heading */}
+        <div className="w-full py-8 md:py-12 bg-black z-20">
+            <motion.h2 
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="text-2xl md:text-[3rem] font-bold text-center text-white tracking-tight px-4"
+            >
+                Why <span className="text-blue-500">EdINAI</span> is the Future
+            </motion.h2>
+            <div className="h-1 w-20 bg-blue-600 mx-auto mt-4 rounded-full opacity-50" />
+        </div>
+
+        {/* Horizontal Cards Container */}
+        <div className="flex-1 flex items-center relative">
+            <motion.div 
+                style={{ x }} 
+                className="flex gap-6 md:gap-8 px-6 md:px-20 items-center"
+            >
+                {futureHighlights.map(({ title, description, image }, index) => (
+                    <article
+                        key={index}
+                        className="group relative h-[400px] w-[85vw] md:h-[480px] md:w-[350px] flex-shrink-0 bg-[#0A0A0A] rounded-[30px] p-5 md:p-6 border border-white/10 shadow-2xl transition-all duration-500 hover:border-blue-500/30"
+                    >
+                        {/* Image Area */}
+                        <div className="relative h-[50%] md:h-[55%] w-full rounded-[20px] overflow-hidden mb-5 bg-[#111]">
+                            {index === 0 && (
+                                <img
+                                    src={image}
+                                    alt=""
+                                    className="absolute inset-0 w-full h-full object-cover blur-xl opacity-30"
+                                />
+                            )}
+                            <img
+                                src={image}
+                                alt={title}
+                                className={`relative z-10 w-full h-full transition-transform duration-700 group-hover:scale-110 ${
+                                    index === 0 ? 'object-contain' : 'object-cover'
+                                }`}
+                                loading="lazy"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70 z-20" />
+                            <div className="absolute top-3 left-3 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 px-3 py-1 rounded-full text-[10px] text-blue-400 font-bold uppercase tracking-widest z-30">
+                                0{index + 1}
                             </div>
                         </div>
-                    </section>
+
+                        {/* Content Area */}
+                        <div className="space-y-3 relative z-10">
+                            <h3 className="text-xl md:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors duration-300">
+                                {title}
+                            </h3>
+                            <p className="text-sm text-white/40 font-light leading-relaxed line-clamp-4">
+                                {description}
+                            </p>
+                        </div>
+
+                        {/* Glow on Hover */}
+                        <div className="absolute -inset-1 bg-blue-600/5 opacity-0 group-hover:opacity-100 blur-2xl transition-opacity duration-500 -z-10" />
+                    </article>
+                ))}
+                
+                {/* Minimal spacer for the final card finish */}
+                <div className="w-[2vw] md:w-[5vw] flex-shrink-0" />
+            </motion.div>
+        </div>
+
+        {/* Indicator */}
+        <div className="w-full py-6 opacity-20 text-center">
+            <p className="text-white text-[10px] tracking-[0.3em] uppercase">Scroll to Explore</p>
+        </div>
+    </div>
+</section>
 
                     <AutomationSection />
                     <ModernLearningSection />

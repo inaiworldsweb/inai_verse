@@ -7,7 +7,7 @@ function LandingPage() {
 
     return (
         <div className="min-h-screen bg-black text-white selection:bg-white selection:text-black font-sans">
-            
+
             {/* Header */}
             <Header onMenuClick={() => setSidebarOpen(true)} />
 
@@ -33,7 +33,7 @@ function LandingPage() {
 
                         {/* Subtitle */}
                         <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center tracking-tight">
-                            We are for people, We are for new{' '}
+                            We are for people, We are for digital{' '}
                             <span className="inline-flex">
                                 <span className="text-[#FF671F]">IN</span>
                                 <span className="text-white">D</span>
@@ -42,7 +42,7 @@ function LandingPage() {
                         </h2>
 
                         {/* Divider Line */}
-                     <div className="w-full max-w-5xl h-[2px] bg-white my-6"></div>
+                        <div className="w-full max-w-5xl h-[2px] bg-white my-6"></div>
 
 
 
@@ -61,13 +61,21 @@ function LandingPage() {
 
             {/* Bottom Banner */}
             <div className="fixed bottom-0 right-0 md:left-64 left-0 bg-white text-black py-2 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between z-40">
-                
+
                 <p className="text-sm md:text-base font-medium mb-4 md:mb-0 text-center md:text-left">
                     INAI Worlds is proudly recognized among the best AI companies building India's next generation of AI tech.
                 </p>
 
-                <button className="flex items-center gap-2 bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 whitespace-nowrap group">
-                    Get Started
+                <button className="flex items-center gap-2 bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 whitespace-nowrap group font-['Inter']">
+                    <span className="relative inline-block overflow-hidden align-top">
+                        <span className="invisible">Get Started</span>
+                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                            Get Started
+                        </span>
+                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                            Get Started
+                        </span>
+                    </span>
                     <svg
                         className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                         fill="none"

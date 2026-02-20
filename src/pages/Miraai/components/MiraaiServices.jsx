@@ -1,129 +1,62 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
-// Importing a variety of local assets for all service items
-// Importing assets from Assetsa for all service items
-import thumb1 from '../../../Assetsa/a.png';
-import thumb2 from '../../../Assetsa/b.png';
-import thumb3 from '../../../Assetsa/c.png';
-import thumb4 from '../../../Assetsa/d.png';
-import thumb5 from '../../../Assetsa/e.png';
+import CommandConsole from './CommandConsole';
+import ResultPreview from './ResultPreview';
+import useMiraaiAnimation from '../../../hooks/useMiraaiAnimation';
 
 const MiraaiServices = () => {
-    const [hoveredIndex, setHoveredIndex] = useState(3); // Default highlight index matching screenshot
-
     const services = [
         {
-            title: "We Create AI Videos",
-            description: "generate professional videos from scratch using AI—no filming required.",
-            thumbnail: thumb1
+            title: 'We Create AI Videos',
+            description: 'generate professional videos from scratch using AI—no filming required.',
+            thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop',
         },
         {
-            title: "We Create AI Images & Visuals",
-            description: "generate high-quality photos, graphics, and designs using AI—no photographers needed.",
-            thumbnail: thumb2
+            title: 'We Create AI Images & Visuals',
+            description: 'generate high-quality photos, graphics, and designs using AI—no photographers needed.',
+            thumbnail: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop',
         },
         {
-            title: "We Create AI Product & Catalogs",
-            description: "Send us your product list—we create complete digital catalogs with professional visuals automatically.",
-            thumbnail: thumb3
+            title: 'We Create AI Product & Catalogs',
+            description: 'Send us your product list—we create complete digital catalogs with professional visuals automatically.',
+            thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=450&fit=crop',
         },
         {
-            title: "We Create AI UGC- Style Video Ads",
-            description: "High-converting UGC style ads that look authentic and drive massive engagement.",
-            thumbnail: thumb4
+            title: 'We Create AI UGC- Style Video Ads',
+            description: 'High-converting UGC style ads that look authentic and drive massive engagement.',
+            thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop',
         },
         {
-            title: "We Create AI Multi - languages Videos",
-            description: "Create your video once in English—we deliver it in Hindi, Gujarati, Tamil, and 7+ other languages.",
-            thumbnail: thumb5
-        }
+            title: 'We Create AI Multi - languages Videos',
+            description: 'Create your video once in English—we deliver it in Hindi, Gujarati, Tamil, and 7+ other languages.',
+            thumbnail: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop',
+        },
     ];
 
+    const { consoleRef, previewRef, containerRef } = useMiraaiAnimation(services);
+
     return (
-        <section className="py-12 bg-black min-h-screen">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                {/* Section Header */}
-                <div className="text-center mb-12">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                        className="text-5xl font-bold mb-4 text-white"
-                    >
-                        Here's Exactly What Miraai Does For Your Brand
-                    </motion.h2>
-                    <motion.p
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.1 }}
-                        className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto"
-                    >
-                        We're your AI-powered creative production team. You brief us. We create. Simple.
-                    </motion.p>
-                </div>
+        <section className="relative bg-black text-white overflow-visible">
+            <div ref={containerRef} className="relative" style={{ height: '6000px' }}>
+                {/* Sticky wrapper - handled by GSAP pin, removed CSS sticky to avoid glitch */}
+                <div className="miraai-pin min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-10 sm:py-16 overflow-hidden">
 
-                {/* Services List */}
-                <div className="flex flex-col gap-4">
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            onMouseEnter={() => setHoveredIndex(index)}
-                            onClick={() => setHoveredIndex(index)}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`
-                                relative min-h-[80px] md:min-h-[90px] rounded-xl transition-all duration-300 cursor-pointer
-                                flex items-center justify-between px-6 md:px-10 overflow-hidden
-                                ${hoveredIndex === index
-                                    ? 'bg-white text-black'
-                                    : 'bg-gray-900/50 text-gray-200 border border-gray-800 hover:border-gray-600'}
-                            `}
-                        >
-                            {/* Title - Left Aligned */}
-                            <h3 className={`
-                                text-lg md:text-xl font-bold tracking-tight transition-colors duration-300
-                                ${hoveredIndex === index ? 'text-black' : 'text-gray-200'}
-                            `}>
-                                {service.title}
-                            </h3>
+                    <h2 className="text-white text-center font-extrabold tracking-tight leading-none text-[25px] md:text-[40px] mb-6 sm:mb-10 uppercase z-10">
+                        Here's Exactly How We Work With You
+                    </h2>
 
-                            {/* Right Side: Description or Image */}
-                            <div className="flex-shrink-0 flex items-center justify-end max-w-[40%] text-right">
-                                <AnimatePresence mode="wait">
-                                    {hoveredIndex === index ? (
-                                        <motion.div
-                                            key="image"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            transition={{ duration: 0.3 }}
-                                            className="w-48 md:w-[280px] h-16 md:h-20 rounded-xl overflow-hidden border border-black/10 shadow-lg"
-                                        >
-                                            <img src={service.thumbnail} className="w-full h-full object-cover" alt="Preview" />
-                                        </motion.div>
-                                    ) : (
-                                        <motion.p
-                                            key="text"
-                                            initial={{ opacity: 0, x: 20 }}
-                                            animate={{ opacity: 1, x: 0 }}
-                                            exit={{ opacity: 0, x: -20 }}
-                                            className="text-xs md:text-sm font-medium leading-relaxed text-gray-400"
-                                        >
-                                            {service.description}
-                                        </motion.p>
-                                    )}
-                                </AnimatePresence>
-                            </div>
+                    <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-14 items-center w-full max-w-6xl relative z-10">
 
-                            {/* Decorative line for non-hovered items */}
-                            <div className="absolute bottom-0 left-0 right-0 h-[1px] bg-gray-800" />
-                        </motion.div>
-                    ))}
+                        {/* Command Console - Appears second on mobile, first (Left) on desktop */}
+                        <div ref={consoleRef} className="w-full flex justify-center lg:justify-start order-2 lg:order-1">
+                            <CommandConsole services={services} />
+                        </div>
+
+                        {/* Result Preview - Appears first on mobile, second (Right) on desktop */}
+                        <div ref={previewRef} className="w-full flex justify-center lg:justify-end order-1 lg:order-2">
+                            <ResultPreview services={services} />
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </section>
