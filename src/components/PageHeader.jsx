@@ -17,6 +17,13 @@ function PageHeader({
     title = '',
     breadcrumbs = [],
     showBackButton = false,
+    showLogo = true,
+    logoSrc = '/miralogo.png',
+    logoAlt = 'Miraai logo',
+    logoClassName = 'h-[34px] md:h-[44px] w-auto max-w-[180px] object-contain',
+    titleWrapperClassName = 'flex items-center gap-2',
+    titleClassName = 'text-white font-medium text-base',
+    showTitleText = true,
     showPriceButton = true,
     showHomeButton = true,
     showMenuButton = true,
@@ -67,15 +74,21 @@ function PageHeader({
                     </button>
                 )}
 
-                {title && (
-                    <div className="flex items-center gap-2">
-                        <span className="text-white/50" aria-hidden="true">›</span>
-                        <img
-                            src="/miralogo.png"
-                            alt="Miraai logo"
-                            className="w-50 h-20 object-contain"
-                        />
-                      
+                {(title || (showLogo && logoSrc)) && (
+                    <div className={titleWrapperClassName}>
+                        {(breadcrumbs.length > 0 || title) && (
+                            <span className="text-white/50" aria-hidden="true">›</span>
+                        )}
+                        {showLogo && logoSrc && (
+                            <img
+                                src={logoSrc}
+                                alt={logoAlt}
+                                className={logoClassName}
+                            />
+                        )}
+                        {showTitleText && title && (
+                            <span className={titleClassName}>{title}</span>
+                        )}
                     </div>
                 )}
 

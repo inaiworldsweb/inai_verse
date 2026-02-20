@@ -30,9 +30,9 @@ const MiraaiHero = () => {
 
                 <div className="flex justify-center mb-24">
                     <motion.button
-                        whileHover={{ scale: 1.05, backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
+                        whileHover={{ backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
                         whileTap={{ scale: 0.98 }}
-                        className="min-w-[160px] md:min-w-[260px] h-[48px] md:h-[54px] px-4 md:px-6 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
+                        className="px-6 py-3 md:px-10 md:py-4 bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
                         Start Your First Project
                     </motion.button>

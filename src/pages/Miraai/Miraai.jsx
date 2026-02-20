@@ -128,6 +128,7 @@ const Miraai = () => {
             <main className="flex-1 w-full min-w-0 flex flex-col bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24 overflow-x-hidden">
                 <PageHeader
                     title="Miraai"
+                    showTitleText={false}
                     showBackButton={true}
                     showPriceButton={true}
                     showHomeButton={true}

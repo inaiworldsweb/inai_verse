@@ -25,6 +25,8 @@ import smartAutoImg from '../../assets/final/Smart Automation for Institutions.p
 import futureReadyImg from '../../assets/final/Future-Ready Education.jfif';
 import personalizedImg from '../../assets/final/Personalized Learning.png';
 import dataDrivenImg from '../../assets/final/Data-Driven Insights.png';
+import edinaiHeaderLogo from '../../assets/EdInai Logo.png'
+
 import { Link } from 'react-router-dom'
 
 const navItems = [
@@ -247,12 +249,19 @@ const EdInaiPage = () => {
             {/* Main Content - Full width on mobile */}
             <main className="flex-1 w-full min-w-0 bg-black">
                 <PageHeader
-                    title="Edinai"
+                    title=""
                     breadcrumbs={[]}
-                    showBackButton={false}
+                    showBackButton={true}
+                    showLogo={true}
+                    logoSrc={edinaiHeaderLogo}
+                    logoAlt="EdInai logo"
+                    showTitleText={false}
+                    logoClassName="h-[26px] md:h-[32px] w-auto max-w-[140px] object-contain"
+                    titleWrapperClassName="flex items-center"
                     showPriceButton={true}
                     showHomeButton={true}
                     showMenuButton={true}
+                    onBackClick={handleBack}
                     onPriceClick={handleGoToPrice}
                 />
 
