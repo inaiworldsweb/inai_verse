@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, useMemo } from "react";
 import HeroImage from "../../../assets/centerImage.webp";
 
 const SynProHeroSection = () => {
@@ -89,6 +89,8 @@ const SynProHeroSection = () => {
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const anim = isMobile ? 1 : easeOut(progress);
 
+    const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.5px" }), []);
+
     // ── Image sizes ───────────────────────────────────────────────────────────
     const W0 = 1100, W1 = 280;
     const H0 = 600,  H1 = 100;
@@ -140,7 +142,7 @@ const SynProHeroSection = () => {
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)" }}
+                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
                         >
                             Miraai Helps Brands Scale Professional
                         </h2>
@@ -160,7 +162,7 @@ const SynProHeroSection = () => {
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(18px, 3vw, 44px)" }}
+                            style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
                         >
                             Creative
                         </h2>
@@ -180,7 +182,7 @@ const SynProHeroSection = () => {
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(18px, 3vw, 44px)" }}
+                            style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
                         >
                             Content 10× Faster
                         </h2>
@@ -199,7 +201,7 @@ const SynProHeroSection = () => {
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)" }}
+                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
                         >
                             With Up To 70% Cost Savings.
                         </h2>
@@ -231,19 +233,20 @@ const SynProHeroSection = () => {
                 {/* ══ MOBILE ══════════════════════════════════════════════════ */}
                 {isMobile && (
                     <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-5 text-center">
-                        <h2 className="text-[18px] font-black uppercase tracking-tighter font-inter leading-tight">
+                        <h2 className="text-[18px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
                             Miraai Helps Brands Scale Professional
                         </h2>
+
                         <div
                             style={{ width: "85vw", height: "220px", borderRadius: "20px" }}
                             className="overflow-hidden border border-white/10"
                         >
                             <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
                         </div>
-                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight">
+                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
                             Creative Content 10× Faster
                         </h2>
-                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight">
+                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
                             With Up To 70% Cost Savings.
                         </h2>
                     </div>
