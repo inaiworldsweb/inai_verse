@@ -38,6 +38,8 @@ const navItems = [
     'Teach in Every Way Your Students Want to Learn',
     'Learning Modes',
     'Why Ed-INAI Is the Future',
+    'Smart Automation',
+    'Modern Learning',
     'Our Vision',
     'Integration Options',
     'Streams We Cover',
@@ -153,6 +155,8 @@ const EdInaiPage = () => {
             'Teach in Every Way Your Students Want to Learn': 'teach-in-every-way-your-students-want-to-learn',
             'Learning Modes': 'learning-modes',
             'Why Ed-INAI Is the Future': 'why-ed-inai',
+            'Smart Automation': 'automation',
+            'Modern Learning': 'modern-learning',
             'Streams We Cover': 'streams',
             'Our Vision': 'vision',
             'Adapt and Evolve': 'adapt',
@@ -246,7 +250,7 @@ const EdInaiPage = () => {
             )}
 
             {/* Desktop Sidebar - Hidden on mobile */}
-            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen border-r border-white/10">
+            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto border-r border-white/10">
                 <div className="flex items-center justify-center mb-4">
                     <Link to="/">
                         <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />

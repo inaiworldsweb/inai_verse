@@ -40,8 +40,8 @@ const EdInaiStudentPage = () => {
 
             {/* Sidebar */}
             <div className="hidden lg:block w-64 bg-black border-r border-gray-800">
-                <SideMenu 
-                    items={menuItems} 
+                <SideMenu
+                    items={menuItems}
                     logoSrc={logoImage}
                 />
             </div>
@@ -57,7 +57,7 @@ const EdInaiStudentPage = () => {
 
                         {/* First Line */}
                         <div className="flex items-center gap-3 text-gray-300">
-                            <span 
+                            <span
                                 onClick={() => navigate('/edinai')}
                                 className="cursor-pointer hover:text-white transition"
                             >
@@ -73,7 +73,7 @@ const EdInaiStudentPage = () => {
 
                         {/* Second Line */}
                         <div className="flex items-center gap-3 text-xs text-gray-400">
-                            <span 
+                            <span
                                 onClick={() => navigate('/edinai-admin')}
                                 className="cursor-pointer hover:text-white transition"
                             >
