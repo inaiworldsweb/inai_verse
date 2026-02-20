@@ -4,9 +4,9 @@ import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import { EdInaiSidebar, EdInaiHeader } from './components/shared';
 
 import step1Img from '../../assets/final/inside edinai portal - create your admin profile.png';
-import step2Img from '../../assets/final/inside the ed inai- add your academic structure.png';
-import step3Img from '../../assets/final/inside the ed inai - schedule sessions.png';
-import step4Img from '../../assets/final/inside the ed inai - let ed inai execute.png';
+import academicWorkflowImg from '../../assets/Academic Workflow Management.png';
+import studentEngagementImg from '../../assets/Student Engagement & Learning Support.png';
+import examPreparationImg from '../../assets/Exam Preparation & Performance Support.png';
 
 // Use Case Images
 import schoolsImg from '../../assets/images/Schools.jpg';
@@ -31,19 +31,19 @@ const steps = [
         number: '2',
         title: 'Add Your Academic Structure',
         description: 'Upload subjects, chapters, resources, and assessment content. Ed-INAI converts this material into structured modules and aligned lecture flows.',
-        image: step2Img,
+        image: academicWorkflowImg,
     },
     {
         number: '3',
         title: 'Schedule Sessions',
         description: 'Use the built-in scheduler to set timings, select batches, choose delivery mode, and attach materials. Configure reminders and interaction settings as needed.',
-        image: step3Img,
+        image: academicWorkflowImg,
     },
     {
         number: '4',
         title: 'Let Ed-INAI Execute',
         description: 'The platform conducts sessions, manages queries, generates notes, records sessions, and updates analytics in real time. Admins can monitor progress or adjust parameters anytime.',
-        image: step4Img,
+        image: academicWorkflowImg,
     },
 ];
 
@@ -237,28 +237,23 @@ const IntegrationSection = () => {
 
     const features = [
         {
-            title: 'Cloud-Native & Scalable',
+            title: 'Academic Workflow Management',
             description:
-                '100% cloud-hosted no servers required. Scales from single classrooms to multi-branch institutions.',
-            image: step2Img,
+                'ED-INAI streamlines daily academic operations including class scheduling, content distribution, assessment management, and reporting—ensuring smooth coordination across departments.',
+            image: academicWorkflowImg,
         },
         {
-            title: 'Device Compatibility',
-            description: 'Compatible with web browsers, mobile apps, smart TVs, and projector setups.',
-            image: step3Img,
+            title: 'Student Engagement & Learning Support',
+            description: 'Enhance student participation through AI-driven tutoring, personalized study plans, interactive assessments, and continuous learning support.',
+            image: studentEngagementImg,
         },
         {
-            title: 'Integrations & APIs',
+            title: 'Exam Preparation & Performance Support',
             description:
-                'Integrates with existing LMS, ERP, attendance systems, and content repositories via APIs and standard connectors.',
-            image: step2Img,
+                'Support students with AI-driven revision plans, mock tests, performance analysis, and exam-focused guidance.',
+            image: examPreparationImg,
         },
-        {
-            title: 'Security & Privacy',
-            description:
-                'Role-based access control, encrypted data storage, secure authentication, and compliance with privacy best practices.',
-            image: step3Img,
-        },
+       
     ];
 
     const goToSlide = (direction) => {
@@ -276,7 +271,7 @@ const IntegrationSection = () => {
         <section id="integration-technical-details" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <div className="flex items-center justify-between mb-10">
-                    <h2 className="text-3xl lg:text-4xl font-bold">Integration & Technical Details</h2>
+                    <h2 className="text-3xl lg:text-4xl font-bold">Platform Capabilities & Institutional Support</h2>
 
                     <div className="flex gap-3">
                         <button
@@ -330,40 +325,53 @@ const IntegrationSection = () => {
         </section>
     );
 };
-
 const StepsPage = () => {
     const [activeSection, setActiveSection] = useState('how-to-set-up-edinai');
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
-
-    const handleSidebarClick = (id) => {
-        setActiveSection(id);
-        const section = document.getElementById(id);
-        if (section) {
-            section.scrollIntoView({ behavior: 'smooth' });
+    const scrollToSection = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+            setActiveSection(id);
         }
     };
 
-    return (
-        <div className="flex h-screen overflow-hidden bg-black text-white font-sans">
-            <EdInaiSidebar
-                logoImage={logoImage}
-                items={sidebarItems}
-                onItemClick={handleSidebarClick}
-                activeId={activeSection}
-            />
-
-            <main className="flex-1 w-full min-w-0 overflow-y-auto bg-black">
-                <EdInaiHeader activeView="student" showSubNav={false} />
-
-                <SetupSteps />
-                <IntegrationSection />
-                <UseCasesSection />
-            </main>
-        </div>
-    );
+    // Basic error boundary to prevent crashes
+    try {
+        return (
+            <div className="min-h-screen bg-black text-white">
+                <EdInaiHeader />
+                <div className="flex flex-col md:flex-row">
+                    <EdInaiSidebar items={sidebarItems} activeItem={activeSection} onItemClick={scrollToSection} />
+                    <main className="flex-1 p-4 md:p-8">
+                        <div id="how-to-set-up-edinai">
+                            <SetupSteps />
+                        </div>
+                        <div id="integration-technical-details" className="mt-20">
+                            <IntegrationSection />
+                        </div>
+                        <div id="common-use-cases" className="mt-20">
+                            <UseCasesSection />
+                        </div>
+                    </main>
+                </div>
+            </div>
+        );
+    } catch (error) {
+        console.error('Error rendering StepsPage:', error);
+        return (
+            <div className="min-h-screen bg-black text-white p-8">
+                <h1 className="text-2xl font-bold text-red-500">Error Loading Page</h1>
+                <p className="mt-4">There was an error loading the page. Please check the console for details.</p>
+                <button 
+                    onClick={() => window.location.reload()} 
+                    className="mt-4 px-4 py-2 bg-blue-600 rounded hover:bg-blue-700"
+                >
+                    Reload Page
+                </button>
+            </div>
+        );
+    }
 };
 
 export default StepsPage;
