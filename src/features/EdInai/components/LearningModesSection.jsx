@@ -83,10 +83,19 @@ const LearningModesSection = () => {
                             <p className="text-blue-500 font-bold tracking-[0.3em] uppercase text-[10px]">Product Video</p>
                             <div className="pt-2 md:pt-4">
                                 <button
-                                    className="bg-white text-black py-3 px-8 md:py-4 md:px-10 rounded-full text-sm font-bold capitalize hover:bg-gray-200 transition-all tracking-wide"
-                                    onClick={() => navigate('/edinai-detail')}
+                                    type="button"
+                                    className="group bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100"
+                                    // onClick={() => navigate('/edinai-detail')}
                                 >
-                                    Learn More
+                                    <span className="relative inline-block overflow-hidden align-top">
+                                        <span className="invisible">Learn more</span>
+                                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">
+                                            Learn more
+                                        </span>
+                                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">
+                                            Learn more
+                                        </span>
+                                    </span>
                                 </button>
                             </div>
                         </div>

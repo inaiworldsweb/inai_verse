@@ -11,6 +11,7 @@ const MiraaiHero = () => {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-[calc(100vh-160px)] relative py-12">
+            
             {/* Hero Content */}
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -32,14 +33,22 @@ const MiraaiHero = () => {
                     <motion.button
                         whileHover={{ backgroundColor: 'rgba(244, 243, 243, 0.9)' }}
                         whileTap={{ scale: 0.98 }}
-                        className="px-6 py-3 md:px-10 md:py-4 bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
+                        className="group min-w-[160px] md:min-w-[260px] h-[48px] md:h-[54px] px-4 md:px-6 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
-                        Start Your First Project
+                        <span className="relative inline-block overflow-hidden align-top font-['Inter']">
+                            <span className="invisible">Start Your First Project</span>
+                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                                Start Your First Project
+                            </span>
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                                Start Your First Project
+                            </span>
+                        </span>
                     </motion.button>
                 </div>
             </motion.div>
 
-            {/* Stats Section - Bottom Bar Style */}
+            {/* Stats Section */}
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -50,11 +59,16 @@ const MiraaiHero = () => {
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`flex flex-col items-center justify-center h-full gap-2 md:gap-[10px] py-6 md:py-8 lg:py-8 xl:pt-[39px] xl:pb-[39px] px-4 md:px-6 lg:px-8 xl:px-[80px] border-[#333333] border-solid ${index !== stats.length - 1 ? 'border-b md:border-b-0 md:border-r' : ''
-                                }`}
+                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${
+                                index !== stats.length - 1
+                                    ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10'
+                                    : ''
+                            }`}
                         >
-                            <span className="text-xl md:text-2xl lg:text-3xl tracking-tight text-white mb-1 font-bold">{stat.value}</span>
-                            <span className="text-[#999999] font-['Inter'] text-sm sm:text-base md:text-base lg:text-lg xl:text-lg leading-[1.2] md:leading-[100%] tracking-[0%] text-center capitalize whitespace-normal xl:whitespace-nowrap">
+                            <span className="text-2xl md:text-4xl mb-2 tracking-tight text-white">
+                                {stat.value}
+                            </span>
+                            <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em]">
                                 {stat.label}
                             </span>
                         </div>

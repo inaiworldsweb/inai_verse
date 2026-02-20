@@ -64,9 +64,17 @@ const ResultPreview = ({ services }) => {
             <div className="hidden lg:flex justify-center mt-6 sm:mt-10">
                 <button
                     type="button"
-                    className="px-6 py-2.5 sm:px-10 sm:py-4 rounded-full bg-blue-600 text-white font-bold text-sm sm:text-base uppercase tracking-wider shadow-[0_15px_35px_rgba(37,99,235,0.4)] hover:bg-blue-500 hover:-translate-y-1 transition-all duration-200"
+                    className="group px-6 py-2.5 sm:px-10 sm:py-4 rounded-full bg-white text-black font-bold text-sm sm:text-base uppercase tracking-wider shadow-[0_15px_35px_rgba(255,255,255,0.12)] hover:bg-gray-100 hover:-translate-y-1 transition-all duration-200"
                 >
-                    Start Now
+                    <span className="relative inline-block overflow-hidden align-top">
+                        <span className="invisible">Start Now</span>
+                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                            Start Now
+                        </span>
+                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                            Start Now
+                        </span>
+                    </span>
                 </button>
             </div>
         </div>

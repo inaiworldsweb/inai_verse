@@ -4,8 +4,16 @@ function Header({ onMenuClick }) {
             <div className="flex h-full items-start justify-end px-10 pt-4">
                 {/* Right Side Actions */}
                 <div className="flex items-center gap-4">
-                    <button className="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition">
-                        Community
+                    <button className="group bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition font-['Inter']">
+                        <span className="relative inline-block overflow-hidden align-top">
+                            <span className="invisible">Community</span>
+                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                                Community
+                            </span>
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                                Community
+                            </span>
+                        </span>
                     </button>
 
                     <button
