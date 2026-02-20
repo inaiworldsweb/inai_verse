@@ -33,7 +33,7 @@ function LandingPage() {
 
                         {/* Subtitle */}
                         <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center tracking-tight">
-                            We are for people, We are for new{' '}
+                            We are for people, We are for digital{' '}
                             <span className="inline-flex">
                                 <span className="text-[#FF671F]">IN</span>
                                 <span className="text-white">D</span>
@@ -66,8 +66,16 @@ function LandingPage() {
                     INAI Worlds is proudly recognized among the best AI companies building India's next generation of AI tech.
                 </p>
 
-                <button className="flex items-center gap-2 bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 whitespace-nowrap group">
-                    Get Started
+                <button className="flex items-center gap-2 bg-black text-white px-6 py-2 rounded-full font-medium hover:bg-gray-800 transition-all duration-300 whitespace-nowrap group font-['Inter']">
+                    <span className="relative inline-block overflow-hidden align-top">
+                        <span className="invisible">Get Started</span>
+                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                            Get Started
+                        </span>
+                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                            Get Started
+                        </span>
+                    </span>
                     <svg
                         className="w-4 h-4 transform group-hover:translate-x-1 transition-transform"
                         fill="none"

@@ -35,7 +35,15 @@ const MiraaiHero = () => {
                         whileTap={{ scale: 0.98 }}
                         className="group min-w-[160px] md:min-w-[260px] h-[48px] md:h-[54px] px-4 md:px-6 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-sm md:text-lg transition-all hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
-                        Start Your First Project
+                        <span className="relative inline-block overflow-hidden align-top font-['Inter']">
+                            <span className="invisible">Start Your First Project</span>
+                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
+                                Start Your First Project
+                            </span>
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
+                                Start Your First Project
+                            </span>
+                        </span>
                     </motion.button>
                 </div>
             </motion.div>

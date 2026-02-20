@@ -79,10 +79,18 @@ const LearningModesSection = () => {
                             <div className="pt-2">
                                 <button
                                     type="button"
-                                    className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
+                                    className="group bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100"
                                     // onClick={() => navigate('/edinai-detail')}
                                 >
-                                    learn more
+                                    <span className="relative inline-block overflow-hidden align-top">
+                                        <span className="invisible">Learn more</span>
+                                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">
+                                            Learn more
+                                        </span>
+                                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">
+                                            Learn more
+                                        </span>
+                                    </span>
                                 </button>
                             </div>
                         </div>

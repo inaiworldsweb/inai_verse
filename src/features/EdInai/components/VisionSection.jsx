@@ -111,10 +111,18 @@ const VisionSection = () => {
                 >
                     <button
                         type="button"
-                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95"
+                        className="group bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95"
                         // onClick={handleLearnMore}
                     >
-                        learn more
+                        <span className="relative inline-block overflow-hidden align-top">
+                            <span className="invisible">learn more</span>
+                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">
+                                Learn more
+                            </span>
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">
+                                Learn more
+                            </span>
+                        </span>
                     </button>
                 </motion.div>
             </div>

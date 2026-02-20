@@ -295,15 +295,16 @@ const EdInaiPage = () => {
                                 py-3 px-6 sm:px-8 rounded-full 
                                 text-sm font-semibold cursor-pointer 
                                 inline-flex items-center justify-center gap-2 
-                                transition-transform duration-200 hover:scale-105
+                                transition-transform duration-200
                             "
                             // onClick={() => navigate('/edinai-detail')}
                             >
-                                <span className="relative block h-[1.2em] overflow-hidden">
-                                    <span className="block leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
+                                <span className="relative inline-block overflow-hidden align-top font-['Inter']">
+                                    <span className="invisible">Get Started</span>
+                                    <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
                                         Get Started
                                     </span>
-                                    <span className="absolute left-0 top-[120%] block leading-none transition-transform duration-300 group-hover:-translate-y-[120%]">
+                                    <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
                                         Get Started
                                     </span>
                                 </span>
