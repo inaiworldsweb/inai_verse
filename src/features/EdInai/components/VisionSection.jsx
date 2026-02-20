@@ -42,19 +42,25 @@ const VisionSection = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.15
+                staggerChildren: 0.2
             }
         }
     }
 
     const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
+        hidden: {
+            opacity: 0,
+            rotateY: -70,
+            x: -30,
+            perspective: 1000
+        },
         visible: {
             opacity: 1,
-            y: 0,
+            rotateY: 0,
+            x: 0,
             transition: {
-                duration: 0.6,
-                ease: "easeOut"
+                duration: 1.8,
+                ease: [0.22, 1, 0.36, 1]
             }
         }
     }
@@ -84,7 +90,9 @@ const VisionSection = () => {
                                 key={id}
                                 variants={itemVariants}
                                 whileHover={{ scale: 1.02, y: -5 }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 className="bg-white/[0.03] rounded-[15px] p-6 text-center border border-white/5 transition-colors hover:border-white/10"
+                                style={{ transformStyle: "preserve-3d" }}
                             >
                                 <figure className="rounded-[10px] overflow-hidden mb-4 bg-zinc-900 border border-white/5">
                                     <motion.img
@@ -112,7 +120,7 @@ const VisionSection = () => {
                     <button
                         type="button"
                         className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95"
-                        // onClick={handleLearnMore}
+                        onClick={handleLearnMore}
                     >
                         learn more
                     </button>
