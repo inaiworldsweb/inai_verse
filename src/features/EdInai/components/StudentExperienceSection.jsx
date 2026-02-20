@@ -86,14 +86,14 @@ const StudentExperienceSection = () => {
         <section className="py-6 md:py-10" id="student-view">
             <div className="max-w-[1000px] mx-auto px-4">
                 <header className="text-center mb-4 md:mb-6">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-white leading-tight">Student Learning Experience</h2>
-                    <p className="text-sm sm:text-base text-white/70 max-w-[600px] mx-auto">
-                        Empowering students with AI-powered learning tools and resources
+                    <h2 className="text-[25px] md:text-[40px] font-bold mb-2 text-white leading-tight capitalize tracking-tight">Student Learning Experience</h2>
+                    <p className="text-sm sm:text-base text-white/70 max-w-[600px] mx-auto capitalize tracking-normal">
+                        Empowering Students With AI-Powered Learning Tools And Resources
                     </p>
                 </header>
 
                 <div className="bg-white/[0.03] rounded-lg p-3 md:p-6 border border-white/5" aria-live="polite">
-                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2">{currentSlide.title}</h3>
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2 capitalize tracking-wide">{currentSlide.title}</h3>
                     <button
                         type="button"
                         className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full p-0"
@@ -121,17 +121,17 @@ const StudentExperienceSection = () => {
                             ))}
                         </div>
                     </div>
-                    <p className="text-base sm:text-lg font-semibold text-center my-3 text-white">{currentSlide.caption}</p>
-                    <p className="text-xs sm:text-sm text-center text-white/70 leading-relaxed">{currentSlide.description}</p>
+                    <p className="text-base sm:text-lg font-semibold text-center my-3 text-white capitalize tracking-wide">{currentSlide.caption}</p>
+                    <p className="text-xs sm:text-sm text-center text-white/70 leading-relaxed capitalize tracking-normal">{currentSlide.description}</p>
                 </div>
 
                 <div className="text-center mt-6">
                     <button
                         type="button"
-                        className="bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
+                        className="bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold capitalize cursor-pointer transition-colors duration-200 hover:bg-gray-100 tracking-wide"
                         onClick={handleLearnMore}
                     >
-                        learn more
+                        Learn More
                     </button>
                 </div>
             </div>

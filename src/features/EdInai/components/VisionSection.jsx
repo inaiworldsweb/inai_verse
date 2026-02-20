@@ -75,8 +75,8 @@ const VisionSection = () => {
                     transition={{ duration: 0.8 }}
                     className="my-6"
                 >
-                    <h2 className="text-2xl sm:text-3xl md:text-[2rem] font-bold text-center mb-2 text-white px-4">How to Implement ED-INAI in Your Institution?</h2>
-                    <p className="text-center text-white/70 mb-8 px-4 text-sm sm:text-base">Implementation Steps</p>
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-center mb-2 text-white px-4 capitalize tracking-tight">How to Implement ED-INAI in Your Institution?</h2>
+                    <p className="text-center text-white/70 mb-8 px-4 text-sm sm:text-base capitalize tracking-normal">Implementation Steps</p>
 
                     <motion.div
                         variants={containerVariants}
@@ -104,7 +104,7 @@ const VisionSection = () => {
                                         loading="lazy"
                                     />
                                 </figure>
-                                <p className="text-sm text-white/80 leading-normal font-medium px-4">{title}</p>
+                                <p className="text-sm text-white/80 leading-normal font-medium px-4 capitalize tracking-normal">{title}</p>
                             </motion.div>
                         ))}
                     </motion.div>
@@ -119,10 +119,10 @@ const VisionSection = () => {
                 >
                     <button
                         type="button"
-                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95"
+                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold capitalize cursor-pointer transition-all duration-300 hover:bg-gray-100 hover:shadow-lg hover:shadow-white/10 active:scale-95 tracking-wide"
                         onClick={handleLearnMore}
                     >
-                        learn more
+                        Learn More
                     </button>
                 </motion.div>
             </div>

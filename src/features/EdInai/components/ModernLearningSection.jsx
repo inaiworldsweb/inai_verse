@@ -52,9 +52,9 @@ const ModernLearningSection = () => {
                     transition={{ duration: 0.8 }}
                     className="mb-12"
                 >
-                    <h2 className="text-2xl sm:text-[2rem] font-bold text-white mb-4">Made for the Modern Learning Generation</h2>
-                    <p className="text-xs sm:text-sm text-white/70 max-w-[700px]">
-                        Ed-INAI bridges innovation and education, creating a dynamic ecosystem for schools and colleges.
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-4 capitalize tracking-tight">Made For The Modern Learning Generation</h2>
+                    <p className="text-xs sm:text-sm text-white/70 max-w-[700px] capitalize tracking-normal">
+                        Ed-INAI Bridges Innovation And Education, Creating A Dynamic Ecosystem For Schools And Colleges.
                     </p>
                 </motion.div>
 
@@ -108,7 +108,7 @@ const ModernLearningSection = () => {
 
                                     {/* Card Content */}
                                     <div className="flex items-center px-6 py-4">
-                                        <h3 className="text-lg md:text-xl font-semibold text-white whitespace-pre-line leading-relaxed">
+                                        <h3 className="text-lg md:text-xl font-semibold text-white whitespace-pre-line leading-relaxed capitalize tracking-wide">
                                             {title}
                                         </h3>
                                     </div>
@@ -126,9 +126,9 @@ const ModernLearningSection = () => {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="max-w-[900px]"
                 >
-                    <h3 className="text-[1.5rem] font-bold text-white mb-4">AI-led interactive lectures</h3>
-                    <p className="text-sm text-white/70 leading-relaxed">
-                        ED-INAI brings together innovation and education to create a smart, connected learning ecosystem for schools and colleges.
+                    <h3 className="text-[1.5rem] font-bold text-white mb-4 capitalize tracking-tight">AI-Led Interactive Lectures</h3>
+                    <p className="text-sm text-white/70 leading-relaxed capitalize tracking-normal">
+                        ED-INAI Brings Together Innovation And Education To Create A Smart, Connected Learning Ecosystem For Schools And Colleges.
                     </p>
                 </motion.div>
             </div>

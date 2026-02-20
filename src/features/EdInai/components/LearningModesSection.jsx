@@ -48,45 +48,45 @@ const LearningModesSection = () => {
     return (
         <section id="learning-modes" className="bg-black py-12 md:py-24 overflow-visible">
             <div className="max-w-[1300px] mx-auto px-4 md:px-6">
-                
+
                 {/* Section Title */}
-                <motion.h2 
+                <motion.h2
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-[25px] md:text-[40px] font-bold text-center text-white mb-12 md:mb-16 tracking-tight"
+                    className="text-[25px] md:text-[40px] font-bold text-center text-white mb-12 md:mb-16 tracking-tight capitalize"
                 >
                     Learning Modes
                 </motion.h2>
 
                 {/* Grid Layout - lg:items-start zaroori hai sticky ke liye */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-start relative">
-                    
+
                     {/* LEFT COLUMN - Sticky Image Section */}
                     <div className="lg:col-span-7 lg:sticky lg:top-32 space-y-6 md:space-y-8 mb-10 lg:mb-0">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, scale: 0.98 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             className="rounded-[25px] md:rounded-[35px] overflow-hidden border border-white/10 shadow-2xl bg-[#111]"
                         >
-                            <img 
-                                src={learnAnytimeImg} 
-                                alt="Student learning" 
+                            <img
+                                src={learnAnytimeImg}
+                                alt="Student learning"
                                 className="w-full h-auto object-cover max-h-[300px] md:max-h-none"
                             />
                         </motion.div>
                         <div className="space-y-3 md:space-y-4 px-2">
                             <h3 className="text-[20px] md:text-[25px] font-bold text-white leading-tight">
-                                Introducing learning mode<br className="hidden md:block" /> for students
+                                Introducing Learning Mode<br className="hidden md:block" /> For Students
                             </h3>
                             <p className="text-blue-500 font-bold tracking-[0.3em] uppercase text-[10px]">Product Video</p>
                             <div className="pt-2 md:pt-4">
-                                <button 
-                                    className="bg-white text-black py-3 px-8 md:py-4 md:px-10 rounded-full text-sm font-bold lowercase hover:bg-gray-200 transition-all"
+                                <button
+                                    className="bg-white text-black py-3 px-8 md:py-4 md:px-10 rounded-full text-sm font-bold capitalize hover:bg-gray-200 transition-all tracking-wide"
                                     onClick={() => navigate('/edinai-detail')}
                                 >
-                                    learn more
+                                    Learn More
                                 </button>
                             </div>
                         </div>
@@ -106,20 +106,20 @@ const LearningModesSection = () => {
                                 className="sticky top-20 md:top-32 w-full"
                             >
                                 <article className="bg-[#161616] rounded-[25px] md:rounded-[30px] border border-white/5 p-6 md:p-10 shadow-[0_20px_40px_rgba(0,0,0,0.6)] min-h-[350px] md:min-h-[400px] flex flex-col justify-between group relative overflow-hidden transition-all duration-500">
-                                    
+
                                     {/* Hover Glow */}
                                     <div className={`absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 blur-3xl transition-opacity duration-700`} />
-                                    
+
                                     <div className="space-y-4 md:space-y-6 relative z-10">
                                         <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
                                             {getIcon(type)}
                                         </div>
 
                                         <div className="space-y-3 md:space-y-4">
-                                            <h4 className="text-[18px] md:text-[25px] font-bold text-white leading-tight">
+                                            <h4 className="text-[18px] md:text-[25px] font-bold text-white leading-tight capitalize tracking-normal">
                                                 {title}
                                             </h4>
-                                            <p className="text-[13px] md:text-lg text-white/50 leading-relaxed font-light">
+                                            <p className="text-[13px] md:text-lg text-white/50 leading-relaxed font-light capitalize tracking-normal">
                                                 {description}
                                             </p>
                                         </div>

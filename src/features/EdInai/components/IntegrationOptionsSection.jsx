@@ -58,7 +58,7 @@ const IntegrationOptionsSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-xl md:text-2xl font-bold mb-10 tracking-tight"
+                    className="text-[25px] md:text-[40px] font-bold mb-10 tracking-tight capitalize"
                 >
                     Integration Options
                 </motion.h2>
@@ -89,7 +89,7 @@ const IntegrationOptionsSection = () => {
                                 {/* Subtle overlay on hover */}
                                 <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                             </div>
-                            <h3 className="text-sm md:text-base font-semibold leading-relaxed text-zinc-300 group-hover:text-white transition-colors duration-300 max-w-[90%]">
+                            <h3 className="text-sm md:text-base font-semibold leading-relaxed text-zinc-300 group-hover:text-white transition-colors duration-300 max-w-[90%] capitalize tracking-wide">
                                 {option.title}
                             </h3>
                         </motion.div>

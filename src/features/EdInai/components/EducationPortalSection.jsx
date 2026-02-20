@@ -102,14 +102,14 @@ const EducationPortalSection = () => {
         <section className="py-6 md:py-10" id="admin-view">
             <div className="max-w-[1000px] mx-auto px-4">
                 <header className="text-center mb-4 md:mb-6">
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-white leading-tight">Inside the Ed-INAI AI Education Platform</h2>
-                    <p className="text-sm sm:text-base text-white/70 max-w-[600px] mx-auto">
-                        Administration to Learning, ED-INAI Automates, Optimizes, and Personalizes the Entire Education Journey
+                    <h2 className="text-[25px] md:text-[40px] font-bold mb-2 text-white leading-tight capitalize tracking-tight">Inside the Ed-INAI AI Education Platform</h2>
+                    <p className="text-sm sm:text-base text-white/70 max-w-[600px] mx-auto capitalize tracking-normal">
+                        Administration To Learning, ED-INAI Automates, Optimizes, And Personalizes The Entire Education Journey
                     </p>
                 </header>
 
                 <div className="bg-white/[0.03] rounded-lg p-3 md:p-6 border border-white/5" aria-live="polite">
-                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2">{currentSlide.title}</h3>
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2 capitalize tracking-wide">{currentSlide.title}</h3>
                     <button
                         type="button"
                         className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full max-w-[900px] mx-auto p-0 flex items-center justify-center h-[240px] sm:h-[280px] md:h-[340px]"
@@ -137,8 +137,8 @@ const EducationPortalSection = () => {
                             ))}
                         </div>
                     </div>
-                    <p className="text-base sm:text-lg font-semibold text-center my-3 text-white">{currentSlide.caption}</p>
-                    <p className="text-xs sm:text-sm text-center text-white/70 leading-relaxed">{currentSlide.description}</p>
+                    <p className="text-base sm:text-lg font-semibold text-center my-3 text-white capitalize tracking-wide">{currentSlide.caption}</p>
+                    <p className="text-xs sm:text-sm text-center text-white/70 leading-relaxed capitalize tracking-normal">{currentSlide.description}</p>
                 </div>
             </div>
         </section>

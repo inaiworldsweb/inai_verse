@@ -30,7 +30,7 @@ const StreamsSection = () => {
     return (
         <section className="py-10 md:py-16 bg-black" id="streams">
             <div className="max-w-[1200px] mx-auto px-4">
-                <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold text-center mb-10 md:mb-12 text-white animate-fade-in px-4">
+                <h2 className="text-[25px] md:text-[40px] font-bold text-center mb-10 md:mb-12 text-white animate-fade-in px-4 capitalize tracking-tight">
                     Streams We Cover
                 </h2>
 
@@ -158,6 +158,8 @@ const StreamsSection = () => {
                     position: relative;
                     overflow: hidden;
                     user-select: none;
+                    text-transform: capitalize;
+                    letter-spacing: 0.025em;
                 }
 
                 .stream-tag:hover {

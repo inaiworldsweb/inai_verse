@@ -62,10 +62,10 @@ const StepItem = ({ step, index, activeStep, setStepRef }) => (
         className={`mb-32 min-h-[40vh] relative pl-10 border-l-[3px] transition-all duration-700 ${activeStep === index ? 'border-white opacity-100' : 'border-white/5 opacity-50'
             }`}
     >
-        <h3 className={`text-[15px] md:text-[25px] font-bold mb-4 tracking-tight ${activeStep === index ? 'text-white' : 'text-white/30'}`}>
+        <h3 className={`text-[15px] md:text-[25px] font-bold mb-4 tracking-tight capitalize ${activeStep === index ? 'text-white' : 'text-white/30'}`}>
             Step {step.number}: {step.title}
         </h3>
-        <p className={`text-lg leading-relaxed max-w-lg ${activeStep === index ? 'text-gray-400' : 'text-white/20'}`}>
+        <p className={`text-lg leading-relaxed max-w-lg capitalize tracking-normal ${activeStep === index ? 'text-gray-400' : 'text-white/20'}`}>
             {step.description}
         </p>
     </div>
@@ -82,7 +82,7 @@ const UseCasesSection = () => {
     return (
         <section id="common-use-cases" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
-                <h2 className="text-center text-[25px] md:text-[40px] font-bold mb-12">Common Use Cases</h2>
+                <h2 className="text-center text-[25px] md:text-[40px] font-bold mb-12 capitalize tracking-tight">Common Use Cases</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                     {useCases.map((useCase) => (
@@ -99,7 +99,7 @@ const UseCasesSection = () => {
                             </div>
 
                             <div className="px-5 py-4 flex items-center justify-between text-sm font-medium tracking-wide">
-                                <span>{useCase.title}</span>
+                                <span className="capitalize tracking-wide">{useCase.title}</span>
                                 <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs">○</span>
                             </div>
                         </div>
@@ -194,8 +194,8 @@ const SetupSteps = () => {
         <section id="how-to-set-up-edinai" className="pt-0 pb-24 px-6 lg:px-20 bg-black">
             <div className="max-w-[90rem] mx-auto w-full">
                 <div className="text-center mb-32">
-                    <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight">How to Set Up Ed-INAI</h2>
-                    <p className="text-zinc-400 text-xl max-w-3xl mx-auto font-bold leading-relaxed">
+                    <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight capitalize">How to Set Up Ed-INAI</h2>
+                    <p className="text-zinc-400 text-xl max-w-3xl mx-auto font-bold leading-relaxed capitalize tracking-normal">
                         Ed-INAI is cloud-based and built for rapid deployment. Typical onboarding completes within days, not weeks.
                     </p>
                 </div>
@@ -280,7 +280,7 @@ const IntegrationSection = () => {
         <section id="integration-technical-details" className="py-20 px-6 lg:px-12 bg-black text-white border-t border-white/5">
             <div className="max-w-[90rem] mx-auto">
                 <div className="flex items-center justify-between mb-10">
-                    <h2 className="text-[25px] md:text-[40px] font-bold">Platform Capabilities & Institutional Support</h2>
+                    <h2 className="text-[25px] md:text-[40px] font-bold capitalize tracking-tight">Platform Capabilities & Institutional Support</h2>
 
                     <div className="flex gap-3">
                         <button
@@ -323,8 +323,8 @@ const IntegrationSection = () => {
                         </div>
 
                         <div className="px-6 py-6 flex flex-col gap-3">
-                            <h3 className="text-[15px] md:text-[25px] font-bold text-white">{activeFeature.title}</h3>
-                            <p className="text-sm text-gray-300 leading-relaxed">
+                            <h3 className="text-[15px] md:text-[25px] font-bold text-white capitalize tracking-normal">{activeFeature.title}</h3>
+                            <p className="text-sm text-gray-300 leading-relaxed capitalize tracking-normal">
                                 {activeFeature.description}
                             </p>
                         </div>

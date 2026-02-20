@@ -284,10 +284,10 @@ const EdInaiPage = () => {
                     <section className="min-h-[calc(100vh-80px)] flex flex-col justify-center py-8 md:py-0">
                         {/* Hero Title and CTA - Centered */}
                         <div className="text-center">
-                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-2 md:mb-4">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-2 md:mb-4 capitalize tracking-tight">
                                 India's First<br /> Virtual AI Teacher Platform
                             </h2>
-                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-3 md:mb-6">
+                            <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-3 md:mb-6 capitalize tracking-normal">
                                 Teach smarter with AI-powered virtual teachers trained on your syllabus
                             </h3>
                             <button
@@ -311,7 +311,7 @@ const EdInaiPage = () => {
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mt-8 md:mt-12 mb-10 md:mb-16 max-w-[1200px] mx-auto">
                             {/* Left Column - Heading */}
                             <div className="text-center lg:text-center order-2 lg:order-1">
-                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight">
+                                <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-[3rem] font-bold leading-tight capitalize tracking-tight">
                                     Transform <br />Teaching & Learning with EdInai
 
                                 </h3>
@@ -328,7 +328,7 @@ const EdInaiPage = () => {
                         </div>
 
                         {/* Description - Centered */}
-                        <p className="max-w-[930px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2">
+                        <p className="max-w-[930px] mx-auto text-sm sm:text-base leading-relaxed text-white/80 text-center px-2 capitalize tracking-normal">
                             Ed-INAI is an advanced AI-powered education platform where virtual AI teachers conduct live,
                             interactive lectures for schools and colleges across India. Experience the next generation of AI
                             education built for the classrooms of the future.
@@ -337,7 +337,7 @@ const EdInaiPage = () => {
 
                     {/* What is EdInai Section - Responsive */}
                     <section className="py-8 md:py-16" id="what-is-edinai">
-                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12">
+                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 capitalize tracking-tight">
                             What is EdInai?
                         </h2>
                         <div className="flex flex-col gap-8 md:gap-12">
@@ -351,7 +351,7 @@ const EdInaiPage = () => {
                                     : text
 
                                 const description = (
-                                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 ${centerText ? 'text-center md:text-left' : ''}`}>
+                                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 capitalize tracking-normal ${centerText ? 'text-center md:text-left' : ''}`}>
                                         {descriptionContent}
                                     </p>
                                 )
@@ -415,7 +415,7 @@ const EdInaiPage = () => {
                                 transition={{ duration: 0.8, delay: 0.2 }}
                                 className="order-2 text-center md:text-left"
                             >
-                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[3rem] font-bold leading-tight text-white mb-6">
+                                <h2 className="text-xl sm:text-2xl md:text-[2.5rem] lg:text-[3rem] font-bold leading-tight text-white mb-6 capitalize tracking-tight">
                                     Teach the Way Every <br />Student Learns Best
                                 </h2>
                                 {/* <p className="text-white/70 text-sm md:text-base leading-relaxed max-w-[500px] mx-auto md:mx-0">
@@ -430,7 +430,7 @@ const EdInaiPage = () => {
                     {/* Why Ed-INAI Is the Future Section - Responsive Grid */}
                     <section className="py-8 md:py-16" id="why-ed-inai">
                         <div className="max-w-content mx-auto">
-                            <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2">
+                            <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 px-2 capitalize tracking-tight">
                                 Why EdINAI is the future of Indian education system
                             </h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
@@ -448,10 +448,10 @@ const EdInaiPage = () => {
                                             />
                                         </div>
                                         <div>
-                                            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 md:mb-2">
+                                            <h3 className="text-base sm:text-lg md:text-xl font-semibold mb-1.5 md:mb-2 capitalize tracking-wide">
                                                 {title}
                                             </h3>
-                                            <p className="text-sm md:text-base text-white/70 leading-relaxed">
+                                            <p className="text-sm md:text-base text-white/70 leading-relaxed capitalize tracking-normal">
                                                 {description}
                                             </p>
                                         </div>
