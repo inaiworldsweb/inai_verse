@@ -28,6 +28,7 @@ import dataDrivenImg from '../../assets/final/Data-Driven Insights.png';
 import edinaiHeaderLogo from '../../assets/EdInai Logo.png'
 
 import { Link } from 'react-router-dom'
+import { useZoomReveal } from '../../hooks/useZoomReveal'
 
 const navItems = [
     'What is edinai?',
@@ -120,6 +121,14 @@ const overviewItems = [
 const EdInaiPage = () => {
     const navigate = useNavigate()
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+    useZoomReveal({
+        selector: '#what-is-edinai img[data-zoom-reveal]',
+        threshold: 0.2,
+        stagger: 120,
+        duration: 700,
+        easing: 'cubic-bezier(0.22, 1, 0.36, 1)',
+        once: false,
+    })
 
     const handleBreadcrumbClick = (target) => {
         if (target === 'top') {
@@ -345,7 +354,7 @@ const EdInaiPage = () => {
 
                                 const imageElement = (
                                     <div className="rounded-xl md:rounded-[20px] overflow-hidden">
-                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" />
+                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" data-zoom-reveal />
                                     </div>
                                 )
 

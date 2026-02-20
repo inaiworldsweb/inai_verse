@@ -83,12 +83,17 @@ const StudentExperienceSection = () => {
     const currentSlide = studentSlides[currentIndex]
 
     return (
-        <section className="py-10 md:py-16" id="student-view">
-            <div className="max-w-medium mx-auto text-center px-4">
-                <h2 className="text-2xl sm:text-3xl md:text-[2.5rem] font-bold mb-6 md:mb-8 text-white px-4">Student View – For Learners</h2>
+        <section className="py-6 md:py-10" id="student-view">
+            <div className="max-w-[1000px] mx-auto px-4">
+                <header className="text-center mb-4 md:mb-6">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-white leading-tight">Student Learning Experience</h2>
+                    <p className="text-sm sm:text-base text-white/70 max-w-[600px] mx-auto">
+                        Empowering students with AI-powered learning tools and resources
+                    </p>
+                </header>
 
-                <div className="bg-white/[0.03] rounded-[20px] p-4 md:p-10 border border-white/5" aria-live="polite">
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-6 text-center text-white px-4 leading-snug">{currentSlide.title}</h3>
+                <div className="bg-white/[0.03] rounded-lg p-3 md:p-6 border border-white/5" aria-live="polite">
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2">{currentSlide.title}</h3>
                     <button
                         type="button"
                         className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full p-0"
@@ -102,31 +107,29 @@ const StudentExperienceSection = () => {
                             loading="lazy"
                         />
                     </button>
-                    <div className="flex justify-center my-6">
-                        {dots.map((_, index) => (
-                            <button
-                                key={index}
-                                type="button"
-                                className={`w-2 h-2 rounded-full mx-1 transition-colors duration-200 ${index === currentIndex ? 'bg-white' : 'bg-white/30 hover:bg-white/50'
-                                    }`}
-                                onClick={() => goToSlide(index)}
-                                aria-label={`Go to slide ${index + 1}`}
-                                aria-current={index === currentIndex ? 'true' : 'false'}
-                            />
-                        ))}
+                    <div className="flex justify-center my-4">
+                        <div className="flex gap-1.5" role="tablist" aria-label="Student view slides">
+                            {studentSlides.map((_, index) => (
+                                <button
+                                    key={index}
+                                    type="button"
+                                    className={`h-1.5 border-none cursor-pointer p-0 transition-all duration-200 ${index === currentIndex ? 'bg-white w-[20px] sm:w-[24px] rounded-[3px]' : 'w-1.5 rounded-full bg-white/30'}`}
+                                    aria-label={`Show slide ${index + 1}`}
+                                    aria-selected={index === currentIndex}
+                                    onClick={() => goToSlide(index)}
+                                />
+                            ))}
+                        </div>
                     </div>
-                    <figcaption className="text-lg font-semibold text-white/90 mb-4">{currentSlide.caption}</figcaption>
-                    <div className="flex items-start gap-3 text-left max-w-[600px] mx-auto text-white/70 leading-relaxed">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white/50 mt-2 flex-shrink-0" aria-hidden="true" />
-                        <p>{currentSlide.description}</p>
-                    </div>
+                    <p className="text-base sm:text-lg font-semibold text-center my-3 text-white">{currentSlide.caption}</p>
+                    <p className="text-xs sm:text-sm text-center text-white/70 leading-relaxed">{currentSlide.description}</p>
                 </div>
 
-                <div className="text-center mt-8">
+                <div className="text-center mt-6">
                     <button
                         type="button"
-                        className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
-                        onClick={handleLearnMore}
+                        className="bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
+                        // onClick={handleLearnMore}
                     >
                         learn more
                     </button>
