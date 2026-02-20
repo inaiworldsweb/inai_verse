@@ -80,7 +80,7 @@ const LearningModesSection = () => {
                                 <button
                                     type="button"
                                     className="bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold lowercase cursor-pointer transition-colors duration-200 hover:bg-gray-100"
-                                    onClick={() => navigate('/edinai-detail')}
+                                    // onClick={() => navigate('/edinai-detail')}
                                 >
                                     learn more
                                 </button>
