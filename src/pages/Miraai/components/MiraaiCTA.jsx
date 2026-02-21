@@ -16,10 +16,15 @@ const QuestionCard = ({ icon, question, index }) => {
             transition={{ duration: 0.8, delay: index * 0.15 }}
             className="group bg-[#111111] w-full min-h-[220px] mx-auto p-6 md:p-8 rounded-[2rem] flex flex-col items-center justify-center text-center relative overflow-hidden border border-white/5 transition-all duration-300 hover:-translate-y-1 hover:border-white/20 hover:bg-[#161616] hover:shadow-[0_22px_70px_rgba(0,0,0,0.55)]"
         >
+            <div className="absolute inset-0 pointer-events-none opacity-70 blur-2xl">
+                <div className="absolute -inset-24 bg-[radial-gradient(circle_at_30%_25%,rgba(255,255,255,0.18)_0%,transparent_55%)]" />
+                <div className="absolute -inset-24 bg-[radial-gradient(circle_at_70%_75%,rgba(255,255,255,0.12)_0%,transparent_60%)]" />
+            </div>
+
             {/* Glossy Brand Sweep Effect */}
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            <div style={{ transform: "translateZ(50px)" }} className="flex flex-col items-center">
+            <div style={{ transform: "translateZ(50px)" }} className="relative z-10 flex flex-col items-center">
                 <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-5 border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
                     {enhancedIcon}
                 </div>
@@ -37,6 +42,7 @@ const MiraaiCTA = () => {
             <div className="w-full max-w-6xl bg-[#050505] rounded-[3rem] p-8 md:p-12 border border-white/5 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15)_0%,transparent_70%)] pointer-events-none" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[420px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.18)_0%,transparent_72%)] pointer-events-none" />
 
                 <div className="relative z-10 flex flex-col items-center text-center">
                     <motion.h2
@@ -97,9 +103,14 @@ const MiraaiCTA = () => {
                         transition={{ duration: 0.5, delay: 0.7 }}
                         className="group relative overflow-hidden px-8 py-4 bg-white text-black text-[15px] rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
                     >
-                        <span className="relative block h-[1.2em] overflow-hidden">
-                            <span className="block transition-transform duration-300 group-hover:-translate-y-full">Get Started Now</span>
-                            <span className="absolute left-0 top-full block transition-transform duration-300 group-hover:-translate-y-full">Get Started Now</span>
+                        <span className="relative inline-block overflow-hidden align-top">
+                            <span className="invisible">Get Started Now</span>
+                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-inter">
+                                Get Started Now
+                            </span>
+                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-inter">
+                                Get Started Now
+                            </span>
                         </span>
                     </motion.button>
                 </div>

@@ -210,7 +210,7 @@ export default function WhoNeedsOurServices() {
         }
 
         /* Card Styling */
-        .card-inner-wrapper { display: flex; flex-direction: column; align-items: center; cursor: pointer; }
+        .card-inner-wrapper { display: inline-flex; flex-direction: column; align-items: center; cursor: pointer; position: relative; }
         .card-image-box {
           width: 130px; height: 130px; border-radius: 16px; overflow: hidden;
           border: 1px solid rgba(255,255,255,0.15); background: #111;
@@ -218,15 +218,24 @@ export default function WhoNeedsOurServices() {
         }
         .card-image { width: 100%; height: 100%; object-fit: cover; }
         .card-label {
-          background: #1A1A1A; padding: 6px 12px; border-radius: 8px;
-          font-size: 11px; margin-top: -12px;
-          position: relative; z-index: 20; border: 1px solid rgba(255,255,255,0.12);
-          white-space: nowrap; box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+          position: absolute;
+          right: -10px;
+          bottom: -10px;
+          z-index: 20;
+          background: rgba(16, 16, 16, 0.92);
+          border: 1px solid rgba(255,255,255,0.22);
+          padding: 10px 14px;
+          border-radius: 10px;
+          font-size: 12px;
+          line-height: 1;
+          white-space: nowrap;
+          box-shadow: 0 10px 25px rgba(0,0,0,0.6);
         }
 
         @media (max-width: 768px) {
           .center-statement { font-size: 25px; padding: 0 10px; }
           .card-image-box { width: 140px; height: 140px; }
+          .card-label { right: -10px; bottom: -10px; }
           .who-needs-section { padding: 40px 10px; height: auto; }
           .mobile-grid {
              grid-template-columns: repeat(2, 1fr);

@@ -1,62 +1,20 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { FiChevronDown } from 'react-icons/fi';
 
 const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
-
-    // 3D Tilt Logic
-    const x = useMotionValue(0);
-    const y = useMotionValue(0);
-    const mouseXSpring = useSpring(x);
-    const mouseYSpring = useSpring(y);
-    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["5deg", "-5deg"]);
-    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-5deg", "5deg"]);
-
-    const handleMouseMove = (e) => {
-        const rect = e.currentTarget.getBoundingClientRect();
-        const width = rect.width;
-        const height = rect.height;
-        const mouseX = e.clientX - rect.left;
-        const mouseY = e.clientY - rect.top;
-        const xPct = mouseX / width - 0.5;
-        const yPct = mouseY / height - 0.5;
-        x.set(xPct);
-        y.set(yPct);
-    };
-
-    const handleMouseLeave = () => {
-        x.set(0);
-        y.set(0);
-    };
-
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            style={{
-                rotateX,
-                rotateY,
-                transformStyle: "preserve-3d",
-            }}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
             className="mb-2 w-full"
         >
             <div
                 onClick={onToggle}
-                className={`w-full bg-[#0A0A0A] border rounded-[2rem] transition-all duration-300 group cursor-pointer overflow-hidden ${isOpen ? 'border-white/30' : 'border-white/10'}`}
+                className={`w-full bg-[#0A0A0A] border rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden ${isOpen ? 'border-white/30' : 'border-white/10'}`}
             >
-                {/* Glossy Brand Sweep */}
-                <motion.div
-                    style={{
-                        left: useTransform(mouseXSpring, [-0.5, 0.5], ["-100%", "100%"]),
-                        top: useTransform(mouseYSpring, [-0.5, 0.5], ["-100%", "100%"]),
-                    }}
-                    className="absolute inset-0 pointer-events-none bg-gradient-to-br from-purple-500/10 via-transparent to-transparent opacity-0"
-                />
-
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
                     <h3 className="text-lg md:text-xl tracking-tight text-white">
                         {question}
@@ -64,7 +22,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                     <motion.div
                         animate={{ rotate: isOpen ? 90 : 0 }}
                         transition={{ duration: 0.3 }}
-                        className="w-10 h-10 rounded-full flex items-center justify-center border border-white/20 bg-white/5 text-white"
+                        className="flex items-center justify-center text-white"
                     >
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
