@@ -78,7 +78,7 @@ const MiraaiGallery = () => {
                                         x: getXPos(offset),
                                         // Subtle Scaling: Chota hote waqt zyada gap nahi rakha
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.07),
-                                        zIndex: 50 - absOffset,
+                                        zIndex: 10 - absOffset,
                                         opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}

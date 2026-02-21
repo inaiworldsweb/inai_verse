@@ -58,7 +58,7 @@ const IntegrationOptionsSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-[25px] md:text-[40px] font-bold mb-10 tracking-tight capitalize"
+                    className="text-[25px] md:text-[40px] font-bold mb-10 tracking-tight capitalize text-center"
                 >
                     Integration Options
                 </motion.h2>
