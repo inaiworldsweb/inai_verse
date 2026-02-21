@@ -29,6 +29,7 @@ import edinaiHeaderLogo from '../../assets/EdInai Logo.png'
 
 import { Link } from 'react-router-dom'
 import { useZoomReveal } from '../../hooks/useZoomReveal'
+import EdnaiSection2 from './components/EdnaiSection2'
 
 const navItems = [
     'What is edinai?',
@@ -361,54 +362,14 @@ const EdInaiPage = () => {
                         </p>
                     </section>
 
-                    {/* What is EdInai Section - Responsive */}
-                    <section className="py-8 md:py-16" id="what-is-edinai">
-                        <h2 className="text-xl sm:text-2xl md:text-[2.5rem] font-bold text-center mb-8 md:mb-12 capitalize tracking-tight">
-                            What is EdInai?
-                        </h2>
-                        <div className="flex flex-col gap-8 md:gap-12">
-                            {overviewItems.map(({ image, alt, text, textLines, variant, centerText }, index) => {
-                                const descriptionContent = textLines
-                                    ? textLines.map((line, lineIndex) => (
-                                        <span key={`${index}-${lineIndex}`} className="block">
-                                            {line}
-                                        </span>
-                                    ))
-                                    : text
 
-                                const description = (
-                                    <p className={`text-sm sm:text-base md:text-lg leading-relaxed text-white/80 capitalize tracking-normal ${centerText ? 'text-center md:text-left' : ''}`}>
-                                        {descriptionContent}
-                                    </p>
-                                )
+                    <section>
+                        <EdnaiSection2 />
 
-                                const imageElement = (
-                                    <div className="rounded-xl md:rounded-[20px] overflow-hidden">
-                                        <img src={image} alt={alt} loading="lazy" className="w-full h-auto block" data-zoom-reveal />
-                                    </div>
-                                )
-
-                                return (
-                                    <div
-                                        key={index}
-                                        className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center"
-                                    >
-                                        {variant === 'text-first' ? (
-                                            <>
-                                                <div className="order-2 md:order-1">{description}</div>
-                                                <div className="order-1 md:order-2">{imageElement}</div>
-                                            </>
-                                        ) : (
-                                            <>
-                                                <div className="order-1">{imageElement}</div>
-                                                <div className="order-2">{description}</div>
-                                            </>
-                                        )}
-                                    </div>
-                                )
-                            })}
-                        </div>
                     </section>
+
+
+
 
                     <MeetOurFaculties />
 

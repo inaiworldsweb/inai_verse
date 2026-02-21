@@ -85,7 +85,7 @@ const MiraaiShowcase = () => {
                                         x: getXPos(offset),
                                         // SCALE: Side cards (gifs) halke se hi chote honge (6% reduction)
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
-                                        zIndex: 50 - absOffset,
+                                        zIndex: 10 - absOffset,
                                         opacity: 1, // Full opacity as requested
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
