@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import model images
@@ -16,16 +16,16 @@ const showcaseItems = [
 ];
 
 const MiraaiShowcase = () => {
-    const [activeIndex, setActiveIndex] = useState(2);
+    const [activeIndex, setActiveIndex] = useState(3);
     const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
         if (isHovered) return;
         const interval = setInterval(() => {
             setActiveIndex((prev) => (prev + 1) % showcaseItems.length);
-        }, 3000); // 3 seconds interval for smooth viewing
+        }, 3000);
         return () => clearInterval(interval);
-    }, [showcaseItems.length, isHovered]);
+    }, [isHovered]);
 
     const getNormalizedOffset = (index) => {
         let offset = index - activeIndex;
@@ -35,18 +35,16 @@ const MiraaiShowcase = () => {
         return offset;
     };
 
-    // Premium Spacing Logic for 65% visibility
     const getXPos = (offset) => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
         
-        // desktopSteps: 175px gap ensures 65% of 245px width is visible
-        const desktopSteps = [0, 175, 340, 500]; 
-        const mobileSteps = [0, 85, 160, 230];
-        
+        // SPREAD OPTIMIZED: Wahi premium spacing jo humne set ki thi
+        // Desktop spacing: Center(0), 1st side(230), 2nd side(450), 3rd side(650)
+        const desktopSteps = [0, 230, 450, 650]; 
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        const steps = isMobile ? mobileSteps : desktopSteps;
+        const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
         
         return steps[absOffset] * direction;
     };
@@ -68,33 +66,33 @@ const MiraaiShowcase = () => {
                 </h2>
             </div>
 
-            <div className="relative h-[480px] md:h-[600px] flex items-center justify-center">
-                <div className="relative w-full max-w-[1400px] h-full flex items-center justify-center">
-                    <AnimatePresence initial={false}>
+            <div className="relative h-[480px] md:h-[650px] flex items-center justify-center">
+                {/* Max-width adjusted to 1600px for better side spread */}
+                <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center">
+                    <AnimatePresence initial={false} mode='popLayout'>
                         {showcaseItems.map((item, index) => {
                             const offset = getNormalizedOffset(index);
                             const absOffset = Math.abs(offset);
 
-                            // Rendering cards for both sides
                             if (absOffset > 3) return null;
 
                             return (
                                 <motion.div
                                     key={index}
+                                    layout
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
-                                        // Focus: 1.1x | Sides: 0.9x
-                                        scale: absOffset === 0 ? 1.1 : 0.9,
+                                        // SCALE: Side cards (gifs) halke se hi chote honge (6% reduction)
+                                        scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
                                         zIndex: 50 - absOffset,
-                                        opacity: 1,
-                                        rotateY: 0, // Keeping it flat for better GIF visibility
-                                        filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.6)'
+                                        opacity: 1, // Full opacity as requested
+                                        filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
                                     transition={{
                                         type: "spring",
                                         stiffness: 150,
-                                        damping: 20,
+                                        damping: 24,
                                         mass: 0.8
                                     }}
                                     onHoverStart={() => setIsHovered(true)}
@@ -102,12 +100,13 @@ const MiraaiShowcase = () => {
                                     onClick={() => setActiveIndex(index)}
                                     style={{ 
                                         width: '245px', 
-                                        height: '315px'
+                                        height: '350px',
+                                        willChange: 'transform'
                                     }}
                                     className={`absolute rounded-2xl overflow-hidden cursor-pointer
                                         ${absOffset === 0 
-                                            ? 'border-[3px] border-blue-500 shadow-[0_0_50px_rgba(59,130,246,0.5)]' 
-                                            : 'border border-white/10'}`}
+                                            ? 'border-[3px] border-blue-500 shadow-[0_0_50px_rgba(59,130,246,0.4)]' 
+                                            : 'border border-white/10 shadow-2xl'}`}
                                 >
                                     <div className="w-full h-full relative overflow-hidden bg-gray-900">
                                         <img
@@ -116,9 +115,9 @@ const MiraaiShowcase = () => {
                                             className="w-full h-full object-cover select-none"
                                             draggable="false"
                                         />
-                                        {/* Smooth overlay for side cards */}
-                                        <div className={`absolute inset-0 transition-opacity duration-300 
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`} 
+                                        {/* Halka sa dark overlay piche wale cards ke liye taaki depth bani rahe */}
+                                        <div className={`absolute inset-0 transition-opacity duration-500 
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`} 
                                         />
                                     </div>
                                 </motion.div>
