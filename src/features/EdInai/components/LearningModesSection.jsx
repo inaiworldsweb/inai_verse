@@ -77,7 +77,7 @@ const LearningModesSection = () => {
                             />
                         </motion.div>
                         <div className="space-y-3 md:space-y-4 px-2">
-                            <h3 className="text-[20px] md:text-[25px] font-bold text-white leading-tight">
+                            <h3 className="text-[15px] md:text-[25px] font-bold text-white leading-tight">
                                 Introducing Learning Mode<br className="hidden md:block" /> For Students
                             </h3>
                             <p className="text-blue-500 font-bold tracking-[0.3em] uppercase text-[10px]">Product Video</p>
@@ -125,7 +125,7 @@ const LearningModesSection = () => {
                                         </div>
 
                                         <div className="space-y-3 md:space-y-4">
-                                            <h4 className="text-[18px] md:text-[25px] font-bold text-white leading-tight capitalize tracking-normal">
+                                            <h4 className="text-[15px] md:text-[25px] font-bold text-white leading-tight capitalize tracking-normal">
                                                 {title}
                                             </h4>
                                             <p className="text-[13px] md:text-lg text-white/50 leading-relaxed font-light capitalize tracking-normal">

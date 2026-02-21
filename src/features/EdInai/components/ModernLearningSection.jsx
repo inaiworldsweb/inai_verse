@@ -108,7 +108,7 @@ const ModernLearningSection = () => {
 
                                     {/* Card Content */}
                                     <div className="flex items-center px-6 py-4">
-                                        <h3 className="text-lg md:text-xl font-semibold text-white whitespace-pre-line leading-relaxed capitalize tracking-wide">
+                                        <h3 className="text-[15px] md:text-[25px] font-semibold text-white whitespace-pre-line leading-relaxed capitalize tracking-tight">
                                             {title}
                                         </h3>
                                     </div>
@@ -126,7 +126,7 @@ const ModernLearningSection = () => {
                     transition={{ delay: 0.2, duration: 0.8 }}
                     className="max-w-[900px]"
                 >
-                    <h3 className="text-[1.5rem] font-bold text-white mb-4 capitalize tracking-tight">AI-Led Interactive Lectures</h3>
+                    <h3 className="text-[15px] md:text-[25px] font-bold text-white mb-4 capitalize tracking-tight">AI-Led Interactive Lectures</h3>
                     <p className="text-sm text-white/70 leading-relaxed capitalize tracking-normal">
                         ED-INAI Brings Together Innovation And Education To Create A Smart, Connected Learning Ecosystem For Schools And Colleges.
                     </p>

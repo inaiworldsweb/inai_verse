@@ -88,9 +88,9 @@ const EdnaiSection2 = () => {
         <div ref={container} className="bg-black text-white min-h-screen font-inter">
             {/* Top Spacer */}
             <div className=" w-full" />
-            <h1>What is Ednai</h1>
+            <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-1 capitalize tracking-tight text-center pt-10">What is Ednai?</h2>
 
-            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative">
+            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative pt-4">
 
                 {/* Left Column: Text content */}
                 <div className="flex flex-col flex-1">

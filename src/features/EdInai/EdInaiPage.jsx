@@ -363,7 +363,7 @@ const EdInaiPage = () => {
                     </section>
 
 
-                    <section>
+                    <section id="what-is-edinai">
                         <EdnaiSection2 />
 
                     </section>
