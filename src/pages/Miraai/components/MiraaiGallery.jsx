@@ -42,8 +42,6 @@ const MiraaiGallery = () => {
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
         
-        // SPREAD OPTIMIZED: Cards ko door kiya hai par size limit mein rakha hai
-        // Desktop spacing: Center(0), 1st side(220), 2nd side(430), 3rd side(620)
         const desktopSteps = [0, 220, 430, 620]; 
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
@@ -52,16 +50,16 @@ const MiraaiGallery = () => {
     };
 
     return (
-        <section className="py-16 bg-black overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto px-4 text-center mb-10">
-                <h2 className="text-[25px] md:text-[45px] font-light text-white tracking-tighter">
+        <section className="-mb-10 mr-10 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+            {/* Heading: Centered with minimal gap using -mb and reduced margin */}
+            <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
+                <h2 className="text-[25px] md:text-[45px] font-inter text-white tracking-tighter">
                     Visualizing The Future Of Creativity
                 </h2>
             </div>
 
             <div className="relative h-[480px] md:h-[650px] flex items-center justify-center">
-                {/* Container width adjusted to 100% to allow full spread */}
-                <div className="relative w-full max-w-[1500px] h-full flex items-center justify-center">
+                <div className="relative w-full max-w-[1500px] h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {galleryItems.map((item, index) => {
                             const offset = getNormalizedOffset(index);
@@ -76,9 +74,8 @@ const MiraaiGallery = () => {
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
-                                        // Subtle Scaling: Chota hote waqt zyada gap nahi rakha
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.07),
-                                        zIndex: 10 - absOffset,
+                                        zIndex: 40 - absOffset, // Kept at 40 to stay under Navbar
                                         opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
@@ -92,7 +89,7 @@ const MiraaiGallery = () => {
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
                                     style={{ 
-                                        width: '245px', // Original size wapas
+                                        width: '245px',
                                         height: '350px',
                                         willChange: 'transform'
                                     }}
@@ -101,7 +98,7 @@ const MiraaiGallery = () => {
                                             ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
                                             : 'border border-white/10 shadow-2xl'}`}
                                 >
-                                    <div className="w-full h-full relative">
+                                    <div className="w-full h-full relative bg-zinc-900">
                                         <img
                                             src={item.url}
                                             alt="Gallery"

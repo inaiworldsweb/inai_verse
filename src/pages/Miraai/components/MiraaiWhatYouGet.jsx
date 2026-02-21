@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Using local assets
@@ -40,7 +40,6 @@ const MiraaiWhatYouGet = () => {
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
 
-        // Final Optimized Spread: 230px, 450px, 650px
         const desktopSteps = [0, 230, 450, 650];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
@@ -49,16 +48,17 @@ const MiraaiWhatYouGet = () => {
     };
 
     return (
-        <section className="py-20 bg-black overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto px-4 text-center mb-12">
+        <section className="py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+            {/* Heading: Centered and Gap Minimized using Negative Margin */}
+            <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
                 <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
             </div>
 
+            {/* Cards Container */}
             <div className="relative h-[500px] md:h-[650px] flex items-center justify-center">
-                {/* Max-width 1600px for better spread out layout */}
-                <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center">
+                <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {galleryItems.map((item, index) => {
                             const offset = getNormalizedOffset(index);
@@ -73,10 +73,9 @@ const MiraaiWhatYouGet = () => {
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
-                                        // SCALE: Standard reduction (6% per step) to keep them large
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
-                                        zIndex: 10 - absOffset,
-                                        opacity: 1, // Full opacity as requested
+                                        zIndex: 40 - absOffset, // Consistent with Navbar fix
+                                        opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
                                     transition={{
@@ -90,7 +89,7 @@ const MiraaiWhatYouGet = () => {
                                     onClick={() => setActiveIndex(index)}
                                     style={{
                                         width: '245px',
-                                        height: '350px', // Uniform height across components
+                                        height: '350px',
                                         willChange: 'transform'
                                     }}
                                     className={`absolute rounded-2xl overflow-hidden cursor-pointer
