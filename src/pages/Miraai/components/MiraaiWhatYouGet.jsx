@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Using local assets
@@ -16,7 +16,7 @@ const galleryItems = [
 ];
 
 const MiraaiWhatYouGet = () => {
-    const [activeIndex, setActiveIndex] = useState(2);
+    const [activeIndex, setActiveIndex] = useState(3);
     const [isHovered, setIsHovered] = useState(false);
 
     useEffect(() => {
@@ -35,18 +35,15 @@ const MiraaiWhatYouGet = () => {
         return offset;
     };
 
-    // Spacing logic for 65% visibility - No stretching
     const getXPos = (offset) => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
 
-        // Gap adjusted specifically for 245px cards
-        const desktopSteps = [0, 175, 340, 500];
-        const mobileSteps = [0, 85, 160, 230];
-
+        // Final Optimized Spread: 230px, 450px, 650px
+        const desktopSteps = [0, 230, 450, 650];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        const steps = isMobile ? mobileSteps : desktopSteps;
+        const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
 
         return steps[absOffset] * direction;
     };
@@ -59,9 +56,10 @@ const MiraaiWhatYouGet = () => {
                 </h2>
             </div>
 
-            <div className="relative h-[500px] md:h-[620px] flex items-center justify-center">
-                <div className="relative w-full max-w-[1400px] h-full flex items-center justify-center">
-                    <AnimatePresence initial={false}>
+            <div className="relative h-[500px] md:h-[650px] flex items-center justify-center">
+                {/* Max-width 1600px for better spread out layout */}
+                <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center">
+                    <AnimatePresence initial={false} mode='popLayout'>
                         {galleryItems.map((item, index) => {
                             const offset = getNormalizedOffset(index);
                             const absOffset = Math.abs(offset);
@@ -71,46 +69,44 @@ const MiraaiWhatYouGet = () => {
                             return (
                                 <motion.div
                                     key={index}
+                                    layout
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
-                                        scale: absOffset === 0 ? 1.1 : 0.9,
+                                        // SCALE: Standard reduction (6% per step) to keep them large
+                                        scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
                                         zIndex: 50 - absOffset,
-                                        opacity: 1,
-                                        // Rotate hata diya taaki stretch na ho
-                                        rotateY: 0,
-                                        filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.6)'
+                                        opacity: 1, // Full opacity as requested
+                                        filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
                                     transition={{
                                         type: "spring",
                                         stiffness: 150,
-                                        damping: 20,
+                                        damping: 24,
                                         mass: 0.8
                                     }}
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
                                     onClick={() => setActiveIndex(index)}
-                                    // Fixed Container Size
                                     style={{
                                         width: '245px',
-                                        height: '315px'
+                                        height: '350px', // Uniform height across components
+                                        willChange: 'transform'
                                     }}
                                     className={`absolute rounded-2xl overflow-hidden cursor-pointer
                                         ${absOffset === 0
                                             ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]'
-                                            : 'border border-white/10'}`}
+                                            : 'border border-white/10 shadow-2xl'}`}
                                 >
-                                    {/* Wrapper div to force aspect ratio and prevent image stretch */}
                                     <div className="w-full h-full relative bg-zinc-900 overflow-hidden">
                                         <img
                                             src={item.url}
                                             alt="Miraai Gallery"
-                                            // 'object-cover' ensures the image fills the 245x315 area without stretching
                                             className="w-full h-full object-cover select-none block"
                                             draggable="false"
                                         />
-                                        <div className={`absolute inset-0 transition-opacity duration-300 
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/30'}`}
+                                        <div className={`absolute inset-0 transition-opacity duration-500 
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`}
                                         />
                                     </div>
                                 </motion.div>
