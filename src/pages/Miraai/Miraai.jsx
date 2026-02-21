@@ -80,8 +80,8 @@ const Miraai = () => {
                 >
                     <aside
                         className="
-                            w-[280px] max-w-[85vw] h-full bg-[#111] 
-                            border-r border-white/10 shadow-2xl
+                            w-[280px] max-w-[85vw] h-full bg-black 
+                            shadow-2xl
                             overflow-y-auto
                             animate-in slide-in-from-left duration-300
                         "
@@ -115,7 +115,7 @@ const Miraai = () => {
             )}
 
             {/* Desktop Sidebar - Hidden on mobile */}
-            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-[#111] p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto border-r border-white/10 custom-scrollbar">
+            <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
                 <div className="flex items-center justify-center mb-4">
                     <Link to="/">
                         <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
@@ -125,7 +125,7 @@ const Miraai = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-1 w-full min-w-0 flex flex-col bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24 overflow-x-hidden">
+            <main className="flex-1 w-full min-w-0 flex flex-col bg-black scroll-smooth [&>div>section]:!my-0 [&>div>section]:!py-0 [&>div>section]:scroll-mt-24">
                 <PageHeader
                     title="Miraai"
                     showTitleText={false}
@@ -136,9 +136,10 @@ const Miraai = () => {
                     onMenuClick={() => setIsMobileMenuOpen(true)}
                     onBackClick={handleBack}
                     onPriceClick={handleGoToPrice}
+                    showBorder={false}
                 />
 
-                <div className="w-full font-['Inter'] space-y-0 [&_*]:capitalize">
+                <div className="w-full font-['Inter'] space-y-0 [&_*]:capitalize overflow-x-hidden">
                     <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
                         <MiraaiHero />
                     </section>

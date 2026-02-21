@@ -103,7 +103,7 @@ const StudentExperienceSection = () => {
                         <img
                             src={currentSlide.image}
                             alt={currentSlide.title}
-                            className="w-full aspect-video object-cover block transition-transform duration-300 hover:scale-[1.02]"
+                            className="w-full aspect-video object-contain block"
                             loading="lazy"
                         />
                     </button>

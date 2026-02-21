@@ -112,14 +112,14 @@ const EducationPortalSection = () => {
                     <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2 capitalize tracking-wide">{currentSlide.title}</h3>
                     <button
                         type="button"
-                        className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full max-w-[900px] mx-auto p-0 flex items-center justify-center h-[240px] sm:h-[280px] md:h-[340px]"
+                        className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full p-0"
                         onClick={handleSlideClick}
                         aria-label={`View ${currentSlide.title}`}
                     >
                         <img
                             src={currentSlide.image}
                             alt={currentSlide.title}
-                            className="max-w-full max-h-full object-contain block transition-transform duration-300 hover:scale-[1.02]"
+                            className="w-full aspect-video object-contain block"
                             loading="lazy"
                         />
                     </button>

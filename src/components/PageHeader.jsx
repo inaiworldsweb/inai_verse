@@ -30,6 +30,7 @@ function PageHeader({
     onBackClick,
     onPriceClick,
     onMenuClick,
+    showBorder = true,
 }) {
     const navigate = useNavigate()
 
@@ -60,7 +61,7 @@ function PageHeader({
     }
 
     return (
-        <header className="sticky top-0 z-50 flex items-center justify-between py-4 px-8 border-b border-white/10 bg-black/80 backdrop-blur-md">
+        <header className={`sticky top-0 z-50 flex items-center justify-between py-4 px-8 bg-black/80 backdrop-blur-md ${showBorder ? 'border-b border-white/10' : ''}`}>
             {/* Left Section - Back Button, Title, Breadcrumbs */}
             <div className="flex items-center gap-4">
                 {showBackButton && (
