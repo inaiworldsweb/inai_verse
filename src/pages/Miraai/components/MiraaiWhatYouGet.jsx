@@ -75,7 +75,7 @@ const MiraaiWhatYouGet = () => {
                                         x: getXPos(offset),
                                         // SCALE: Standard reduction (6% per step) to keep them large
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
-                                        zIndex: 50 - absOffset,
+                                        zIndex: 10 - absOffset,
                                         opacity: 1, // Full opacity as requested
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}

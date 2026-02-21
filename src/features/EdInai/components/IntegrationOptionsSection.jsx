@@ -58,7 +58,7 @@ const IntegrationOptionsSection = () => {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-[25px] md:text-[40px] font-bold mb-10 tracking-tight capitalize"
+                    className="text-[25px] md:text-[40px] font-bold mb-10 tracking-tight capitalize text-center"
                 >
                     Integration Options
                 </motion.h2>
@@ -78,16 +78,26 @@ const IntegrationOptionsSection = () => {
                             whileHover={{ y: -5 }}
                             className="group flex flex-col space-y-4 cursor-pointer"
                         >
-                            <div className="aspect-[16/10] w-full overflow-hidden rounded-lg bg-zinc-900 border border-zinc-800/10 shadow-lg relative">
-                                <motion.img
-                                    src={option.image}
-                                    alt={option.title}
-                                    whileHover={{ scale: 1.05 }}
-                                    transition={{ duration: 0.6, ease: "easeOut" }}
-                                    className="w-full h-full object-cover"
-                                />
-                                {/* Subtle overlay on hover */}
-                                <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                            <div className="relative w-full aspect-[16/10] rounded-lg overflow-hidden shadow-lg p-[2px]">
+                                <div className="absolute inset-0 rounded-lg overflow-hidden pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <div
+                                        className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_300deg,white_360deg)]"
+                                        style={{ animation: 'spin 4s linear infinite' }}
+                                    />
+                                </div>
+
+                                <div className="relative z-10 h-full w-full overflow-hidden rounded-[0.45rem] bg-zinc-900 border border-zinc-800/10">
+                                    <motion.img
+                                        src={option.image}
+                                        alt={option.title}
+                                        whileHover={{ scale: 1.05 }}
+                                        transition={{ duration: 0.6, ease: "easeOut" }}
+                                        className="w-full h-full object-cover"
+                                    />
+
+                                    {/* Subtle overlay on hover */}
+                                    <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                                </div>
                             </div>
                             <h3 className="text-sm md:text-base font-semibold leading-relaxed text-zinc-300 group-hover:text-white transition-colors duration-300 max-w-[90%] capitalize tracking-wide">
                                 {option.title}
