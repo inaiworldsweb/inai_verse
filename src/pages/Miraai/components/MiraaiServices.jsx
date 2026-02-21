@@ -2,33 +2,38 @@
 import CommandConsole from './CommandConsole';
 import ResultPreview from './ResultPreview';
 import useMiraaiAnimation from '../../../hooks/useMiraaiAnimation';
+import step1Img from "../../../Assetsa/N-1.webp";
+import step2Img from "../../../Assetsa/N-2.webp";
+import step3Img from "../../../Assetsa/N-3.webp";
+import step4Img from "../../../Assetsa/N-4.webp";
+import step5Img from "../../../Assetsa/N-5.webp";
 
 const MiraaiServices = () => {
     const services = [
         {
             title: 'We Create AI Videos',
             description: 'generate professional videos from scratch using AI—no filming required.',
-            thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop',
+            thumbnail: step1Img,
         },
         {
             title: 'We Create AI Images & Visuals',
             description: 'generate high-quality photos, graphics, and designs using AI—no photographers needed.',
-            thumbnail: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop',
+            thumbnail: step2Img,
         },
         {
             title: 'We Create AI Product & Catalogs',
             description: 'Send us your product list—we create complete digital catalogs with professional visuals automatically.',
-            thumbnail: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=450&fit=crop',
+            thumbnail: step3Img,
         },
         {
             title: 'We Create AI UGC- Style Video Ads',
             description: 'High-converting UGC style ads that look authentic and drive massive engagement.',
-            thumbnail: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=450&fit=crop',
+            thumbnail: step4Img,
         },
         {
             title: 'We Create AI Multi - languages Videos',
             description: 'Create your video once in English—we deliver it in Hindi, Gujarati, Tamil, and 7+ other languages.',
-            thumbnail: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=450&fit=crop',
+            thumbnail: step5Img,
         },
     ];
 
