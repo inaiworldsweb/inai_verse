@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import model images
@@ -40,8 +40,6 @@ const MiraaiShowcase = () => {
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
         
-        // SPREAD OPTIMIZED: Wahi premium spacing jo humne set ki thi
-        // Desktop spacing: Center(0), 1st side(230), 2nd side(450), 3rd side(650)
         const desktopSteps = [0, 230, 450, 650]; 
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
@@ -50,14 +48,15 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-16 bg-black overflow-hidden relative">
-            <div className="max-w-[1400px] mx-auto px-4 text-center mb-10">
+        <section className="py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+            {/* Heading: Centered and Gap Fixed using -mb */}
+            <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-6 md:-mb-14 z-20">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="inline-block px-6 py-2 mb-6"
+                    className="inline-block px-6 py-2 mb-2"
                 >
-                    <span className="text-white/60 text-sm md:text-base uppercase tracking-tighter">
+                    <span className="text-white/60 text-xs md:text-sm uppercase tracking-tighter">
                         AI Content Showcase
                     </span>
                 </motion.div>
@@ -66,9 +65,9 @@ const MiraaiShowcase = () => {
                 </h2>
             </div>
 
+            {/* Cards Container */}
             <div className="relative h-[480px] md:h-[650px] flex items-center justify-center">
-                {/* Max-width adjusted to 1600px for better side spread */}
-                <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center">
+                <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {showcaseItems.map((item, index) => {
                             const offset = getNormalizedOffset(index);
@@ -83,10 +82,9 @@ const MiraaiShowcase = () => {
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
-                                        // SCALE: Side cards (gifs) halke se hi chote honge (6% reduction)
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
-                                        zIndex: 10 - absOffset,
-                                        opacity: 1, // Full opacity as requested
+                                        zIndex: 40 - absOffset, // Consistent with other components
+                                        opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
                                     transition={{
@@ -115,7 +113,6 @@ const MiraaiShowcase = () => {
                                             className="w-full h-full object-cover select-none"
                                             draggable="false"
                                         />
-                                        {/* Halka sa dark overlay piche wale cards ke liye taaki depth bani rahe */}
                                         <div className={`absolute inset-0 transition-opacity duration-500 
                                             ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`} 
                                         />
