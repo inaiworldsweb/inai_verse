@@ -86,7 +86,7 @@ const EdnaiSection2 = () => {
                 What is EdInai ?
             </h1>
 
-            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative">
+            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative pt-4">
 
                 {/* Left Column: Text content */}
                 <div className="flex flex-col flex-1 z-10">
