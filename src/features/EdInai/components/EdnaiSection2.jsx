@@ -4,15 +4,12 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import Lenis from 'lenis';
 
-
-
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
 const EdnaiSection2 = () => {
     const container = useRef();
 
     useGSAP(() => {
-        // 1. Initialize Lenis (Smooth Scroll)
         const lenis = new Lenis({
             duration: 1.2,
             easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -24,11 +21,9 @@ const EdnaiSection2 = () => {
         }
         requestAnimationFrame(raf);
 
-        // 2. Animation Logic
         const imgs = gsap.utils.toArray(".img-wrapper img");
 
         ScrollTrigger.matchMedia({
-            // Desktop: Pinned stacked reveal effect
             "(min-width: 769px)": function () {
                 const mainTimeline = gsap.timeline({
                     scrollTrigger: {
@@ -61,7 +56,6 @@ const EdnaiSection2 = () => {
                     }
                 });
             },
-            // Mobile: Simple parallax scroll
             "(max-width: 768px)": function () {
                 imgs.forEach((image) => {
                     gsap.to(image, {
@@ -85,20 +79,22 @@ const EdnaiSection2 = () => {
     }, { scope: container });
 
     return (
-        <div ref={container} className="bg-black text-white min-h-screen font-inter">
-            {/* Top Spacer */}
-            <div className=" w-full" />
-            <h1>What is Ednai</h1>
+        <div ref={container} className="bg-black text-white min-h-screen font-inter overflow-hidden">
+
+            {/* Heading: Centered with dynamic sizing */}
+            <h1 className="w-full text-center font-bold pt-20 md:pt-32 pb-6 text-[20px] md:text-[40px] uppercase tracking-tight">
+                What is EdInai ?
+            </h1>
 
             <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative">
 
                 {/* Left Column: Text content */}
-                <div className="flex flex-col flex-1">
+                <div className="flex flex-col flex-1 z-10">
                     {sections.map((item) => (
-                        <div key={item.id} className="h-auto md:h-screen flex items-center py-16 md:py-0">
-                            <div className="max-w-[400px]">
+                        <div key={item.id} className="h-auto md:h-screen flex items-center py-10 md:py-0">
 
-                                <p className="text-white/80 text-[15px] md:text-[25px] leading-relaxed tracking-tight">
+                            <div className="max-w-full md:max-w-[600px]">
+                                <p className="text-white/90 text-[15px] md:text-[25px] leading-[1.4] md:leading-[1.6] tracking-normal block">
                                     {item.desc}
                                 </p>
                             </div>
@@ -107,12 +103,12 @@ const EdnaiSection2 = () => {
                 </div>
 
                 {/* Right Column: Images */}
-                <div className="arch-right relative h-[400px] md:h-screen w-full md:max-w-[500px]">
+                <div className="arch-right relative h-[350px] md:h-screen w-full md:max-w-[500px]">
                     <div className="relative w-full h-full flex items-center">
                         {sections.map((item, index) => (
                             <div
                                 key={item.id}
-                                className="img-wrapper absolute top-1/2 left-0 -translate-y-1/2 h-[350px] md:h-[450px] w-full rounded-3xl overflow-hidden"
+                                className="img-wrapper absolute top-1/2 left-0 -translate-y-1/2 h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl"
                                 style={{ zIndex: sections.length - index }}
                             >
                                 <img
@@ -127,8 +123,8 @@ const EdnaiSection2 = () => {
                 </div>
             </div>
 
-            {/* Bottom Spacer */}
-            <div className="w-full" />
+            {/* Bottom Spacer for smooth ending */}
+
         </div>
     );
 };
@@ -141,7 +137,7 @@ const sections = [
     },
     {
         id: 2,
-        img: "	https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80",
+        img: "https://images.unsplash.com/photo-1484417894907-623942c8ee29?auto=format&fit=crop&w=900&q=80",
         desc: "Our virtual AI models INAI, VNAI, and AIRA bring intelligence, clarity, and engagement to every classroom, making AI education in India more accessible."
     },
     {
