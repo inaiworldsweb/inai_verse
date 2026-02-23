@@ -9,8 +9,8 @@ function Sidebar({ isOpen, onClose }) {
     const menuItems = [
         { name: 'Edinai', path: '/edinai' },
         { name: 'Miraai', path: '/miraai' },
-        // { name: 'NCD' },
-        { name: 'Vantage AI' },
+        { name: 'NCD' },
+        { name: 'INAI For Corporate Agent' },
     ]
 
     const open = typeof isOpen === 'boolean' ? isOpen : true

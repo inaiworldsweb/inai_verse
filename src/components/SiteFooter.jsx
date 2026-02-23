@@ -28,7 +28,7 @@ const productSections = [
 const SiteFooter = () => {
 
     return (
-        <footer className="bg-dark-card py-12 border-t border-white/10">
+        <footer className="bg-dark-card py-12 border-t border-white/10 overflow-hidden">
 
             <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">

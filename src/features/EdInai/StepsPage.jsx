@@ -1,14 +1,12 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { HiHome, HiMenu, HiX } from 'react-icons/hi';
+import { HiMenu, HiX } from 'react-icons/hi';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import SideMenu from '../../components/SideMenu';
+import { EdInaiHeader } from './components/shared';
 
 import step1Img from '../../assets/final/inside edinai portal - create your admin profile.png';
-import step2Img from '../../assets/final/inside the ed inai- add your academic structure.png';
-import step3Img from '../../assets/final/inside the ed inai - schedule sessions.png';
-import step4Img from '../../assets/final/inside the ed inai - let ed inai execute.png';
 import academicWorkflowImg from '../../assets/Academic Workflow Management.png';
 import studentEngagementImg from '../../assets/Student Engagement & Learning Support.png';
 import examPreparationImg from '../../assets/Exam Preparation & Performance Support.png';
@@ -42,19 +40,19 @@ const steps = [
         number: '2',
         title: 'Add Your Academic Structure',
         description: 'Upload subjects, chapters, resources, and assessment content. Ed-INAI converts this material into structured modules and aligned lecture flows.',
-        image: step2Img,
+        image: academicWorkflowImg,
     },
     {
         number: '3',
         title: 'Schedule Sessions',
         description: 'Use the built-in scheduler to set timings, select batches, choose delivery mode, and attach materials. Configure reminders and interaction settings as needed.',
-        image: step3Img,
+        image: academicWorkflowImg,
     },
     {
         number: '4',
         title: 'Let Ed-INAI Execute',
         description: 'The platform conducts sessions, manages queries, generates notes, records sessions, and updates analytics in real time. Admins can monitor progress or adjust parameters anytime.',
-        image: step4Img,
+        image: academicWorkflowImg,
     },
 ];
 
@@ -75,10 +73,10 @@ const StepItem = ({ step, index, activeStep, setStepRef }) => (
 
 const UseCasesSection = () => {
     const useCases = [
-        { title: 'K-12 Schools', description: 'Classroom Supplements, Revision, Remedial Learning', image: schoolsImg },
-        { title: 'Colleges', description: 'Large Lecture Automation, Foundational Modules', image: collegesImg },
-        { title: 'Coaching Centers', description: 'Standardized Delivery For Multiple Batches', image: coachingImg },
-        { title: 'Corporate Training', description: 'Scalable Employee Upskilling Programs', image: corporateImg }
+        { title: 'K-12 Schools', image: schoolsImg },
+        { title: 'Colleges', image: collegesImg },
+        { title: 'Coaching Centers', image: coachingImg },
+        { title: 'Corporate Training', image: corporateImg }
     ];
 
     return (
@@ -90,34 +88,19 @@ const UseCasesSection = () => {
                     {useCases.map((useCase) => (
                         <div
                             key={useCase.title}
-                            className="group rounded-[1.75rem] bg-gradient-to-b from-[#1c1c1c] to-black border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.45)] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:border-white/20"
+                            className="rounded-[1.75rem] bg-gradient-to-b from-[#1c1c1c] to-black border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.45)] overflow-hidden transition-transform duration-300 hover:scale-[1.02]"
                         >
-                            <div className="h-[280px] overflow-hidden relative">
+                            <div className="h-[220px] overflow-hidden">
                                 <img
                                     src={useCase.image}
                                     alt={useCase.title}
-                                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                    className="w-full h-full object-cover"
                                 />
-                                {/* Gradient overlay - always visible at bottom for text readability */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-                                {/* Stronger gradient on hover */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                            </div>
 
-                                {/* Text overlay at bottom */}
-                                <div className="absolute bottom-0 left-0 right-0 px-5 pb-4 pt-8">
-                                    <div className="flex items-center justify-between">
-                                        <h3 className="text-sm font-bold tracking-wide capitalize">{useCase.title}</h3>
-                                        <span className="w-7 h-7 rounded-full bg-white/80 flex items-center justify-center text-black text-sm font-bold shrink-0 relative">
-                                            <span className="group-hover:hidden">+</span>
-                                            <span className="hidden group-hover:inline">−</span>
-                                        </span>
-                                    </div>
-                                    <div className="max-h-0 opacity-0 group-hover:max-h-20 group-hover:opacity-100 transition-all duration-400 ease-in-out overflow-hidden">
-                                        <p className="text-xs text-gray-300 leading-relaxed capitalize tracking-wide mt-2">
-                                            {useCase.description}
-                                        </p>
-                                    </div>
-                                </div>
+                            <div className="px-5 py-4 flex items-center justify-between text-sm font-medium tracking-wide">
+                                <span className="capitalize tracking-wide">{useCase.title}</span>
+                                <span className="w-6 h-6 rounded-full bg-white/15 flex items-center justify-center text-xs">○</span>
                             </div>
                         </div>
                     ))}
@@ -438,39 +421,7 @@ const StepsPage = () => {
 
                 {/* Main Content */}
                 <main className="flex-1 w-full min-w-0 bg-black">
-                    {/* Navigation Bar - Matching EdInaiDetail topbar */}
-                    <nav className="sticky top-0 z-40 bg-black border-b border-white/10">
-                        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between">
-                            {/* Breadcrumbs */}
-                            <div className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm md:text-base tracking-tight">
-                                <Link to="/edinai" className="text-white hover:text-white/80 transition-colors">
-                                    Edinai
-                                </Link>
-                                <span className="text-white/40" aria-hidden="true">›</span>
-                                <span className="text-white/60 whitespace-nowrap">
-                                    Inside the Edinai Portal
-                                </span>
-                            </div>
-
-                            {/* Actions */}
-                            <div className="flex items-center gap-2 md:gap-3">
-                                <Link
-                                    to="/edinai"
-                                    className="p-1.5 sm:p-2 rounded-lg border border-white/10 text-white hover:bg-white/5 transition-colors"
-                                    aria-label="Home"
-                                >
-                                    <HiHome className="text-xs sm:text-sm md:text-base" />
-                                </Link>
-                                <button
-                                    onClick={() => setIsMobileMenuOpen(true)}
-                                    className="p-1.5 sm:p-2 rounded-lg border border-white/10 text-white hover:bg-white/5 transition-colors"
-                                    aria-label="Menu"
-                                >
-                                    <HiMenu className="text-xs sm:text-sm md:text-base" />
-                                </button>
-                            </div>
-                        </div>
-                    </nav>
+                    <EdInaiHeader />
                     <div className="max-w-[1200px] mx-auto px-4 md:px-8 pt-2 md:pt-4 pb-8 md:pb-12">
                         <div id="how-to-set-up-edinai">
                             <SetupSteps />
