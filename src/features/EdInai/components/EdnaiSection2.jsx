@@ -1,11 +1,11 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const EdnaiSection2 = () => {
+const EdnaiSection2 = () => {                   
     const container = useRef();
 
     useGSAP(() => {
@@ -44,6 +44,7 @@ const EdnaiSection2 = () => {
                     }
                 });
             },
+
             "(max-width: 768px)": function () {
                 imgs.forEach((image) => {
                     gsap.to(image, {
@@ -68,20 +69,14 @@ const EdnaiSection2 = () => {
     return (
         <div ref={container} className="bg-black text-white font-inter">
 
-            {/* Heading: Centered with dynamic sizing */}
-            <h1 className="w-full text-center font-bold pt-20 md:pt-32 pb-6 text-[20px] md:text-[40px] uppercase tracking-tight">
-                What is EdInai ?
-            </h1>
+            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative">
 
-            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative pt-4">
-
-                {/* Left Column: Text content */}
-                <div className="flex flex-col flex-1 z-10">
+                {/* Left Column */}
+                <div className="flex flex-col flex-1">
                     {sections.map((item) => (
-                        <div key={item.id} className="h-auto md:h-screen flex items-center py-10 md:py-0">
-
-                            <div className="max-w-full md:max-w-[600px]">
-                                <p className="text-white/90 text-[15px] md:text-[25px] leading-[1.4] md:leading-[1.6] tracking-normal block">
+                        <div key={item.id} className="h-auto md:h-screen flex items-center py-16 md:py-0">
+                            <div className="max-w-[400px]">
+                                <p className="text-white/80 text-[15px] md:text-[25px] leading-relaxed tracking-tight">
                                     {item.desc}
                                 </p>
                             </div>
@@ -89,19 +84,19 @@ const EdnaiSection2 = () => {
                     ))}
                 </div>
 
-                {/* Right Column: Images */}
-                <div className="arch-right relative h-[350px] md:h-screen w-full md:max-w-[500px]">
+                {/* Right Column */}
+                <div className="arch-right relative h-[400px] md:h-screen w-full md:max-w-[500px]">
                     <div className="relative w-full h-full flex items-center">
                         {sections.map((item, index) => (
                             <div
                                 key={item.id}
-                                className="img-wrapper absolute top-1/2 left-0 -translate-y-1/2 h-[300px] md:h-[450px] w-full rounded-3xl overflow-hidden shadow-2xl"
+                                className="img-wrapper absolute top-1/2 left-0 -translate-y-1/2 h-[350px] md:h-[450px] w-full"
                                 style={{ zIndex: sections.length - index }}
                             >
                                 <img
                                     src={item.img}
                                     alt={item.title}
-                                    className="w-full h-full object-cover"
+                                    className="w-full h-full object-cover rounded-3xl"
                                     style={{ clipPath: "inset(0%)" }}
                                 />
                             </div>
@@ -110,8 +105,7 @@ const EdnaiSection2 = () => {
                 </div>
             </div>
 
-            {/* Bottom Spacer for smooth ending */}
-
+            <div className="w-full" />
         </div>
     );
 };

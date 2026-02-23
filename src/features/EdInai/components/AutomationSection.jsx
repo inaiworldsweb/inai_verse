@@ -2,7 +2,7 @@ import featureImage from '../../../assets/final/smart automation for educational
 
 const AutomationSection = () => {
     return (
-        <section className="py-10 md:py-16 bg-black" id="automation">
+        <section className="py-10 md:py-2 md:pb-15 bg-black" id="automation">
             <div className="max-w-[900px] mx-auto px-4">
                 {/* Section Title */}
                 <h2 className="text-[25px] md:text-[40px] font-bold text-white mb-4 capitalize tracking-tight">How Do You Generate And Manage Your Lecture?</h2>
@@ -24,17 +24,17 @@ const AutomationSection = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-sm text-white/70 leading-relaxed mb-12 text-center max-w-[700px] mx-auto capitalize tracking-normal">
+                <p className="text-sm text-white/70 leading-relaxed mb-5 text-center max-w-[700px] mx-auto capitalize tracking-normal">
                     Ed-INAI Simplifies Every Step Of Classroom Management So Teachers Can Focus On What Truly Matters: Teaching And Student Success.
                 </p>
 
                 {/* Secondary Heading */}
-                <h3 className="text-[15px] md:text-[25px] font-bold text-white mb-4 capitalize tracking-tight">
+                <h3 className="text-[25px] md:text-[40px] md:-ml-13 font-bold text-white mb-2 capitalize tracking-tight">
                     Think Smart And Grow Your Students At A Global Scale
                 </h3>
 
                 {/* Secondary Description */}
-                <p className="text-sm text-white/70 leading-relaxed capitalize tracking-normal">
+                <p className="text-sm md:-ml-13 text-white/70 leading-relaxed capitalize tracking-normal">
                     With ED-INAI, Institutions Can Elevate The Level Of Education Globally Through AI-Powered Learning, Multilingual Delivery,
                     And Consistent Academic Quality - Without Increasing Operational Complexity.
                 </p>

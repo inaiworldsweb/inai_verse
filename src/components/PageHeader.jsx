@@ -31,9 +31,6 @@ function PageHeader({
     onPriceClick,
     onMenuClick,
     showBorder = true,
-    headerClassName = '',
-    homeIconClassName = 'w-6 h-6',
-    menuIconClassName = 'w-6 h-6',
 }) {
     const navigate = useNavigate()
 
@@ -64,7 +61,7 @@ function PageHeader({
     }
 
     return (
-        <header className={`sticky top-0 z-50 flex items-center justify-between py-4 px-8 bg-black/80 backdrop-blur-md ${showBorder ? 'border-b border-white/10' : ''} ${headerClassName}`}>
+        <header className={`sticky top-0 z-50 flex items-center justify-between py-4 px-8 bg-black/80 backdrop-blur-md ${showBorder ? 'border-b border-white/10' : ''}`}>
             {/* Left Section - Back Button, Title, Breadcrumbs */}
             <div className="flex items-center gap-4">
                 {showBackButton && (
@@ -136,7 +133,7 @@ function PageHeader({
                         aria-label="Go to home"
                         onClick={handleHome}
                     >
-                        <svg className={homeIconClassName} viewBox="0 0 24 24" aria-hidden="true">
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M3 11l9-8 9 8"
                                 fill="none"
@@ -164,7 +161,7 @@ function PageHeader({
                         aria-label="Open menu"
                         onClick={handleMenu}
                     >
-                        <svg className={menuIconClassName} viewBox="0 0 24 24" aria-hidden="true">
+                        <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
                             <line x1="5" y1="8" x2="19" y2="8" stroke="currentColor" strokeWidth="1.8" />
                             <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="1.8" />
                             <line x1="5" y1="16" x2="19" y2="16" stroke="currentColor" strokeWidth="1.8" />

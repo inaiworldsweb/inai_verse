@@ -99,7 +99,7 @@ const IntegrationOptionsSection = () => {
                                     <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                                 </div>
                             </div>
-                            <h3 className="text-[15px] md:text-[25px] font-semibold leading-relaxed text-zinc-300 group-hover:text-white transition-colors duration-300 max-w-[90%] capitalize tracking-tight">
+                            <h3 className="text-sm md:text-base font-semibold leading-relaxed text-zinc-300 group-hover:text-white transition-colors duration-300 max-w-[90%] capitalize tracking-wide">
                                 {option.title}
                             </h3>
                         </motion.div>
