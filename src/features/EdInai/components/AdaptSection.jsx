@@ -2,7 +2,7 @@ const AdaptSection = () => {
     return (
         <section className="py-16 bg-black" id="adapt">
             <div className="max-w-narrow mx-auto text-center px-4">
-                <h2 className="text-[25px] md:text-[40px] font-bold mb-6 text-white capitalize tracking-tight">Made to adapt and evolve</h2>
+                <h3 className="text-[25px] md:text-[40px] font-bold mb-6 text-white capitalize tracking-tight">Made to adapt and evolve</h3>
                 <p className="text-lg text-white/70 leading-relaxed capitalize tracking-normal">
                     Ed-INAI is built to learn and improve continuously. The more it teaches, the smarter it becomes—enhancing explanations,
                     query-solving, and student understanding. That's the true power of artificial intelligence in education: continuous

@@ -2,93 +2,39 @@ import React, { useRef, useEffect, useState, useMemo } from "react";
 import HeroImage from "../../../assets/centerImage.webp";
 
 const SynProHeroSection = () => {
-    const containerRef = useRef(null);
-    const leftTextRef = useRef(null);
-    const rightTextRef = useRef(null);
-    const topTextRef = useRef(null);
-    const bottomTextRef = useRef(null);
-    const imageWrapperRef = useRef(null);
-    const hintRef = useRef(null);
+    const containerRef  = useRef(null);
+    const leftTextRef   = useRef(null);
+    const rightTextRef  = useRef(null);
 
-    const [isMobile, setIsMobile] = useState(false);
+    const [progress, setProgress]   = useState(0);
+    const [isMobile, setIsMobile]   = useState(false);
+    const [leftW, setLeftW]         = useState(0);   // actual pixel width of "Creative"
+    const [rightW, setRightW]       = useState(0);   // actual pixel width of "Content 10× Faster"
 
-    // Refs for animation state (Bypasses React rendering for smoothness)
     const progressRef = useRef(0);
-    const targetRef = useRef(0);
-    const rafRef = useRef(null);
-    const inViewRef = useRef(false);
-
-    // Constants for measurement
-    const W0 = 1100, W1 = 280;
-    const H0 = 600, H1 = 100;
-    const GAP = 48;
-    const SLIDE = 420;
+    const targetRef   = useRef(0);
+    const rafRef      = useRef(null);
+    const inViewRef   = useRef(false);
 
     // ── Resize ────────────────────────────────────────────────────────────────
     useEffect(() => {
-        const check = () => setIsMobile(window.innerWidth < 1024);
+        const check = () => setIsMobile(window.innerWidth < 768);
         check();
         window.addEventListener("resize", check);
         return () => window.removeEventListener("resize", check);
     }, []);
 
-    // ── Animation Logic ───────────────────────────────────────────────────────
-    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
-
-    const updateStyles = (val) => {
+    // ── Measure actual text widths after render ───────────────────────────────
+    useEffect(() => {
         if (isMobile) return;
-
-        const anim = easeOut(val);
-
-        // 1. Center Image Container (Animate width/height direct to DOM)
-        if (imageWrapperRef.current) {
-            const currentW = W0 - anim * (W0 - W1);
-            const currentH = H0 - anim * (H0 - H1);
-            const r = anim > 0.5 ? 16 : 40;
-
-            imageWrapperRef.current.style.width = `${currentW}px`;
-            imageWrapperRef.current.style.height = `${currentH}px`;
-            imageWrapperRef.current.style.borderRadius = `${r}px`;
-        }
-
-        const textOpacity = val > 0.08 ? 1 : 0;
-        const slide = (1 - anim) * SLIDE;
-
-        // 2. Top Text
-        if (topTextRef.current) {
-            const ty = -((1 - anim) * SLIDE + (H1 / 2 + 90));
-            topTextRef.current.style.transform = `translateY(${ty}px)`;
-            topTextRef.current.style.opacity = textOpacity;
-        }
-
-        // 3. Bottom Text
-        if (bottomTextRef.current) {
-            const ty = (1 - anim) * SLIDE + (H1 / 2 + 90);
-            bottomTextRef.current.style.transform = `translateY(${ty}px)`;
-            bottomTextRef.current.style.opacity = textOpacity;
-        }
-
-        // 4. Left/Right Text (Creative & Content)
-        // We assume approx text widths since measuring every frame is slow
-        // Left center = -(imgW/2) - GAP - leftW/2
-        const currentW = W0 - anim * (W0 - W1);
-        const lx = -(currentW / 2) - GAP - 100 - slide; // Approx 100 for text center offset
-        const rx = (currentW / 2) + GAP + 180 + slide; // Approx 180 for text center offset
-
-        if (leftTextRef.current) {
-            leftTextRef.current.style.transform = `translateX(${lx}px)`;
-            leftTextRef.current.style.opacity = textOpacity;
-        }
-        if (rightTextRef.current) {
-            rightTextRef.current.style.transform = `translateX(${rx}px)`;
-            rightTextRef.current.style.opacity = textOpacity;
-        }
-
-        // 5. Scroll Hint
-        if (hintRef.current) {
-            hintRef.current.style.opacity = Math.max(0, 1 - val * 12);
-        }
-    };
+        const measure = () => {
+            if (leftTextRef.current)  setLeftW(leftTextRef.current.offsetWidth);
+            if (rightTextRef.current) setRightW(rightTextRef.current.offsetWidth);
+        };
+        measure();
+        window.addEventListener("resize", measure);
+        return () => window.removeEventListener("resize", measure);
+    }, [isMobile]);
 
     // ── IntersectionObserver ──────────────────────────────────────────────────
     useEffect(() => {
@@ -97,7 +43,7 @@ const SynProHeroSection = () => {
         if (!el) return;
         const obs = new IntersectionObserver(
             ([entry]) => { inViewRef.current = entry.isIntersecting; },
-            { threshold: 0.1 }
+            { threshold: 0.2 }
         );
         obs.observe(el);
         return () => obs.disconnect();
@@ -106,46 +52,75 @@ const SynProHeroSection = () => {
     // ── RAF smooth loop ───────────────────────────────────────────────────────
     useEffect(() => {
         if (isMobile) return;
-
         const loop = () => {
-            const cur = progressRef.current;
-            const tgt = targetRef.current;
+            const cur  = progressRef.current;
+            const tgt  = targetRef.current;
             const diff = tgt - cur;
-
-            if (Math.abs(diff) > 0.0001) {
-                const lerpFactor = 0.1; // Increased for snappier feel
-                const next = cur + diff * lerpFactor;
+            if (Math.abs(diff) > 0.0003) {
+                const next = cur + diff * 0.07;
                 progressRef.current = next;
-                updateStyles(next);
+                setProgress(next);
+            } else if (progressRef.current !== tgt) {
+                progressRef.current = tgt;
+                setProgress(tgt);
             }
             rafRef.current = requestAnimationFrame(loop);
         };
-
         rafRef.current = requestAnimationFrame(loop);
         return () => cancelAnimationFrame(rafRef.current);
     }, [isMobile]);
 
-    // ── Wheel handling ────────────────────────────────────────────────────────
+    // ── Wheel intercept ───────────────────────────────────────────────────────
     useEffect(() => {
         if (isMobile) return;
         const onWheel = (e) => {
             if (!inViewRef.current) return;
-
-            // Allow native scroll if at boundaries
             const cur = targetRef.current;
-            if (e.deltaY > 0 && cur >= 0.99) return;
-            if (e.deltaY < 0 && cur <= 0.01) return;
-
-            e.preventDefault();
-            const sens = 0.001;
-            targetRef.current = Math.max(0, Math.min(1, targetRef.current + e.deltaY * sens));
+            if ((e.deltaY > 0 && cur < 1) || (e.deltaY < 0 && cur > 0)) {
+                e.preventDefault();
+                targetRef.current = Math.max(0, Math.min(1, cur + e.deltaY * 0.0012));
+            }
         };
-
         window.addEventListener("wheel", onWheel, { passive: false });
         return () => window.removeEventListener("wheel", onWheel);
     }, [isMobile]);
 
+    // ── Easing ────────────────────────────────────────────────────────────────
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const anim = isMobile ? 1 : easeOut(progress);
+
     const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.5px" }), []);
+
+    // ── Image sizes ───────────────────────────────────────────────────────────
+    const W0 = 1100, W1 = 280;
+    const H0 = 600,  H1 = 100;
+
+    const imgW = W0 - anim * (W0 - W1);
+    const imgH = H0 - anim * (H0 - H1);
+    const imgR = anim > 0.5 ? "16px" : "40px";
+
+    // ── Gap between image edge and text (pixels) ──────────────────────────────
+    const GAP = 48; // space between image and text, increase if still overlapping
+
+    // Final positions (anim = 1):
+    //   Left  text right-edge  = -(imgW/2) - GAP  → text ends GAP px left of image
+    //   Right text left-edge   = +(imgW/2) + GAP  → text starts GAP px right of image
+    //
+    // We translateX the CENTER of each text block:
+    //   Left  center = -(imgW/2) - GAP - leftW/2
+    //   Right center = +(imgW/2) + GAP + rightW/2
+
+    const leftFinalX  = -(W1 / 2) - GAP - (leftW  / 2);  // negative = left of center
+    const rightFinalX =  (W1 / 2) + GAP + (rightW / 2);   // positive = right of center
+
+    // At anim=0 texts are off screen (slide 420px further out)
+    const SLIDE = 420;
+    const slide = (1 - anim) * SLIDE;
+
+    const leftX  = leftFinalX  - slide;   // starts more to the left, moves right
+    const rightX = rightFinalX + slide;   // starts more to the right, moves left
+
+    const textOpacity = anim > 0.08 ? 1 : 0;
 
     return (
         <div
@@ -153,18 +128,21 @@ const SynProHeroSection = () => {
             className="relative w-full bg-black text-white"
             style={{ height: "100vh", overflow: "hidden" }}
         >
-            <div className="w-full h-full flex items-center justify-center relative overflow-hidden">
+            <div className="w-full h-full flex items-center justify-center relative">
 
                 {/* ══ TOP ════════════════════════════════════════════════════ */}
                 {!isMobile && (
                     <div
-                        ref={topTextRef}
-                        className="absolute z-20 w-full text-center pointer-events-none transition-opacity duration-300"
-                        style={{ willChange: "transform, opacity", opacity: 0 }}
+                        className="absolute z-20 w-full text-center pointer-events-none"
+                        style={{
+                            transform: `translateY(calc(-${(1 - anim) * SLIDE}px - ${H1 / 2 + 90}px))`,
+                            opacity: textOpacity,
+                            willChange: "transform, opacity",
+                        }}
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(18px, 3.2vw, 42px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
                         >
                             Miraai Helps Brands Scale Professional
                         </h2>
@@ -175,12 +153,16 @@ const SynProHeroSection = () => {
                 {!isMobile && (
                     <div
                         ref={leftTextRef}
-                        className="absolute z-20 pointer-events-none transition-opacity duration-300"
-                        style={{ willChange: "transform, opacity", opacity: 0 }}
+                        className="absolute z-20 pointer-events-none"
+                        style={{
+                            transform: `translateX(${leftX}px)`,
+                            opacity: textOpacity,
+                            willChange: "transform, opacity",
+                        }}
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(18px, 3vw, 40px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
                         >
                             Creative
                         </h2>
@@ -191,12 +173,16 @@ const SynProHeroSection = () => {
                 {!isMobile && (
                     <div
                         ref={rightTextRef}
-                        className="absolute z-20 pointer-events-none transition-opacity duration-300"
-                        style={{ willChange: "transform, opacity", opacity: 0 }}
+                        className="absolute z-20 pointer-events-none"
+                        style={{
+                            transform: `translateX(${rightX}px)`,
+                            opacity: textOpacity,
+                            willChange: "transform, opacity",
+                        }}
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(18px, 3vw, 40px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
                         >
                             Content 10× Faster
                         </h2>
@@ -206,13 +192,16 @@ const SynProHeroSection = () => {
                 {/* ══ BOTTOM ══════════════════════════════════════════════════ */}
                 {!isMobile && (
                     <div
-                        ref={bottomTextRef}
-                        className="absolute z-20 w-full text-center pointer-events-none transition-opacity duration-300"
-                        style={{ willChange: "transform, opacity", opacity: 0 }}
+                        className="absolute z-20 w-full text-center pointer-events-none"
+                        style={{
+                            transform: `translateY(calc(${(1 - anim) * SLIDE}px + ${H1 / 2 + 90}px))`,
+                            opacity: textOpacity,
+                            willChange: "transform, opacity",
+                        }}
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(18px, 3.2vw, 42px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
                         >
                             With Up To 70% Cost Savings.
                         </h2>
@@ -221,17 +210,16 @@ const SynProHeroSection = () => {
 
                 {/* ══ CENTER IMAGE ════════════════════════════════════════════ */}
                 <div
-                    ref={imageWrapperRef}
-                    className="relative z-10 overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.5)] flex-shrink-0"
+                    className="relative z-10 overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,255,255,0.04)] flex-shrink-0"
                     style={
                         isMobile
-                            ? { width: "85vw", height: "180px", borderRadius: "20px" }
+                            ? { width: "85vw", height: "220px", borderRadius: "20px" }
                             : {
-                                width: `${W0}px`,
-                                height: `${H0}px`,
-                                borderRadius: "40px",
+                                width: `${imgW}px`,
+                                height: `${imgH}px`,
+                                borderRadius: imgR,
                                 willChange: "width, height, border-radius",
-                            }
+                              }
                     }
                 >
                     <img
@@ -242,39 +230,38 @@ const SynProHeroSection = () => {
                     />
                 </div>
 
-                {/* ══ MOBILE VIEW ════════════════════════════════════════════ */}
+                {/* ══ MOBILE ══════════════════════════════════════════════════ */}
                 {isMobile && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
-                        <h2 className="text-[20px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
+                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-5 text-center">
+                        <h2 className="text-[18px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
                             Miraai Helps Brands Scale Professional
                         </h2>
+
                         <div
-                            style={{ width: "85vw", height: "180px", borderRadius: "20px" }}
-                            className="overflow-hidden border border-white/10 relative"
+                            style={{ width: "85vw", height: "220px", borderRadius: "20px" }}
+                            className="overflow-hidden border border-white/10"
                         >
                             <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
                         </div>
-                        <div className="space-y-1">
-                            <h2 className="text-[18px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
-                                Creative Content 10× Faster
-                            </h2>
-                            <h2 className="text-[18px] font-black uppercase tracking-tighter font-inter leading-tight text-white/60" style={letterSpacingStyle}>
-                                With Up To 70% Cost Savings.
-                            </h2>
-                        </div>
+                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
+                            Creative Content 10× Faster
+                        </h2>
+                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
+                            With Up To 70% Cost Savings.
+                        </h2>
                     </div>
                 )}
 
                 {/* ══ SCROLL HINT ═════════════════════════════════════════════ */}
                 {!isMobile && (
                     <div
-                        ref={hintRef}
-                        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
+                        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
+                        style={{ opacity: Math.max(0, 1 - progress * 12) }}
                     >
-                        <span className="text-white/30 text-[10px] uppercase tracking-[0.4em]">
+                        <span className="text-white/30 text-[10px] uppercase tracking-[0.3em]">
                             Scroll
                         </span>
-                        <div className="w-[1px] h-10 bg-gradient-to-b from-white/30 to-transparent" />
+                        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
                     </div>
                 )}
 

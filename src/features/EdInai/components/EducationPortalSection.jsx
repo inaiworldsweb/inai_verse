@@ -109,7 +109,7 @@ const EducationPortalSection = () => {
                 </header>
 
                 <div className="bg-white/[0.03] rounded-lg p-3 md:p-6 border border-white/5" aria-live="polite">
-                    <h3 className="text-[15px] md:text-[25px] font-semibold mb-4 text-center text-white px-2 capitalize tracking-tight">{currentSlide.title}</h3>
+                    <h3 className="text-base sm:text-lg font-semibold mb-4 text-center text-white px-2 capitalize tracking-wide">{currentSlide.title}</h3>
                     <button
                         type="button"
                         className="rounded-[15px] overflow-hidden cursor-pointer border-none bg-transparent w-full p-0"
@@ -137,7 +137,7 @@ const EducationPortalSection = () => {
                             ))}
                         </div>
                     </div>
-                    <p className="text-[15px] md:text-[25px] font-semibold text-center my-3 text-white capitalize tracking-tight">{currentSlide.caption}</p>
+                    <p className="text-base sm:text-lg font-semibold text-center my-3 text-white capitalize tracking-wide">{currentSlide.caption}</p>
                     <p className="text-xs sm:text-sm text-center text-white/70 leading-relaxed capitalize tracking-normal">{currentSlide.description}</p>
                 </div>
             </div>

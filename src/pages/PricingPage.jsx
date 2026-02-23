@@ -141,7 +141,6 @@ const PricingPage = () => {
                 </Link>
                 <PageHeader
                     showBackButton={false}
-                    showLogo={false}
                     showPriceButton={true}
                     showHomeButton={true}
                     showMenuButton={true}

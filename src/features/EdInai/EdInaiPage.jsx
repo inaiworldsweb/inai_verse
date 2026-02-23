@@ -330,7 +330,7 @@ const x = useTransform(
                 type="button"
                 className="
                                 group
-                                w-40 sm:w-auto mx-auto
+                                w-full sm:w-auto
                                 bg-white text-black border-none 
                                 py-3 px-6 sm:px-8 rounded-full 
                                 text-sm font-semibold cursor-pointer 
@@ -387,8 +387,8 @@ const x = useTransform(
 
           <MeetOurFaculties />
 
-                    <section id="what-is-edinai">
-                        <EdnaiSection2 />
+          <EducationPortalSection />
+          <StudentExperienceSection onLearnMore={handleGoToLearnMore} />
 
           {/* Teach Section - Responsive */}
           <section

@@ -27,12 +27,12 @@ function LandingPage() {
                     <div className="flex-1 flex flex-col items-center justify-center px-6 md:px-16 pt-20 pb-32">
 
                         {/* Main Title */}
-                        <h1 className="text-[25px] md:text-[40px] font-bold mb-4 tracking-tight text-center">
+                        <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tight text-center">
                             Welcome to INAI Verse
                         </h1>
 
                         {/* Subtitle */}
-                        <h2 className="text-[15px] md:text-[25px] font-bold mb-8 text-center tracking-tight">
+                        <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center tracking-tight">
                             We are for people, We are for digital{' '}
                             <span className="inline-flex">
                                 <span className="text-[#FF671F]">IN</span>
