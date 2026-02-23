@@ -24,6 +24,7 @@ const SynProHeroSection = () => {
         return () => window.removeEventListener("resize", check);
     }, []);
 
+<<<<<<< Updated upstream
     // ── Measure actual text widths after render ───────────────────────────────
     useEffect(() => {
         if (isMobile) return;
@@ -35,6 +36,67 @@ const SynProHeroSection = () => {
         window.addEventListener("resize", measure);
         return () => window.removeEventListener("resize", measure);
     }, [isMobile]);
+=======
+    // ── Animation Logic ───────────────────────────────────────────────────────
+    // Quintic Ease Out for ultra-graceful deceleration
+    const easeOut = (t) => 1 - Math.pow(1 - t, 5);
+
+    const updateStyles = (val) => {
+        if (isMobile) return;
+
+        const anim = easeOut(val);
+
+        // 1. Center Image Container (Animate width/height direct to DOM)
+        if (imageWrapperRef.current) {
+            const currentW = W0 - anim * (W0 - W1);
+            const currentH = H0 - anim * (H0 - H1);
+            const r = anim > 0.5 ? 16 : 40;
+
+            imageWrapperRef.current.style.width = `${currentW}px`;
+            imageWrapperRef.current.style.height = `${currentH}px`;
+            imageWrapperRef.current.style.borderRadius = `${r}px`;
+        }
+
+        const textOpacity = val > 0.08 ? 1 : 0;
+        const slide = (1 - anim) * SLIDE;
+
+        // 2. Top Text
+        if (topTextRef.current) {
+            const ty = -((1 - anim) * SLIDE + (H1 / 2 + 40));
+            topTextRef.current.style.transform = `translateY(${ty}px)`;
+            topTextRef.current.style.opacity = textOpacity;
+        }
+
+        // 3. Bottom Text
+        if (bottomTextRef.current) {
+            const ty = (1 - anim) * SLIDE + (H1 / 2 + 40);
+            bottomTextRef.current.style.transform = `translateY(${ty}px)`;
+            bottomTextRef.current.style.opacity = textOpacity;
+        }
+
+        // 4. Left/Right Text (Creative & Content)
+        // We assume approx text widths since measuring every frame is slow
+        // Left center = -(imgW/2) - GAP - leftW/2
+        const TIGHT_GAP = 24;
+        const currentW = W0 - anim * (W0 - W1);
+        const lx = -(currentW / 2) - TIGHT_GAP - 80 - slide; // Approx 80 for "Creative" center
+        const rx = (currentW / 2) + TIGHT_GAP + 85 + slide; // Approx 85 for "Content" center
+
+        if (leftTextRef.current) {
+            leftTextRef.current.style.transform = `translateX(${lx}px)`;
+            leftTextRef.current.style.opacity = textOpacity;
+        }
+        if (rightTextRef.current) {
+            rightTextRef.current.style.transform = `translateX(${rx}px)`;
+            rightTextRef.current.style.opacity = textOpacity;
+        }
+
+        // 5. Scroll Hint
+        if (hintRef.current) {
+            hintRef.current.style.opacity = Math.max(0, 1 - val * 12);
+        }
+    };
+>>>>>>> Stashed changes
 
     // ── IntersectionObserver ──────────────────────────────────────────────────
     useEffect(() => {
@@ -56,8 +118,15 @@ const SynProHeroSection = () => {
             const cur  = progressRef.current;
             const tgt  = targetRef.current;
             const diff = tgt - cur;
+<<<<<<< Updated upstream
             if (Math.abs(diff) > 0.0003) {
                 const next = cur + diff * 0.07;
+=======
+
+            if (Math.abs(diff) > 0.0001) {
+                const lerpFactor = 0.04; // Even softer, heavier fluid glide
+                const next = cur + diff * lerpFactor;
+>>>>>>> Stashed changes
                 progressRef.current = next;
                 setProgress(next);
             } else if (progressRef.current !== tgt) {
@@ -76,20 +145,33 @@ const SynProHeroSection = () => {
         const onWheel = (e) => {
             if (!inViewRef.current) return;
             const cur = targetRef.current;
+<<<<<<< Updated upstream
             if ((e.deltaY > 0 && cur < 1) || (e.deltaY < 0 && cur > 0)) {
                 e.preventDefault();
                 targetRef.current = Math.max(0, Math.min(1, cur + e.deltaY * 0.0012));
             }
+=======
+            if (e.deltaY > 0 && cur >= 0.99) return;
+            if (e.deltaY < 0 && cur <= 0.01) return;
+
+            e.preventDefault();
+            const sens = 0.0006; // Ultra-fine sensitivity
+            targetRef.current = Math.max(0, Math.min(1, targetRef.current + e.deltaY * sens));
+>>>>>>> Stashed changes
         };
         window.addEventListener("wheel", onWheel, { passive: false });
         return () => window.removeEventListener("wheel", onWheel);
     }, [isMobile]);
 
+<<<<<<< Updated upstream
     // ── Easing ────────────────────────────────────────────────────────────────
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const anim = isMobile ? 1 : easeOut(progress);
 
     const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.5px" }), []);
+=======
+    const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.1px" }), []);
+>>>>>>> Stashed changes
 
     // ── Image sizes ───────────────────────────────────────────────────────────
     const W0 = 1100, W1 = 280;
@@ -184,7 +266,7 @@ const SynProHeroSection = () => {
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
                             style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
                         >
-                            Content 10× Faster
+                            Content
                         </h2>
                     </div>
                 )}
@@ -203,7 +285,7 @@ const SynProHeroSection = () => {
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
                             style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
                         >
-                            With Up To 70% Cost Savings.
+                            10× Faster With Up To 70% Cost Savings.
                         </h2>
                     </div>
                 )}
