@@ -2,19 +2,19 @@ import React, { useRef, useEffect, useState, useMemo } from "react";
 import HeroImage from "../../../assets/centerImage.webp";
 
 const SynProHeroSection = () => {
-    const containerRef  = useRef(null);
-    const leftTextRef   = useRef(null);
-    const rightTextRef  = useRef(null);
+    const containerRef = useRef(null);
+    const leftTextRef = useRef(null);
+    const rightTextRef = useRef(null);
 
-    const [progress, setProgress]   = useState(0);
-    const [isMobile, setIsMobile]   = useState(false);
-    const [leftW, setLeftW]         = useState(0);   // actual pixel width of "Creative"
-    const [rightW, setRightW]       = useState(0);   // actual pixel width of "Content 10× Faster"
+    const [progress, setProgress] = useState(0);
+    const [isMobile, setIsMobile] = useState(false);
+    const [leftW, setLeftW] = useState(0);   // actual pixel width of "Creative"
+    const [rightW, setRightW] = useState(0);   // actual pixel width of "Content 10× Faster"
 
     const progressRef = useRef(0);
-    const targetRef   = useRef(0);
-    const rafRef      = useRef(null);
-    const inViewRef   = useRef(false);
+    const targetRef = useRef(0);
+    const rafRef = useRef(null);
+    const inViewRef = useRef(false);
 
     // ── Resize ────────────────────────────────────────────────────────────────
     useEffect(() => {
@@ -28,7 +28,7 @@ const SynProHeroSection = () => {
     useEffect(() => {
         if (isMobile) return;
         const measure = () => {
-            if (leftTextRef.current)  setLeftW(leftTextRef.current.offsetWidth);
+            if (leftTextRef.current) setLeftW(leftTextRef.current.offsetWidth);
             if (rightTextRef.current) setRightW(rightTextRef.current.offsetWidth);
         };
         measure();
@@ -53,11 +53,12 @@ const SynProHeroSection = () => {
     useEffect(() => {
         if (isMobile) return;
         const loop = () => {
-            const cur  = progressRef.current;
-            const tgt  = targetRef.current;
+            const cur = progressRef.current;
+            const tgt = targetRef.current;
             const diff = tgt - cur;
-            if (Math.abs(diff) > 0.0003) {
-                const next = cur + diff * 0.07;
+            if (Math.abs(diff) > 0.0001) {
+                const lerpFactor = 0.04; // Even softer, heavier fluid glide
+                const next = cur + diff * lerpFactor;
                 progressRef.current = next;
                 setProgress(next);
             } else if (progressRef.current !== tgt) {
@@ -76,24 +77,27 @@ const SynProHeroSection = () => {
         const onWheel = (e) => {
             if (!inViewRef.current) return;
             const cur = targetRef.current;
-            if ((e.deltaY > 0 && cur < 1) || (e.deltaY < 0 && cur > 0)) {
-                e.preventDefault();
-                targetRef.current = Math.max(0, Math.min(1, cur + e.deltaY * 0.0012));
-            }
+            if (e.deltaY > 0 && cur >= 0.99) return;
+            if (e.deltaY < 0 && cur <= 0.01) return;
+
+            e.preventDefault();
+            const sens = 0.0006; // Ultra-fine sensitivity
+            targetRef.current = Math.max(0, Math.min(1, targetRef.current + e.deltaY * sens));
         };
         window.addEventListener("wheel", onWheel, { passive: false });
         return () => window.removeEventListener("wheel", onWheel);
     }, [isMobile]);
 
+
     // ── Easing ────────────────────────────────────────────────────────────────
-    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const easeOut = (t) => 1 - Math.pow(1 - t, 5); // Changed to Quintic Ease Out (power 5)
     const anim = isMobile ? 1 : easeOut(progress);
 
-    const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.5px" }), []);
+    const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.1px" }), []);
 
     // ── Image sizes ───────────────────────────────────────────────────────────
     const W0 = 1100, W1 = 280;
-    const H0 = 600,  H1 = 100;
+    const H0 = 600, H1 = 100;
 
     const imgW = W0 - anim * (W0 - W1);
     const imgH = H0 - anim * (H0 - H1);
@@ -110,17 +114,18 @@ const SynProHeroSection = () => {
     //   Left  center = -(imgW/2) - GAP - leftW/2
     //   Right center = +(imgW/2) + GAP + rightW/2
 
-    const leftFinalX  = -(W1 / 2) - GAP - (leftW  / 2);  // negative = left of center
-    const rightFinalX =  (W1 / 2) + GAP + (rightW / 2);   // positive = right of center
+    const leftFinalX = -(W1 / 2) - GAP - (leftW / 2);  // negative = left of center
+    const rightFinalX = (W1 / 2) + GAP + (rightW / 2);   // positive = right of center
 
     // At anim=0 texts are off screen (slide 420px further out)
     const SLIDE = 420;
     const slide = (1 - anim) * SLIDE;
 
-    const leftX  = leftFinalX  - slide;   // starts more to the left, moves right
+    const leftX = leftFinalX - slide;   // starts more to the left, moves right
     const rightX = rightFinalX + slide;   // starts more to the right, moves left
 
     const textOpacity = anim > 0.08 ? 1 : 0;
+
 
     return (
         <div
@@ -184,7 +189,7 @@ const SynProHeroSection = () => {
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
                             style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
                         >
-                            Content 10× Faster
+                            Content
                         </h2>
                     </div>
                 )}
@@ -203,7 +208,7 @@ const SynProHeroSection = () => {
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
                             style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
                         >
-                            With Up To 70% Cost Savings.
+                            10× Faster With Up To 70% Cost Savings.
                         </h2>
                     </div>
                 )}
@@ -219,7 +224,7 @@ const SynProHeroSection = () => {
                                 height: `${imgH}px`,
                                 borderRadius: imgR,
                                 willChange: "width, height, border-radius",
-                              }
+                            }
                     }
                 >
                     <img
