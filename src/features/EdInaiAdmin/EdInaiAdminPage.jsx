@@ -7,8 +7,8 @@ import uploadCurriculumImg from '../../assets/final/Upload & Organize Curriculum
 import expertIntelligenceImg from '../../assets/final/Data-Driven Insights.png';
 import logoImage from '../../assets/Inai Verse White Tred mark (1).png';
 import { EdInaiHeader, EdInaiSidebar } from '../EdInai/components/shared';
-import StorySection from './StorySection';
-import AdminAnimationSection from './StorySection';
+
+import AdminAnimationSection from './AdminAnimationSection';
 
 // 1. Define your images in an array matching the tabs order
 const tabImages = [
@@ -166,7 +166,7 @@ const EdInaiAdminPage = () => {
 
 
                         </div>
-                        <div className='w-full bg-red-500 flex justify-center'>
+                        <div className='w-full  flex justify-center'>
                             <p className="text-[15px] md:text-[25px] text-gray-400">
                                 Admins can add yearly plans, subject outlines, chapter structures, worksheets, assignments, and resource files. Ed-INAI interprets this data and converts it into structured modules, enabling aligned lectures, assessments, and auto-generated material without repetitive setup.                            </p>
                         </div>
