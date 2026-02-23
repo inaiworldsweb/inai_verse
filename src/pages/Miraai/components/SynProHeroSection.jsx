@@ -164,6 +164,7 @@ const SynProHeroSection = () => {
     }, [isMobile]);
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
     // ── Easing ────────────────────────────────────────────────────────────────
     const easeOut = (t) => 1 - Math.pow(1 - t, 3);
     const anim = isMobile ? 1 : easeOut(progress);
@@ -203,6 +204,9 @@ const SynProHeroSection = () => {
     const rightX = rightFinalX + slide;   // starts more to the right, moves left
 
     const textOpacity = anim > 0.08 ? 1 : 0;
+=======
+    const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.1px" }), []);
+>>>>>>> Stashed changes
 
     return (
         <div
