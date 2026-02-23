@@ -2,7 +2,6 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
@@ -10,17 +9,6 @@ const EdnaiSection2 = () => {
     const container = useRef();
 
     useGSAP(() => {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
         const imgs = gsap.utils.toArray(".img-wrapper img");
 
         ScrollTrigger.matchMedia({
@@ -73,13 +61,12 @@ const EdnaiSection2 = () => {
         });
 
         return () => {
-            lenis.destroy();
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, { scope: container });
 
     return (
-        <div ref={container} className="bg-black text-white min-h-screen font-inter overflow-hidden">
+        <div ref={container} className="bg-black text-white font-inter">
 
             {/* Heading: Centered with dynamic sizing */}
             <h1 className="w-full text-center font-bold pt-20 md:pt-32 pb-6 text-[20px] md:text-[40px] uppercase tracking-tight">

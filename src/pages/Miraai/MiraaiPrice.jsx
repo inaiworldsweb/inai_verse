@@ -140,12 +140,12 @@ export default function PricingPage() {
         showHomeButton={true}
         showMenuButton={true}
         showBorder={false}
-        headerClassName="py-12 px-8 md:py-16 md:px-12"
+        headerClassName="py-4 px-8 md:py-6 md:px-12"
         logoClassName="h-[50px] md:h-[75px] w-auto max-w-[280px] object-contain"
-        homeIconClassName="w-8 h-8 md:w-10 md:h-10"
-        menuIconClassName="w-8 h-8 md:w-10 md:h-10"
+        homeIconClassName="w-6 h-6 md:w-7 md:h-7"
+        menuIconClassName="w-6 h-6 md:w-7 md:h-7"
       />
-      <div className="max-w-6xl mx-auto pt-32 pb-16 px-4">
+      <div className="max-w-6xl mx-auto pt-8 pb-16 px-4">
 
         {/* Header */}
         <div className="text-center">

@@ -208,7 +208,7 @@ const EdInaiPage = () => {
     }
 
     return (
-        <div className="flex min-h-screen bg-black text-white">
+        <div className="flex flex-col lg:flex-row bg-black text-white">
             {/* Mobile Menu Button - Fixed position */}
             <button
                 onClick={() => setIsMobileMenuOpen(true)}
@@ -499,8 +499,8 @@ const EdInaiPage = () => {
                     <StreamsSection />
                     <AdaptSection />
                     <FaqSection />
-                    <SiteFooter />
                 </div>
+                <SiteFooter />
             </main>
         </div>
     )
