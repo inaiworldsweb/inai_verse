@@ -42,7 +42,7 @@ const ModernLearningSection = () => {
     }
 
     return (
-        <section className="py-10 md:py-16 bg-black overflow-hidden" id="modern-learning">
+        <section className="py-10 md:py-16 bg-black" id="modern-learning">
             <div className="max-w-[1000px] mx-auto px-4">
                 {/* Section Header */}
                 <motion.div

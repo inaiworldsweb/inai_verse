@@ -82,7 +82,17 @@ const LearningModesSection = () => {
                             </h3>
                             <p className="text-blue-500 font-bold tracking-[0.3em] uppercase text-[10px]">Product Video</p>
                             <div className="pt-2 md:pt-4 ">
-                               <button type="button" class="group bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100 "><span class="relative inline-block overflow-hidden align-top"><span class="invisible">Learn more</span><span class="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">Learn more</span><span class="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">Learn more</span></span></button>
+                                <button
+                                    type="button"
+                                    onClick={() => navigate('/edinai-detail')}
+                                    className="group bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100 "
+                                >
+                                    <span className="relative inline-block overflow-hidden align-top">
+                                        <span className="invisible">Learn more</span>
+                                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">Learn more</span>
+                                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">Learn more</span>
+                                    </span>
+                                </button>
                             </div>
                         </div>
                     </div>
