@@ -135,21 +135,22 @@ const PricingPage = () => {
 
     return (
         <div className="flex flex-col min-h-screen bg-black text-white">
-            <header className="flex items-center justify-between py-6 px-8 lg:px-12">
-                <Link to="/">
-                    <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
-                </Link>
-                <PageHeader
-                    showBackButton={false}
-                    showPriceButton={true}
-                    showHomeButton={true}
-                    showMenuButton={true}
-                    onPriceClick={() => { }}
-                />
-            </header>
+            <PageHeader
+                logoSrc={logoImage}
+                showBackButton={false}
+                showTitleText={false}
+                showPriceButton={false}
+                showHomeButton={true}
+                showMenuButton={true}
+                showBorder={false}
+                headerClassName="py-4 px-8 md:py-6 md:px-12"
+                logoClassName="h-[50px] md:h-[75px] w-auto max-w-[280px] object-contain"
+                homeIconClassName="w-6 h-6 md:w-7 md:h-7"
+                menuIconClassName="w-6 h-6 md:w-7 md:h-7"
+            />
 
             {/* Main Content */}
-            <main className="flex-1 w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+            <main className="flex-1 w-full max-w-[1400px] mx-auto pt-8 px-4 sm:px-6 lg:px-8">
 
                 <div className="py-16 pb-24">
                     <div className="max-w-[1200px] mx-auto">

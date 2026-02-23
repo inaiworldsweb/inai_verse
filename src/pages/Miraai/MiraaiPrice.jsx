@@ -32,8 +32,21 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="bg-black text-white min-h-screen py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-black text-white min-h-screen">
+      <PageHeader
+        logoSrc={logoImage}
+        showBackButton={false}
+        showTitleText={false}
+        showPriceButton={false}
+        showHomeButton={true}
+        showMenuButton={true}
+        showBorder={false}
+        headerClassName="py-4 px-8 md:py-6 md:px-12"
+        logoClassName="h-[50px] md:h-[75px] w-auto max-w-[280px] object-contain"
+        homeIconClassName="w-6 h-6 md:w-7 md:h-7"
+        menuIconClassName="w-6 h-6 md:w-7 md:h-7"
+      />
+      <div className="max-w-6xl mx-auto pt-8 pb-16 px-4">
 
         {/* Header */}
         <div className="text-center">
@@ -49,27 +62,24 @@ export default function PricingPage() {
           <div className="flex justify-center mt-8">
             <div className="relative bg-zinc-900 border border-zinc-700 rounded-full p-1 w-[260px] flex">
               <div
-                className={`absolute top-1 bottom-1 w-1/2 rounded-full bg-white transition-all duration-300 ${
-                  billing === "monthly" ? "left-1" : "left-1/2"
-                }`}
+                className={`absolute top-1 bottom-1 w-1/2 rounded-full bg-white transition-all duration-300 ${billing === "monthly" ? "left-1" : "left-1/2"
+                  }`}
               />
               <button
                 onClick={() => setBilling("monthly")}
-                className={`relative z-10 w-1/2 py-2 text-sm font-medium ${
-                  billing === "monthly"
+                className={`relative z-10 w-1/2 py-2 text-sm font-medium ${billing === "monthly"
                     ? "text-black"
                     : "text-gray-400"
-                }`}
+                  }`}
               >
                 Monthly
               </button>
               <button
                 onClick={() => setBilling("yearly")}
-                className={`relative z-10 w-1/2 py-2 text-sm font-medium ${
-                  billing === "yearly"
+                className={`relative z-10 w-1/2 py-2 text-sm font-medium ${billing === "yearly"
                     ? "text-black"
                     : "text-gray-400"
-                }`}
+                  }`}
               >
                 Annually
               </button>
@@ -82,11 +92,10 @@ export default function PricingPage() {
           {plans.map((plan, index) => (
             <div
               key={index}
-              className={`relative bg-zinc-900 rounded-2xl p-8 border transition-all duration-300 ${
-                plan.popular
+              className={`relative bg-zinc-900 rounded-2xl p-8 border transition-all duration-300 ${plan.popular
                   ? "border-white scale-105 shadow-2xl"
                   : "border-zinc-700"
-              }`}
+                }`}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 rounded-full text-sm font-semibold">

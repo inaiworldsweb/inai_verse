@@ -83,86 +83,111 @@ const RefundPolicyPage = () => {
     }
 
     return (
-        <div className="min-h-screen bg-black text-white font-['Inter'] tracking-wide capitalize">
-            <PageHeader
-                title="Refund & Cancellation Policy"
-                showBackButton={true}
-                showPriceButton={false}
-                showHomeButton={true}
-                showMenuButton={true}
-            />
-
-            {/* Hero Section */}
-            <div className="pt-24 pb-12 px-4 border-b border-white/10">
-                <div className="max-w-[1400px] mx-auto text-center">
-                    <h1 className="text-[25px] md:text-[40px] mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent">
-                        Refund & Cancellation Policy
-                    </h1>
-                    <p className="text-white/60 text-lg">Last Updated: 25 December 2025</p>
-                </div>
-            </div>
-
-            {/* Main Content */}
-            <div className="max-w-[1400px] mx-auto px-4 py-12">
-                <div className="flex flex-col lg:flex-row gap-8">
-                    {/* Table of Contents - Desktop */}
-                    <aside className="hidden lg:block lg:w-80 flex-shrink-0">
-                        <div className="sticky top-24">
-                            <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6">
-                                <h2 className="text-[25px] md:text-[40px] mb-4">Table of Contents</h2>
-                                <nav className="space-y-1 max-h-[calc(100vh-200px)] overflow-y-auto pr-2 custom-scrollbar">
-                                    {sections.map((section) => (
-                                        <button
-                                            key={section.id}
-                                            data-section-id={section.id}
-                                            onClick={() => scrollToSection(section.id)}
-                                            className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-all duration-200 ${activeSection === section.id
-                                                ? 'bg-white/10 text-white font-medium'
-                                                : 'text-white/60 hover:text-white hover:bg-white/5'
-                                                }`}
-                                        >
-                                            <span className="font-mono text-xs mr-2">{section.number}.</span>
-                                            {section.title}
-                                        </button>
-                                    ))}
-                                </nav>
-                            </div>
-                        </div>
-                    </aside>
-
-                    {/* Mobile TOC Toggle */}
-                    <div className="lg:hidden fixed bottom-6 right-6 z-50">
+        <div className="flex flex-col lg:flex-row min-h-screen bg-black text-white font-['Inter'] tracking-wide capitalize">
+            {/* Table of Contents - Sidebar (Desktop) */}
+            <aside className="hidden lg:flex lg:flex-col w-[320px] bg-[#050505] sticky top-0 h-screen overflow-hidden">
+                <div className="flex flex-col h-full pt-8 pb-8 px-8">
+                    {/* Sidebar Navigation Header */}
+                    <div className="flex items-center gap-4 mb-12">
                         <button
-                            onClick={() => setTocOpen(!tocOpen)}
-                            className="bg-white text-black px-6 py-3 rounded-full font-semibold shadow-lg hover:bg-gray-200 transition-all"
+                            onClick={() => navigate(-1)}
+                            className="bg-transparent border-none text-white text-xl cursor-pointer p-2 -ml-2 hover:text-white/70 transition-colors"
+                            aria-label="Go back"
                         >
-                            {tocOpen ? 'Close' : 'Contents'}
+                            <span>←</span>
                         </button>
+                        <div className="flex items-center gap-3">
+                            <span className="text-white/30 text-lg tracking-widest font-light">›</span>
+                            <span className="text-xl font-medium text-white/90 whitespace-nowrap">Refund Policy</span>
+                        </div>
                     </div>
 
-                    {/* Mobile TOC Overlay */}
-                    {tocOpen && (
-                        <div className="lg:hidden fixed inset-0 bg-black/90 backdrop-blur-sm z-40 p-6 overflow-y-auto">
-                            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 max-w-md mx-auto mt-20">
-                                <h2 className="text-[25px] md:text-[40px] mb-4">Table of Contents</h2>
-                                <nav className="space-y-1">
-                                    {sections.map((section) => (
-                                        <button
-                                            key={section.id}
-                                            onClick={() => scrollToSection(section.id)}
-                                            className="w-full text-left px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/5 transition-all"
-                                        >
-                                            <span className="font-mono text-xs mr-2">{section.number}.</span>
-                                            {section.title}
-                                        </button>
-                                    ))}
-                                </nav>
-                            </div>
-                        </div>
-                    )}
+                    <h2 className="text-sm font-bold mb-6 text-white uppercase tracking-[0.2em]">Table of Contents</h2>
+                    <nav className="flex-1 min-h-0 space-y-1 overflow-y-auto pr-2 custom-scrollbar">
+                        {sections.map((section) => (
+                            <button
+                                key={section.id}
+                                data-section-id={section.id}
+                                onClick={() => scrollToSection(section.id)}
+                                className={`w-full text-left px-4 py-3 rounded-xl text-sm transition-all duration-300 group flex items-center gap-3 ${activeSection === section.id
+                                    ? 'bg-white/10 text-white font-medium shadow-[inset_0_0_20_rgba(255,255,255,0.05)]'
+                                    : 'text-white/50 hover:text-white/90 hover:bg-white/5'
+                                    }`}
+                            >
+                                <span className={`font-mono text-[10px] w-5 h-5 rounded-md flex items-center justify-center border ${activeSection === section.id ? 'border-city-20 bg-white/10' : 'border-white/5 bg-white/[0.02]'}`}>{section.number}</span>
+                                <span className="flex-1 truncate">{section.title}</span>
+                                {activeSection === section.id && (
+                                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                                )}
+                            </button>
+                        ))}
+                    </nav>
+                </div>
+            </aside>
 
-                    {/* Content */}
-                    <main className="flex-1 min-w-0">
+            {/* Main Content Area */}
+            <main className="flex-1 min-w-0 flex flex-col">
+                <PageHeader
+                    title=""
+                    showBackButton={false}
+                    showLogo={false}
+                    showPriceButton={false}
+                    showHomeButton={true}
+                    showMenuButton={true}
+                    showBorder={false}
+                />
+
+                <div className="flex-1">
+                    {/* Hero Section */}
+                    <div className="pt-24 pb-12 px-4">
+                        <div className="max-w-[1000px] mx-auto text-center">
+                            <h1 className="text-[25px] md:text-[40px] mb-4 bg-gradient-to-r from-white via-white to-white/60 bg-clip-text text-transparent transition-all hover:scale-[1.01] duration-500">
+                                Refund & Cancellation Policy
+                            </h1>
+                            <p className="text-white/60 text-lg font-light">Last Updated: 25 December 2025</p>
+                        </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="max-w-[10000px] mx-auto px-4 py-12">
+                        {/* Mobile TOC Toggle */}
+                        <div className="lg:hidden fixed bottom-6 right-6 z-50">
+                            <button
+                                onClick={() => setTocOpen(!tocOpen)}
+                                className="bg-white text-black px-6 py-3 rounded-full font-semibold shadow-2xl hover:bg-gray-200 active:scale-95 transition-all flex items-center gap-2"
+                            >
+                                {tocOpen ? 'Close' : 'Contents'}
+                            </button>
+                        </div>
+
+                        {/* Mobile TOC Overlay */}
+                        {tocOpen && (
+                            <div className="lg:hidden fixed inset-0 bg-black/95 backdrop-blur-md z-[60] p-6 overflow-y-auto animate-in fade-in duration-300">
+                                <div className="bg-[#111] border border-white/10 rounded-2xl p-6 max-w-md mx-auto mt-20 shadow-2xl">
+                                    <h2 className="text-xl font-medium mb-6">Table of Contents</h2>
+                                    <nav className="space-y-2">
+                                        {sections.map((section) => (
+                                            <button
+                                                key={section.id}
+                                                onClick={() => scrollToSection(section.id)}
+                                                className="w-full text-left px-4 py-3 rounded-xl text-sm text-white/70 hover:text-white hover:bg-white/5 transition-all flex items-center gap-3"
+                                            >
+                                                <span className="font-mono text-[10px] w-5 h-5 rounded-md flex items-center justify-center border border-white/10 bg-white/5">{section.number}</span>
+                                                {section.title}
+                                            </button>
+                                        ))}
+                                    </nav>
+                                    <button
+                                        onClick={() => setTocOpen(false)}
+                                        className="mt-8 w-full py-3 bg-white/10 rounded-xl text-sm font-medium hover:bg-white/20 transition-colors"
+                                    >
+                                        Close
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Content */}
                         <div className="prose prose-invert max-w-none [&_h2]:font-normal [&_h3]:font-normal">
                             {/* Introduction */}
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8">
@@ -405,9 +430,9 @@ const RefundPolicyPage = () => {
                                 </div>
                             </section>
                         </div>
-                    </main>
+                    </div>
                 </div>
-            </div>
+            </main>
 
             {/* Custom Scrollbar Styles */}
             <style>{`
@@ -426,7 +451,7 @@ const RefundPolicyPage = () => {
                     background: rgba(255, 255, 255, 0.3);
                 }
             `}</style>
-        </div>
+        </div >
     )
 }
 

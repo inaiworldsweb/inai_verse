@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+﻿import { useNavigate } from 'react-router-dom';
 import { HiVideoCamera, HiAcademicCap } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import learnAnytimeImg from '../../../assets/final/Learn Anytime, Anywhere (1).jpg';
@@ -81,20 +81,16 @@ const LearningModesSection = () => {
                                 Introducing Learning Mode<br className="hidden md:block" /> For Students
                             </h3>
                             <p className="text-blue-500 font-bold tracking-[0.3em] uppercase text-[10px]">Product Video</p>
-                            <div className="pt-2 md:pt-4">
+                            <div className="pt-2 md:pt-4 ">
                                 <button
                                     type="button"
-                                    className="group bg-white text-black border-none py-3.5 px-8 rounded-[50px] text-sm font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100"
                                     onClick={() => navigate('/edinai-detail')}
+                                    className="group bg-white text-black border-none py-2.5 px-6 rounded-[40px] text-xs font-semibold cursor-pointer transition-colors duration-200 hover:bg-gray-100 "
                                 >
                                     <span className="relative inline-block overflow-hidden align-top">
                                         <span className="invisible">Learn more</span>
-                                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">
-                                            Learn more
-                                        </span>
-                                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">
-                                            Learn more
-                                        </span>
+                                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-['Inter']">Learn more</span>
+                                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-['Inter']">Learn more</span>
                                     </span>
                                 </button>
                             </div>

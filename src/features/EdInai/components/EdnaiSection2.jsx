@@ -1,26 +1,14 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import Lenis from 'lenis';
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const EdnaiSection2 = () => {
+const EdnaiSection2 = () => {                   
     const container = useRef();
 
     useGSAP(() => {
-        const lenis = new Lenis({
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        });
-
-        function raf(time) {
-            lenis.raf(time);
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-
         const imgs = gsap.utils.toArray(".img-wrapper img");
 
         ScrollTrigger.matchMedia({
@@ -74,15 +62,12 @@ const EdnaiSection2 = () => {
         });
 
         return () => {
-            lenis.destroy();
             ScrollTrigger.getAll().forEach(t => t.kill());
         };
     }, { scope: container });
 
     return (
-        <div ref={container} className="bg-black text-white min-h-screen font-inter">
-            <div className="w-full" />
-            <h1>What is Ednai</h1>
+        <div ref={container} className="bg-black text-white font-inter">
 
             <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative">
 

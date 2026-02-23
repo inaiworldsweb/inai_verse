@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import mainModernImg from '../../../assets/final/AI Teachers that Never Tire (2).png';
 import smartDashboardImg from '../../../assets/final/Smart dashboard and real time feedback.png';
@@ -42,7 +42,7 @@ const ModernLearningSection = () => {
     }
 
     return (
-        <section className="py-10 md:py-0 bg-black overflow-hidden" id="modern-learning">
+        <section className="py-10 md:py-16 bg-black" id="modern-learning">
             <div className="max-w-[1000px] mx-auto px-4">
                 {/* Section Header */}
                 <motion.div
