@@ -56,7 +56,6 @@ const EdnaiSection2 = () => {
                     }
                 });
             },
-
             "(max-width: 768px)": function () {
                 imgs.forEach((image) => {
                     gsap.to(image, {
@@ -84,7 +83,12 @@ const EdnaiSection2 = () => {
             <div className="w-full" />
             <h1>What is Ednai</h1>
 
-            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative">
+            {/* Heading: Centered with dynamic sizing */}
+            <h1 className="w-full text-center font-bold pt-20 md:pt-32 pb-6 text-[20px] md:text-[40px] uppercase tracking-tight">
+                What is EdInai ?
+            </h1>
+
+            <div className="arch-section flex flex-col md:flex-row gap-8 md:gap-[60px] justify-between max-w-[1200px] mx-auto px-6 relative pt-4">
 
                 {/* Left Column */}
                 <div className="flex flex-col flex-1">

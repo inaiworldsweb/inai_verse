@@ -29,7 +29,7 @@ const AutomationSection = () => {
                 </p>
 
                 {/* Secondary Heading */}
-                <h3 className="text-[25px] md:text-[40px] md:-ml-13 font-bold text-white mb-2 capitalize tracking-tight">
+                <h3 className="text-[15px] md:text-[25px] font-bold text-white mb-4 capitalize tracking-tight">
                     Think Smart And Grow Your Students At A Global Scale
                 </h3>
 
