@@ -50,7 +50,7 @@ const MiraaiGallery = () => {
     };
 
     return (
-        <section className="-mb-10 mr-10 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="-mb-28 mr-10 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading: Centered with minimal gap using -mb and reduced margin */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
                 <h2 className="text-[25px] md:text-[45px] font-inter text-white tracking-tighter">

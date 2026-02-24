@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiChevronDown } from 'react-icons/fi';
 
 const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
     return (
@@ -13,20 +12,20 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
         >
             <div
                 onClick={onToggle}
-                className={`w-full bg-[#0A0A0A] border rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden ${isOpen ? 'border-white/30' : 'border-white/10'}`}
+                className="w-full bg-[#0A0A0A] rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden"
             >
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
                     <h3 className="text-lg md:text-xl tracking-tight text-white">
                         {question}
                     </h3>
+
                     <motion.div
-                        animate={{ rotate: isOpen ? 90 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        className="flex items-center justify-center text-white"
+                        initial={false}
+                        animate={{ rotate: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="text-white text-2xl font-light"
                     >
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 18L15 12L9 6" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
+                        {isOpen ? "−" : "+"}
                     </motion.div>
                 </div>
 
@@ -38,8 +37,8 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="px-4 pb-6 md:px-6 md:pb-8 border-t border-white/10 pt-4">
-                                <p className="text-white text-[15px] leading-relaxed">
+                            <div className="px-4 pb-6 md:px-6 md:pb-8 pt-4">
+                                <p className="text-white/70 text-[15px] leading-relaxed">
                                     {answer}
                                 </p>
                             </div>

@@ -48,7 +48,7 @@ const MiraaiWhatYouGet = () => {
     };
 
     return (
-        <section className="py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="py-12 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading: Centered and Gap Minimized using Negative Margin */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
                 <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter uppercase">

@@ -48,7 +48,7 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="py-3 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading: Centered and Gap Fixed using -mb */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-6 md:-mb-14 z-20">
                 <motion.div
@@ -56,11 +56,9 @@ const MiraaiShowcase = () => {
                     whileInView={{ opacity: 1 }}
                     className="inline-block px-6 py-2 mb-2"
                 >
-                    <span className="text-white/60 text-xs md:text-sm uppercase tracking-tighter">
-                        AI Content Showcase
-                    </span>
+                   
                 </motion.div>
-                <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[40px] font-normal text-white tracking-tighter">
                     Explore Our Creative Portfolio
                 </h2>
             </div>
