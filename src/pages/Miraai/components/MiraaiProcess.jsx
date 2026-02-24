@@ -1,5 +1,7 @@
-import React, { useRef } from "react";
-import { motion, useScroll, useSpring } from "framer-motion";
+import React, { useRef, useState, useEffect } from "react";
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // Images
 import step1Img from "../../../assets/images/Miraai/Input Your Vision.png";
@@ -7,51 +9,50 @@ import step2Img from "../../../assets/images/Miraai/Customize & Brand.png";
 import step3Img from "../../../assets/images/Miraai/AI Generation.png";
 import step4Img from "../../../assets/images/Miraai/Review & Deploy.png";
 
+/**
+ * BorderAnimation - Performance Optimized Border
+ * 
+ * Uses GSAP for rotation to synchronize with the global ticker.
+ * Pauses when not in view.
+ */
+const BorderAnimation = ({ isInView }) => {
+  const borderRef = useRef(null);
+  const tweenRef = useRef(null);
 
-// ================= BORDER ANIMATION =================
+  useGSAP(() => {
+    tweenRef.current = gsap.to(borderRef.current, {
+      rotate: 360,
+      duration: 4,
+      ease: "none",
+      repeat: -1,
+      force3D: true
+    });
+  }, { scope: borderRef });
 
-const BorderAnimation = () => {
+  useEffect(() => {
+    if (tweenRef.current) {
+      if (isInView) tweenRef.current.play();
+      else tweenRef.current.pause();
+    }
+  }, [isInView]);
+
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
-      className="absolute inset-0 rounded-[2rem] overflow-hidden z-0"
-    >
-      <motion.div
-        initial={{ rotate: 0 }}
-        animate={{ rotate: 360 }}
-        transition={{
-          duration: 4,
-          ease: "linear",
-          repeat: Infinity
-        }}
-        className="
-          absolute inset-[-150%]
-          bg-[conic-gradient(from_0deg,transparent_0deg,transparent_300deg,white_360deg)]
-        "
+    <div className="absolute inset-0 rounded-[2rem] overflow-hidden z-0 opacity-100 transition-opacity duration-700">
+      <div
+        ref={borderRef}
+        className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_300deg,white_360deg)]"
       />
-    </motion.div>
+    </div>
   );
 };
 
 
 // ================= MAIN COMPONENT =================
 
-const MiraaiProcess = ({ containerRef }) => {
+const MiraaiProcess = () => {
   const sectionRef = useRef(null);
-
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    container: containerRef,
-    offset: ["start 80%", "end 20%"]
-  });
-
-  const scaleY = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const lineRef = useRef(null);
+  const [isInView, setIsInView] = useState(false);
 
   const steps = [
     {
@@ -88,6 +89,53 @@ const MiraaiProcess = ({ containerRef }) => {
     }
   ];
 
+  useGSAP(() => {
+    // 1. Vertical Line Progress
+    gsap.fromTo(lineRef.current,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: "none",
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: true,
+          toggleActions: "play pause resume reverse"
+        }
+      }
+    );
+
+    // 2. Individual Steps Animation
+    steps.forEach((_, index) => {
+      const stepEl = `.step-container-${index}`;
+      const textEl = `${stepEl} .step-text`;
+      const imageEl = `${stepEl} .step-image`;
+      const iconEl = `${stepEl} .step-icon`;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: stepEl,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      });
+
+      tl.fromTo(iconEl, { scale: 0 }, { scale: 1, duration: 0.5, ease: "back.out(1.7)" })
+        .fromTo(textEl, { opacity: 0, x: index % 2 === 0 ? -30 : 30 }, { opacity: 1, x: 0, duration: 0.8 }, "-=0.3")
+        .fromTo(imageEl, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.8 }, "-=0.6");
+    });
+
+    // Visibility Observer
+    const obs = new IntersectionObserver(([entry]) => {
+      setIsInView(entry.isIntersecting);
+    }, { threshold: 0.05 });
+    obs.observe(sectionRef.current);
+
+    return () => obs.disconnect();
+
+  }, { scope: sectionRef });
+
   return (
     <section
       ref={sectionRef}
@@ -97,25 +145,13 @@ const MiraaiProcess = ({ containerRef }) => {
 
         {/* ================= HEADING ================= */}
         <div className="text-center mb-16 md:mb-24">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-[25px] md:text-[40px] font-light mb-6 text-white tracking-tight"
-          >
+          <h2 className="text-[25px] md:text-[40px] font-light mb-6 text-white tracking-tight">
             Here's Exactly How We Work With You
-          </motion.h2>
+          </h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-white/60 text-[18px] w-full mx-auto"
-          >
+          <p className="text-white/60 text-[18px] w-full mx-auto">
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
-          </motion.p>
+          </p>
         </div>
 
 
@@ -123,35 +159,8 @@ const MiraaiProcess = ({ containerRef }) => {
         <div className="relative">
 
           {/* CENTER VERTICAL LINE */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-[4px] -translate-x-1/2 hidden md:block z-10">
-            <svg
-              className="w-full h-full"
-              viewBox="0 0 4 1000"
-              preserveAspectRatio="none"
-              fill="none"
-            >
-              {/* Background line */}
-              <line
-                x1="2"
-                y1="0"
-                x2="2"
-                y2="1000"
-                stroke="rgba(255,255,255,0.1)"
-                strokeWidth="2"
-              />
-
-              {/* Animated line */}
-              <motion.line
-                x1="2"
-                y1="0"
-                x2="2"
-                y2="1000"
-                stroke="#ffffff"
-                strokeWidth="4"
-                strokeLinecap="round"
-                style={{ pathLength: scaleY }}
-              />
-            </svg>
+          <div className="absolute left-1/2 top-0 bottom-0 w-[4px] -translate-x-1/2 hidden md:block z-10 origin-top">
+            <div ref={lineRef} className="w-full h-full bg-white rounded-full origin-top scale-y-0" style={{ boxShadow: '0 0 15px rgba(255,255,255,0.3)' }} />
           </div>
 
 
@@ -160,30 +169,19 @@ const MiraaiProcess = ({ containerRef }) => {
             {steps.map((step, index) => (
               <div
                 key={index}
-                className={`relative flex flex-col md:flex-row items-center justify-between ${step.side === "right" ? "md:flex-row-reverse" : ""
+                className={`step-container-${index} relative flex flex-col md:flex-row items-center justify-between ${step.side === "right" ? "md:flex-row-reverse" : ""
                   }`}
               >
 
                 {/* NUMBER CIRCLE */}
-                <div className="relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 mb-8 md:mb-0">
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    whileInView={{ scale: 1 }}
-                    viewport={{ once: true }}
-                    className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-xl border-4 border-black"
-                  >
+                <div className="step-icon relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 mb-8 md:mb-0 opacity-100 scale-0">
+                  <div className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-xl border-4 border-black">
                     {step.number}
-                  </motion.div>
+                  </div>
                 </div>
 
                 {/* TEXT */}
-                <motion.div
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="w-full md:w-[42%] text-center md:text-left"
-                >
+                <div className="step-text w-full md:w-[42%] text-center md:text-left opacity-0">
                   <h3 className="text-[23px] md:text-[38px] font-normal mb-4 text-white leading-tight tracking-tight">
                     {step.title}
                   </h3>
@@ -195,19 +193,13 @@ const MiraaiProcess = ({ containerRef }) => {
                   <p className="text-white/30 leading-relaxed text-base md:text-lg">
                     {step.description}
                   </p>
-                </motion.div>
+                </div>
 
                 {/* IMAGE CARD */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8 }}
-                  className="relative w-full md:w-[42%] aspect-video md:aspect-square rounded-[2rem] overflow-hidden p-[2px]"
-                >
+                <div className="step-image relative w-full md:w-[42%] aspect-video md:aspect-square rounded-[2rem] overflow-hidden p-[2px] opacity-0 scale-90">
 
                   {/* Animated Border */}
-                  <BorderAnimation />
+                  <BorderAnimation isInView={isInView} />
 
                   {/* Card Content */}
                   <div className="relative z-10 bg-[#0A0A0A] rounded-[calc(2rem-2px)] h-full w-full overflow-hidden border border-white/5">
@@ -215,11 +207,12 @@ const MiraaiProcess = ({ containerRef }) => {
                       src={step.image}
                       alt={step.title}
                       className="w-full h-full object-cover opacity-60"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80" />
                   </div>
 
-                </motion.div>
+                </div>
 
               </div>
             ))}

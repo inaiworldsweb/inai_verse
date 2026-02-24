@@ -19,6 +19,7 @@ import MiraaiPrices from './pages/Miraai/MiraaiPrice'
 import PayUCheckout from './components/payment/PayUCheckout';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentFailure from './components/payment/PaymentFailure';
+import GlobalScrollManager from './components/GlobalScrollManager'
 
 import { useState } from 'react'
 
@@ -27,8 +28,8 @@ function AppContent() {
   const location = useLocation()
 
   // Check if current route is a special page (no sidebar/header)
-  const isSpecialPage = 
-    location.pathname === '/' || 
+  const isSpecialPage =
+    location.pathname === '/' ||
     location.pathname === '/edinai' ||
     location.pathname === '/edinai-detail' ||
     location.pathname === '/edinai-student' ||
@@ -83,7 +84,9 @@ function AppContent() {
 function App() {
   return (
     <BrowserRouter>
-      <AppContent />
+      <GlobalScrollManager>
+        <AppContent />
+      </GlobalScrollManager>
     </BrowserRouter>
   )
 }
