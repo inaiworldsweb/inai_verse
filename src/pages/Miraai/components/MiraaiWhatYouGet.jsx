@@ -49,7 +49,7 @@ const MiraaiWhatYouGet = () => {
 
     return (
         <section className="py-12 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
-            {/* Heading: Centered and Gap Minimized using Negative Margin */}
+            {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
                 <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter uppercase">
                     What You Get
@@ -74,7 +74,7 @@ const MiraaiWhatYouGet = () => {
                                     animate={{
                                         x: getXPos(offset),
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
-                                        zIndex: 40 - absOffset, // Consistent with Navbar fix
+                                        zIndex: 40 - absOffset,
                                         opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
@@ -92,19 +92,24 @@ const MiraaiWhatYouGet = () => {
                                         height: '350px',
                                         willChange: 'transform'
                                     }}
-                                    className={`absolute rounded-2xl overflow-hidden cursor-pointer
+                                    // Div se overflow aur rounding hata di gayi hai
+                                    className={`absolute cursor-pointer flex items-center justify-center
                                         ${absOffset === 0
-                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]'
-                                            : 'border border-white/10 shadow-2xl'}`}
+                                            ? 'shadow-[0_0_50px_rgba(168,85,247,0.4)]'
+                                            : 'shadow-2xl'}`}
                                 >
-                                    <div className="w-full h-full relative bg-zinc-900 overflow-hidden">
+                                    <div className="w-full h-full relative">
                                         <img
                                             src={item.url}
                                             alt="Miraai Gallery"
-                                            className="w-full h-full object-cover select-none block"
+                                            // Image par rounded aur border apply kiya hai
+                                            className={`w-full h-full object-cover select-none block rounded-2xl
+                                                ${absOffset === 0
+                                                    ? 'border-[3px] border-purple-500'
+                                                    : 'border border-white/10'}`}
                                             draggable="false"
                                         />
-                                        <div className={`absolute inset-0 transition-opacity duration-500 
+                                        <div className={`absolute inset-0 transition-opacity duration-500 rounded-2xl
                                             ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`}
                                         />
                                     </div>

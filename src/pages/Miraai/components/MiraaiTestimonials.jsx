@@ -98,7 +98,7 @@ const MiraaiTestimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[32px] md:text-[48px] font-bold text-white mb-6 tracking-tight"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight"
                     >
                         What Our Clients Say About Miraai
                     </motion.h2>
@@ -107,7 +107,7 @@ const MiraaiTestimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/60 text-[18px] w-full mx-auto font-light lg:whitespace-nowrap"
+                        className="text-white/60 text-[15px] md:text-[25px] w-full mx-auto font-light lg:whitespace-nowrap"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
