@@ -46,11 +46,12 @@ const MiraaiComparison = () => {
     ];
 
     return (
-        <section className="py-16 bg-black min-h-screen">
+        <section className="py-16 bg-black min-h-screen relative">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-20">
 
-                {/* Headers */}
-                <div className="text-center mb-16">
+                {/* --- Headers --- */}
+                {/* Added sticky top-[70px] to header so it stays visible with the navbar */}
+                <div className="text-center mb-16 sticky top-[70px] z-40 bg-black py-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -108,20 +109,21 @@ const MiraaiComparison = () => {
                 </div>
 
                 {/* --- MOBILE VIEW: Stacking Cards (Visible below lg) --- */}
-                <div className="lg:hidden relative flex flex-col items-center">
+                {/* Removed extra space between cards, they now stack on top of each other at top: 210px */}
+                <div className="lg:hidden relative flex flex-col gap-4">
                     {comparisonData.map((item, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.9 }}
+                            initial={{ opacity: 0, scale: 0.95 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             style={{
                                 position: 'sticky',
-                                // Stack start from top with 80px gap (approx m-10)
-                                top: `${80 + (index * 4)}px`,
+                                // Fixed sticky point to allow stacking without dead scroll space
+                                top: '210px',
                                 zIndex: index,
                             }}
-                            className="w-full mb-[60vh] last:mb-[10vh]"
+                            className="w-full"
                         >
                             <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 shadow-[0_-20px_60px_-15px_rgba(0,0,0,1)]">
                                 <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4">
@@ -149,6 +151,8 @@ const MiraaiComparison = () => {
                             </div>
                         </motion.div>
                     ))}
+
+                    <div />
                 </div>
             </div>
         </section>
