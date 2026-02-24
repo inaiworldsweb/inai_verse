@@ -148,7 +148,7 @@ const Miraai = () => {
                     <section id="process" className="!mt-0"><MiraaiProcess /></section>
 
                     <section id="showcase" className="!mt-0"><MiraaiShowcase /></section>
-                    <section id="showcase" className="!mt-0"><SynProHeroSection /></section>
+                    <section id="synprohero" className="!mt-0"><SynProHeroSection /></section>
                     {/* <section id="vision" className="!mt-0"><MiraaiVision /></section> */}
                     <section id="services" className="!mt-0"><MiraaiServices /></section>
                     {/* <section id="benefits" className="!mt-0"><MiraaiBenefits /></section> */}
