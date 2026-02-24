@@ -89,13 +89,13 @@ const SynProHeroSection = () => {
                         {/* IMAGE BOX */}
                         <div 
                             ref={imageBoxRef}
-                            className="w-[90vw] md:w-[800px] lg:w-[1000px] h-[250px] md:h-[500px] lg:h-[550px] rounded-[30px] md:rounded-[40px] overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
+                            className="w-[90vw] md:w-[800px] lg:w-[1000px] h-[250px] md:h-[500px] lg:h-[550px]  overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
                             style={{ willChange: "width, height, border-radius" }}
                         >
                             <img 
                                 src={HeroImage} 
                                 alt="Hero" 
-                                className="w-full h-full object-cover"
+                                className="w-full h-full rounded-[30px] md:rounded-[40px] object-cover"
                                 draggable={false}
                             />
                         </div>
