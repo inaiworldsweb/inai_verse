@@ -6,13 +6,7 @@ import { TextPlugin } from 'gsap/TextPlugin';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
-/**
- * useMiraaiAnimation - Performance Optimized Hook
- * 
- * Synchronized with global Lenis ticker.
- * Uses scaleX/transforms for GPU acceleration.
- * Avoids width/height/layout-triggering props.
- */
+
 const useMiraaiAnimation = (servicesData = []) => {
     const consoleRef = useRef(null);
     const previewRef = useRef(null);
