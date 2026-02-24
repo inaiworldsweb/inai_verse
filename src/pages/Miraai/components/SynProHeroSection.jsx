@@ -61,13 +61,13 @@ const SynProHeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-black  overflow-x-hidden">
+        <div ref={containerRef} className="bg-black -mb-25  overflow-x-hidden">
             <section 
                 ref={sectionRef} 
                 className="h-screen w-full flex items-center justify-center overflow-hidden relative"
             >
                 {/* Main Animation Wrapper */}
-                <div className="flex flex-col items-center gap-0 md:gap-2 relative">
+                <div className="hidden md:flex flex-col items-center gap-0 md:gap-2 relative">
                     
                     {/* ══ TOP TEXT ══ */}
                     <div ref={topTextRef} className="hidden md:block opacity-0 will-change-transform">
@@ -117,13 +117,21 @@ const SynProHeroSection = () => {
                 </div>
 
                 {/* MOBILE VIEW (Static) */}
-                <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
-                     <h2 className="text-[25px] md:text-[40px] font-black uppercase text-white tracking-tighter">Miraai Helps Brands Scale Professional</h2>
-                     <div className="w-[85vw] h-[220px] rounded-2xl overflow-hidden border border-white/10">
+                <div className="md:hidden flex flex-col items-center justify-center gap-8 py-20 px-6 text-center relative z-10">
+                     <h2 className="text-[25px] font-black uppercase text-white tracking-tighter leading-tight">
+                        Miraai Helps Brands Scale Professional
+                     </h2>
+                     <div className="w-[85vw] h-[220px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                         <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
                      </div>
-                     <h2 className="text-[25px] md:text-[40px] font-black uppercase text-white tracking-tighter">Creative Content 10× Faster</h2>
-                     <h2 className="text-[25px] md:text-[40px] text-white/50">With Up To 70% Cost Savings.</h2>
+                     <div className="space-y-4">
+                        <h2 className="text-[25px] font-black uppercase text-white tracking-tighter leading-tight">
+                            Creative Content 10× Faster
+                        </h2>
+                        <h2 className="text-[16px] text-white/50 font-medium uppercase tracking-widest">
+                            With Up To 70% Cost Savings.
+                        </h2>
+                     </div>
                 </div>
 
                 {/* SCROLL INDICATOR */}
