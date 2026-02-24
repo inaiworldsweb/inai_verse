@@ -138,7 +138,7 @@ const EdInaiPage = () => {
     const x = useTransform(
         scrollYProgress,
         [0, 1],
-        ["0%", typeof window !== 'undefined' && window.innerWidth < 768 ? "-435vw" : "-1150px"]
+        ["0%", typeof window !== 'undefined' && window.innerWidth < 768 ? "-435vw" : "-1220px"]
     );
     useZoomReveal({
         selector: "#what-is-edinai img[data-zoom-reveal]",
@@ -478,9 +478,7 @@ const EdInaiPage = () => {
                                                     loading="lazy"
                                                 />
                                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-70 z-20" />
-                                                <div className="absolute top-3 left-3 bg-blue-600/20 backdrop-blur-md border border-blue-500/30 px-3 py-1 rounded-full text-[10px] text-blue-400 font-bold uppercase tracking-widest z-30">
-                                                    0{index + 1}
-                                                </div>
+                                              
                                             </div>
 
                                             {/* Content Area */}

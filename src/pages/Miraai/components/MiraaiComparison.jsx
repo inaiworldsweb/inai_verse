@@ -55,14 +55,14 @@ const MiraaiComparison = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[28px] md:text-[45px] font-bold text-white mb-4 tracking-tight"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-4 tracking-tight"
                     >
                         The Real Problem We Solve
                     </motion.h2>
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-white/40 text-[16px] md:text-[24px]"
+                        className="text-white/40 text-[15px] md:text-[25px]"
                     >
                         Do It Yourself Vs Miraai Expert Team
                     </motion.p>
