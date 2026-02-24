@@ -39,11 +39,11 @@ const MiraaiShowcase = () => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
-        
-        const desktopSteps = [0, 230, 450, 650]; 
+
+        const desktopSteps = [0, 230, 450, 650];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
-        
+
         return steps[absOffset] * direction;
     };
 
@@ -93,15 +93,15 @@ const MiraaiShowcase = () => {
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
                                     onClick={() => setActiveIndex(index)}
-                                    style={{ 
-                                        width: '245px', 
+                                    style={{
+                                        width: '245px',
                                         height: '350px',
                                         willChange: 'transform'
                                     }}
                                     // Div se overflow-hidden aur rounding hata di gayi hai
                                     className={`absolute cursor-pointer flex items-center justify-center
-                                        ${absOffset === 0 
-                                            ? 'shadow-[0_0_50px_rgba(59,130,246,0.4)]' 
+                                        ${absOffset === 0
+                                            ? 'shadow-[0_0_50px_rgba(59,130,246,0.4)]'
                                             : 'shadow-2xl'}`}
                                 >
                                     <div className="w-full h-full relative">
@@ -110,13 +110,13 @@ const MiraaiShowcase = () => {
                                             alt={`Showcase ${index + 1}`}
                                             // Image par rounding aur border apply kiya hai
                                             className={`w-full h-full object-cover select-none rounded-2xl
-                                                ${absOffset === 0 
-                                                    ? 'border-[3px] border-blue-500' 
+                                                ${absOffset === 0
+                                                    ? 'border-[3px] border-blue-500'
                                                     : 'border border-white/10'}`}
                                             draggable="false"
                                         />
                                         <div className={`absolute inset-0 transition-opacity duration-500 rounded-2xl
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`} 
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`}
                                         />
                                     </div>
                                 </motion.div>

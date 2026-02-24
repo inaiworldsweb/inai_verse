@@ -41,12 +41,12 @@ const MiraaiGallery = () => {
         const absOffset = Math.abs(offset);
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
-        
+
         // Wapis wahi original steps jo aapne diye the
-        const desktopSteps = [0, 220, 430, 620]; 
+        const desktopSteps = [0, 220, 430, 620];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
-        
+
         return steps[absOffset] * direction;
     };
 
@@ -89,15 +89,15 @@ const MiraaiGallery = () => {
                                     onClick={() => setActiveIndex(index)}
                                     onHoverStart={() => setIsHovered(true)}
                                     onHoverEnd={() => setIsHovered(false)}
-                                    style={{ 
+                                    style={{
                                         width: '245px',
                                         height: '350px',
                                         willChange: 'transform'
                                     }}
                                     // Div se overflow-hidden aur rounding hata di hai
                                     className={`absolute cursor-pointer flex items-center justify-center
-                                        ${absOffset === 0 
-                                            ? 'shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
+                                        ${absOffset === 0
+                                            ? 'shadow-[0_0_50px_rgba(168,85,247,0.4)]'
                                             : 'shadow-2xl'}`}
                                 >
                                     <div className="w-full h-full relative">
@@ -106,13 +106,13 @@ const MiraaiGallery = () => {
                                             alt="Gallery"
                                             // Image par rounded aur border apply kiya hai
                                             className={`w-full h-full object-cover select-none pointer-events-none rounded-2xl
-                                                ${absOffset === 0 
-                                                    ? 'border-[3px] border-purple-500' 
+                                                ${absOffset === 0
+                                                    ? 'border-[3px] border-purple-500'
                                                     : 'border border-white/10'}`}
                                             draggable="false"
                                         />
                                         <div className={`absolute inset-0 transition-opacity duration-500 rounded-2xl
-                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`} 
+                                            ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`}
                                         />
                                     </div>
                                 </motion.div>

@@ -6,6 +6,13 @@ import { TextPlugin } from 'gsap/TextPlugin';
 
 gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
+/**
+ * useMiraaiAnimation - Performance Optimized Hook
+ * 
+ * Synchronized with global Lenis ticker.
+ * Uses scaleX/transforms for GPU acceleration.
+ * Avoids width/height/layout-triggering props.
+ */
 const useMiraaiAnimation = (servicesData = []) => {
     const consoleRef = useRef(null);
     const previewRef = useRef(null);
@@ -26,7 +33,6 @@ const useMiraaiAnimation = (servicesData = []) => {
         const progressFill = consoleEl.querySelector('.progress-fill');
         const statusContainer = consoleEl.querySelector('.status-container');
 
-        // Select icons from the Console Tool Rail (Desktop)
         const consoleIcons = [
             consoleEl.querySelector('.icon-0'),
             consoleEl.querySelector('.icon-1'),
@@ -35,7 +41,6 @@ const useMiraaiAnimation = (servicesData = []) => {
             consoleEl.querySelector('.icon-4'),
         ];
 
-        // Select icons from the Result Preview (Mobile)
         const previewIcons = [
             previewEl.querySelector('.icon-0'),
             previewEl.querySelector('.icon-1'),
@@ -53,18 +58,20 @@ const useMiraaiAnimation = (servicesData = []) => {
 
         // --- INITIAL STATE SETUP ---
         gsap.set([progressContainer, statusContainer, descPillEl], { opacity: 0 });
-        gsap.set(progressFill, { width: '0%' });
+        gsap.set(progressFill, { scaleX: 0, transformOrigin: "left center" });
         gsap.set([titleTextEl, descTextEl], { text: '' });
         gsap.set(titleCursorEl, { opacity: 0 });
+        gsap.set([descTextEl, titleTextEl, serviceImages], { willChange: "transform, opacity" });
 
-        // Reset Tool Rail Icons to Dark Theme (Both Console and Preview)
+        // Reset Tool Rail Icons
         [...consoleIcons, ...previewIcons].forEach((btn) => {
             if (btn) {
                 gsap.set(btn, {
                     backgroundColor: '#2b2b2b',
                     borderColor: 'rgba(255,255,255,0.05)',
-                    color: '#9ca3af', // gray-400
+                    color: '#9ca3af',
                     boxShadow: '0 0 0 rgba(47, 124, 255, 0)',
+                    force3D: true
                 });
             }
         });
@@ -79,11 +86,12 @@ const useMiraaiAnimation = (servicesData = []) => {
             scrollTrigger: {
                 trigger: containerEl,
                 start: 'top top',
-                end: '+=6000', // Matches the container height
-                scrub: 1, // Slightly tighter scrub
+                end: '+=6000',
+                scrub: 1,
                 pin: containerEl.querySelector('.miraai-pin'),
                 anticipatePin: 1,
-                pinSpacing: true, // Crucial for preventing overlap when unpinning
+                pinSpacing: true,
+                toggleActions: "play pause resume reverse", // Kill background CPU
             },
         });
 
@@ -93,9 +101,9 @@ const useMiraaiAnimation = (servicesData = []) => {
             // 1. Phase Reset
             tl.set([descPillEl, progressContainer, statusContainer], { opacity: 0 }, `${phaseStart}%`);
             tl.set([descTextEl, titleTextEl], { text: '' }, `${phaseStart}%`);
-            tl.set(progressFill, { width: '0%' }, `${phaseStart}%`);
+            tl.set(progressFill, { scaleX: 0 }, `${phaseStart}%`);
 
-            // 2. Icon Transition (Glow both console and preview icons)
+            // 2. Icon Transition
             const activeIcons = [consoleIcons[i], previewIcons[i]];
             const inactiveIcons = [
                 ...consoleIcons.filter((_, idx) => idx !== i),
@@ -110,6 +118,7 @@ const useMiraaiAnimation = (servicesData = []) => {
                         color: '#ffffff',
                         boxShadow: '0 0 20px rgba(47, 124, 255, 0.4)',
                         duration: 0.3,
+                        force3D: true
                     }, `${phaseStart}%`);
                 }
             });
@@ -122,11 +131,12 @@ const useMiraaiAnimation = (servicesData = []) => {
                         color: '#9ca3af',
                         boxShadow: '0 0 0 rgba(47, 124, 255, 0)',
                         duration: 0.3,
+                        force3D: true
                     }, `${phaseStart}%`);
                 }
             });
 
-            // 3. Typing Title (0-5% of phase)
+            // 3. Typing Title
             tl.set(titleCursorEl, { opacity: 1 }, `${phaseStart}%`);
             tl.to(titleTextEl, {
                 text: svc.title,
@@ -134,7 +144,7 @@ const useMiraaiAnimation = (servicesData = []) => {
                 ease: 'none',
             }, `${phaseStart}%`);
 
-            // 4. Show Description Pill (5-8% of phase)
+            // 4. Show Description Pill
             tl.to(descPillEl, { opacity: 1, duration: 0.4 }, `${phaseStart + 5}%`);
             tl.to(descTextEl, {
                 text: svc.description || '',
@@ -142,32 +152,34 @@ const useMiraaiAnimation = (servicesData = []) => {
                 ease: 'none'
             }, `${phaseStart + 5}%`);
 
-            // 5. Progress Bar (8-14% of phase)
+            // 5. Progress Bar (Using scaleX for GPU performance)
             tl.to(progressContainer, { opacity: 1, duration: 0.2 }, `${phaseStart + 8}%`);
             tl.to(progressFill, {
-                width: '100%',
+                scaleX: 1,
                 duration: 1.2,
                 ease: 'power1.inOut',
+                force3D: true
             }, `${phaseStart + 9}%`);
             tl.to(progressContainer, { opacity: 0, duration: 0.2 }, `${phaseStart + 14}%`);
 
-            // 6. Status Badge (14-17% of phase)
+            // 6. Status Badge
             tl.to(statusContainer, { opacity: 1, duration: 0.3 }, `${phaseStart + 14}%`);
             tl.to(statusContainer, { opacity: 0, duration: 0.3 }, `${phaseStart + 17}%`);
 
-            // 7. Preview Image Swap (16-19% of phase)
+            // 7. Preview Image Swap
             if (serviceImages?.length) {
                 tl.to(serviceImages, {
                     opacity: (idx) => (idx === i ? 1 : 0),
                     duration: 0.6,
                     ease: 'power2.inOut',
+                    force3D: true
                 }, `${phaseStart + 16}%`);
             }
 
             tl.to(titleCursorEl, { opacity: 0, duration: 0.2 }, `${phaseStart + 18}%`);
         });
 
-    }, { dependencies: [servicesData], scope: containerRef }); // Scope is optional here since we select manually, but good practice
+    }, { dependencies: [servicesData], scope: containerRef });
 
     return { consoleRef, previewRef, containerRef };
 };

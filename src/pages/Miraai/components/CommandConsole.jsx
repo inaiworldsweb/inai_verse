@@ -10,23 +10,23 @@ const CommandConsole = ({ services }) => {
             {/* Left vertical tool rail - Hidden on mobile, Flex on Desktop */}
             <div className="shrink-0 rounded-2xl bg-gray-100 border border-gray-200 p-2 hidden lg:flex flex-col gap-3">
                 {/* 1. Video */}
-                <button className="icon-0 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700 transition-all">
+                <button className="icon-0 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700">
                     <Video className="w-5 h-5" />
                 </button>
                 {/* 2. Image */}
-                <button className="icon-1 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700 transition-all">
+                <button className="icon-1 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700">
                     <ImageIcon className="w-5 h-5" />
                 </button>
                 {/* 3. Catalog */}
-                <button className="icon-2 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700 transition-all">
+                <button className="icon-2 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700">
                     <Folder className="w-5 h-5" />
                 </button>
                 {/* 4. UGC Style Video */}
-                <button className="icon-3 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700 transition-all">
+                <button className="icon-3 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700">
                     <Users className="w-5 h-5" />
                 </button>
                 {/* 5. Multi-language Video */}
-                <button className="icon-4 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700 transition-all">
+                <button className="icon-4 w-10 h-10 rounded-xl bg-white border border-gray-200 flex items-center justify-center text-gray-700">
                     <Globe className="w-5 h-5" />
                 </button>
             </div>

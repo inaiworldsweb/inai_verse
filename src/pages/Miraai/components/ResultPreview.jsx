@@ -37,7 +37,7 @@ const ResultPreview = ({ services }) => {
                     <img
                         key={service.title}
                         ref={(el) => (imageRefs.current[index] = el)}
-                        className="service-image absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300"
+                        className="service-image absolute inset-0 w-full h-full object-cover opacity-0"
                         src={service.thumbnail}
                         alt={service.title}
                     />
@@ -64,7 +64,7 @@ const ResultPreview = ({ services }) => {
             <div className="hidden lg:flex justify-center mt-6 sm:mt-10">
                 <button
                     type="button"
-                    className="group px-6 py-2.5 sm:px-10 sm:py-4 rounded-full bg-white text-black font-bold text-sm sm:text-base uppercase tracking-wider shadow-[0_15px_35px_rgba(255,255,255,0.12)] hover:bg-gray-100 hover:-translate-y-1 transition-all duration-200"
+                    className="group px-6 py-2.5 sm:px-10 sm:py-4 rounded-full bg-white text-black font-bold text-sm sm:text-base uppercase tracking-wider shadow-[0_15px_35px_rgba(255,255,255,0.12)] hover:bg-gray-100 transition-transform duration-200"
                 >
                     <span className="relative inline-block overflow-hidden align-top">
                         <span className="invisible">Start Now</span>
