@@ -1,266 +1,140 @@
-import React, { useRef, useEffect, useState, useMemo } from "react";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import HeroImage from "../../../assets/centerImage.webp";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const SynProHeroSection = () => {
     const containerRef = useRef(null);
+    const sectionRef = useRef(null);
+    const imageBoxRef = useRef(null);
+    const topTextRef = useRef(null);
+    const bottomTextRef = useRef(null);
     const leftTextRef = useRef(null);
     const rightTextRef = useRef(null);
+    const contentWrapperRef = useRef(null);
 
-    const [progress, setProgress] = useState(0);
-    const [isMobile, setIsMobile] = useState(false);
-    const [leftW, setLeftW] = useState(0);   // actual pixel width of "Creative"
-    const [rightW, setRightW] = useState(0);   // actual pixel width of "Content 10× Faster"
+    useGSAP(() => {
+        if (window.innerWidth >= 768) {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "top top",
+                    end: "+=100%", 
+                    scrub: 1, 
+                    pin: true,
+                    pinSpacing: true,
+                    anticipatePin: 1,
+                }
+            });
 
-    const progressRef = useRef(0);
-    const targetRef = useRef(0);
-    const rafRef = useRef(null);
-    const inViewRef = useRef(false);
-
-    // ── Resize ────────────────────────────────────────────────────────────────
-    useEffect(() => {
-        const check = () => setIsMobile(window.innerWidth < 768);
-        check();
-        window.addEventListener("resize", check);
-        return () => window.removeEventListener("resize", check);
-    }, []);
-
-    // ── Measure actual text widths after render ───────────────────────────────
-    useEffect(() => {
-        if (isMobile) return;
-        const measure = () => {
-            if (leftTextRef.current) setLeftW(leftTextRef.current.offsetWidth);
-            if (rightTextRef.current) setRightW(rightTextRef.current.offsetWidth);
-        };
-        measure();
-        window.addEventListener("resize", measure);
-        return () => window.removeEventListener("resize", measure);
-    }, [isMobile]);
-
-    // ── IntersectionObserver ──────────────────────────────────────────────────
-    useEffect(() => {
-        if (isMobile) return;
-        const el = containerRef.current;
-        if (!el) return;
-        const obs = new IntersectionObserver(
-            ([entry]) => { inViewRef.current = entry.isIntersecting; },
-            { threshold: 0.2 }
-        );
-        obs.observe(el);
-        return () => obs.disconnect();
-    }, [isMobile]);
-
-    // ── RAF smooth loop ───────────────────────────────────────────────────────
-    useEffect(() => {
-        if (isMobile) return;
-        const loop = () => {
-            const cur = progressRef.current;
-            const tgt = targetRef.current;
-            const diff = tgt - cur;
-            if (Math.abs(diff) > 0.0001) {
-                const lerpFactor = 0.04; // Even softer, heavier fluid glide
-                const next = cur + diff * lerpFactor;
-                progressRef.current = next;
-                setProgress(next);
-            } else if (progressRef.current !== tgt) {
-                progressRef.current = tgt;
-                setProgress(tgt);
-            }
-            rafRef.current = requestAnimationFrame(loop);
-        };
-        rafRef.current = requestAnimationFrame(loop);
-        return () => cancelAnimationFrame(rafRef.current);
-    }, [isMobile]);
-
-    // ── Wheel intercept ───────────────────────────────────────────────────────
-    useEffect(() => {
-        if (isMobile) return;
-        const onWheel = (e) => {
-            if (!inViewRef.current) return;
-            const cur = targetRef.current;
-            if (e.deltaY > 0 && cur >= 0.99) return;
-            if (e.deltaY < 0 && cur <= 0.01) return;
-
-            e.preventDefault();
-            const sens = 0.0006; // Ultra-fine sensitivity
-            targetRef.current = Math.max(0, Math.min(1, targetRef.current + e.deltaY * sens));
-        };
-        window.addEventListener("wheel", onWheel, { passive: false });
-        return () => window.removeEventListener("wheel", onWheel);
-    }, [isMobile]);
-
-
-    // ── Easing ────────────────────────────────────────────────────────────────
-    const easeOut = (t) => 1 - Math.pow(1 - t, 5); // Changed to Quintic Ease Out (power 5)
-    const anim = isMobile ? 1 : easeOut(progress);
-
-    const letterSpacingStyle = useMemo(() => ({ letterSpacing: "0.1px" }), []);
-
-    // ── Image sizes ───────────────────────────────────────────────────────────
-    const W0 = 1100, W1 = 280;
-    const H0 = 600, H1 = 100;
-
-    const imgW = W0 - anim * (W0 - W1);
-    const imgH = H0 - anim * (H0 - H1);
-    const imgR = anim > 0.5 ? "16px" : "40px";
-
-    const GAP = 20;
-
-
-    const leftFinalX = -(W1 / 2) - GAP - (leftW / 2);
-    const rightFinalX = (W1 / 2) + GAP + (rightW / 2);
-
-
-    const SLIDE = 420;
-    const slide = (1 - anim) * SLIDE;
-
-    const leftX = leftFinalX - slide;
-    const rightX = rightFinalX + slide;
-
-    const textOpacity = anim > 0.08 ? 1 : 0;
-
+            // Sabse pehle image ko shrink karenge
+            tl.to(imageBoxRef.current, {
+                width: "280px",
+                height: "150px",
+                borderRadius: "20px",
+                ease: "none"
+            }, 0)
+            
+            // Left Text: Bahar se aayega aur image ke left mein ruk jayega
+            .fromTo(leftTextRef.current, 
+                { x: -150, opacity: 0, scale: 0.8 }, 
+                { x: 0, opacity: 1, scale: 1, ease: "power2.out" }, 0.1)
+            
+            // Right Text: Bahar se aayega aur image ke right mein ruk jayega
+            .fromTo(rightTextRef.current, 
+                { x: 150, opacity: 0, scale: 0.8 }, 
+                { x: 0, opacity: 1, scale: 1, ease: "power2.out" }, 0.1)
+            
+            // Top Text: Niche slide hokar aayega
+            .fromTo(topTextRef.current, 
+                { y: -100, opacity: 0 }, 
+                { y: 0, opacity: 1, ease: "power2.out" }, 0.2)
+            
+            // Bottom Text: Upar slide hokar aayega
+            .fromTo(bottomTextRef.current, 
+                { y: 100, opacity: 0 }, 
+                { y: 0, opacity: 1, ease: "power2.out" }, 0.2);
+        }
+    }, { scope: containerRef });
 
     return (
-        <div
-            ref={containerRef}
-            className="relative w-full bg-black text-white"
-            style={{ height: "100vh", overflow: "hidden" }}
-        >
-            <div className="w-full h-full flex items-center justify-center relative">
-
-                {/* ══ TOP ════════════════════════════════════════════════════ */}
-                {!isMobile && (
-                    <div
-                        className="absolute z-20 w-full text-center pointer-events-none"
-                        style={{
-                            transform: `translateY(calc(-${(1 - anim) * SLIDE}px - ${H1 / 2 + 40}px))`,
-                            opacity: textOpacity,
-                            willChange: "transform, opacity",
-                        }}
-                    >
-                        <h2
-                            className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(25px, 4vw, 40px)", ...letterSpacingStyle }}
-                        >
+        <div ref={containerRef} className="bg-black  overflow-x-hidden">
+            <section 
+                ref={sectionRef} 
+                className="h-screen w-full flex items-center justify-center overflow-hidden relative"
+            >
+                {/* Main Animation Wrapper */}
+                <div className="flex flex-col items-center gap-0 md:gap-2 relative">
+                    
+                    {/* ══ TOP TEXT ══ */}
+                    <div ref={topTextRef} className="hidden md:block opacity-0 will-change-transform">
+                        <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-tighter text-white font-inter">
                             Miraai Helps Brands Scale Professional
                         </h2>
                     </div>
-                )}
 
-                {/* ══ LEFT — "Creative" ═══════════════════════════════════════ */}
-                {!isMobile && (
-                    <div
-                        ref={leftTextRef}
-                        className="absolute z-20 pointer-events-none"
-                        style={{
-                            transform: `translateX(${leftX}px)`,
-                            opacity: textOpacity,
-                            willChange: "transform, opacity",
-                        }}
-                    >
-                        <h2
-                            className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(40px, 4vw, 25px)", ...letterSpacingStyle }}
+                    {/* ══ CENTER ROW (Left Text + Image + Right Text) ══ */}
+                    <div ref={contentWrapperRef} className="flex items-center justify-center gap-4 lg:gap-2">
+                        
+                        {/* LEFT TEXT */}
+                        <div ref={leftTextRef} className="hidden md:block opacity-0 will-change-transform">
+                            <h2 className="text-[25px] md:text-[40px] font-black uppercase tracking-tighter text-white font-inter">
+                                Creative
+                            </h2>
+                        </div>
+
+                        {/* IMAGE BOX */}
+                        <div 
+                            ref={imageBoxRef}
+                            className="w-[90vw] md:w-[800px] lg:w-[1000px] h-[250px] md:h-[500px] lg:h-[550px] rounded-[30px] md:rounded-[40px] overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
+                            style={{ willChange: "width, height, border-radius" }}
                         >
-                            Creative
-                        </h2>
+                            <img 
+                                src={HeroImage} 
+                                alt="Hero" 
+                                className="w-full h-full object-cover"
+                                draggable={false}
+                            />
+                        </div>
+
+                        {/* RIGHT TEXT */}
+                        <div ref={rightTextRef} className="hidden md:block opacity-0 will-change-transform">
+                            <h2 className="text-[25px] md:text-[40px] font-black uppercase tracking-tighter text-white font-inter">
+                                Content
+                            </h2>
+                        </div>
                     </div>
-                )}
 
-                {/* ══ RIGHT — "Content 10× Faster" ════════════════════════════ */}
-                {!isMobile && (
-                    <div
-                        ref={rightTextRef}
-                        className="absolute z-20 pointer-events-none"
-                        style={{
-                            transform: `translateX(${rightX}px)`,
-                            opacity: textOpacity,
-                            willChange: "transform, opacity",
-                        }}
-                    >
-                        <h2
-                            className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(40px, 4vw, 25px)", ...letterSpacingStyle }}
-                        >
-                            Content
-                        </h2>
-                    </div>
-                )}
-
-                {/* ══ BOTTOM ══════════════════════════════════════════════════ */}
-                {!isMobile && (
-                    <div
-                        className="absolute z-20 w-full text-center pointer-events-none"
-                        style={{
-                            transform: `translateY(calc(${(1 - anim) * SLIDE}px + ${H1 / 2 + 40}px))`,
-                            opacity: textOpacity,
-                            willChange: "transform, opacity",
-                        }}
-                    >
-                        <h2
-                            className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(40px, 4vw, 25px)", ...letterSpacingStyle }}
-                        >
+                    {/* ══ BOTTOM TEXT ══ */}
+                    <div ref={bottomTextRef} className="hidden md:block opacity-0 will-change-transform">
+                        <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-tighter text-white font-inter">
                             10× Faster With Up To 70% Cost Savings.
                         </h2>
                     </div>
-                )}
-
-                {/* ══ CENTER IMAGE ════════════════════════════════════════════ */}
-                <div
-                    className="relative z-10 overflow-hidden border border-white/10 shadow-[0_0_60px_rgba(255,255,255,0.04)] flex-shrink-0"
-                    style={
-                        isMobile
-                            ? { width: "85vw", height: "220px", borderRadius: "20px" }
-                            : {
-                                width: `${imgW}px`,
-                                height: `${imgH}px`,
-                                borderRadius: imgR,
-                                willChange: "width, height, border-radius",
-                            }
-                    }
-                >
-                    <img
-                        src={HeroImage}
-                        alt="Hero"
-                        className="w-full h-full object-cover object-center"
-                        draggable={false}
-                    />
                 </div>
 
-                {/* ══ MOBILE ══════════════════════════════════════════════════ */}
-                {isMobile && (
-                    <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-5 text-center">
-                        <h2 className="text-[18px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
-                            Miraai Helps Brands Scale Professional
-                        </h2>
+                {/* MOBILE VIEW (Static) */}
+                <div className="md:hidden absolute inset-0 flex flex-col items-center justify-center gap-6 px-6 text-center">
+                     <h2 className="text-[25px] md:text-[40px] font-black uppercase text-white tracking-tighter">Miraai Helps Brands Scale Professional</h2>
+                     <div className="w-[85vw] h-[220px] rounded-2xl overflow-hidden border border-white/10">
+                        <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
+                     </div>
+                     <h2 className="text-[25px] md:text-[40px] font-black uppercase text-white tracking-tighter">Creative Content 10× Faster</h2>
+                     <h2 className="text-[25px] md:text-[40px] text-white/50">With Up To 70% Cost Savings.</h2>
+                </div>
 
-                        <div
-                            style={{ width: "85vw", height: "220px", borderRadius: "20px" }}
-                            className="overflow-hidden border border-white/10"
-                        >
-                            <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
-                        </div>
-                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
-                            Creative Content 10× Faster
-                        </h2>
-                        <h2 className="text-[16px] font-black uppercase tracking-tighter font-inter leading-tight" style={letterSpacingStyle}>
-                            With Up To 70% Cost Savings.
-                        </h2>
-                    </div>
-                )}
-                {!isMobile && (
-                    <div
-                        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
-                        style={{ opacity: Math.max(0, 1 - progress * 12) }}
-                    >
-                        <span className="text-white/30 text-[10px] uppercase tracking-[0.3em]">
-                            Scroll
-                        </span>
-                        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
-                    </div>
-                )}
+                {/* SCROLL INDICATOR */}
+                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3">
+                    <span className="text-white/20 text-[10px] uppercase tracking-[0.4em]">Scroll Down</span>
+                    <div className="w-px h-10 bg-gradient-to-b from-white/20 to-transparent" />
+                </div>
+            </section>
 
-            </div>
+            {/* Next Section Space */}
+           
         </div>
     );
 };
