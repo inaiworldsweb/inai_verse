@@ -121,7 +121,7 @@ const MiraaiComparison = () => {
                                 top: `${80 + (index * 4)}px`,
                                 zIndex: index,
                             }}
-                            className="w-full mb-[60vh]"
+                            className="w-full mb-[60vh] last:mb-[10vh]"
                         >
                             <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 shadow-[0_-20px_60px_-15px_rgba(0,0,0,1)]">
                                 <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4">
