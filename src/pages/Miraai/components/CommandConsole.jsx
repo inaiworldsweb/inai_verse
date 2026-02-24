@@ -53,7 +53,7 @@ const CommandConsole = ({ services }) => {
                             {/* Loading line inside description pill */}
                             <div className="progress-container opacity-0" ref={progressBarRef}>
                                 <div className="w-full bg-gray-700 rounded-full h-2 overflow-hidden">
-                                    <div className="progress-fill h-full bg-[#2f7cff] w-0" />
+                                    <div className="progress-fill h-full bg-[#2f7cff] w-full" />
                                 </div>
                             </div>
                         </div>
