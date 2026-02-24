@@ -15,7 +15,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 className="w-full bg-[#0A0A0A] rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden"
             >
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
-                    <h3 className="text-[15px] md:text-[25px] tracking-tight text-white">
+                    <h3 className="text-[15px] md:text-[20px] tracking-tight text-white">
                         {question}
                     </h3>
 
