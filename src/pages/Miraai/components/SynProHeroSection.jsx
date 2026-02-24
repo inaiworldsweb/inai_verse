@@ -103,26 +103,18 @@ const SynProHeroSection = () => {
     const imgH = H0 - anim * (H0 - H1);
     const imgR = anim > 0.5 ? "16px" : "40px";
 
-    // ── Gap between image edge and text (pixels) ──────────────────────────────
-    const GAP = 48; // space between image and text, increase if still overlapping
+    const GAP = 20;
 
-    // Final positions (anim = 1):
-    //   Left  text right-edge  = -(imgW/2) - GAP  → text ends GAP px left of image
-    //   Right text left-edge   = +(imgW/2) + GAP  → text starts GAP px right of image
-    //
-    // We translateX the CENTER of each text block:
-    //   Left  center = -(imgW/2) - GAP - leftW/2
-    //   Right center = +(imgW/2) + GAP + rightW/2
 
-    const leftFinalX = -(W1 / 2) - GAP - (leftW / 2);  // negative = left of center
-    const rightFinalX = (W1 / 2) + GAP + (rightW / 2);   // positive = right of center
+    const leftFinalX = -(W1 / 2) - GAP - (leftW / 2);
+    const rightFinalX = (W1 / 2) + GAP + (rightW / 2);
 
-    // At anim=0 texts are off screen (slide 420px further out)
+
     const SLIDE = 420;
     const slide = (1 - anim) * SLIDE;
 
-    const leftX = leftFinalX - slide;   // starts more to the left, moves right
-    const rightX = rightFinalX + slide;   // starts more to the right, moves left
+    const leftX = leftFinalX - slide;
+    const rightX = rightFinalX + slide;
 
     const textOpacity = anim > 0.08 ? 1 : 0;
 
@@ -140,14 +132,14 @@ const SynProHeroSection = () => {
                     <div
                         className="absolute z-20 w-full text-center pointer-events-none"
                         style={{
-                            transform: `translateY(calc(-${(1 - anim) * SLIDE}px - ${H1 / 2 + 90}px))`,
+                            transform: `translateY(calc(-${(1 - anim) * SLIDE}px - ${H1 / 2 + 40}px))`,
                             opacity: textOpacity,
                             willChange: "transform, opacity",
                         }}
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(25px, 4vw, 40px)", ...letterSpacingStyle }}
                         >
                             Miraai Helps Brands Scale Professional
                         </h2>
@@ -167,7 +159,7 @@ const SynProHeroSection = () => {
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(40px, 4vw, 25px)", ...letterSpacingStyle }}
                         >
                             Creative
                         </h2>
@@ -187,7 +179,7 @@ const SynProHeroSection = () => {
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter whitespace-nowrap"
-                            style={{ fontSize: "clamp(18px, 3vw, 44px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(40px, 4vw, 25px)", ...letterSpacingStyle }}
                         >
                             Content
                         </h2>
@@ -199,14 +191,14 @@ const SynProHeroSection = () => {
                     <div
                         className="absolute z-20 w-full text-center pointer-events-none"
                         style={{
-                            transform: `translateY(calc(${(1 - anim) * SLIDE}px + ${H1 / 2 + 90}px))`,
+                            transform: `translateY(calc(${(1 - anim) * SLIDE}px + ${H1 / 2 + 40}px))`,
                             opacity: textOpacity,
                             willChange: "transform, opacity",
                         }}
                     >
                         <h2
                             className="font-black uppercase tracking-tighter font-inter leading-tight"
-                            style={{ fontSize: "clamp(18px, 3.2vw, 48px)", ...letterSpacingStyle }}
+                            style={{ fontSize: "clamp(40px, 4vw, 25px)", ...letterSpacingStyle }}
                         >
                             10× Faster With Up To 70% Cost Savings.
                         </h2>
@@ -256,8 +248,6 @@ const SynProHeroSection = () => {
                         </h2>
                     </div>
                 )}
-
-                {/* ══ SCROLL HINT ═════════════════════════════════════════════ */}
                 {!isMobile && (
                     <div
                         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
