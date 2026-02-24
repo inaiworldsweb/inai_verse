@@ -118,16 +118,16 @@ const MiraaiComparison = () => {
                             style={{
                                 position: 'sticky',
                                 // Stack start from top with 80px gap (approx m-10)
-                                top: `${80 + (index * 4)}px`, 
+                                top: `${80 + (index * 4)}px`,
                                 zIndex: index,
                             }}
-                            className="w-full mb-[60vh] last:mb-[10vh]" 
+                            className="w-full mb-[60vh] last:mb-[10vh]"
                         >
                             <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 shadow-[0_-20px_60px_-15px_rgba(0,0,0,1)]">
                                 <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4">
                                     {item.area}
                                 </h3>
-                                
+
                                 <div className="space-y-6">
                                     {/* DIY Mobile */}
                                     <div className="flex items-start gap-4 p-4 rounded-xl bg-red-500/5 border border-red-500/10">
