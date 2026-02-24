@@ -48,19 +48,16 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
-            {/* Heading: Centered and Gap Fixed using -mb */}
+        <section className="py-3 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+            {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-6 md:-mb-14 z-20">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     className="inline-block px-6 py-2 mb-2"
                 >
-                    <span className="text-white/60 text-xs md:text-sm uppercase tracking-tighter">
-                        AI Content Showcase
-                    </span>
                 </motion.div>
-                <h2 className="text-[25px] md:text-[45px] font-normal text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[40px]  text-white tracking-tighter">
                     Explore Our Creative Portfolio
                 </h2>
             </div>
@@ -83,7 +80,7 @@ const MiraaiShowcase = () => {
                                     animate={{
                                         x: getXPos(offset),
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
-                                        zIndex: 40 - absOffset, // Consistent with other components
+                                        zIndex: 40 - absOffset,
                                         opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
@@ -101,19 +98,24 @@ const MiraaiShowcase = () => {
                                         height: '350px',
                                         willChange: 'transform'
                                     }}
-                                    className={`absolute rounded-2xl overflow-hidden cursor-pointer
+                                    // Div se overflow-hidden aur rounding hata di gayi hai
+                                    className={`absolute cursor-pointer flex items-center justify-center
                                         ${absOffset === 0 
-                                            ? 'border-[3px] border-blue-500 shadow-[0_0_50px_rgba(59,130,246,0.4)]' 
-                                            : 'border border-white/10 shadow-2xl'}`}
+                                            ? 'shadow-[0_0_50px_rgba(59,130,246,0.4)]' 
+                                            : 'shadow-2xl'}`}
                                 >
-                                    <div className="w-full h-full relative overflow-hidden bg-gray-900">
+                                    <div className="w-full h-full relative">
                                         <img
                                             src={item.url}
                                             alt={`Showcase ${index + 1}`}
-                                            className="w-full h-full object-cover select-none"
+                                            // Image par rounding aur border apply kiya hai
+                                            className={`w-full h-full object-cover select-none rounded-2xl
+                                                ${absOffset === 0 
+                                                    ? 'border-[3px] border-blue-500' 
+                                                    : 'border border-white/10'}`}
                                             draggable="false"
                                         />
-                                        <div className={`absolute inset-0 transition-opacity duration-500 
+                                        <div className={`absolute inset-0 transition-opacity duration-500 rounded-2xl
                                             ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`} 
                                         />
                                     </div>

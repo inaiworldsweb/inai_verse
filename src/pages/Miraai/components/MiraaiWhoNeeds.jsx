@@ -52,17 +52,23 @@ const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile 
 
   return (
     <motion.div
-      className="service-card"
-      style={isMobile ? {} : { left: '50%', top: '50%', position: 'absolute' }}
+      className={isMobile ? "w-full flex justify-center" : "absolute left-1/2 top-1/2"}
       initial={isMobile ? { opacity: 0, y: 20 } : { x: 0, y: 0, opacity: 0, scale: 0.5, translateX: '-50%', translateY: '-50%' }}
       animate={isMobile ? { opacity: 1, y: 0 } : controls}
-      transition={isMobile ? { delay: index * 0.1 } : {}}
+      transition={isMobile ? { delay: index * 0.1, duration: 0.5 } : {}}
     >
-      <div className="card-inner-wrapper">
-        <div className="card-image-box">
-          <img src={data.image} alt={data.title} className="card-image" />
+      <div className="relative inline-flex flex-col items-center cursor-pointer">
+        <div className="w-[110px] h-[110px] xs:w-[130px] xs:h-[130px] sm:w-[140px] sm:h-[140px] bg-transparent">
+          {/* Borders and Rounding applied directly to the image */}
+          <img 
+            src={data.image} 
+            alt={data.title} 
+            className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]" 
+          />
         </div>
-        <div className="card-label">{data.title}</div>
+        <div className="absolute -right-2 -bottom-2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
+          {data.title}
+        </div>
       </div>
     </motion.div>
   );
@@ -89,14 +95,16 @@ export default function WhoNeedsOurServices() {
   );
 
   return (
-    <section className={`who-needs-section ${isMobile ? 'mobile' : ''}`}>
-      <div className="who-needs-container">
-        <h2 className="section-heading">Who Needs Our Services</h2>
+    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-20 lg:py-0 px-5 overflow-hidden">
+      <div className="w-full max-w-7xl mx-auto text-center">
+        {/* Title: Desktop 40px, Mobile 25px */}
+        <h2 className="text-[25px] lg:text-[40px] font-normal tracking-tighter mb-12 lg:mb-5">
+          Who Needs Our Services
+        </h2>
 
         {!isMobile ? (
-          // DESKTOP VIEW
           <motion.div
-            className="main-stage"
+            className="relative h-[650px] flex items-center justify-center"
             onViewportEnter={() => setIsInView(true)}
             viewport={{ once: true, amount: 0.3 }}
           >
@@ -115,9 +123,9 @@ export default function WhoNeedsOurServices() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 1, duration: 0.8 }}
-              className="center-content-box"
+              className="z-10 max-w-2xl"
             >
-              <p className="center-statement">
+              <p className="text-[25px] leading-relaxed drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
                 Miraai Is Built For Brands That Rely<br />
                 High-Quality Visual Content, Frequent<br />
                 Campaigns, And Fast Execution.
@@ -125,9 +133,8 @@ export default function WhoNeedsOurServices() {
             </motion.div>
           </motion.div>
         ) : (
-          // MOBILE VIEW (4 Above - Text - 4 Below)
-          <div className="mobile-layout">
-            <div className="mobile-grid">
+          <div className="flex -mb-20 flex-col gap-12 items-center">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
               {cardsData.slice(0, 4).map((card, index) => (
                 <FloatingCard
                   key={index}
@@ -143,14 +150,15 @@ export default function WhoNeedsOurServices() {
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="mobile-center-text"
+              viewport={{ once: true }}
+              className="py-6"
             >
-              <p className="center-statement">
+              <p className="text-[15px] lg:text-[25px] leading-relaxed max-w-[320px] mx-auto opacity-90">
                 Miraai Is Built For Brands That Rely High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
               </p>
             </motion.div>
 
-            <div className="mobile-grid">
+            <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
               {cardsData.slice(4, 8).map((card, index) => (
                 <FloatingCard
                   key={index + 4}
@@ -165,89 +173,6 @@ export default function WhoNeedsOurServices() {
           </div>
         )}
       </div>
-
-      <style>{`
-        .who-needs-section {
-          height: 100vh;
-          min-height: 700px;
-          background: #000;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 20px;
-          overflow: hidden;
-        }
-        .who-needs-container { width: 100%; max-width: 1200px; margin: 0 auto; text-align: center; }
-
-        .section-heading { 
-          font-size: 40px; 
-          font-weight: 400; 
-          letter-spacing: -1px; 
-          margin-bottom: 20px; 
-          color: #ffffff;
-        }
-
-        /* Desktop Stage */
-        .main-stage { position: relative; height: 600px; display: flex; align-items: center; justify-content: center; }
-        .center-content-box { z-index: 5; max-width: 700px; }
-
-        /* Mobile Layout */
-        .mobile-layout { display: flex; flex-direction: column; gap: 40px; align-items: center; }
-        .mobile-grid {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 25px;
-          width: 100%;
-          max-width: 900px;
-        }
-        .mobile-center-text { padding: 20px 0; }
-
-        .center-statement {
-          font-size: 25px;
-          line-height: 1.4;
-          text-shadow: 0 0 20px rgba(0,0,0,0.8);
-        }
-
-        /* Card Styling */
-        .card-inner-wrapper { display: inline-flex; flex-direction: column; align-items: center; cursor: pointer; position: relative; }
-        .card-image-box {
-          width: 130px; height: 130px; border-radius: 16px; overflow: hidden;
-          border: 1px solid rgba(255,255,255,0.15); background: #111;
-          box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-        }
-        .card-image { width: 100%; height: 100%; object-fit: cover; }
-        .card-label {
-          position: absolute;
-          right: -10px;
-          bottom: -10px;
-          z-index: 20;
-          background: rgba(16, 16, 16, 0.92);
-          border: 1px solid rgba(255,255,255,0.22);
-          padding: 10px 14px;
-          border-radius: 10px;
-          font-size: 12px;
-          line-height: 1;
-          white-space: nowrap;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-        }
-
-        @media (max-width: 768px) {
-          .center-statement { font-size: 25px; padding: 0 10px; }
-          .card-image-box { width: 140px; height: 140px; }
-          .card-label { right: -10px; bottom: -10px; }
-          .who-needs-section { padding: 40px 10px; height: auto; }
-          .mobile-grid {
-             grid-template-columns: repeat(2, 1fr);
-             max-width: 400px;
-          }
-        }
-
-        @media (max-width: 380px) {
-          .card-image-box { width: 120px; height: 120px; }
-          .mobile-grid { gap: 15px; }
-        }
-      `}</style>
     </section>
   );
 }

@@ -54,7 +54,7 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
 
 const MobileTruthCard = ({ title, description, icon: Icon, isOpen, onClick }) => {
   return (
-    <div className="mb-4 overflow-hidden rounded-xl border border-white/30 bg-gradient-to-b from-white/10 to-[#0A0A0A]">
+    <div className="md:mb-4  overflow-hidden rounded-xl border border-white/30 bg-gradient-to-b from-white/10 to-[#0A0A0A]">
       <button
         onClick={onClick}
         className="w-full p-5 text-left"
@@ -118,7 +118,7 @@ const MiraaiSimpleTruth = () => {
   ];
 
   return (
-    <section className="pt-12 md:pt-20 pb-10 md:pb-16 bg-black overflow-hidden relative">
+    <section className="pt-12 md:pt-20 -mb-3 md:mb-0 md:pb-16 bg-black overflow-hidden relative">
       {/* Ambient Background Gradient */}
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-white/10 blur-[120px] rounded-full pointer-events-none" />
 

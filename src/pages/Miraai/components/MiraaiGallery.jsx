@@ -42,6 +42,7 @@ const MiraaiGallery = () => {
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
         
+        // Wapis wahi original steps jo aapne diye the
         const desktopSteps = [0, 220, 430, 620]; 
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
         const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
@@ -50,10 +51,9 @@ const MiraaiGallery = () => {
     };
 
     return (
-        <section className="-mb-10 mr-10 bg-black overflow-hidden relative flex flex-col items-center justify-center">
-            {/* Heading: Centered with minimal gap using -mb and reduced margin */}
+        <section className="-mb-28 mr-10 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
-                <h2 className="text-[25px] md:text-[45px] font-inter text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[45px] text-white tracking-tighter">
                     Visualizing The Future Of Creativity
                 </h2>
             </div>
@@ -74,9 +74,10 @@ const MiraaiGallery = () => {
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
+                                        // Original scale: 0.07 decrement
                                         scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.07),
-                                        zIndex: 40 - absOffset, // Kept at 40 to stay under Navbar
-                                        opacity: 1,
+                                        zIndex: 40 - absOffset,
+                                        opacity: 1, // Opacity wapis full (1) kar di hai
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
                                     }}
                                     transition={{
@@ -93,19 +94,24 @@ const MiraaiGallery = () => {
                                         height: '350px',
                                         willChange: 'transform'
                                     }}
-                                    className={`absolute rounded-2xl overflow-hidden cursor-pointer
+                                    // Div se overflow-hidden aur rounding hata di hai
+                                    className={`absolute cursor-pointer flex items-center justify-center
                                         ${absOffset === 0 
-                                            ? 'border-[3px] border-purple-500 shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
-                                            : 'border border-white/10 shadow-2xl'}`}
+                                            ? 'shadow-[0_0_50px_rgba(168,85,247,0.4)]' 
+                                            : 'shadow-2xl'}`}
                                 >
-                                    <div className="w-full h-full relative bg-zinc-900">
+                                    <div className="w-full h-full relative">
                                         <img
                                             src={item.url}
                                             alt="Gallery"
-                                            className="w-full h-full object-cover select-none pointer-events-none"
+                                            // Image par rounded aur border apply kiya hai
+                                            className={`w-full h-full object-cover select-none pointer-events-none rounded-2xl
+                                                ${absOffset === 0 
+                                                    ? 'border-[3px] border-purple-500' 
+                                                    : 'border border-white/10'}`}
                                             draggable="false"
                                         />
-                                        <div className={`absolute inset-0 transition-opacity duration-500 
+                                        <div className={`absolute inset-0 transition-opacity duration-500 rounded-2xl
                                             ${absOffset === 0 ? 'bg-transparent' : 'bg-black/10'}`} 
                                         />
                                     </div>
