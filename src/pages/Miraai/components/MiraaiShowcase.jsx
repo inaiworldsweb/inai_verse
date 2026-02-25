@@ -40,9 +40,12 @@ const MiraaiShowcase = () => {
         if (absOffset === 0) return 0;
         const direction = offset > 0 ? 1 : -1;
 
+        // Desktop values preserved
         const desktopSteps = [0, 230, 450, 650];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        const steps = isMobile ? [0, 85, 165, 240] : desktopSteps;
+        
+        // Adjusted mobile steps for 200px width cards
+        const steps = isMobile ? [0, 110, 210, 300] : desktopSteps;
 
         return steps[absOffset] * direction;
     };
@@ -57,13 +60,13 @@ const MiraaiShowcase = () => {
                     className="inline-block px-6 py-2 mb-2"
                 >
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px]  text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[40px] text-white tracking-tighter">
                     Explore Our Creative Portfolio
                 </h2>
             </div>
 
             {/* Cards Container */}
-            <div className="relative h-[480px] md:h-[650px] flex items-center justify-center">
+            <div className="relative h-[420px] md:h-[650px] flex items-center justify-center">
                 <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {showcaseItems.map((item, index) => {
@@ -72,6 +75,8 @@ const MiraaiShowcase = () => {
 
                             if (absOffset > 3) return null;
 
+                            const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+
                             return (
                                 <motion.div
                                     key={index}
@@ -79,7 +84,10 @@ const MiraaiShowcase = () => {
                                     initial={false}
                                     animate={{
                                         x: getXPos(offset),
-                                        scale: absOffset === 0 ? 1.1 : 1 - (absOffset * 0.06),
+                                        // Slightly smaller scale on mobile for middle card
+                                        scale: absOffset === 0 
+                                            ? (isMobile ? 1.05 : 1.1) 
+                                            : 1 - (absOffset * 0.06),
                                         zIndex: 40 - absOffset,
                                         opacity: 1,
                                         filter: absOffset === 0 ? 'brightness(1)' : 'brightness(0.75)'
@@ -94,11 +102,11 @@ const MiraaiShowcase = () => {
                                     onHoverEnd={() => setIsHovered(false)}
                                     onClick={() => setActiveIndex(index)}
                                     style={{
-                                        width: '245px',
-                                        height: '350px',
+                                        // Mobile width fixed to 200px as requested
+                                        width: isMobile ? '200px' : '245px',
+                                        height: isMobile ? '300px' : '350px',
                                         willChange: 'transform'
                                     }}
-                                    // Div se overflow-hidden aur rounding hata di gayi hai
                                     className={`absolute cursor-pointer flex items-center justify-center
                                         ${absOffset === 0
                                             ? 'shadow-[0_0_50px_rgba(59,130,246,0.4)]'
@@ -108,7 +116,6 @@ const MiraaiShowcase = () => {
                                         <img
                                             src={item.url}
                                             alt={`Showcase ${index + 1}`}
-                                            // Image par rounding aur border apply kiya hai
                                             className={`w-full h-full object-cover select-none rounded-2xl
                                                 ${absOffset === 0
                                                     ? 'border-[3px] border-blue-500'
