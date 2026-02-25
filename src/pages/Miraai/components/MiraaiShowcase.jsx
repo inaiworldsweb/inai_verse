@@ -104,7 +104,7 @@ const MiraaiShowcase = () => {
                                     style={{
                                         // Mobile width fixed to 200px as requested
                                         width: isMobile ? '200px' : '245px',
-                                        height: isMobile ? '300px' : '350px',
+                                        height: isMobile ? '280px' : '350px',
                                         willChange: 'transform'
                                     }}
                                     className={`absolute cursor-pointer flex items-center justify-center
