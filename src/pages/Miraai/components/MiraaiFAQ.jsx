@@ -77,7 +77,7 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-16 bg-black">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-10 md:py-14  bg-black">
             <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
