@@ -39,7 +39,7 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white/80 text-[15px] md:text-[25px] font-['Inter'] font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-normal"
+            className="text-white/80 text-[15px] md:text-[20px] font-['Inter'] font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-normal"
           >
             Let Our AI-Powered Expert Team Handle Your Videos, Ads, And Branding{" "}
             <br className="hidden md:block" />

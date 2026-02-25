@@ -107,7 +107,7 @@ const MiraaiTestimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/60 text-[15px] md:text-[25px] w-full mx-auto font-light lg:whitespace-nowrap"
+                        className="text-white/60 text-[15px] md:text-[20px] w-full mx-auto font-light lg:whitespace-nowrap"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
