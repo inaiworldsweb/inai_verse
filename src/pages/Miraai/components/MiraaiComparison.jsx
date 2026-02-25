@@ -49,8 +49,9 @@ const MiraaiComparison = () => {
         <section className="py-16 bg-black min-h-screen relative">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-20">
 
-
-                <div className="text-center mb-16 lg:relative max-lg:sticky top-[70px] z-40 bg-black py-4">
+                {/* --- Headers --- */}
+                {/* Added sticky top-[70px] to header so it stays visible with the navbar */}
+                <div className="text-center mb-16 sticky top-[70px] z-40 bg-black py-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -108,6 +109,7 @@ const MiraaiComparison = () => {
                 </div>
 
                 {/* --- MOBILE VIEW: Stacking Cards (Visible below lg) --- */}
+                {/* Removed extra space between cards, they now stack on top of each other at top: 210px */}
                 <div className="lg:hidden relative flex flex-col gap-4">
                     {comparisonData.map((item, index) => (
                         <motion.div
@@ -117,10 +119,11 @@ const MiraaiComparison = () => {
                             viewport={{ once: true }}
                             style={{
                                 position: 'sticky',
+                                // Fixed sticky point to allow stacking without dead scroll space
                                 top: '210px',
                                 zIndex: index,
                             }}
-                            className="w-full mb-[60vh] last:mb-[10vh]"
+                            className="w-full"
                         >
                             <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 shadow-[0_-20px_60px_-15px_rgba(0,0,0,1)]">
                                 <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4">
@@ -128,6 +131,7 @@ const MiraaiComparison = () => {
                                 </h3>
 
                                 <div className="space-y-6">
+                                    {/* DIY Mobile */}
                                     <div className="flex items-start gap-4 p-4 rounded-xl bg-red-500/5 border border-red-500/10">
                                         <svg className="w-5 h-5 text-red-500 mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="3" d="M6 18L18 6M6 6l12 12" />
@@ -135,6 +139,7 @@ const MiraaiComparison = () => {
                                         <p className="text-gray-400 text-base">{item.diy}</p>
                                     </div>
 
+                                    {/* Miraai Mobile */}
                                     <div className="flex items-start gap-4 p-4 rounded-xl bg-blue-500/10 border border-blue-500/20">
                                         <svg className="w-6 h-6 text-blue-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M9 12l2 2 4-4" />

@@ -54,7 +54,7 @@ const MiraaiHero = () => {
 
             {/* Hero Content */}
             <div ref={contentRef} className="max-w-[70rem] mx-auto text-center z-10 opacity-0">
-                <h1 className="text-[25px] md:text-[40px] tracking-tight mb-8 leading-[1.05] text-white">
+                <h1 className="text-[25px] md:text-[40px] tracking-tight mb-6 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
@@ -64,7 +64,7 @@ const MiraaiHero = () => {
                     content in days using advanced AI technology.
                 </p>
 
-                <div className="flex justify-center mb-24">
+                <div className="flex justify-center mb-12">
                     <button
                         className="group min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
@@ -95,7 +95,7 @@ const MiraaiHero = () => {
                                     : ''
                                 }`}
                         >
-                            <span className="text-2xl md:text-4xl mb-2 tracking-tight text-white">
+                            <span className="text-2xl md:text-4xl mb-1 tracking-tight text-white">
                                 {stat.value}
                             </span>
                             <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em]">

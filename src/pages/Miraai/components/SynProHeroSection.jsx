@@ -61,7 +61,7 @@ const SynProHeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-black -mb-25  overflow-x-hidden">
+        <div ref={containerRef} className="bg-black -mb-20  overflow-x-hidden">
             <section
                 ref={sectionRef}
                 className="h-screen w-full flex items-center justify-center overflow-hidden relative"
