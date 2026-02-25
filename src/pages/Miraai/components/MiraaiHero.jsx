@@ -98,7 +98,7 @@ const MiraaiHero = () => {
                             <span className="text-2xl md:text-4xl mb-1 tracking-tight text-white">
                                 {stat.value}
                             </span>
-                            <span className="text-white/40 text-[10px] md:text-xs uppercase tracking-[0.2em]">
+                            <span className="text-white/40 text-[10px] md:text-[13px] uppercase">
                                 {stat.label}
                             </span>
                         </div>
