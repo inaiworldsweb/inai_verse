@@ -48,6 +48,9 @@ const MiraaiServices = () => {
                     <h2 className="text-white text-center font-extrabold tracking-tight leading-none text-[25px] md:text-[40px] mb-6 sm:mb-10 uppercase z-10">
                         Here's Exactly How We Work With You
                     </h2>
+                    <p className="text-white/40 text-center font tracking-tight leading-none text-[25px] md:text-[20px] mb-6 sm:mb-10 uppercase z-10">
+                        We're your AI-powered creative production team. You brief us. We create. Simple.
+                    </p>
 
                     <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center w-full max-w-6xl relative z-10">
 

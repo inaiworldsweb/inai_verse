@@ -60,10 +60,10 @@ const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile 
       <div className="relative inline-flex flex-col items-center cursor-pointer">
         <div className="w-[110px] h-[110px] xs:w-[130px] xs:h-[130px] sm:w-[140px] sm:h-[140px] bg-transparent">
           {/* Borders and Rounding applied directly to the image */}
-          <img 
-            src={data.image} 
-            alt={data.title} 
-            className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]" 
+          <img
+            src={data.image}
+            alt={data.title}
+            className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
           />
         </div>
         <div className="absolute -right-2 -bottom-2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
@@ -172,7 +172,21 @@ export default function WhoNeedsOurServices() {
             </div>
           </div>
         )}
+
+        {/* Bottom Descriptive Line */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          viewport={{ once: true }}
+          className="mt-16 lg:mt-5 pb-10"
+        >
+          <p className="text-[14px] lg:text-[18px] text-white max-w-4xl mx-auto leading-relaxed px-4">
+            If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.
+          </p>
+        </motion.div>
       </div>
+
     </section>
   );
 }
