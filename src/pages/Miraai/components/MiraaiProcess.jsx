@@ -149,7 +149,7 @@ const MiraaiProcess = () => {
             Here's Exactly How We Work With You
           </h2>
 
-          <p className="text-white/60 text-[15px] md:text-[25px] w-full mx-auto">
+          <p className="text-white/60 text-[15px] md:text-[20px] w-full mx-auto">
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
           </p>
         </div>
@@ -186,7 +186,7 @@ const MiraaiProcess = () => {
                     {step.title}
                   </h3>
 
-                  <h4 className="text-white/80 font-normal mb-2 uppercase text-[15px] md:text-[25px]">
+                  <h4 className="text-white/80 font-normal mb-2 uppercase text-[15px] md:text-[20px]">
                     {step.subtitle}
                   </h4>
 
