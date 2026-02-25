@@ -51,10 +51,10 @@ const MiraaiWhatYouGet = () => {
     };
 
     return (
-        <section className="py-12 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="pt-5 pb-12 -mb-22 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
-                <h2 className="text-[25px] md:text-[40px] font-normal text-white tracking-tighter uppercase">
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter uppercase">
                     What You Get
                 </h2>
             </div>
@@ -98,7 +98,7 @@ const MiraaiWhatYouGet = () => {
                                     style={{
                                         // Fixed width to 200px on mobile as requested
                                         width: isMobile ? '200px' : '245px',
-                                        height: isMobile ? '300px' : '350px',
+                                        height: isMobile ? '280px' : '350px',
                                         willChange: 'transform'
                                     }}
                                     className={`absolute cursor-pointer flex items-center justify-center

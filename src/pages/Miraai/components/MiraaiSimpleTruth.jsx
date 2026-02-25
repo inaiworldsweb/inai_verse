@@ -9,19 +9,27 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative rounded-[20px] p-8 bg-[#0B0B0B] border border-white/5 h-full"
+      className="relative group rounded-[20px] p-[2.3px] overflow-hidden isolate bg-[#0B0B0B] h-full"
     >
-      <div className="w-11 h-11 rounded-lg bg-black border border-white/10 flex items-center justify-center mb-8">
-        <Icon className="text-white text-xl" />
+      {/* Spinning snake border */}
+      <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,white_360deg)] group-hover:animate-[spin_4s_linear_infinite]" />
       </div>
 
-      <h3 className="text-white text-[24px] font-bold mb-4 tracking-tight">
-        {title}
-      </h3>
+      {/* Inner content */}
+      <div className="relative z-10 bg-[#0B0B0B] rounded-[18px] p-8 border border-white/5 h-full flex flex-col">
+        <div className="w-11 h-11 rounded-lg bg-black border border-white/10 flex items-center justify-center mb-8">
+          <Icon className="text-white text-xl" />
+        </div>
 
-      <p className="text-white/40 text-[15px] leading-relaxed">
-        {description}
-      </p>
+        <h3 className="text-white text-[24px] font-bold mb-4 tracking-tight">
+          {title}
+        </h3>
+
+        <p className="text-white/40 text-[15px] leading-relaxed">
+          {description}
+        </p>
+      </div>
     </motion.div>
   );
 };
@@ -92,7 +100,7 @@ const MiraaiSimpleTruth = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-black overflow-hidden relative">
+    <section className="pt-10 -mb-5 md:py-32 bg-black overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           {/* Header Section */}
@@ -111,7 +119,7 @@ const MiraaiSimpleTruth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-white/60 text-[15px] md:text-[25px] font-medium leading-[1.4] max-w-[320px] lg:max-w-none"
+              className="text-white/60 text-[15px] md:text-[20px] font-normal leading-[1.4] max-w-[320px] lg:max-w-none"
             >
               We handle everything from concept to final delivery. You just tell us what you need.
             </motion.p>

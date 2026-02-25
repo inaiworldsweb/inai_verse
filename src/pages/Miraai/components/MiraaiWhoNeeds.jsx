@@ -95,10 +95,10 @@ export default function WhoNeedsOurServices() {
   );
 
   return (
-    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-20 lg:py-0 px-5 overflow-hidden">
+    <section className="relative min-h-screen bg-black text-white flex items-center justify-center pt-20 pb-0 lg:py-0 px-5 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         {/* Title: Desktop 40px, Mobile 25px */}
-        <h2 className="text-[25px] lg:text-[40px] font-normal tracking-tighter mb-12 lg:mb-5">
+        <h2 className="text-[25px] lg:text-[40px] font-bold tracking-tighter mb-12 lg:mb-5">
           Who Needs Our Services
         </h2>
 
@@ -172,6 +172,19 @@ export default function WhoNeedsOurServices() {
             </div>
           </div>
         )}
+
+        {/* Bottom Descriptive Line */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 1.2, duration: 1 }}
+          viewport={{ once: true }}
+          className="mt-16 lg:mt-5 pb-10"
+        >
+          <p className="text-[14px] lg:text-[18px] mt-25 md:mt-0 text-white max-w-4xl mx-auto leading-relaxed px-4">
+            If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

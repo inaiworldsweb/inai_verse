@@ -38,7 +38,7 @@ const QuestionCard = ({ icon, question, index }) => {
 
 const MiraaiCTA = () => {
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-20 px-4 sm:px-6 lg:px-20 bg-black flex justify-center">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="pb-2 pt-15 px-4 sm:px-6 lg:px-20 bg-black flex justify-center">
             <div className="w-full max-w-6xl bg-[#050505] rounded-[3rem] p-8 md:p-12 border border-white/5 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15)_0%,transparent_70%)] pointer-events-none" />
@@ -50,7 +50,7 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[25px] md:text-[40px] text-white mb-12 tracking-tight leading-tight"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-12 tracking-tight leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>

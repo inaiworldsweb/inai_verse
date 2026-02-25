@@ -51,7 +51,7 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-3 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="py-3 -mb-18 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-6 md:-mb-14 z-20">
                 <motion.div
@@ -60,7 +60,7 @@ const MiraaiShowcase = () => {
                     className="inline-block px-6 py-2 mb-2"
                 >
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">
                     Explore Our Creative Portfolio
                 </h2>
             </div>
@@ -104,7 +104,7 @@ const MiraaiShowcase = () => {
                                     style={{
                                         // Mobile width fixed to 200px as requested
                                         width: isMobile ? '200px' : '245px',
-                                        height: isMobile ? '300px' : '350px',
+                                        height: isMobile ? '280px' : '350px',
                                         willChange: 'transform'
                                     }}
                                     className={`absolute cursor-pointer flex items-center justify-center

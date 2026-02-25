@@ -82,7 +82,7 @@ const MiraaiGrowthKiller = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-14 max-w-4xl mx-auto"
         >
-          <h2 className="text-[25px] md:text-[40px] text-white mb-4 tracking-tight leading-relaxed">
+          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-4 tracking-tight leading-relaxed">
             When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
           </h2>
         </motion.div>
