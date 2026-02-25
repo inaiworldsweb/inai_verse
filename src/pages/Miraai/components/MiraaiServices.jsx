@@ -49,15 +49,14 @@ const MiraaiServices = () => {
                         Here's Exactly How We Work With You
                     </h2>
 
-                    <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-14 items-center w-full max-w-6xl relative z-10">
+                    <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-14 items-center w-full max-w-6xl relative z-10">
 
-                        {/* Command Console - Appears second on mobile, first (Left) on desktop */}
-                        <div ref={consoleRef} className="w-full flex justify-center lg:justify-start order-2 lg:order-1">
+                        <div ref={consoleRef} className="w-full flex justify-center lg:justify-start order-2 lg:order-1 transform translate-y-8">
                             <CommandConsole services={services} />
                         </div>
 
-                        {/* Result Preview - Appears first on mobile, second (Right) on desktop */}
-                        <div ref={previewRef} className="w-full flex justify-center lg:justify-end order-1 lg:order-2">
+
+                        <div ref={previewRef} className="w-full flex justify-center lg:justify-end order-1 lg:order-2 transform translate-y-8">
                             <ResultPreview services={services} />
                         </div>
 
