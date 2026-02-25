@@ -61,7 +61,7 @@ const MiraaiComparison = () => {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-white/40 text-[15px] md:text-[25px]"
+            className="text-white/40 text-[15px] md:text-[20px]"
           >
             Do It Yourself Vs Miraai Expert Team
           </motion.p>
@@ -70,13 +70,13 @@ const MiraaiComparison = () => {
         {/* --- DESKTOP VIEW: Table Layout (Visible on lg and up) --- */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-[1.2fr_1.5fr_1.5fr] gap-4 mb-6">
-            <div className="bg-white text-black py-4 rounded-xl flex items-center px-6 text-sm font-bold shadow-lg uppercase tracking-widest">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center  text-sm font-bold shadow-lg uppercase ">
               Area
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase tracking-widest">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase ">
               Do It Yourself
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase tracking-widest">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase ">
               Miraai Expert Team
             </div>
           </div>
