@@ -49,11 +49,7 @@ const MiraaiComparison = () => {
         <section className="py-16 bg-black min-h-screen relative">
             <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-20">
 
-                {/* --- Headers --- */}
-                {/* CHANGE MADE HERE: 
-                   'relative' on desktop (lg:relative) 
-                   'sticky' only on mobile/tablet (max-lg:sticky) 
-                */}
+
                 <div className="text-center mb-16 lg:relative max-lg:sticky top-[70px] z-40 bg-black py-4">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
