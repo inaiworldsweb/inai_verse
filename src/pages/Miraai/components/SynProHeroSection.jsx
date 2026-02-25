@@ -127,14 +127,7 @@ const SynProHeroSection = () => {
 
                 </div>
 
-                {/* Scroll Indicator (Desktop Only) */}
-                <div className="absolute bottom-10 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-3">
-                    <span className="text-white/20 text-[10px] uppercase tracking-[0.4em]">
-                        Scroll Down
-                    </span>
-                    <div className="w-px h-10 bg-gradient-to-b from-white/20 to-transparent" />
-                </div>
-
+              
             </section>
         </div>
     );
