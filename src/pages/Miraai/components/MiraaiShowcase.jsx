@@ -51,7 +51,7 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-3 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="py-3 -mb-18 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-6 md:-mb-14 z-20">
                 <motion.div

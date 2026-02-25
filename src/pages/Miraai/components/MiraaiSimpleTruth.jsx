@@ -92,7 +92,7 @@ const MiraaiSimpleTruth = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-black overflow-hidden relative">
+    <section className="pt-10 -mb-5 md:py-32 bg-black overflow-hidden relative">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
           {/* Header Section */}
