@@ -85,7 +85,7 @@ const MiraaiFAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-[25px] md:text-[40px] text-white tracking-tight">
+                    <h2 className="text-[25px] md:text-[40px] text-white font-bold tracking-tight">
                         Frequently Asked Questions
                     </h2>
                 </motion.div>

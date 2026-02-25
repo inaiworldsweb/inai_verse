@@ -98,7 +98,7 @@ export default function WhoNeedsOurServices() {
     <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-20 lg:py-0 px-5 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         {/* Title: Desktop 40px, Mobile 25px */}
-        <h2 className="text-[25px] lg:text-[40px] font-normal tracking-tighter mb-12 lg:mb-5">
+        <h2 className="text-[25px] lg:text-[40px] font-bold tracking-tighter mb-12 lg:mb-5">
           Who Needs Our Services
         </h2>
 

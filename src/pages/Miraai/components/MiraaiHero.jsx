@@ -54,7 +54,7 @@ const MiraaiHero = () => {
 
             {/* Hero Content */}
             <div ref={contentRef} className="max-w-[70rem] mx-auto text-center z-10 opacity-0">
-                <h1 className="text-[25px] md:text-[40px] tracking-tight mb-6 leading-[1.05] text-white">
+                <h1 className="text-[25px] md:text-[40px] font-bold tracking-tight mb-6 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>

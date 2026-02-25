@@ -145,7 +145,7 @@ const MiraaiProcess = () => {
 
         {/* ================= HEADING ================= */}
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-[25px] md:text-[40px] font-light mb-6 text-white tracking-tight">
+          <h2 className="text-[25px] md:text-[40px] font-bold mb-6 text-white tracking-tight">
             Here's Exactly How We Work With You
           </h2>
 
