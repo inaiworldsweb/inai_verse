@@ -30,7 +30,6 @@ const SynProHeroSection = () => {
                 }
             });
 
-            // Sabse pehle image ko shrink karenge
             tl.to(imageBoxRef.current, {
                 width: "280px",
                 height: "150px",
@@ -38,22 +37,18 @@ const SynProHeroSection = () => {
                 ease: "none"
             }, 0)
 
-                // Left Text: Bahar se aayega aur image ke left mein ruk jayega
                 .fromTo(leftTextRef.current,
                     { x: -150, opacity: 0, scale: 0.8 },
                     { x: 0, opacity: 1, scale: 1, ease: "power2.out" }, 0.1)
 
-                // Right Text: Bahar se aayega aur image ke right mein ruk jayega
                 .fromTo(rightTextRef.current,
                     { x: 150, opacity: 0, scale: 0.8 },
                     { x: 0, opacity: 1, scale: 1, ease: "power2.out" }, 0.1)
 
-                // Top Text: Niche slide hokar aayega
                 .fromTo(topTextRef.current,
                     { y: -100, opacity: 0 },
                     { y: 0, opacity: 1, ease: "power2.out" }, 0.2)
 
-                // Bottom Text: Upar slide hokar aayega
                 .fromTo(bottomTextRef.current,
                     { y: 100, opacity: 0 },
                     { y: 0, opacity: 1, ease: "power2.out" }, 0.2);
@@ -66,30 +61,26 @@ const SynProHeroSection = () => {
                 ref={sectionRef}
                 className="h-screen w-full flex items-center justify-center overflow-hidden relative"
             >
-                {/* Main Animation Wrapper */}
+                {/* Desktop Layout (Unchanged) */}
                 <div className="hidden md:flex flex-col items-center gap-0 md:gap-2 relative">
 
-                    {/* ══ TOP TEXT ══ */}
                     <div ref={topTextRef} className="hidden md:block opacity-0 will-change-transform">
                         <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-tighter text-white font-inter">
                             Miraai Helps Brands Scale Professional
                         </h2>
                     </div>
 
-                    {/* ══ CENTER ROW (Left Text + Image + Right Text) ══ */}
                     <div ref={contentWrapperRef} className="flex items-center justify-center gap-4 lg:gap-2">
 
-                        {/* LEFT TEXT */}
                         <div ref={leftTextRef} className="hidden md:block opacity-0 will-change-transform">
                             <h2 className="text-[25px] md:text-[40px] font-black uppercase tracking-tighter text-white font-inter">
                                 Creative
                             </h2>
                         </div>
 
-                        {/* IMAGE BOX */}
                         <div
                             ref={imageBoxRef}
-                            className="w-[90vw] md:w-[800px] lg:w-[1000px] h-[250px] md:h-[500px] lg:h-[550px]  overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
+                            className="w-[90vw] md:w-[800px] lg:w-[1000px] h-[250px] md:h-[500px] lg:h-[550px] overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
                             style={{ willChange: "width, height, border-radius" }}
                         >
                             <img
@@ -100,7 +91,6 @@ const SynProHeroSection = () => {
                             />
                         </div>
 
-                        {/* RIGHT TEXT */}
                         <div ref={rightTextRef} className="hidden md:block opacity-0 will-change-transform">
                             <h2 className="text-[25px] md:text-[40px] font-black uppercase tracking-tighter text-white font-inter">
                                 Content
@@ -108,7 +98,6 @@ const SynProHeroSection = () => {
                         </div>
                     </div>
 
-                    {/* ══ BOTTOM TEXT ══ */}
                     <div ref={bottomTextRef} className="hidden md:block opacity-0 will-change-transform">
                         <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-tighter text-white font-inter">
                             10× Faster With Up To 70% Cost Savings.
@@ -116,29 +105,30 @@ const SynProHeroSection = () => {
                     </div>
                 </div>
 
-                {/* MOBILE VIEW (Static) */}
-                <div className="md:hidden flex flex-col items-center justify-center gap-8 py-20 px-6 text-center relative z-10">
-                    <h2 className="text-[25px] font-black uppercase text-white tracking-tighter leading-tight">
-                        Miraai Helps Brands Scale Professional
+                {/* ✅ Mobile Layout (Updated Alignment Like Screenshot) */}
+                <div className="md:hidden min-h-screen flex flex-col items-center justify-center px-6 text-center bg-black">
+
+                    <h2 className="text-[28px] font-semibold text-white leading-[1.2] tracking-tight max-w-[320px]">
+                        Miraai helps brands scale professional creative
                     </h2>
-                    <div className="w-[85vw] h-[220px] rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
-                        <img src={HeroImage} alt="Hero" className="w-full h-full object-cover" />
+
+                    <div className="w-[85vw] max-w-[320px] h-[200px] mt-6 rounded-2xl overflow-hidden">
+                        <img
+                            src={HeroImage}
+                            alt="Hero"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
-                    <div className="space-y-4">
-                        <h2 className="text-[25px] font-black uppercase text-white tracking-tighter leading-tight">
-                            Creative Content 10× Faster
-                        </h2>
-                        <h2 className="text-[16px] text-white/50 font-medium uppercase tracking-widest">
-                            With Up To 70% Cost Savings.
-                        </h2>
-                    </div>
+
+                    <p className="mt-6 text-[28px] font-medium text-white leading-[1.2] max-w-[280px] mx-auto">
+                        content 10× faster <br />
+                        with up to 70% cost savings.
+                    </p>
+
                 </div>
 
               
             </section>
-
-            {/* Next Section Space */}
-
         </div>
     );
 };
