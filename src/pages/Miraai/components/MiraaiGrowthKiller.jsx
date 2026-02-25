@@ -73,16 +73,16 @@ const MiraaiGrowthKiller = () => {
   ];
 
   return (
-    <section className="py-20 bg-black overflow-hidden">
+    <section className="py-8 md:py-12 bg-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 flex flex-col items-center">
         {/* Main Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16 max-w-4xl mx-auto"
+          className="text-center mb-10 md:mb-14 max-w-4xl mx-auto"
         >
-          <h2 className="text-[22px] md:text-[45px] text-white mb-6 tracking-tight leading-relaxed">
+          <h2 className="text-[25px] md:text-[40px] text-white mb-4 tracking-tight leading-relaxed">
             When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
           </h2>
         </motion.div>

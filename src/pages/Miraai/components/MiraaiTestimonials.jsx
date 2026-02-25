@@ -90,10 +90,10 @@ const MiraaiTestimonials = () => {
         ].filter(Boolean);
 
     return (
-        <section className="py-10 md:py-8 bg-black overflow-hidden relative">
+        <section className="py-4 md:py-8 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
-                <div className="text-center mb-16 md:mb-24">
+                <div className="text-center mb-8 md:mb-10 ">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
