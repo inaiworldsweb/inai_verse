@@ -70,13 +70,13 @@ const MiraaiComparison = () => {
         {/* --- DESKTOP VIEW: Table Layout (Visible on lg and up) --- */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-[1.2fr_1.5fr_1.5fr] gap-4 mb-6">
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center  text-sm font-bold shadow-lg uppercase ">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[18px] font-bold shadow-lg uppercase">
               Area
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase ">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[18px] font-bold shadow-lg uppercase">
               Do It Yourself
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase ">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[18px] font-bold shadow-lg uppercase">
               Miraai Expert Team
             </div>
           </div>
