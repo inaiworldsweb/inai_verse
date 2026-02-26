@@ -66,7 +66,7 @@ const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile 
             className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
           />
         </div>
-        <div className="absolute -right-2 -bottom-2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
           {data.title}
         </div>
       </div>
@@ -126,7 +126,7 @@ export default function WhoNeedsOurServices() {
               className="z-10 max-w-2xl"
             >
               <p className="text-[25px] leading-relaxed drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-                Miraai Is Built For Brands That Rely<br />
+                Miraai Is Built For Brands That Rely On<br />
                 High-Quality Visual Content, Frequent<br />
                 Campaigns, And Fast Execution.
               </p>
@@ -154,7 +154,7 @@ export default function WhoNeedsOurServices() {
               className="py-6"
             >
               <p className="text-[15px] lg:text-[25px] leading-relaxed max-w-[320px] mx-auto opacity-90">
-                Miraai Is Built For Brands That Rely High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
+                Miraai Is Built For Brands That Rely On High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
               </p>
             </motion.div>
 
