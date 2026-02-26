@@ -56,7 +56,7 @@ const SynProHeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-black -mb-16  overflow-x-hidden">
+        <div ref={containerRef} className="bg-black overflow-x-hidden">
             <section
                 ref={sectionRef}
                 className="h-screen w-full flex items-center justify-center overflow-hidden relative"
@@ -73,7 +73,7 @@ const SynProHeroSection = () => {
                     <div ref={contentWrapperRef} className="flex items-center justify-center gap-4 lg:gap-2">
 
                         <div ref={leftTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[25px] md:text-[40px] font-black uppercase tracking-tighter text-white font-inter">
+                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-tighter text-white font-inter">
                                 Creative
                             </h2>
                         </div>
@@ -92,7 +92,7 @@ const SynProHeroSection = () => {
                         </div>
 
                         <div ref={rightTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[25px] md:text-[40px] font-black uppercase tracking-tighter text-white font-inter">
+                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-tighter text-white font-inter">
                                 Content
                             </h2>
                         </div>
@@ -127,7 +127,7 @@ const SynProHeroSection = () => {
 
                 </div>
 
-              
+
             </section>
         </div>
     );
