@@ -45,7 +45,7 @@ const MiraaiServices = () => {
             <div ref={containerRef} className="relative" style={{ height: '6000px' }}>
                 
                 {/* 1. Normal Flow Header (Scrolls out of view) */}
-                <div className="w-full flex flex-col items-center justify-center px-4 pt-12 md:pt-18 pb-2">
+                <div className="w-full flex flex-col items-center justify-center px-4 pt-2 md:pt-18 pb-2">
                     <h2 className="text-white text-center font-extrabold tracking-tight leading-none text-[25px] md:text-[40px] mb-4 md:mb-6 uppercase z-10">
                         Here's Exactly How We Work With You
                     </h2>
