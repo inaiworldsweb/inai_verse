@@ -84,21 +84,22 @@ const MiraaiHero = () => {
             {/* Stats Section */}
             <div
                 ref={statsRef}
-                className="w-full max-w-[1070px] h-auto md:h-[164px] bg-[#0A0A0A] overflow-hidden mx-auto opacity-0"
+                className="w-full max-w-[1070px] h-auto md:h-[164px] bg-[#0A0A0A] overflow-hidden mx-auto opacity-0 rounded-lg"
             >
-                <div className="grid grid-cols-1 md:grid-cols-4 h-full">
+                <div className="grid grid-cols-2 md:grid-cols-4 h-full">
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${index !== stats.length - 1
-                                    ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10'
-                                    : ''
-                                }`}
+                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative
+                                ${index === 0 ? 'border-b border-r border-white/10 md:border-b-0' : ''}
+                                ${index === 1 ? 'border-b border-white/10 md:border-b-0 md:border-r' : ''}
+                                ${index === 2 ? 'border-r border-white/10' : ''}
+                            `}
                         >
                             <span className="text-2xl md:text-4xl mb-1 tracking-tight text-white">
                                 {stat.value}
                             </span>
-                            <span className="text-white/40 text-[10px] md:text-[13px] uppercase">
+                            <span className="text-white/40 text-[10px] md:text-[13px] uppercase whitespace-nowrap">
                                 {stat.label}
                             </span>
                         </div>
