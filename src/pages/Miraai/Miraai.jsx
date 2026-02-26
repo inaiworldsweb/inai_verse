@@ -133,7 +133,7 @@ const Miraai = () => {
                     showPriceButton={true}
                     showHomeButton={true}
                     showMenuButton={true}
-                    onMenuClick={() => setIsMobileMenuOpen(true)}
+                    onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                     onBackClick={handleBack}
                     onPriceClick={handleGoToPrice}
                     showBorder={false}
