@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 onClick={onToggle}
                 className="w-full bg-[#0A0A0A] rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden"
             >
-                <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
+                <div className="px-[24px] py-4 md:px-[16px] md:py-6 flex items-center justify-between relative z-10">
                     <h3 className="text-[15px] md:text-[20px] tracking-[1px] [font-stretch:700%] text-white">
                         {question}
                     </h3>
@@ -37,7 +37,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="px-4 pb-6 md:px-6 md:pb-8 pt-4">
+                            <div className="px-[24px] pb-6 md:px-[16px] md:pb-8 pt-4">
                                 <p className="text-[#ccc] text-[12px] leading-relaxed">
                                     {answer}
                                 </p>
@@ -78,7 +78,7 @@ const MiraaiFAQ = () => {
 
     return (
         <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-10 md:py-14  bg-black">
-            <div className="max-w-[1000px] mx-auto px-4 sm:px-6">
+            <div className="max-w-[1000px] mx-auto px-[24px] md:px-[16px]">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
