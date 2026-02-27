@@ -90,7 +90,7 @@ const MiraaiHero = () => {
                                 ${index === 2 ? 'border-r border-white/10' : ''}
                             `}
                         >
-                            <span className="text-2xl md:text-4xl mb-1 tracking-tight text-white">
+                            <span className="text-2xl md:text-4xl text-[#ccc] mb-1 tracking-tight text-white">
                                 {stat.value}
                             </span>
                             <span className="text-white/40 text-[10px] md:text-[13px] uppercase whitespace-nowrap">

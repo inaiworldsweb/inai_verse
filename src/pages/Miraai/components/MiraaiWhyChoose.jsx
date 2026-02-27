@@ -41,7 +41,7 @@ const MiraaiWhyChoose = () => {
                     className="text-center mb-12"
                 >
                     <h2 className="text-[25px] md:text-[40px] text-white tracking-[1px] [font-stretch:700%] font-bold">
-                        Why Choose <br className="md:hidden" /> Miraai?
+                        Why Choose Miraai?
                     </h2>
                 </motion.div>
 

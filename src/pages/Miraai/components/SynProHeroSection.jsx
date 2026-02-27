@@ -73,7 +73,7 @@ const SynProHeroSection = () => {
                     <div ref={contentWrapperRef} className="flex items-center justify-center gap-4 lg:gap-2">
 
                         <div ref={leftTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-[1px] [font-stretch:700%] text-white font-inter">
+                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-[1px] [font-stretch:550px] text-white font-inter">
                                 Creative
                             </h2>
                         </div>
@@ -92,7 +92,7 @@ const SynProHeroSection = () => {
                         </div>
 
                         <div ref={rightTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-[1px] [font-stretch:700%] text-white font-inter">
+                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-[1px] [font-stretch:550px] text-white font-inter">
                                 Content
                             </h2>
                         </div>

@@ -144,7 +144,8 @@ const MiraaiTestimonials = () => {
                     </button>
 
                     {/* Testimonials Grid */}
-                    <div className="overflow-hidden">
+                    {/* Added pt-6 and pb-6 to ensure shadows aren't cut */}
+                    <div className="overflow-hidden pt-6 pb-6 -mt-6 -mb-6">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}
