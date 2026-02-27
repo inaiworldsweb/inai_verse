@@ -15,7 +15,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 className="w-full bg-[#0A0A0A] rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden"
             >
                 <div className="p-4 md:p-6 flex items-center justify-between relative z-10">
-                    <h3 className="text-[15px] md:text-[20px] tracking-tight text-white">
+                    <h3 className="text-[15px] md:text-[20px] tracking-[1px] [font-stretch:700%] text-white">
                         {question}
                     </h3>
 
@@ -38,7 +38,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
                             <div className="px-4 pb-6 md:px-6 md:pb-8 pt-4">
-                                <p className="text-white/70 text-[12px] leading-relaxed">
+                                <p className="text-[#ccc] text-[12px] leading-relaxed">
                                     {answer}
                                 </p>
                             </div>
@@ -85,7 +85,7 @@ const MiraaiFAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-8"
                 >
-                    <h2 className="text-[25px] md:text-[40px] text-white font-bold tracking-tight">
+                    <h2 className="text-[25px] md:text-[40px] text-white font-bold tracking-[1px] [font-stretch:700%]">
                         Frequently Asked Questions
                     </h2>
                 </motion.div>

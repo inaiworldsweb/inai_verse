@@ -38,7 +38,7 @@ const MiraaiBenefits = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-[40px] font-black mb-6 tracking-tight text-white"
+                        className="text-[40px] font-black mb-6 tracking-[1px] [font-stretch:700%] text-white"
                     >
                         Why Choose Miraai?
                     </motion.h2>
@@ -47,7 +47,7 @@ const MiraaiBenefits = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-white/40 text-base md:text-lg max-w-2xl mx-auto font-medium"
+                        className="text-[#ccc] text-base md:text-lg max-w-2xl mx-auto font-medium"
                     >
                         We combine human creativity with the world's most powerful AI to redefine content production.
                     </motion.p>
@@ -72,11 +72,11 @@ const MiraaiBenefits = () => {
                                 {benefit.stat}
                             </div>
 
-                            <h3 className="text-xl font-black mb-4 text-white group-hover:text-purple-400 transition-colors">
+                            <h3 className="text-xl font-black mb-4 text-white group-hover:text-purple-400 transition-colors tracking-[1px] [font-stretch:700%]">
                                 {benefit.title}
                             </h3>
 
-                            <p className="text-white/30 leading-relaxed font-medium group-hover:text-white/50 transition-colors">
+                            <p className="text-[#ccc] leading-relaxed font-medium group-hover:text-white/50 transition-colors">
                                 {benefit.desc}
                             </p>
 

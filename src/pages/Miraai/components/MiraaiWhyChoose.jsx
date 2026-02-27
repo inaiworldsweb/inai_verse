@@ -40,7 +40,7 @@ const MiraaiWhyChoose = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-[25px] md:text-[40px] text-white tracking-tight font-bold">
+                    <h2 className="text-[25px] md:text-[40px] text-white tracking-[1px] [font-stretch:700%] font-bold">
                         Why Choose <br className="md:hidden" /> Miraai?
                     </h2>
                 </motion.div>
@@ -77,10 +77,10 @@ const MiraaiWhyChoose = () => {
                                 p-6 sm:p-7
                                 border border-white/5
                             ">
-                                <h3 className="text-white font-bold text-[16px] sm:text-[17px] mb-2 sm:mb-3 tracking-tight">
+                                <h3 className="text-white font-bold text-[16px] sm:text-[17px] mb-2 sm:mb-3 tracking-[1px] [font-stretch:700%]">
                                     {feature.title}
                                 </h3>
-                                <p className="text-white/50 text-[13px] sm:text-[14px] leading-relaxed">
+                                <p className="text-[#ccc] text-[13px] sm:text-[14px] leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>

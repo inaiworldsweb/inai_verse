@@ -82,7 +82,7 @@ const MiraaiGrowthKiller = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-14 max-w-4xl mx-auto"
         >
-          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-4 tracking-tight leading-relaxed">
+          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-4 tracking-[1px] [font-stretch:700%] leading-relaxed">
             When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
           </h2>
         </motion.div>
@@ -93,8 +93,8 @@ const MiraaiGrowthKiller = () => {
           <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-8 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
               <div className="mb-6 text-center lg:text-left">
-                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-tight">The Breaking Point</h3>
-                <p className="text-white/40 text-[13px] md:text-sm">Most growing businesses hit the same wall</p>
+                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-[1px] [font-stretch:700%]">The Breaking Point</h3>
+                <p className="text-[#ccc] text-[13px] md:text-sm">Most growing businesses hit the same wall</p>
               </div>
 
               <div className="w-full flex flex-col gap-3">
@@ -110,8 +110,8 @@ const MiraaiGrowthKiller = () => {
           <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-8 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
               <div className="mb-6 text-center lg:text-left">
-                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-tight">There's A Better Way</h3>
-                <p className="text-white/40 text-[13px] md:text-sm">With Miraai, you can:</p>
+                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-[1px] [font-stretch:700%]">There's A Better Way</h3>
+                <p className="text-[#ccc] text-[13px] md:text-sm">With Miraai, you can:</p>
               </div>
 
               <div className="w-full flex flex-col gap-3">

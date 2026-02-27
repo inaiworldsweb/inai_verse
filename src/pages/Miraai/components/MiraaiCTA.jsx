@@ -50,7 +50,7 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-12 tracking-tight leading-tight"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-12 tracking-[1px] [font-stretch:700%] leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>
@@ -92,8 +92,8 @@ const MiraaiCTA = () => {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="mb-6"
                     >
-                        <p className="text-[15px] md:text-[20px] text-white mb-2 opacity-80 tracking-widest">If you answered YES to any of these</p>
-                        <h3 className="text-[25px] md:text-[40px] text-white tracking-tighter">Miraai is for you.</h3>
+                        <p className="text-[15px] md:text-[20px] text-[#ccc] mb-2 tracking-widest">If you answered YES to any of these</p>
+                        <h3 className="text-[25px] md:text-[40px] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
                     </motion.div>
 
                     <button

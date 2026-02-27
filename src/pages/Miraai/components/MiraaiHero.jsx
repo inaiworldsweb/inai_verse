@@ -54,12 +54,12 @@ const MiraaiHero = () => {
 
             {/* Hero Content */}
             <div ref={contentRef} className="max-w-[70rem] mx-auto text-center z-10 opacity-0">
-                <h1 className="text-[25px] md:text-[40px] font-bold tracking-tight mb-6 leading-[1.05] text-white">
+                <h1 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-6 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-white/50 text-[15px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
+                <p className="text-[#ccc] text-[15px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>

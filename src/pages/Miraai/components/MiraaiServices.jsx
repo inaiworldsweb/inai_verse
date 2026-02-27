@@ -43,20 +43,20 @@ const MiraaiServices = () => {
         <section className="relative bg-black text-white overflow-visible">
             {/* Main scroll container */}
             <div ref={containerRef} className="relative" style={{ height: '6000px' }}>
-                
+
                 {/* 1. Normal Flow Header (Scrolls out of view) */}
                 <div className="w-full flex flex-col items-center justify-center px-4 pt-2 md:pt-18 pb-2">
-                    <h2 className="text-white text-center font-extrabold tracking-tight leading-none text-[25px] md:text-[40px] mb-4 md:mb-6 uppercase z-10">
+                    <h2 className="text-white text-center font-extrabold tracking-[1px] [font-stretch:700%] leading-none text-[25px] md:text-[40px] mb-4 md:mb-6 uppercase z-10">
                         Here's Exactly How We Work With You
                     </h2>
-                    <p className="text-white/40 text-center tracking-tight leading-none text-[13px] md:text-[20px] uppercase z-10">
+                    <p className="text-[#ccc] text-center tracking-tight leading-none text-[13px] md:text-[20px] uppercase z-10">
                         We're your AI-powered creative production team. You brief us. We create. Simple.
                     </p>
                 </div>
 
                 {/* 2. Pinning Area - 'items-start' and 'pt-0' for maximum top alignment */}
                 <div className="miraai-pin sticky top-0 min-h-screen flex items-start justify-center px-4 sm:px-6 overflow-hidden">
-                    
+
                     {/* Minimal Padding Top (pt-2) ensures it sticks almost at the very top */}
                     <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-14 items-start w-full max-w-6xl relative z-10 pt-2 md:pt-4">
 

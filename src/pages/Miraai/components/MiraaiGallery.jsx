@@ -53,7 +53,7 @@ const MiraaiGallery = () => {
     // Desktop values preserved
     const desktopSteps = [0, 220, 430, 620];
     const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
-    
+
     // Adjusted mobile steps for a tighter, smaller look
     const steps = isMobile ? [0, 100, 190, 270] : desktopSteps;
 
@@ -63,7 +63,7 @@ const MiraaiGallery = () => {
   return (
     <section className="-mb-15 bg-black overflow-hidden relative flex flex-col items-center justify-center">
       <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
-        <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">
+        <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-[1px] [font-stretch:700%]">
           Visualizing The Future Of Creativity
         </h2>
       </div>
@@ -88,8 +88,8 @@ const MiraaiGallery = () => {
                   animate={{
                     x: getXPos(offset),
                     // Responsive scale: Slightly smaller on mobile
-                    scale: absOffset === 0 
-                      ? (isMobile ? 1.05 : 1.1) 
+                    scale: absOffset === 0
+                      ? (isMobile ? 1.05 : 1.1)
                       : (1 - absOffset * 0.07),
                     zIndex: 40 - absOffset,
                     opacity: 1,
@@ -112,22 +112,20 @@ const MiraaiGallery = () => {
                     willChange: "transform",
                   }}
                   className={`absolute cursor-pointer flex items-center justify-center
-                                        ${
-                                          absOffset === 0
-                                            ? "shadow-[0_0_50px_rgba(168,85,247,0.4)]"
-                                            : "shadow-2xl"
-                                        }`}
+                                        ${absOffset === 0
+                      ? "shadow-[0_0_50px_rgba(168,85,247,0.4)]"
+                      : "shadow-2xl"
+                    }`}
                 >
                   <div className="w-full h-full relative">
                     <img
                       src={item.url}
                       alt="Gallery"
                       className={`w-full h-full object-cover select-none pointer-events-none rounded-2xl
-                                                ${
-                                                  absOffset === 0
-                                                    ? "border-[3px] border-purple-500"
-                                                    : "border border-white/10"
-                                                }`}
+                                                ${absOffset === 0
+                          ? "border-[3px] border-purple-500"
+                          : "border border-white/10"
+                        }`}
                       draggable="false"
                     />
                     <div
