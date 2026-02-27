@@ -96,23 +96,13 @@ const MiraaiCTA = () => {
                         <h3 className="text-[25px] md:text-[40px] text-white tracking-tighter">Miraai is for you.</h3>
                     </motion.div>
 
-                    <motion.button
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                        className="group relative overflow-hidden px-8 py-4 bg-white text-black text-[15px] rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
+                    <button
+                        className="px-8 py-4 bg-white text-black text-[15px] rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all hover:bg-gray-100"
                     >
-                        <span className="relative inline-block overflow-hidden align-top">
-                            <span className="invisible">Get Started Now</span>
-                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-inter">
-                                Get Started Now
-                            </span>
-                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-inter">
-                                Get Started Now
-                            </span>
+                        <span className="font-inter">
+                            Get Started Now
                         </span>
-                    </motion.button>
+                    </button>
                 </div>
             </div>
         </section>

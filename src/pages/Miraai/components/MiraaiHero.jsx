@@ -66,16 +66,10 @@ const MiraaiHero = () => {
 
                 <div className="flex justify-center mb-12">
                     <button
-                        className="group min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
+                        className="min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
                     >
-                        <span className="relative block h-[1.15em] overflow-hidden leading-none font-['Inter']">
-                            <span className="invisible">Start Your First Project</span>
-                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                                Start Your First Project
-                            </span>
-                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-                                Start Your First Project
-                            </span>
+                        <span className="font-['Inter']">
+                            Start Your First Project
                         </span>
                     </button>
                 </div>

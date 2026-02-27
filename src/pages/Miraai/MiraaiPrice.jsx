@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function PricingPage() {
+export default function MiraaiPrice() {
   const [billing, setBilling] = useState("monthly");
 
   const plans = [
@@ -68,8 +68,8 @@ export default function PricingPage() {
               <button
                 onClick={() => setBilling("monthly")}
                 className={`relative z-10 w-1/2 py-2 text-sm font-medium ${billing === "monthly"
-                    ? "text-black"
-                    : "text-gray-400"
+                  ? "text-black"
+                  : "text-gray-400"
                   }`}
               >
                 Monthly
@@ -77,8 +77,8 @@ export default function PricingPage() {
               <button
                 onClick={() => setBilling("yearly")}
                 className={`relative z-10 w-1/2 py-2 text-sm font-medium ${billing === "yearly"
-                    ? "text-black"
-                    : "text-gray-400"
+                  ? "text-black"
+                  : "text-gray-400"
                   }`}
               >
                 Annually
@@ -93,8 +93,8 @@ export default function PricingPage() {
             <div
               key={index}
               className={`relative bg-zinc-900 rounded-2xl p-8 border transition-all duration-300 ${plan.popular
-                  ? "border-white scale-105 shadow-2xl"
-                  : "border-zinc-700"
+                ? "border-white scale-105 shadow-2xl"
+                : "border-zinc-700"
                 }`}
             >
               {plan.popular && (
