@@ -31,6 +31,7 @@ function PageHeader({
     onPriceClick,
     onMenuClick,
     showBorder = true,
+    headerClassName = 'bg-black/80 backdrop-blur-md',
 }) {
     const navigate = useNavigate()
 
@@ -61,7 +62,7 @@ function PageHeader({
     }
 
     return (
-        <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 bg-black/80 backdrop-blur-md ${showBorder ? 'border-b border-white/10' : ''}`}>
+        <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 ${headerClassName} ${showBorder ? 'border-b border-white/10' : ''}`}>
             {/* Left Section - Back Button, Title, Breadcrumbs */}
             <div className="flex items-center gap-4">
 
@@ -69,7 +70,13 @@ function PageHeader({
                 {(title || (showLogo && logoSrc)) && (
                     <div className={titleWrapperClassName}>
                         {(breadcrumbs.length > 0 || title) && (
-                            <span onClick={() => navigate(-1)} className="text-white text-[30px] md:text-[50px] cursor-pointer ps-3 pb-1" aria-hidden="true">›</span>
+                            <span
+                                onClick={() => navigate(-1)}
+                                className="text-white text-[30px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
+                                aria-hidden="true"
+                            >
+                                ‹
+                            </span>
                         )}
                         {showLogo && logoSrc && (
                             <img
