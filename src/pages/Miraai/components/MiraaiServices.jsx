@@ -46,7 +46,7 @@ const MiraaiServices = () => {
 
                 {/* 1. Normal Flow Header (Scrolls out of view) */}
                 <div className="w-full flex flex-col items-center justify-center px-4 pt-2 md:pt-18 pb-2">
-                    <h2 className="text-white text-center font-extrabold tracking-[1px] [font-stretch:700%] leading-none text-[25px] md:text-[40px] mb-4 md:mb-6 uppercase z-10">
+                    <h2 className="text-white text-center font-bold tracking-[1px] [font-stretch:700%] leading-none text-[25px] md:text-[40px] mb-4 md:mb-6 uppercase z-10">
                         Here's Exactly How We Work With You
                     </h2>
                     <p className="text-[#ccc] text-center tracking-tight leading-none text-[13px] md:text-[20px] uppercase z-10">

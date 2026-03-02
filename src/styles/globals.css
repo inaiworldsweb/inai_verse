@@ -161,6 +161,7 @@
             transform: none !important;
             filter: none !important;
         }
+
         img[data-zoom-reveal].is-visible {
             opacity: 1;
         }

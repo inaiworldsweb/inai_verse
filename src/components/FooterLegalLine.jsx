@@ -10,7 +10,7 @@ const legalLinks = [
 const FooterLegalLine = ({ className = '' }) => (
     <footer className={`bg-black border-t border-white/10 px-4 sm:px-8 ${className}`} aria-label="Legal footer">
         <div className="max-w-[1200px] mx-auto py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs sm:text-sm text-white/70">
-            <span className="whitespace-nowrap">All Rights Reserved © 2026 by INAI Worlds Pvt. Ltd.</span>
+            <span className="whitespace-nowrap"> © 2026 by INAI Worlds Pvt. Ltd. All Rights Reserved</span>
             <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-white/70">
                 {legalLinks.map(({ label, to }, index) => (
                     <div key={label} className="flex items-center gap-3">
