@@ -43,7 +43,7 @@ const MiraaiShowcase = () => {
         // Desktop values preserved
         const desktopSteps = [0, 230, 450, 650];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        
+
         // Adjusted mobile steps for 200px width cards
         const steps = isMobile ? [0, 110, 210, 300] : desktopSteps;
 
@@ -60,7 +60,7 @@ const MiraaiShowcase = () => {
                     className="inline-block px-6 py-2 mb-2"
                 >
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter">
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-[1px] tracking-tighter">
                     Explore Our Creative Portfolio
                 </h2>
             </div>
@@ -85,8 +85,8 @@ const MiraaiShowcase = () => {
                                     animate={{
                                         x: getXPos(offset),
                                         // Slightly smaller scale on mobile for middle card
-                                        scale: absOffset === 0 
-                                            ? (isMobile ? 1.05 : 1.1) 
+                                        scale: absOffset === 0
+                                            ? (isMobile ? 1.05 : 1.1)
                                             : 1 - (absOffset * 0.06),
                                         zIndex: 40 - absOffset,
                                         opacity: 1,

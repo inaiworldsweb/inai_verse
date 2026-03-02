@@ -66,7 +66,7 @@ const MiraaiHero = () => {
 
                 <div className="flex justify-center mb-12">
                     <button
-                        className="min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
+                        className="min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm cursor-pointer"
                     >
                         <span className="font-['Inter']">
                             Start Your First Project
@@ -93,7 +93,7 @@ const MiraaiHero = () => {
                             <span className="text-2xl md:text-4xl text-[#ccc] mb-1 tracking-tight text-white">
                                 {stat.value}
                             </span>
-                            <span className="text-white/40 text-[10px] md:text-[13px] uppercase whitespace-nowrap">
+                            <span className="text-white/40 text-[10px] text-[#ccc] md:text-[13px] uppercase whitespace-nowrap">
                                 {stat.label}
                             </span>
                         </div>

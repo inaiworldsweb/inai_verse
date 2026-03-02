@@ -22,7 +22,7 @@ function PageHeader({
     logoSrc = logo,
     logoAlt = 'Miraai logo',
     logoClassName = 'h-[34px] md:pe-0 pe-5 -ms-4 md:-ms-0 md:h-[44px] w-auto max-w-[130px] object-contain',
-    titleWrapperClassName = 'flex items-center gap-2',
+    titleWrapperClassName = 'flex items-center gap-5',
     titleClassName = 'text-white font-medium text-base',
     showTitleText = true,
     showPriceButton = true,
@@ -31,6 +31,7 @@ function PageHeader({
     onBackClick,
     onPriceClick,
     onMenuClick,
+    onLogoClick,
     showBorder = true,
     headerClassName = 'bg-black/80 backdrop-blur-md',
 }) {
@@ -62,6 +63,14 @@ function PageHeader({
         }
     }
 
+    const handleLogoClick = () => {
+        if (onLogoClick) {
+            onLogoClick();
+        } else {
+            navigate('/miraai');
+        }
+    };
+
     return (
         <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 ${headerClassName} ${showBorder ? 'border-b border-white/10' : ''}`}>
             {/* Left Section - Back Button, Title, Breadcrumbs */}
@@ -69,11 +78,11 @@ function PageHeader({
 
 
                 {(title || (showLogo && logoSrc)) && (
-                    <div className={titleWrapperClassName}>
+                    <div className={titleWrapperClassName} >
                         {(breadcrumbs.length > 0 || title) && (
                             <span
                                 onClick={() => navigate(-1)}
-                                className="text-white text-[30px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
+                                className="text-white text-[40px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
                                 aria-hidden="true"
                             >
                                 ‹
@@ -83,7 +92,8 @@ function PageHeader({
                             <img
                                 src={logoSrc}
                                 alt={logoAlt}
-                                className={logoClassName}
+                                className={`${logoClassName} cursor-pointer`}
+                                onClick={handleLogoClick}
                             />
                         )}
                     </div>
@@ -112,7 +122,7 @@ function PageHeader({
                 {showPriceButton && (
                     <button
                         type="button"
-                        className="bg-white text-black px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
+                        className="bg-white text-black px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors  cursor-pointer"
                         onClick={handlePrice}
                     >
                         <span>Price</span>

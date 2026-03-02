@@ -1,7 +1,14 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import PageHeader from "../../components/PageHeader";
+
+import logoImage from '../../assets/Mirrai.svg'
+
 
 export default function MiraaiPrice() {
   const [billing, setBilling] = useState("monthly");
+  const navigate = useNavigate();
+
 
   const plans = [
     {
@@ -40,9 +47,10 @@ export default function MiraaiPrice() {
         showPriceButton={false}
         showHomeButton={true}
         showMenuButton={true}
+        onLogoClick={() => navigate('/miraai')}
         showBorder={false}
-        headerClassName="py-4 px-8 md:py-6 md:px-12"
-        logoClassName="h-[50px] md:h-[75px] w-auto max-w-[280px] object-contain"
+        headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl px-4 md:px-10"
+        logoClassName="h-[30px] md:h-[40px] w-auto max-w-[280px] object-contain"
         homeIconClassName="w-6 h-6 md:w-7 md:h-7"
         menuIconClassName="w-6 h-6 md:w-7 md:h-7"
       />
