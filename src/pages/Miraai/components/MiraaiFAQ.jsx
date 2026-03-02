@@ -14,7 +14,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 onClick={onToggle}
                 className="w-full bg-[#0A0A0A] rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden"
             >
-                <div className="px-[24px] py-4 md:px-[16px] md:py-6 flex items-center justify-between relative z-10">
+                <div className="px-[15px] py-4 md:px-[15px] md:py-6 flex items-center justify-between relative z-10">
                     <h3 className="text-[15px] md:text-[20px] tracking-[1px] [font-stretch:700%] text-white">
                         {question}
                     </h3>

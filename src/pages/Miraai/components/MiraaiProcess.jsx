@@ -186,7 +186,7 @@ const MiraaiProcess = () => {
                     {step.title}
                   </h3>
 
-                  <h4 className=" font-normal mb-2 uppercase text-[15px] md:text-[20px]">
+                  <h4 className=" font-semibold mb-2 uppercase text-[15px] md:text-[20px]">
                     {step.subtitle}
                   </h4>
 

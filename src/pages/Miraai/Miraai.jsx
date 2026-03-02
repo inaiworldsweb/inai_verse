@@ -137,7 +137,9 @@ const Miraai = () => {
                         onMenuClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                         onBackClick={handleBack}
                         onPriceClick={handleGoToPrice}
+                        onLogoClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                         showBorder={false}
+
                         headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
                     />
 
