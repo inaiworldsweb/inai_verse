@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import logo from '../assets/Mirrai.svg'
 
 /**
  * Reusable Page Header Component
@@ -18,7 +19,7 @@ function PageHeader({
     breadcrumbs = [],
     showBackButton = false,
     showLogo = true,
-    logoSrc = '/assets/Mirrai.svg',
+    logoSrc = logo,
     logoAlt = 'Miraai logo',
     logoClassName = 'h-[34px] md:pe-0 pe-5 -ms-4 md:-ms-0 md:h-[44px] w-auto max-w-[130px] object-contain',
     titleWrapperClassName = 'flex items-center gap-2',
