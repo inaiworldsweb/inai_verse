@@ -8,20 +8,7 @@
   color-scheme: dark;
 }
 
-/* Hide scrollbar for all browsers */
-* {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-}
-
-/* Hide scrollbar for WebKit (Chrome, Safari, etc) */
-*::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
+/* Scrollbar styles moved to specific components or classes for better control */
 
 html,
 body {
@@ -36,17 +23,18 @@ body {
   font-family: 'Inter', sans-serif !important;
 }
 
+/* Button default styles */
 button {
-  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
 
 @keyframes spin {

@@ -39,7 +39,7 @@ const SiteFooter = () => {
                     {productSections.map(({ title, items }) => (
                         /* Changed alignment to start (left) as requested previously */
                         <section key={title} className="flex flex-col items-start text-left w-full">
-                            <h3 className="text-[24px] font-semibold mb-4 text-white">{title}</h3>
+                            <h3 className="text-[24px] font-semibold mb-4 text-white ">{title}</h3>
                             <ul className="flex flex-col items-start gap-2">
                                 {items.map((item, idx) => {
                                     const label = typeof item === 'string' ? item : item.label;

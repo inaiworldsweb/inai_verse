@@ -83,7 +83,7 @@ const Miraai = () => {
                             className="
                             w-[280px] max-w-[85vw] h-full bg-black 
                             shadow-2xl
-                            overflow-y-auto
+                            overflow-y-auto hide-scrollbar
                             animate-in slide-in-from-left duration-300
                         "
                             onClick={(e) => e.stopPropagation()}
@@ -116,7 +116,7 @@ const Miraai = () => {
                 )}
 
                 {/* Desktop Sidebar - Hidden on mobile */}
-                <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto custom-scrollbar">
+                <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto hide-scrollbar">
                     <div className="flex items-center justify-center mb-4">
                         <Link to="/">
                             <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
@@ -143,7 +143,7 @@ const Miraai = () => {
                         headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
                     />
 
-                    <div className="w-full font-['Inter'] space-y-0 [&_*]:capitalize">
+                    <div className="w-full font-['Inter'] space-y-0">
                         <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
                             <MiraaiHero />
                         </section>

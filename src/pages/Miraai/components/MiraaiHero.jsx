@@ -59,7 +59,7 @@ const MiraaiHero = () => {
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-[#ccc] text-[15px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
+                <p className="text-[#ccc] text-[15px] md:text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>
