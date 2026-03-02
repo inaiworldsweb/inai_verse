@@ -68,7 +68,7 @@ const Miraai = () => {
     };
 
     const handleBack = () => navigate(-1);
-    const handleGoToPrice = () => window.open('/MiraaiPrice', '_blank');
+    const handleGoToPrice = () => navigate('/MiraaiPrice');
 
     return (
         <MiraaiScrollbar global={true}>
@@ -80,6 +80,7 @@ const Miraai = () => {
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
                         <aside
+                            data-lenis-prevent
                             className="
                             w-[280px] max-w-[85vw] h-full bg-black 
                             shadow-2xl
@@ -116,7 +117,7 @@ const Miraai = () => {
                 )}
 
                 {/* Desktop Sidebar - Hidden on mobile */}
-                <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto hide-scrollbar">
+                <aside data-lenis-prevent className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto hide-scrollbar">
                     <div className="flex items-center justify-center mb-4">
                         <Link to="/">
                             <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
