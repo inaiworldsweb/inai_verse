@@ -75,7 +75,7 @@ const SynProHeroSection = () => {
                             transform: `translateY(${topOffset + 100}px)`
                         }}
                     >
-                        <p className="text-[40px] font-bold text-center whitespace-nowrap">
+                        <p className="text-[40px] font-bold text-center whitespace-nowrap tracking-[1px] [font-stretch:700%]">
                             Miraai helps brands scale Professional
                         </p>
                     </div>
@@ -90,7 +90,7 @@ const SynProHeroSection = () => {
                                 transform: `translateX(${leftOffset + 140}px)`
                             }}
                         >
-                            <p className="text-[40px] font-bold">
+                            <p className="text-[40px] font-bold tracking-[1px] [font-stretch:700%]">
                                 Creative
                             </p>
                         </div>
@@ -118,7 +118,7 @@ const SynProHeroSection = () => {
                                 transform: `translateX(${rightOffset - 140}px)`
                             }}
                         >
-                            <p className="text-[40px] font-bold">
+                            <p className="text-[40px] font-bold tracking-[1px] [font-stretch:700%]">
                                 Content
                             </p>
                         </div>
@@ -133,7 +133,7 @@ const SynProHeroSection = () => {
                         }}
                         className="text-center"
                     >
-                        <p className="text-[40px] font-bold">
+                        <p className="text-[40px] font-bold tracking-[1px] [font-stretch:700%] text-[#ccc]">
                             10× faster with up to 70% cost savings.
                         </p>
                     </div>

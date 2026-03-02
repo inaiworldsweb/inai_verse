@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import logo from '../assets/Mirrai.svg'
 
 /**
  * Reusable Page Header Component
@@ -18,7 +19,7 @@ function PageHeader({
     breadcrumbs = [],
     showBackButton = false,
     showLogo = true,
-    logoSrc = '/miralogo.png',
+    logoSrc = logo,
     logoAlt = 'Miraai logo',
     logoClassName = 'h-[34px] md:pe-0 pe-5 -ms-4 md:-ms-0 md:h-[44px] w-auto max-w-[130px] object-contain',
     titleWrapperClassName = 'flex items-center gap-2',
@@ -31,6 +32,7 @@ function PageHeader({
     onPriceClick,
     onMenuClick,
     showBorder = true,
+    headerClassName = 'bg-black/80 backdrop-blur-md',
 }) {
     const navigate = useNavigate()
 
@@ -61,15 +63,21 @@ function PageHeader({
     }
 
     return (
-        <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 bg-black/80 backdrop-blur-md ${showBorder ? 'border-b border-white/10' : ''}`}>
+        <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 ${headerClassName} ${showBorder ? 'border-b border-white/10' : ''}`}>
             {/* Left Section - Back Button, Title, Breadcrumbs */}
             <div className="flex items-center gap-4">
-               
+
 
                 {(title || (showLogo && logoSrc)) && (
                     <div className={titleWrapperClassName}>
                         {(breadcrumbs.length > 0 || title) && (
-                            <span onClick={()=>navigate(-1)} className="text-white text-[30px] md:text-[50px] cursor-pointer ps-3 pb-1" aria-hidden="true">›</span>
+                            <span
+                                onClick={() => navigate(-1)}
+                                className="text-white text-[30px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
+                                aria-hidden="true"
+                            >
+                                ‹
+                            </span>
                         )}
                         {showLogo && logoSrc && (
                             <img
@@ -104,13 +112,10 @@ function PageHeader({
                 {showPriceButton && (
                     <button
                         type="button"
-                        className="group bg-white text-black px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors overflow-hidden"
+                        className="bg-white text-black px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors"
                         onClick={handlePrice}
                     >
-                        <span className="relative block h-[1.2em]">
-                            <span className="block transition-transform duration-300 group-hover:-translate-y-[120%]">Price</span>
-                            <span className="absolute left-0 top-[120%] block transition-transform duration-300 group-hover:-translate-y-[120%]">Price</span>
-                        </span>
+                        <span>Price</span>
                     </button>
                 )}
 

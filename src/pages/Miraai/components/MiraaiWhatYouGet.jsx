@@ -43,7 +43,7 @@ const MiraaiWhatYouGet = () => {
         // Desktop values preserved
         const desktopSteps = [0, 230, 450, 650];
         const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
-        
+
         // Mobile steps adjusted for 200px width
         const steps = isMobile ? [0, 110, 210, 300] : desktopSteps;
 
@@ -54,7 +54,7 @@ const MiraaiWhatYouGet = () => {
         <section className="pt-5 pb-12 -mb-22 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
-                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-tighter uppercase">
+                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-[1px] [font-stretch:700%] uppercase">
                     What You Get
                 </h2>
             </div>
@@ -79,8 +79,8 @@ const MiraaiWhatYouGet = () => {
                                     animate={{
                                         x: getXPos(offset),
                                         // Mobile scale adjustment for the active card
-                                        scale: absOffset === 0 
-                                            ? (isMobile ? 1.05 : 1.1) 
+                                        scale: absOffset === 0
+                                            ? (isMobile ? 1.05 : 1.1)
                                             : 1 - (absOffset * 0.06),
                                         zIndex: 40 - absOffset,
                                         opacity: 1,

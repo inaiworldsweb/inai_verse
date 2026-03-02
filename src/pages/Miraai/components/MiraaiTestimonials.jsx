@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const TestimonialCard = ({ quote, name, role }) => (
     <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0">
-        <motion.div 
+        <motion.div
             whileHover={{ y: -5 }}
             className="group bg-[#111111] rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden border border-white/5 transition-all duration-300 hover:border-white/20 hover:bg-[#161616] hover:shadow-[0_22px_70px_rgba(0,0,0,0.55)]"
         >
@@ -111,7 +111,7 @@ const MiraaiTestimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-tight"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-[1px] [font-stretch:700%]"
                     >
                         What Our Clients Say About Miraai
                     </motion.h2>
@@ -120,7 +120,7 @@ const MiraaiTestimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-white/60 text-[15px] md:text-[20px] w-full mx-auto font-light lg:whitespace-nowrap"
+                        className="text-[#ccc] text-[15px] md:text-[20px] w-full mx-auto font-light lg:whitespace-nowrap"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
@@ -144,7 +144,8 @@ const MiraaiTestimonials = () => {
                     </button>
 
                     {/* Testimonials Grid */}
-                    <div className="overflow-hidden">
+                    {/* Added pt-6 and pb-6 to ensure shadows aren't cut */}
+                    <div className="overflow-hidden pt-6 pb-6 -mt-6 -mb-6">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}

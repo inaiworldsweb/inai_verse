@@ -64,16 +64,10 @@ const ResultPreview = ({ services }) => {
             <div className="hidden lg:flex justify-center mt-6 sm:mt-10">
                 <button
                     type="button"
-                    className="group px-6 py-2.5 sm:px-10 sm:py-4 rounded-full bg-white text-black font-bold text-sm sm:text-base uppercase tracking-wider shadow-[0_15px_35px_rgba(255,255,255,0.12)] hover:bg-gray-100 transition-transform duration-200"
+                    className="px-6 py-2.5 sm:px-10 sm:py-4 rounded-full bg-white text-black font-bold text-sm sm:text-base uppercase tracking-wider shadow-[0_15px_35px_rgba(255,255,255,0.12)] hover:bg-gray-100 transition-colors duration-200"
                 >
-                    <span className="relative inline-block overflow-hidden align-top">
-                        <span className="invisible">Start Now</span>
-                        <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                            Start Now
-                        </span>
-                        <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-                            Start Now
-                        </span>
+                    <span>
+                        Start Now
                     </span>
                 </button>
             </div>

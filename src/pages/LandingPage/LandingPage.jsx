@@ -32,7 +32,7 @@ function LandingPage() {
                         </h1>
 
                         {/* Subtitle */}
-                        <h2 className="text-2xl md:text-4xl font-bold mb-8 text-center tracking-tight">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center tracking-tight">
                             We are for people, We are for digital{' '}
                             <span className="inline-flex">
                                 <span className="text-[#FF671F]">IN</span>

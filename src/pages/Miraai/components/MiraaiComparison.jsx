@@ -54,14 +54,14 @@ const MiraaiComparison = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[25px] md:text-[40px] font-bold text-white mb-4 tracking-tight"
+            className="text-[25px] md:text-[40px] font-bold text-white mb-4 tracking-[1px] [font-stretch:700%]"
           >
             The Real Problem We Solve
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-white/40 text-[15px] md:text-[20px]"
+            className="text-[#ccc] text-[15px] md:text-[20px]"
           >
             Do It Yourself Vs Miraai Expert Team
           </motion.p>
@@ -70,13 +70,13 @@ const MiraaiComparison = () => {
         {/* --- DESKTOP VIEW: Table Layout (Visible on lg and up) --- */}
         <div className="hidden lg:block">
           <div className="grid grid-cols-[1.2fr_1.5fr_1.5fr] gap-4 mb-6">
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center  text-sm font-bold shadow-lg uppercase ">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[18px] font-bold shadow-lg uppercase">
               Area
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase ">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[18px] font-bold shadow-lg uppercase">
               Do It Yourself
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-sm font-bold shadow-lg uppercase ">
+            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[18px] font-bold shadow-lg uppercase">
               Miraai Expert Team
             </div>
           </div>
@@ -155,7 +155,7 @@ const MiraaiComparison = () => {
               className="w-full"
             >
               <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 shadow-[0_-20px_60px_-15px_rgba(0,0,0,1)]">
-                <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4">
+                <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4 tracking-[1px] [font-stretch:700%]">
                   {item.area}
                 </h3>
 

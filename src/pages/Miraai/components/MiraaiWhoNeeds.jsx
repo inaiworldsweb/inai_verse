@@ -60,13 +60,13 @@ const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile 
       <div className="relative inline-flex flex-col items-center cursor-pointer">
         <div className="w-[110px] h-[110px] xs:w-[130px] xs:h-[130px] sm:w-[140px] sm:h-[140px] bg-transparent">
           {/* Borders and Rounding applied directly to the image */}
-          <img 
-            src={data.image} 
-            alt={data.title} 
-            className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]" 
+          <img
+            src={data.image}
+            alt={data.title}
+            className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
           />
         </div>
-        <div className="absolute -right-2 -bottom-2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
           {data.title}
         </div>
       </div>
@@ -98,7 +98,7 @@ export default function WhoNeedsOurServices() {
     <section className="relative min-h-screen bg-black text-white flex items-center justify-center pt-20 pb-0 lg:py-0 px-5 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         {/* Title: Desktop 40px, Mobile 25px */}
-        <h2 className="text-[25px] lg:text-[40px] font-bold tracking-tighter mb-12 lg:mb-5">
+        <h2 className="text-[25px] lg:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-12 lg:mb-5">
           Who Needs Our Services
         </h2>
 
@@ -125,8 +125,8 @@ export default function WhoNeedsOurServices() {
               transition={{ delay: 1, duration: 0.8 }}
               className="z-10 max-w-2xl"
             >
-              <p className="text-[25px] leading-relaxed drop-shadow-[0_0_20px_rgba(0,0,0,0.8)]">
-                Miraai Is Built For Brands That Rely<br />
+              <p className="text-[25px] leading-relaxed drop-shadow-[0_0_20px_rgba(0,0,0,0.8)] text-[#ccc]">
+                Miraai Is Built For Brands That Rely On<br />
                 High-Quality Visual Content, Frequent<br />
                 Campaigns, And Fast Execution.
               </p>
@@ -153,8 +153,8 @@ export default function WhoNeedsOurServices() {
               viewport={{ once: true }}
               className="py-6"
             >
-              <p className="text-[15px] lg:text-[25px] leading-relaxed max-w-[320px] mx-auto opacity-90">
-                Miraai Is Built For Brands That Rely High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
+              <p className="text-[15px] lg:text-[25px] leading-relaxed max-w-[320px] mx-auto opacity-90 text-[#ccc]">
+                Miraai Is Built For Brands That Rely On High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
               </p>
             </motion.div>
 
@@ -181,11 +181,12 @@ export default function WhoNeedsOurServices() {
           viewport={{ once: true }}
           className="mt-16 lg:mt-5 pb-10"
         >
-          <p className="text-[14px] lg:text-[18px] mt-25 md:mt-0 text-white max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-[#ccc] text-[14px] lg:text-[18px] mt-25 md:mt-0 max-w-4xl mx-auto leading-relaxed px-4">
             If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.
           </p>
         </motion.div>
       </div>
+
     </section>
   );
 }
