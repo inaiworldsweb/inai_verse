@@ -38,11 +38,7 @@ function PageHeader({
     const navigate = useNavigate()
 
     const handleBack = () => {
-        if (onBackClick) {
-            onBackClick()
-        } else {
-            navigate(-1)
-        }
+        navigate('/')
     }
 
     const handlePrice = () => {
@@ -81,7 +77,7 @@ function PageHeader({
                     <div className={titleWrapperClassName} >
                         {(breadcrumbs.length > 0 || title) && (
                             <span
-                                onClick={() => navigate(-1)}
+                                onClick={() => navigate('/')}
                                 className="text-white text-[40px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
                                 aria-hidden="true"
                             >

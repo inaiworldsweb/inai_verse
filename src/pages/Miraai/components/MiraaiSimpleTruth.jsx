@@ -148,7 +148,7 @@ const MiraaiSimpleTruth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-[#ccc] text-[15px] md:text-[20px] font-normal leading-[1.4] max-w-[320px] lg:max-w-none -mb-10 md:mb-0"
+              className="text-[#ccc] text-[15px] md:text-[25px] font-normal leading-[1.4] max-w-[320px] lg:max-w-none -mb-10 md:mb-0"
             >
               We handle everything from concept to final delivery. You just tell us what you need.
             </motion.p>

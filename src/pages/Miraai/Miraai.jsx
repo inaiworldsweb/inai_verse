@@ -68,7 +68,7 @@ const Miraai = () => {
     };
 
     const handleBack = () => navigate(-1);
-    const handleGoToPrice = () => window.open('/MiraaiPrice', '_blank');
+    const handleGoToPrice = () => navigate('/MiraaiPrice');
 
     return (
         <MiraaiScrollbar global={true}>
@@ -80,10 +80,10 @@ const Miraai = () => {
                         onClick={() => setIsMobileMenuOpen(false)}
                     >
                         <aside
+                            data-lenis-prevent
                             className="
-                            w-[280px] max-w-[85vw] h-full bg-black 
+                            flex flex-col w-[280px] max-w-[85vw] h-full bg-black 
                             shadow-2xl
-                            overflow-y-auto hide-scrollbar
                             animate-in slide-in-from-left duration-300
                         "
                             onClick={(e) => e.stopPropagation()}
@@ -95,20 +95,23 @@ const Miraai = () => {
                                 absolute top-4 right-4 p-2 
                                 text-white/70 hover:text-white 
                                 hover:bg-white/10 rounded-lg
-                                transition-colors
+                                transition-colors z-20
                             "
                                 aria-label="Close navigation menu"
                             >
                                 <HiX className="w-5 h-5" />
                             </button>
 
-                            {/* Mobile Sidebar Content */}
-                            <div className="pt-16 px-4">
-                                <div className="flex items-center justify-center mb-6">
+                            {/* Mobile Sidebar Content - Separated Header and Scrollable Content */}
+                            <div className="pt-16 px-4 pb-4">
+                                <div className="flex items-center justify-center">
                                     <Link to="/">
                                         <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[80px] h-auto" />
                                     </Link>
                                 </div>
+                            </div>
+
+                            <div className="flex-1 overflow-y-auto hide-scrollbar overscroll-contain px-4 pb-10" data-lenis-prevent>
                                 <SideMenu items={navLabels} variant="login" onSelectItem={handleSideMenuClick} />
                             </div>
                         </aside>
@@ -116,13 +119,16 @@ const Miraai = () => {
                 )}
 
                 {/* Desktop Sidebar - Hidden on mobile */}
-                <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 sticky top-0 h-screen overflow-y-auto hide-scrollbar">
-                    <div className="flex items-center justify-center mb-4">
+                <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black sticky top-0 h-screen overflow-hidden">
+                    <div className="p-6 xl:p-8 flex flex-col items-center justify-center">
                         <Link to="/">
                             <img src={logoImage} alt="INAI Verse logo" className="w-full max-w-[100px] h-auto" />
                         </Link>
                     </div>
-                    <SideMenu items={navLabels} variant="login" onSelectItem={handleSideMenuClick} />
+
+                    <div className="flex-1 overflow-y-auto hide-scrollbar overscroll-contain px-6 xl:px-8 pb-10" data-lenis-prevent>
+                        <SideMenu items={navLabels} variant="login" onSelectItem={handleSideMenuClick} />
+                    </div>
                 </aside>
 
                 {/* Main Content Area */}
