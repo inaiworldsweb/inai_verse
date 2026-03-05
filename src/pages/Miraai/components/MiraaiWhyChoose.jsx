@@ -80,7 +80,7 @@ const MiraaiWhyChoose = () => {
                                 <h3 className="text-white font-bold text-[16px] sm:text-[17px] mb-2 sm:mb-3 tracking-[1px] [font-stretch:700%]">
                                     {feature.title}
                                 </h3>
-                                <p className="text-[#ccc] text-[13px] sm:text-[14px] leading-relaxed">
+                                <p className="text-[#ccc] text-[0.875rem] sm:text-[14px] leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>

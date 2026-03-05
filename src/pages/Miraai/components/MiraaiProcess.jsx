@@ -145,11 +145,11 @@ const MiraaiProcess = () => {
 
         {/* ================= HEADING ================= */}
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-[25px] md:text-[40px] font-bold mb-6 text-white tracking-[1px] [font-stretch:700%]">
+          <h2 className="text-[1.5625rem] md:text-[2.5rem] font-bold mb-6 text-white tracking-[1px] [font-stretch:700%]">
             Here's Exactly How We Work With You
           </h2>
 
-          <p className="text-[#ccc] text-[15px] md:text-[20px] w-full mx-auto">
+          <p className="text-[#ccc] text-[0.75rem] md:text-[1.125rem] w-full mx-auto">
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
           </p>
         </div>
@@ -182,15 +182,15 @@ const MiraaiProcess = () => {
 
                 {/* TEXT */}
                 <div className="step-text w-full md:w-[42%] text-center md:text-left opacity-0">
-                  <h3 className="text-[23px] md:text-[38px] font-bold mb-4 text-white leading-tight tracking-[1px] [font-stretch:700%]">
+                  <h3 className="text-[1.5625rem] md:text-[2.5rem] font-bold mb-4 text-white leading-tight tracking-[1px] [font-stretch:700%]">
                     {step.title}
                   </h3>
 
-                  <h4 className=" font-semibold mb-2 uppercase text-[15px] md:text-[20px]">
+                  <h4 className=" font-semibold mb-2 uppercase text-[1rem] md:text-[1.3125rem]">
                     {step.subtitle}
                   </h4>
 
-                  <p className="text-[#ccc] leading-relaxed text-[12px] pb-5 md:text-lg">
+                  <p className="text-[#ccc] leading-relaxed text-[0.75rem] pb-5 md:text-[1.125rem]">
                     {step.description}
                   </p>
                 </div>

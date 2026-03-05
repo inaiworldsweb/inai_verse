@@ -41,24 +41,26 @@ const MiraaiServices = () => {
 
     return (
         <section className="relative bg-black text-white overflow-visible">
-            {/* Main scroll container */}
+            {/* The total scrollable length */}
             <div ref={containerRef} className="relative" style={{ height: '6000px' }}>
 
-                {/* 1. Normal Flow Header (Scrolls out of view) */}
-                <div className="w-full flex flex-col items-center justify-center px-4 pt-2 md:pt-18 pb-2">
-                    <h2 className="text-white text-center font-bold tracking-[1px] [font-stretch:700%] leading-none text-[25px] md:text-[40px] mb-4 md:mb-6 uppercase z-10">
-                        Here's Exactly How We Work With You
-                    </h2>
-                    <p className="text-[#ccc] text-center tracking-tight leading-none text-[13px] md:text-[20px] uppercase z-10">
-                        We're your AI-powered creative production team. You brief us. We create. Simple.
-                    </p>
-                </div>
+                {/* STICKY WRAPPER 
+                   We use pt-10 to pt-24 to ensure the heading isn't touching the very top edge.
+                */}
+                <div className="miraai-pin sticky top-10 min-h-screen flex flex-col items-center justify-start px-4 sm:px-6 overflow-hidden pt-12  md:pt-20">
 
-                {/* 2. Pinning Area - 'items-start' and 'pt-0' for maximum top alignment */}
-                <div className="miraai-pin sticky top-0 min-h-screen flex items-start justify-center px-4 sm:px-6 overflow-hidden">
+                    {/* 1. THE HEADING (Now stays visible inside the pin) */}
+                    <div className="w-full flex flex-col items-center justify-center mb-8 md:mb-12">
+                        <h2 className="text-white text-center font-bold tracking-[1px] [font-stretch:700%] leading-none text-[1.5rem] md:text-[2.5rem] mb-3 md:mb-5  z-10">
+                            Here's Exactly How We Work With You
+                        </h2>
+                        <p className="text-[#ccc] text-center tracking-tight leading-none text-[0.75rem] md:text-[1.125rem]  z-10">
+                            We're your AI-powered creative production team. You brief us. We create. Simple.
+                        </p>
+                    </div>
 
-                    {/* Minimal Padding Top (pt-2) ensures it sticks almost at the very top */}
-                    <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-14 items-start w-full max-w-6xl relative z-10 pt-2 md:pt-4">
+                    {/* 2. THE ANIMATION CONTENT (Console & Preview) */}
+                    <div className="walk-container flex flex-col lg:grid lg:grid-cols-2 gap-6 sm:gap-10 lg:gap-14 items-start w-full max-w-6xl relative z-10">
 
                         {/* Command Console */}
                         <div ref={consoleRef} className="w-full flex justify-center lg:justify-start order-2 lg:order-1">

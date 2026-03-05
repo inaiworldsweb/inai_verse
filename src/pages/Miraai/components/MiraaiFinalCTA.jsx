@@ -29,7 +29,7 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[25px] md:text-[40px] font-bold text-white mb-6 md:mb-8 tracking-tight leading-[1.2]"
+            className="text-[1.5625rem] md:text-[2.5rem] font-bold text-white mb-6 md:mb-8 tracking-tight leading-[1.2]"
           >
             Ready To Grow Your Brand With Professional Content?
           </motion.h2>
@@ -39,20 +39,24 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white/80 text-[15px] md:text-[20px] font-['Inter'] font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-normal"
+            className="text-white/80 text-[0.75rem] md:text-[1.125rem] font-['Inter'] font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-normal"
           >
             Let Our AI-Powered Expert Team Handle Your Videos, Ads, And Branding{" "}
             <br className="hidden md:block" />
             So You Can Focus On Your Business.
           </motion.p>
 
-          <button
-            className="px-8 py-3 md:px-10 md:py-4 bg-white text-black text-sm md:text-lg font-bold rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.15)] hover:shadow-[0_25px_50px_rgba(255,255,255,0.25)] transition-all"
-          >
-            <span>
-              Contact Our Team
-            </span>
-          </button>
+          <div className="flex justify-center">
+            <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">
+              <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
+                <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-10 py-3">
+                  <div className="flex gap-2 items-center">
+                    <span className="font-semibold text-white">Contact Our Team</span>
+                  </div>
+                </div>
+              </button>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>

@@ -38,7 +38,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
                             <div className="px-[24px] pb-6 md:px-[16px] md:pb-8 pt-4">
-                                <p className="text-[#ccc] text-[12px] leading-relaxed">
+                                <p className="text-[#ccc] text-[0.875rem] leading-relaxed">
                                     {answer}
                                 </p>
                             </div>

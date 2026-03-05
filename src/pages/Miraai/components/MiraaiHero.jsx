@@ -50,28 +50,30 @@ const MiraaiHero = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-160px)] relative py-12 overflow-hidden">
+        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-160px)] relative py-6 md:py-12 overflow-hidden">
 
             {/* Hero Content */}
-            <div ref={contentRef} className="max-w-[70rem] mx-auto text-center z-10 opacity-0">
+            <div ref={contentRef} className="max-w-[70rem] mx-auto mt-4 md:mt-15 text-center z-10 opacity-0">
                 <h1 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-6 leading-[1.05] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-[#ccc] text-[15px] md:text-[25px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
+                <p className="text-[#ccc] text-[14px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>
 
                 <div className="flex justify-center mb-12">
-                    <button
-                        className="min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm cursor-pointer"
-                    >
-                        <span className="font-['Inter']">
-                            Start Your First Project
-                        </span>
-                    </button>
+                    <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">
+                        <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
+                            <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-6 py-2">
+                                <div className="flex gap-2 items-center">
+                                    <span className="font-semibold text-white">Start Your First Project</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
 

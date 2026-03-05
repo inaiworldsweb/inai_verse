@@ -20,11 +20,11 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
           <Icon className="text-white text-xl" />
         </div>
 
-        <h3 className="text-white text-[24px] font-bold mb-4 tracking-[1px] [font-stretch:700%]">
+        <h3 className="text-white text-[0.75rem] md:text-[1.3125rem] font-bold mb-4 tracking-[1px] [font-stretch:700%]">
           {title}
         </h3>
 
-        <p className="text-[#ccc] text-[15px] leading-relaxed">
+        <p className="text-[#ccc] text-[0.75rem] md:text-[1.125rem] leading-relaxed">
           {description}
         </p>
       </div>
@@ -71,7 +71,7 @@ const MobileTruthCard = ({ title, description, icon: Icon, isOpen, onClick }) =>
           </div>
         </div>
 
-        <span className="text-[22px] font-bold text-white mt-8 block tracking-[1px] [font-stretch:700%]">
+        <span className="text-[1rem] md:text-[1.3125rem] font-bold text-white mt-8 block tracking-[1px] [font-stretch:700%]">
           {title}
         </span>
       </button>
@@ -86,7 +86,7 @@ const MobileTruthCard = ({ title, description, icon: Icon, isOpen, onClick }) =>
             className="overflow-hidden relative z-10"
           >
             <div className="p-6 pt-0">
-              <p className="text-[15px] leading-relaxed text-[#ccc] font-medium">
+              <p className="text-[0.75rem] leading-relaxed text-[#ccc] font-medium">
                 {description}
               </p>
             </div>
@@ -138,7 +138,7 @@ const MiraaiSimpleTruth = () => {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-[1px] [font-stretch:700%] leading-tight"
+              className="text-[1.5625rem] md:text-[2.5rem] font-bold text-white mb-6 tracking-[1px] [font-stretch:700%] leading-tight"
             >
               The Simple Truth
             </motion.h2>
@@ -148,7 +148,7 @@ const MiraaiSimpleTruth = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="text-[#ccc] text-[15px] md:text-[25px] font-normal leading-[1.4] max-w-[320px] lg:max-w-none -mb-10 md:mb-0"
+              className="text-[#ccc] text-[0.75rem] md:text-[1.125rem] font-normal leading-[1.4] max-w-[320px] lg:max-w-none -mb-10 md:mb-0"
             >
               We handle everything from concept to final delivery. You just tell us what you need.
             </motion.p>
