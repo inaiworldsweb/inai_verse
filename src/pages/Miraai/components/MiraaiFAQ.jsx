@@ -8,24 +8,40 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="mb-2 w-full"
+            className="mb-4 w-full"
         >
             <div
                 onClick={onToggle}
-                className="w-full bg-[#0A0A0A] rounded-[1.25rem] transition-all duration-300 group cursor-pointer overflow-hidden"
+                /* Applied the exact gradient and border styles you requested */
+                className={`w-full bg-gradient-to-r from-[#0b0b0b] to-[#111827] 
+                border border-gray-700/50 rounded-xl transition-all duration-300 
+                ease-out cursor-pointer overflow-hidden 
+                ${isOpen ? 'border-gray-500' : 'hover:border-gray-600'}`}
             >
-                <div className="px-[15px] py-4 md:px-[15px] md:py-6 flex items-center justify-between relative z-10">
-                    <h3 className="text-[15px] md:text-[20px] tracking-[1px] [font-stretch:700%] text-white">
+                <div className="px-5 py-5 md:px-6 md:py-6 flex items-center justify-between relative z-10">
+                    <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white pr-8">
                         {question}
                     </h3>
 
                     <motion.div
-                        initial={false}
-                        animate={{ rotate: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="text-white text-2xl font-light"
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="text-white text-2xl font-light flex-shrink-0"
                     >
-                        {isOpen ? "−" : "+"}
+                        {/* Using a simple + that rotates to x, which is a common modern FAQ pattern */}
+                        <svg 
+                            width="20" 
+                            height="20" 
+                            viewBox="0 0 24 24" 
+                            fill="none" 
+                            stroke="currentColor" 
+                            strokeWidth="2" 
+                            strokeLinecap="round" 
+                            strokeLinejoin="round"
+                        >
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
                     </motion.div>
                 </div>
 
@@ -37,10 +53,12 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="px-[24px] pb-6 md:px-[16px] md:pb-8 pt-4">
-                                <p className="text-[#ccc] text-[0.875rem] leading-relaxed">
-                                    {answer}
-                                </p>
+                            <div className="px-5 pb-6 md:px-6 md:pb-8 pt-0">
+                                <div className="border-t border-gray-700/30 pt-4">
+                                    <p className="text-[#ccc] text-[1rem] leading-relaxed">
+                                        {answer}
+                                    </p>
+                                </div>
                             </div>
                         </motion.div>
                     )}
@@ -77,20 +95,23 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-10 md:py-14  bg-black">
-            <div className="max-w-[1000px] mx-auto px-[24px] md:px-[16px]">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-16 md:py-24 bg-black">
+            <div className="max-w-[1200px] mx-auto px-6 lg:px-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-8"
+                    className="text-center mb-12"
                 >
-                    <h2 className="text-[25px] md:text-[40px] text-white font-bold tracking-[1px] [font-stretch:700%]">
+                    <h2 className="text-[28px] md:text-[42px] text-white font-bold tracking-tight mb-4">
                         Frequently Asked Questions
                     </h2>
+                    <p className="text-gray-400 text-lg">
+                        Everything you need to know about our process and services.
+                    </p>
                 </motion.div>
 
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col">
                     {faqs.map((faq, index) => (
                         <FAQItem
                             key={index}

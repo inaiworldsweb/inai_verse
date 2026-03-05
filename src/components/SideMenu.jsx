@@ -1,5 +1,6 @@
 
 import { FiChevronRight } from 'react-icons/fi'
+import { ArrowRight } from 'lucide-react'
 
 const SideMenu = ({ className = '', items = [], variant = 'landing', onSelectItem, logoSrc }) => {
     if (!items.length) return null
@@ -10,14 +11,12 @@ const SideMenu = ({ className = '', items = [], variant = 'landing', onSelectIte
                 {items.map((item) => (
                     <button
                         key={item}
-                        className="flex items-center justify-between py-3 px-0 bg-transparent border-none text-white/80 cursor-pointer transition-colors duration-200 text-left w-full text-sm hover:text-white"
+                        className="group flex items-center justify-between py-3 px-0 bg-transparent border-none text-white/80 cursor-pointer transition-all duration-200 text-left w-full text-sm hover:text-white hover:translate-x-1"
                         type="button"
                         onClick={() => onSelectItem && onSelectItem(item)}
                     >
-                        {item}
-                        <span aria-hidden="true">
-                            ›
-                        </span>
+                        <span>{item}</span>
+                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
                     </button>
                 ))}
             </nav>
@@ -39,12 +38,12 @@ const SideMenu = ({ className = '', items = [], variant = 'landing', onSelectIte
                 {items.map((item) => (
                     <button
                         key={item}
-                        className="flex items-center justify-between px-4 py-3 bg-transparent border-none text-white/80 cursor-pointer transition-all duration-200 text-left w-full hover:bg-white/5 hover:text-white"
+                        className="group flex items-center justify-between px-4 py-3 bg-transparent border-none text-white/80 cursor-pointer transition-all duration-200 text-left w-full hover:bg-white/5 hover:text-white hover:translate-x-1"
                         type="button"
                         onClick={() => onSelectItem && onSelectItem(item)}
                     >
                         <span className="text-sm font-medium">{item}</span>
-                        <FiChevronRight className="w-4 h-4 opacity-60" />
+                        <ArrowRight className="w-4 h-4 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
                     </button>
                 ))}
             </nav>

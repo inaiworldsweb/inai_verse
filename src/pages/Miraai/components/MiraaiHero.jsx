@@ -54,7 +54,7 @@ const MiraaiHero = () => {
 
             {/* Hero Content */}
             <div ref={contentRef} className="max-w-[70rem] mx-auto mt-4 md:mt-15 text-center z-10 opacity-0">
-                <h1 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-6 leading-[1.05] text-white">
+                <h1 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-8 md:mb-7 leading-[1.20] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
@@ -67,7 +67,7 @@ const MiraaiHero = () => {
                 <div className="flex justify-center mb-12">
                     <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">
                         <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
-                            <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-6 py-2">
+                            <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
                                 <div className="flex gap-2 items-center">
                                     <span className="font-semibold text-white">Start Your First Project</span>
                                 </div>
