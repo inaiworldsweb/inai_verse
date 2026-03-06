@@ -17,7 +17,7 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
       </div>
 
       {/* Progress Bar Container */}
-      <div className="w-full max-w-[500px] mx-auto">
+      <div className="w-full">
         <div className="h-[6px] w-full bg-white/10 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}

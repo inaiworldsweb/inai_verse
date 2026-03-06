@@ -38,7 +38,7 @@ const QuestionCard = ({ icon, question, index }) => {
 
 const MiraaiCTA = () => {
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-3 md:py-12 px-4 sm:px-6 lg:px-20 bg-black flex justify-center">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 bg-black flex justify-center">
             <div className="w-full max-w-6xl bg-[#050505] rounded-[3rem]  border border-white/5 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15)_0%,transparent_70%)] pointer-events-none" />
@@ -50,7 +50,7 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[1.5625rem] md:text-[2.5rem] font-bold text-white mb-5 tracking-[1px] [font-stretch:700%] leading-tight"
+                        className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-4 md:mb-5 tracking-[1px] [font-stretch:700%] leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>
@@ -92,8 +92,8 @@ const MiraaiCTA = () => {
                         transition={{ duration: 0.8, delay: 0.5 }}
                         className="mb-6"
                     >
-                        <p className="text-[0.75rem] md:text-[1.125rem] text-[#ccc] mb-2 tracking-widest">If you answered YES to any of these</p>
-                        <h3 className="text-[1.5625rem] md:text-[2.5rem] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
+                        <p className="text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] text-[#ccc] mb-2 tracking-widest">If you answered YES to any of these</p>
+                        <h3 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
                     </motion.div>
 
                     <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">

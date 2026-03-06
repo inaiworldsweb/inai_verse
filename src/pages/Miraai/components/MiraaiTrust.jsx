@@ -27,7 +27,7 @@ const MiraaiTrust = () => {
   ];
 
   return (
-    <section className="py-3 md:py-12 bg-black relative">
+    <section className="py-3 md:py-8 lg:py-12 bg-black relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center">
 
         {/* Heading */}
@@ -36,9 +36,9 @@ const MiraaiTrust = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-8 text-center"
+          className="mb-6 md:mb-8 text-center"
         >
-          <h2 className="text-[2.5rem] font-black mb-4 tracking-[1px] [font-stretch:700%] text-white">
+          <h2 className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-black mb-3 md:mb-4 tracking-[1px] [font-stretch:700%] text-white">
             Trusted By Global Giants
           </h2>
           <p className="text-[#ccc] text-sm md:text-base font-medium uppercase tracking-wider">

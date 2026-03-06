@@ -52,7 +52,7 @@ const SynProHeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-black py-3 md:py-12 ">
+        <div ref={containerRef} className="bg-black py-3 md:py-8 lg:py-12">
             <section
                 ref={sectionRef}
                 /* Desktop stays h-screen for pinning, Mobile becomes auto-height */
@@ -60,22 +60,22 @@ const SynProHeroSection = () => {
             >
                 {/* Desktop Layout (Unchanged) */}
                 <div className="hidden md:flex flex-col items-center gap-0 md:gap-2 relative">
-                    <div ref={topTextRef} className="hidden md:block opacity-0 will-change-transform">
-                        <h2 className="text-[1.5625rem] md:text-[2.5rem] font-bold uppercase tracking-[1px] text-white font-inter">
+                    <div ref={topTextRef} className="hidden md:block opacity-0 will-change-transform text-center px-4">
+                        <h2 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2rem] xl:text-[2.5rem] font-bold uppercase tracking-[1px] text-white font-inter">
                             Miraai Helps Brands Scale Professional
                         </h2>
                     </div>
 
                     <div ref={contentWrapperRef} className="flex items-center justify-center gap-4 lg:gap-2">
                         <div ref={leftTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[1.5625rem] md:text-[2.5rem] font-semibold uppercase text-white font-inter">
+                            <h2 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2rem] xl:text-[2.5rem] font-semibold uppercase text-white font-inter">
                                 Creative
                             </h2>
                         </div>
 
                         <div
                             ref={imageBoxRef}
-                            className="w-[90vw] md:w-[800px] lg:w-[1000px] h-[250px] md:h-[500px] lg:h-[550px] overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
+                            className="w-[90vw] md:w-[550px] lg:w-[800px] xl:w-[1000px] h-[250px] md:h-[350px] lg:h-[500px] xl:h-[550px] overflow-hidden border border-white/10 shadow-[0_0_80px_rgba(255,255,255,0.05)] flex-shrink-0"
                             style={{ willChange: "width, height, border-radius" }}
                         >
                             <img
@@ -87,20 +87,20 @@ const SynProHeroSection = () => {
                         </div>
 
                         <div ref={rightTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[1.5625rem] md:text-[2.5rem] font-semibold uppercase text-white font-inter">
+                            <h2 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2rem] xl:text-[2.5rem] font-semibold uppercase text-white font-inter">
                                 Content
                             </h2>
                         </div>
                     </div>
 
-                    <div ref={bottomTextRef} className="hidden md:block opacity-0 will-change-transform">
-                        <h2 className="text-[1.5625rem] md:text-[2.5rem] font-bold uppercase tracking-[1px] text-white font-inter">
+                    <div ref={bottomTextRef} className="hidden md:block opacity-0 will-change-transform text-center px-4">
+                        <h2 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2rem] xl:text-[2.5rem] font-bold uppercase tracking-[1px] text-white font-inter">
                             10× Faster With Up To 70% Cost Savings.
                         </h2>
                     </div>
                 </div>
 
-                {/* ✅ Mobile Layout (Spacing Fixed) */}
+                {/* Mobile Layout (Spacing Fixed) */}
                 <div className="md:hidden flex flex-col items-center justify-center px-6 py-12 mt-15     text-center bg-black w-full">
 
                     {/* Top Heading: Reduced margin-bottom */}

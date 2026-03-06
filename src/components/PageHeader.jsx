@@ -118,7 +118,7 @@ function PageHeader({
                 {showPriceButton && (
                     <button
                         type="button"
-                        className="bg-white text-black px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors  cursor-pointer"
+                        className="bg-gradient-to-b from-gray-700 to-gray-600 text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gradient-to-b hover:from-gray-600 hover:to-gray-700 transition-all duration-200 cursor-pointer shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995]"
                         onClick={handlePrice}
                     >
                         <span>Price</span>

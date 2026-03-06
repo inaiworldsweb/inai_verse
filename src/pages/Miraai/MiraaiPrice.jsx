@@ -220,122 +220,64 @@ export default function MiraaiPrice() {
               </button>
             </div>
           </div>
-        </div>
 
-        {/* Pricing Cards */}
-        <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {plans.slice(0, 3).map((plan, index) => (
-            <div
-              key={index}
-              className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[380px] mx-auto mt-12"
-            >
-              <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold">
-                {plan.discount}
-              </div>
+          {/* Pricing Cards - All 5 cards in 2 columns */}
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4 lg:gap-6 max-w-[800px] mx-auto">
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-6 md:p-5 lg:p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[340px] md:max-w-[300px] lg:max-w-[380px] mx-auto mt-12"
+              >
+                <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold">
+                  {plan.discount}
+                </div>
 
-              <h2 className="text-xl font-bold">{plan.name}</h2>
-              <div className="mt-1 mb-4">
-                <span className="text-sm text-gray-400">Best for: </span>
-                <span className="text-sm text-gray-400">{plan.bestFor}</span>
-              </div>
+                <h2 className="text-xl font-bold">{plan.name}</h2>
+                <div className="mt-1 mb-4">
+                  <span className="text-sm text-gray-400">Best for: </span>
+                  <span className="text-sm text-gray-400">{plan.bestFor}</span>
+                </div>
 
-              <div className="mb-4">
-                <p className="line-through text-gray-500 text-lg">
-                  {billing === "monthly" ? plan.oldMonthly : plan.oldYearly}
-                </p>
-                <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-2xl font-bold">
-                    {billing === "monthly" ? plan.monthly : plan.yearly}
-                  </span>
+                <div className="mb-4">
+                  <p className="line-through text-gray-500 text-lg">
+                    {billing === "monthly" ? plan.oldMonthly : plan.oldYearly}
+                  </p>
+                  <div className="flex items-baseline gap-1 mt-1">
+                    <span className="text-2xl font-bold">
+                      {billing === "monthly" ? plan.monthly : plan.yearly}
+                    </span>
+                  </div>
+                </div>
+
+                <GetStartedButton />
+
+                <div className="border-t border-zinc-800 mb-4"></div>
+
+                <div className="text-sm">
+                  <p className="font-semibold mb-4 text-white">What You Get:</p>
+                  <ul className="space-y-4 text-sm text-gray-300">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 mt-1.5"></span>
+                        <div className="flex-1">
+                          {feature.includes('(') ? (
+                            <>
+                              <span className="text-white text-sm">{feature.split('(')[0].trim()}</span>
+                              <span className="text-gray-400 text-xs block mt-1">({feature.split('(')[1]}</span>
+                            </>
+                          ) : (
+                            <span className="text-white text-sm">{feature}</span>
+                          )}
+                        </div>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
+            ))}
+          </div>
 
-              <GetStartedButton />
-
-              <div className="border-t border-zinc-800 mb-4"></div>
-
-              <div className="text-sm">
-                <p className="font-semibold mb-4 text-white">What You Get:</p>
-                <ul className="space-y-4 text-sm text-gray-300">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 mt-1.5"></span>
-                      <div className="flex-1">
-                        {feature.includes('(') ? (
-                          <>
-                            <span className="text-white text-sm">{feature.split('(')[0].trim()}</span>
-                            <span className="text-gray-400 text-xs block mt-1">({feature.split('(')[1]}</span>
-                          </>
-                        ) : (
-                          <span className="text-white text-sm">{feature}</span>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Second Row - 2 cards centered */}
-        <div className="mt-6 flex flex-wrap justify-center gap-6">
-          {plans.slice(3, 5).map((plan, index) => (
-            <div
-              key={index + 3}
-              className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[380px]"
-            >
-              <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold">
-                {plan.discount}
-              </div>
-
-              <h2 className="text-xl font-bold">{plan.name}</h2>
-              <div className="mt-1 mb-4">
-                <span className="text-sm text-gray-400">Best for: </span>
-                <span className="text-sm text-gray-400">{plan.bestFor}</span>
-              </div>
-
-              <div className="mb-4">
-                <p className="line-through text-gray-500 text-lg">
-                  {billing === "monthly" ? plan.oldMonthly : plan.oldYearly}
-                </p>
-                <div className="flex items-baseline gap-1 mt-1">
-                  <span className="text-2xl font-bold">
-                    {billing === "monthly" ? plan.monthly : plan.yearly}
-                  </span>
-                </div>
-              </div>
-
-              <GetStartedButton />
-
-              <div className="border-t border-zinc-800 mb-4"></div>
-
-              <div className="text-sm">
-                <p className="font-semibold mb-4 text-white">What You Get:</p>
-                <ul className="space-y-4 text-sm text-gray-300">
-                  {plan.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 mt-1.5"></span>
-                      <div className="flex-1">
-                        {feature.includes('(') ? (
-                          <>
-                            <span className="text-white text-sm">{feature.split('(')[0].trim()}</span>
-                            <span className="text-gray-400 text-xs block mt-1">({feature.split('(')[1]}</span>
-                          </>
-                        ) : (
-                          <span className="text-white text-sm">{feature}</span>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Add-On Section */}
-        <div className="mt-24 bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800 rounded-2xl p-8">
+          {/* Add-On Section */}
           {/* Image Generation Add-On */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between pb-6 border-b border-zinc-800">
             <div className="flex-1">

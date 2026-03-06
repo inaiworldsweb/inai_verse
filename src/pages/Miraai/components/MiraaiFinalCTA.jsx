@@ -4,7 +4,7 @@ import ctaBg from "../../../Assetsa/e.png";
 
 const MiraaiFinalCTA = () => {
   return (
-    <section className="py-3 md:py-12 bg-black w-full px-6 md:px-8 lg:px-20">
+    <section className="py-3 md:py-8 lg:py-12 bg-black w-full px-6 md:px-8 lg:px-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -29,7 +29,7 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[1.5625rem] md:text-[2.5rem] font-bold text-white mb-6 md:mb-8 tracking-tight leading-[1.2]"
+            className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-4 md:mb-6 lg:mb-8 tracking-tight leading-[1.2]"
           >
             Ready To Grow Your Brand With Professional Content?
           </motion.h2>
@@ -39,7 +39,7 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white/80 text-[0.75rem] md:text-[1.125rem] font-['Inter'] font-medium mb-10 md:mb-12 max-w-2xl mx-auto leading-normal"
+            className="text-white/80 text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] font-['Inter'] font-medium mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-normal"
           >
             Let Our AI-Powered Expert Team Handle Your Videos, Ads, And Branding{" "}
             <br className="hidden md:block" />
