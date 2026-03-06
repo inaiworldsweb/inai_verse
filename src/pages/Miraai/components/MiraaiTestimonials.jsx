@@ -103,7 +103,7 @@ const MiraaiTestimonials = () => {
         ].filter(Boolean);
 
     return (
-        <section className="py-4 md:py-8 bg-black overflow-hidden relative">
+        <section className="py-3 md:py-12 bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-8 md:mb-10 ">
@@ -111,7 +111,7 @@ const MiraaiTestimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-6 tracking-[1px] [font-stretch:700%]"
+                        className="text-[25px] md:text-[40px] font-bold text-white mb-4 tracking-[1px] [font-stretch:700%]"
                     >
                         What Our Clients Say About Miraai
                     </motion.h2>
@@ -120,7 +120,7 @@ const MiraaiTestimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#ccc] text-[15px] md:text-[20px] w-full mx-auto font-light lg:whitespace-nowrap"
+                        className="text-[#ccc] text-[16px] md:text-[21px] w-full mx-auto font-light lg:whitespace-nowrap"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>

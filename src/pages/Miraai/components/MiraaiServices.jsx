@@ -51,10 +51,10 @@ const MiraaiServices = () => {
 
                     {/* 1. THE HEADING (Now stays visible inside the pin) */}
                     <div className="w-full flex flex-col items-center justify-center mb-8 md:mb-12">
-                        <h2 className="text-white text-center font-bold tracking-[1px] [font-stretch:700%] leading-none text-[1.5rem] md:text-[2.5rem] mb-3 md:mb-5  z-10">
+                        <h2 className="text-white text-center font-bold tracking-[1px] [font-stretch:700%] leading-none text-[25px] md:text-[40px] mb-4  z-10">
                             Here's Exactly How We Work With You
                         </h2>
-                        <p className="text-[#ccc] text-center tracking-tight leading-none text-[0.75rem] md:text-[1.125rem]  z-10">
+                        <p className="text-[#ccc] text-center tracking-tight leading-none text-[16px] md:text-[21px] mb-2 z-10">
                             We're your AI-powered creative production team. You brief us. We create. Simple.
                         </p>
                     </div>

@@ -56,7 +56,7 @@ const SynProHeroSection = () => {
             <section
                 ref={sectionRef}
                 /* Desktop stays h-screen for pinning, Mobile becomes auto-height */
-                className="h-auto md:h-screen w-full flex items-center justify-center overflow-hidden relative"
+                className="h-auto md:h-screen w-full flex items-center justify-center overflow-hidden relative py-12"
             >
                 {/* Desktop Layout (Unchanged) */}
                 <div className="hidden md:flex flex-col items-center gap-0 md:gap-2 relative">
@@ -101,15 +101,15 @@ const SynProHeroSection = () => {
                 </div>
 
                 {/* ✅ Mobile Layout (Spacing Fixed) */}
-                <div className="md:hidden flex flex-col items-center justify-center px-6 py-12 text-center bg-black w-full">
+                <div className="md:hidden flex flex-col items-center justify-center px-6 py-12 mt-15     text-center bg-black w-full">
 
                     {/* Top Heading: Reduced margin-bottom */}
-                    <h2 className="text-[26px] font-semibold text-white leading-[1.2] tracking-[1px] uppercase max-w-[320px] mb-4">
+                    <h2 className="text-[25px] font-semibold text-white leading-[1.2] tracking-[1px] uppercase max-w-[320px] mb-4">
                         Miraai helps brands scale professional creative
                     </h2>
 
                     {/* Image Box: Controlled height and rounded corners */}
-                    <div className="w-full max-w-[340px] h-[220px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+                    <div className="w-full max-w-[340px] h-[200px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                         <img
                             src={HeroImage}
                             alt="Hero"
@@ -118,7 +118,7 @@ const SynProHeroSection = () => {
                     </div>
 
                     {/* Bottom Text: Reduced margin-top for a tighter look */}
-                    <p className="mt-4 text-[26px] font-medium  leading-[1.2] tracking-[1px] uppercase max-w-[300px] mx-auto">
+                    <p className="mt-4 text-[25px] font-medium  leading-[1.2] tracking-[1px] uppercase max-w-[300px] mx-auto">
                         content 10× faster with up to 70% cost savings.
 
                     </p>

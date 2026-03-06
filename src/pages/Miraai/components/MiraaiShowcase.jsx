@@ -60,7 +60,7 @@ const MiraaiShowcase = () => {
                     className="inline-block px-6 py-2 mb-2"
                 >
                 </motion.div>
-                <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-[1px]">
+                <h2 className="text-[25px] md:text-[40px] font-bold mb-3 text-white tracking-[1px]">
                     Explore Our Creative Portfolio
                 </h2>
             </div>

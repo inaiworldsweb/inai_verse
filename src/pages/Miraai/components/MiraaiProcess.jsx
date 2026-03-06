@@ -139,17 +139,17 @@ const MiraaiProcess = () => {
   return (
     <section
       ref={sectionRef}
-      className="pt-20 pb-12 md:py-20 bg-black overflow-hidden relative"
+      className="py-3 md:py-12 bg-black overflow-hidden relative"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
 
         {/* ================= HEADING ================= */}
         <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-[1.5625rem] md:text-[2.5rem] font-bold mb-6 text-white tracking-[1px] [font-stretch:700%]">
+          <h2 className="text-[1.5625rem] md:text-[2.5rem] font-bold mb-4 text-white tracking-[1px] [font-stretch:700%]">
             Here's Exactly How We Work With You
           </h2>
 
-          <p className="text-[#ccc] text-[0.75rem] md:text-[1.125rem] w-full mx-auto">
+          <p className="text-[#ccc] text-[16px] md:text-[21px] w-full  mx-auto">
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
           </p>
         </div>

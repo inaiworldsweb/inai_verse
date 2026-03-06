@@ -43,7 +43,7 @@ const SiteFooter = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
                     {productSections.map(({ title, items }) => (
                         <section key={title} className="flex flex-col items-start text-left w-full">
-                            <h3 className="text-[22px] font-semibold mb-5 text-white">{title}</h3>
+                            <h3 className="text-[22px] font-semibold mb-5 text-white ml-6">{title}</h3>
                             <ul className="flex flex-col items-start gap-3">
                                 {items.map((item, idx) => {
                                     const label = typeof item === 'string' ? item : item.label;
@@ -59,16 +59,16 @@ const SiteFooter = () => {
                                                     rel="noopener noreferrer"
                                                     className={linkClassName}
                                                 >
-                                                    <span>{label}</span>
                                                     <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+                                                    <span>{label}</span>
                                                 </a>
                                             ) : (
                                                 <Link
                                                     to={href}
                                                     className={linkClassName}
                                                 >
-                                                    <span>{label}</span>
                                                     <ArrowRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-x-0" />
+                                                    <span>{label}</span>
                                                 </Link>
                                             )}
                                         </li>

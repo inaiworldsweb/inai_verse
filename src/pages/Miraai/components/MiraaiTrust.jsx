@@ -27,7 +27,7 @@ const MiraaiTrust = () => {
   ];
 
   return (
-    <section className="py-8 bg-black relative">
+    <section className="py-3 md:py-12 bg-black relative">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center">
 
         {/* Heading */}

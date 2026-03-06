@@ -82,7 +82,7 @@ const MiraaiSimpleTruth = () => {
   ];
 
   return (
-    <section className="pt-10 pb-10 md:py-16 bg-black overflow-hidden relative">
+    <section className="py-3 md:py-12 bg-black overflow-hidden relative">
       <div className="max-w-[1200px] mx-auto px-6 lg:px-20 relative z-10">
         {/* Section Header */}
         <motion.div
@@ -91,10 +91,10 @@ const MiraaiSimpleTruth = () => {
           viewport={{ once: true }}
           className="text-center mb-10"
         >
-          <h2 className="text-[1.5rem] md:text-[2.2rem] font-bold text-white mb-4 tracking-[1px] [font-stretch:700%] leading-tight">
+          <h2 className="text-25px] md:text-[40px] font-bold text-white mb-4 tracking-[1px] [font-stretch:700%] leading-tight">
             The Simple Truth
           </h2>
-          <p className="text-[#ccc] text-[0.85rem] md:text-[1rem] font-normal leading-relaxed max-w-xl mx-auto">
+          <p className="text-[#ccc] text-[16px] md:text-[21px] font-normal leading-relaxed mx-auto ">
             We handle everything from concept to final delivery. You just tell us what you need.
           </p>
         </motion.div>

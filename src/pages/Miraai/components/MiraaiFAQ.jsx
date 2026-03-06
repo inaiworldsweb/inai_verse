@@ -18,8 +18,8 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 ease-out cursor-pointer overflow-hidden 
                 ${isOpen ? 'border-gray-500' : 'hover:border-gray-600'}`}
             >
-                <div className="px-5 py-5 md:px-6 md:py-6 flex items-center justify-between relative z-10">
-                    <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white pr-8">
+                <div className="p-6 flex items-center justify-between relative z-10">
+                    <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white ">
                         {question}
                     </h3>
 
@@ -53,12 +53,10 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="px-5 pb-6 md:px-6 md:pb-8 pt-0">
-                                <div className="border-t border-gray-700/30 pt-4">
-                                    <p className="text-[#ccc] text-[1rem] leading-relaxed">
-                                        {answer}
-                                    </p>
-                                </div>
+                            <div className="border-t border-gray-700/30 p-6">
+                                <p className="text-[#ccc] text-[1rem] leading-relaxed">
+                                    {answer}
+                                </p>
                             </div>
                         </motion.div>
                     )}
@@ -95,7 +93,7 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-16 md:py-24 bg-black">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-3 md:py-12 bg-black">
             <div className="max-w-[1200px] mx-auto px-6 lg:px-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -103,10 +101,10 @@ const MiraaiFAQ = () => {
                     viewport={{ once: true }}
                     className="text-center mb-12"
                 >
-                    <h2 className="text-[28px] md:text-[42px] text-white font-bold tracking-tight mb-4">
+                    <h2 className="text-[25px] md:text-[40px] text-white font-bold tracking-tight mb-4">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-gray-400 text-lg">
+                    <p className="text-gray-400 text-[16px] md:text-[21px]">
                         Everything you need to know about our process and services.
                     </p>
                 </motion.div>
