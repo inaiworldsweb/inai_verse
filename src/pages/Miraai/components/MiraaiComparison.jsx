@@ -46,7 +46,7 @@ const MiraaiComparison = () => {
   ];
 
   return (
-    <section className="py-16 bg-black min-h-screen relative">
+    <section className="py-3 md:py-12 bg-black min-h-screen relative">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-20">
         {/* --- Headers --- */}
         <div className="text-center mb-16 lg:mb-16 lg:static lg:bg-transparent lg:py-0 sticky top-[70px] z-40 bg-black py-4">
@@ -61,7 +61,7 @@ const MiraaiComparison = () => {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#ccc] text-[15px] md:text-[20px]"
+            className="text-[#ccc] text-[16px] md:text-[21px]"
           >
             Do It Yourself Vs Miraai Expert Team
           </motion.p>

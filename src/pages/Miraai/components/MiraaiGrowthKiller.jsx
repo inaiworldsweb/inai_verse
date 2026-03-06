@@ -6,7 +6,7 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
   const progressPercentage = Math.min(100, Math.max(0, Number(percentage) || 0));
 
   return (
-    <div className="w-full text-left flex flex-col justify-center py-2 h-[80px]">
+    <div className="w-full text-left flex flex-col justify-center py-2 h-auto md:h-[70px]">
       <div className="flex justify-between items-center mb-2 w-full">
         <h4 className="text-white text-sm md:text-base xl:text-lg tracking-tight pr-2">
           {label}
@@ -42,15 +42,15 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
 };
 
 const BetterWayCard = ({ text, index }) => (
-  <div className="h-[80px] flex items-center w-full">
+  <div className="flex items-center w-full py-1">
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="p-3 md:p-4 rounded-xl bg-[#000000] transition-all duration-300 flex items-center justify-start text-left group w-full h-auto min-h-[60px]"
+      className="p-3 md:p-3 rounded-xl bg-[#000000] transition-all duration-300 flex items-center justify-start text-left group w-full min-h-[50px]"
     >
-      <p className="text-white/80  transition-colors text-sm md:text-base font-medium tracking-tight">
+      <p className="text-white/80 transition-colors text-sm md:text-base font-medium tracking-tight">
         {text}
       </p>
     </motion.div>
@@ -73,7 +73,7 @@ const MiraaiGrowthKiller = () => {
   ];
 
   return (
-    <section className="py-8 md:py-12 bg-black overflow-hidden">
+    <section className="py-3 md:py-12 bg-black overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 flex flex-col items-center">
         {/* Main Header */}
         <motion.div
@@ -82,7 +82,7 @@ const MiraaiGrowthKiller = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-14 max-w-4xl mx-auto"
         >
-          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-4 tracking-[1px] [font-stretch:700%] leading-relaxed">
+          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-3 tracking-[1px]">
             When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
           </h2>
         </motion.div>
@@ -94,7 +94,7 @@ const MiraaiGrowthKiller = () => {
             <div className="relative z-10 w-full">
               <div className="mb-6 text-center lg:text-left">
                 <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-[1px] [font-stretch:700%]">The Breaking Point</h3>
-                <p className="text-[#ccc] text-[13px] md:text-sm">Most growing businesses hit the same wall</p>
+                <p className="text-[#ccc] text-[0.875rem] md:text-sm">Most growing businesses hit the same wall</p>
               </div>
 
               <div className="w-full flex flex-col gap-3">
@@ -111,7 +111,7 @@ const MiraaiGrowthKiller = () => {
             <div className="relative z-10 w-full">
               <div className="mb-6 text-center lg:text-left">
                 <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-[1px] [font-stretch:700%]">There's A Better Way</h3>
-                <p className="text-[#ccc] text-[13px] md:text-sm">With Miraai, you can:</p>
+                <p className="text-[#ccc] text-[0.875rem] md:text-sm">With Miraai, you can:</p>
               </div>
 
               <div className="w-full flex flex-col gap-3">

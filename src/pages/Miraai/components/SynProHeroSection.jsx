@@ -36,19 +36,15 @@ const SynProHeroSection = () => {
                 borderRadius: "20px",
                 ease: "none"
             }, 0)
-
                 .fromTo(leftTextRef.current,
                     { x: -150, opacity: 0, scale: 0.8 },
                     { x: 0, opacity: 1, scale: 1, ease: "power2.out" }, 0.1)
-
                 .fromTo(rightTextRef.current,
                     { x: 150, opacity: 0, scale: 0.8 },
                     { x: 0, opacity: 1, scale: 1, ease: "power2.out" }, 0.1)
-
                 .fromTo(topTextRef.current,
                     { y: -100, opacity: 0 },
                     { y: 0, opacity: 1, ease: "power2.out" }, 0.2)
-
                 .fromTo(bottomTextRef.current,
                     { y: 100, opacity: 0 },
                     { y: 0, opacity: 1, ease: "power2.out" }, 0.2);
@@ -56,24 +52,23 @@ const SynProHeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-black overflow-x-hidden">
+        <div ref={containerRef} className="bg-black">
             <section
                 ref={sectionRef}
-                className="h-screen w-full flex items-center justify-center overflow-hidden relative"
+                /* Desktop stays h-screen for pinning, Mobile becomes auto-height */
+                className="h-auto md:h-screen w-full flex items-center justify-center overflow-hidden relative py-12"
             >
                 {/* Desktop Layout (Unchanged) */}
                 <div className="hidden md:flex flex-col items-center gap-0 md:gap-2 relative">
-
                     <div ref={topTextRef} className="hidden md:block opacity-0 will-change-transform">
-                        <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-[1px] [font-stretch:700%] text-white font-inter">
+                        <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-[1px] text-white font-inter">
                             Miraai Helps Brands Scale Professional
                         </h2>
                     </div>
 
                     <div ref={contentWrapperRef} className="flex items-center justify-center gap-4 lg:gap-2">
-
                         <div ref={leftTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-[1px] [font-stretch:550px] text-white font-inter">
+                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase text-white font-inter">
                                 Creative
                             </h2>
                         </div>
@@ -92,27 +87,29 @@ const SynProHeroSection = () => {
                         </div>
 
                         <div ref={rightTextRef} className="hidden md:block opacity-0 will-change-transform">
-                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase tracking-[1px] [font-stretch:550px] text-white font-inter">
+                            <h2 className="text-[25px] md:text-[40px] font-semibold uppercase text-white font-inter">
                                 Content
                             </h2>
                         </div>
                     </div>
 
                     <div ref={bottomTextRef} className="hidden md:block opacity-0 will-change-transform">
-                        <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-[1px] [font-stretch:700%] text-white font-inter">
+                        <h2 className="text-[25px] md:text-[40px] font-bold uppercase tracking-[1px] text-white font-inter">
                             10× Faster With Up To 70% Cost Savings.
                         </h2>
                     </div>
                 </div>
 
-                {/* ✅ Mobile Layout (Updated Alignment Like Screenshot) */}
-                <div className="md:hidden min-h-screen flex flex-col items-center justify-center px-6 text-center bg-black">
+                {/* ✅ Mobile Layout (Spacing Fixed) */}
+                <div className="md:hidden flex flex-col items-center justify-center px-6 py-12 mt-15     text-center bg-black w-full">
 
-                    <h2 className="text-[28px] font-semibold text-white leading-[1.2] tracking-[1px] [font-stretch:700%] max-w-[320px]">
+                    {/* Top Heading: Reduced margin-bottom */}
+                    <h2 className="text-[25px] font-semibold text-white leading-[1.2] tracking-[1px] uppercase max-w-[320px] mb-4">
                         Miraai helps brands scale professional creative
                     </h2>
 
-                    <div className="w-[85vw] max-w-[320px] h-[200px] mt-6 rounded-2xl overflow-hidden">
+                    {/* Image Box: Controlled height and rounded corners */}
+                    <div className="w-full max-w-[340px] h-[200px] rounded-2xl overflow-hidden shadow-2xl border border-white/10">
                         <img
                             src={HeroImage}
                             alt="Hero"
@@ -120,14 +117,13 @@ const SynProHeroSection = () => {
                         />
                     </div>
 
-                    <p className="mt-6 text-[28px] font-medium text-[#ccc] leading-[1.2] tracking-[1px] [font-stretch:700%] max-w-[280px] mx-auto">
-                        content 10× faster <br />
-                        with up to 70% cost savings.
+                    {/* Bottom Text: Reduced margin-top for a tighter look */}
+                    <p className="mt-4 text-[25px] font-medium  leading-[1.2] tracking-[1px] uppercase max-w-[300px] mx-auto">
+                        content 10× faster with up to 70% cost savings.
+
                     </p>
 
                 </div>
-
-
             </section>
         </div>
     );
