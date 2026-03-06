@@ -16,6 +16,7 @@ import EdInaiSetupPage from './features/EdInai/EdInaiSetupPage'
 import StepsPage from './features/EdInai/StepsPage'
 import Miraai from './pages/Miraai/Miraai'
 import MiraaiPrices from './pages/Miraai/MiraaiPrice'
+import MiraaiForm from './pages/Miraai/MiraaiForm'
 import PayUCheckout from './components/payment/PayUCheckout';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentFailure from './components/payment/PaymentFailure';
@@ -44,6 +45,7 @@ function AppContent() {
     location.pathname === '/stepspage' ||
     location.pathname === '/miraai' ||
     location.pathname === '/MiraaiPrice' ||
+    location.pathname === '/MiraaiForm' ||
     location.pathname === '/checkout' ||
     location.pathname.startsWith('/payment/')
 
@@ -71,6 +73,7 @@ function AppContent() {
           <Route path="/stepspage" element={<StepsPage />} />
           <Route path="/miraai" element={<Miraai />} />
           <Route path="/MiraaiPrice" element={<MiraaiPrices />} />
+          <Route path="/MiraaiForm" element={<MiraaiForm />} />
           <Route path="/checkout" element={<PayUCheckout />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/failure" element={<PaymentFailure />} />
