@@ -95,7 +95,7 @@ export default function WhoNeedsOurServices() {
   );
 
   return (
-    <section className="relative min-h-screen bg-black text-white flex items-center justify-center pt-20 pb-0 lg:py-0 px-5 overflow-hidden">
+    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3 md:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         {/* Title: Desktop 40px, Mobile 25px */}
         <h2 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-3">
@@ -153,7 +153,7 @@ export default function WhoNeedsOurServices() {
               viewport={{ once: true }}
               className="py-6"
             >
-              <p className="text-[16px] lg:text-[21px] leading-relaxed max-w-[320px] mx-auto opacity-90 text-[#ccc]">
+              <p className="text-[1rem] lg:text-[1.3125rem] leading-relaxed max-w-[320px] mx-auto opacity-90 text-[#ccc]">
                 Miraai Is Built For Brands That Rely On High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
               </p>
             </motion.div>
@@ -181,7 +181,7 @@ export default function WhoNeedsOurServices() {
           viewport={{ once: true }}
           className="mt-16 lg:mt-5 pb-10"
         >
-          <p className="text-[#ccc] text-[16px] lg:text-[21px] mt-35 md:mt-8 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-[#ccc] text-[1rem] lg:text-[1.3125rem] mt-35 md:mt-8 max-w-4xl mx-auto leading-relaxed px-4">
             If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.
           </p>
         </motion.div>

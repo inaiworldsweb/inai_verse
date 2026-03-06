@@ -150,7 +150,7 @@ const Miraai = () => {
                     />
 
                     <div className="w-full font-['Inter'] space-y-0">
-                        <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
+                        <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto ">
                             <MiraaiHero />
                         </section>
 

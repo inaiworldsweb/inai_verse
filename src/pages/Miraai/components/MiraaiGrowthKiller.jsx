@@ -73,8 +73,8 @@ const MiraaiGrowthKiller = () => {
   ];
 
   return (
-    <section className="py-3 md:py-12 bg-black overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 flex flex-col items-center">
+    <section className="py-3 md:py-12 px-4 sm:px-6 lg:px-20 bg-black overflow-hidden">
+      <div className="max-w-[1400px] mx-auto  flex flex-col items-center">
         {/* Main Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ const MiraaiGrowthKiller = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-14 max-w-4xl mx-auto"
         >
-          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-3 tracking-[1px]">
+          <h2 className="text-[1.5625rem] md:text-[2.5rem] text-white font-bold mb-3 tracking-[1px]">
             When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
           </h2>
         </motion.div>
@@ -93,7 +93,7 @@ const MiraaiGrowthKiller = () => {
           <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-8 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
               <div className="mb-6 text-center lg:text-left">
-                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-[1px] [font-stretch:700%]">The Breaking Point</h3>
+                <h3 className="text-[1.25rem] md:text-2xl text-white mb-1 tracking-[1px] [font-stretch:700%]">The Breaking Point</h3>
                 <p className="text-[#ccc] text-[0.875rem] md:text-sm">Most growing businesses hit the same wall</p>
               </div>
 

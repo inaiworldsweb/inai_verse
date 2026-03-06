@@ -38,7 +38,7 @@ const MiraaiTrust = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-8 text-center"
         >
-          <h2 className="text-[40px] font-black mb-4 tracking-[1px] [font-stretch:700%] text-white">
+          <h2 className="text-[2.5rem] font-black mb-4 tracking-[1px] [font-stretch:700%] text-white">
             Trusted By Global Giants
           </h2>
           <p className="text-[#ccc] text-sm md:text-base font-medium uppercase tracking-wider">

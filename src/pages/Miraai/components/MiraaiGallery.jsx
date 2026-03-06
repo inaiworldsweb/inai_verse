@@ -61,9 +61,9 @@ const MiraaiGallery = () => {
   };
 
   return (
-    <section className="-mb-15 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+    <section className="-mb-15 bg-black overflow-hidden relative flex flex-col items-center justify-center py-3 md:py-12">
       <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
-        <h2 className="text-[25px] md:text-[40px] font-bold text-white tracking-[1px] [font-stretch:700%]">
+        <h2 className="text-[1.5625rem] md:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
           Visualizing The Future Of Creativity
         </h2>
       </div>

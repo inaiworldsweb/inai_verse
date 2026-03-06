@@ -50,16 +50,16 @@ const MiraaiHero = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-160px)] relative py-6 md:py-12 overflow-hidden">
+        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-160px)] relative py-6 md:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
 
             {/* Hero Content */}
             <div ref={contentRef} className="max-w-[70rem] mx-auto mt-4 md:mt-15 text-center z-10 opacity-0">
-                <h1 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-8 md:mb-7 leading-[1.20] text-white">
+                <h1 className="text-[1.5625rem] md:text-[2.5rem] font-bold tracking-[1px] [font-stretch:700%] mb-8 md:mb-7 leading-[1.20] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-[#ccc] text-[14px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
+                <p className="text-[#ccc] text-[0.875rem] md:text-[1.125rem] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>

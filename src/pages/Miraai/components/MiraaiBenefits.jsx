@@ -38,7 +38,7 @@ const MiraaiBenefits = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-[40px] font-black mb-6 tracking-[1px] [font-stretch:700%] text-white"
+                        className="text-[2.5rem] font-black mb-6 tracking-[1px] [font-stretch:700%] text-white"
                     >
                         Why Choose Miraai?
                     </motion.h2>
