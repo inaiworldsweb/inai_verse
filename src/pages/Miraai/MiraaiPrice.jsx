@@ -6,9 +6,9 @@ import logoImage from "../../assets/Mirrai.svg";
 // Get Started Button Component using Tailwind CSS
 const GetStartedButton = () => {
   const navigate = useNavigate();
-  
+
   const handleClick = () => {
-    navigate('/MiraaiForm');
+    navigate("/MiraaiForm");
   };
 
   return (
@@ -17,24 +17,26 @@ const GetStartedButton = () => {
       onClick={handleClick}
       className="group relative w-full inline-flex items-center justify-center overflow-hidden rounded-xl border-none outline-none cursor-pointer transition-all duration-300 active:scale-95 mb-4 min-h-[48px] touch-manipulation md:min-h-[56px]"
       style={{
-        background: 'radial-gradient(65.28% 65.28% at 50% 100%, rgba(223, 113, 255, 0.8) 0%, rgba(223, 113, 255, 0) 100%), linear-gradient(0deg, #7a5af8, #7a5af8)',
+        background:
+          "radial-gradient(65.28% 65.28% at 50% 100%, rgba(223, 113, 255, 0.8) 0%, rgba(223, 113, 255, 0) 100%), linear-gradient(0deg, #7a5af8, #7a5af8)",
       }}
     >
       {/* Folded corner */}
       <span
         className="absolute top-0 right-0 z-10 w-4 h-4 inline-block transition-all duration-500 group-hover:-mt-4 group-hover:-mr-4"
         style={{
-          background: 'radial-gradient(100% 75% at 55%, rgba(223, 113, 255, 0.8) 0%, rgba(223, 113, 255, 0) 100%)',
-          boxShadow: '0 0 3px black',
-          borderBottomLeftRadius: '0.5rem',
-          borderTopRightRadius: '0.75rem',
+          background:
+            "radial-gradient(100% 75% at 55%, rgba(223, 113, 255, 0.8) 0%, rgba(223, 113, 255, 0) 100%)",
+          boxShadow: "0 0 3px black",
+          borderBottomLeftRadius: "0.5rem",
+          borderTopRightRadius: "0.75rem",
         }}
       />
       <span
         className="absolute top-0 right-0 z-10 w-6 h-6 pointer-events-none transition-all duration-500 group-hover:-mt-4 group-hover:-mr-4"
         style={{
-          transform: 'rotate(45deg) translateX(0%) translateY(-18px)',
-          backgroundColor: '#e8e8e8',
+          transform: "rotate(45deg) translateX(0%) translateY(-18px)",
+          backgroundColor: "#e8e8e8",
         }}
       />
 
@@ -45,7 +47,7 @@ const GetStartedButton = () => {
             key={i}
             className="absolute w-0.5 h-0.5 bg-white rounded-full animate-float"
             style={{
-              bottom: '-10px',
+              bottom: "-10px",
               left: `${[10, 30, 25, 44, 50, 75, 88, 58, 98, 65][i]}%`,
               opacity: [1, 0.7, 0.8, 0.6, 1, 0.5, 0.9, 0.8, 0.6, 1][i],
               animationDuration: `${[2.35, 2.5, 2.2, 2.05, 1.9, 1.5, 2.2, 2.25, 2.6, 2.5][i]}s`,
@@ -58,7 +60,7 @@ const GetStartedButton = () => {
       {/* Button inner */}
       <span
         className="relative z-[2] w-full inline-flex items-center justify-center gap-1.5 px-4 py-3 text-white text-base font-medium"
-        style={{ lineHeight: '1.5' }}
+        style={{ lineHeight: "1.5" }}
       >
         <svg
           className="w-[18px] h-[18px] transition-all duration-100 group-hover:fill-transparent"
@@ -95,8 +97,8 @@ export default function MiraaiPrice() {
         "150 AI-Generated Images (High-Resolution & Ultra-Realistic)",
         "5 Images Per Product (Multiple Angles & Styles)",
         "1 Professional Product Catalogue",
-        "1 AI-Generated Video (Complimentary)"
-      ]
+        "1 AI-Generated Video (Complimentary)",
+      ],
     },
     {
       name: "Heritage Vibes",
@@ -112,8 +114,8 @@ export default function MiraaiPrice() {
         "30 Images Per Video (10 Images Per Product × 3 Products)",
         "3 Professional Product Catalogues",
         "Ultra-Realistic Enhancements & Refinements",
-        "Priority Support"
-      ]
+        "Priority Support",
+      ],
     },
     {
       name: "Imperial Vibes",
@@ -129,8 +131,8 @@ export default function MiraaiPrice() {
         "5 Professional Product Catalogues",
         "Ultra-Realistic Enhancements & Refinements",
         "Dedicated Support",
-        "Custom Branding Options"
-      ]
+        "Custom Branding Options",
+      ],
     },
     {
       name: "Prestige Vibe",
@@ -147,8 +149,8 @@ export default function MiraaiPrice() {
         "Ultra-Realistic Enhancements & Refinements",
         "24/7 Dedicated Support",
         "Custom Branding Options",
-        "White Label Solutions"
-      ]
+        "White Label Solutions",
+      ],
     },
     {
       name: "Luxury Vibes",
@@ -166,9 +168,9 @@ export default function MiraaiPrice() {
         "24/7 Dedicated Support",
         "Custom Branding Options",
         "White Label Solutions",
-        "Custom AI Models"
-      ]
-    }
+        "Custom AI Models",
+      ],
+    },
   ];
 
   return (
@@ -192,7 +194,8 @@ export default function MiraaiPrice() {
             AI-Powered Creative Production Services
           </h1>
           <p className="text-gray-400 mt-4 max-w3xl mx-auto">
-            All Deliverables Are Created In High Resolution With Ultra-Realistic, Premium-Quality Output
+            All Deliverables Are Created In High Resolution With
+            Ultra-Realistic, Premium-Quality Output
           </p>
 
           {/* Billing Toggle */}
@@ -222,24 +225,24 @@ export default function MiraaiPrice() {
             </div>
           </div>
 
-          {/* Pricing Cards - Laptop: 3+2 layout, Mobile/Tablet: 2 columns */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 lg:gap-6 max-w-[1200px] mx-auto">
+          {/* Pricing Cards - Updated for centering */}
+          <div className="mt-20 flex flex-wrap justify-center gap-6 md:gap-4 lg:gap-8 max-w-[1200px] mx-auto">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-6 md:p-5 lg:p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[340px] md:max-w-[300px] lg:max-w-[350px] mx-auto mt-12 ${index === 3 ? 'lg:col-start-1' : index === 4 ? 'lg:col-start-3' : ''}`}
+                className={`relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-6 md:p-5 lg:p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[340px] md:max-w-[300px] lg:max-w-[350px] mt-12`}
               >
                 <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold">
                   {plan.discount}
                 </div>
 
-                <h2 className="text-xl font-bold">{plan.name}</h2>
-                <div className="mt-1 mb-4">
+                <h2 className="text-xl font-bold text-left">{plan.name}</h2>
+                <div className="mt-1 mb-4 text-left">
                   <span className="text-sm text-gray-400">Best for: </span>
                   <span className="text-sm text-gray-400">{plan.bestFor}</span>
                 </div>
 
-                <div className="mb-4">
+                <div className="mb-4 text-left">
                   <p className="line-through text-gray-500 text-lg">
                     {billing === "monthly" ? plan.oldMonthly : plan.oldYearly}
                   </p>
@@ -254,20 +257,26 @@ export default function MiraaiPrice() {
 
                 <div className="border-t border-zinc-800 mb-4"></div>
 
-                <div className="text-sm">
+                <div className="text-sm text-left">
                   <p className="font-semibold mb-4 text-white">What You Get:</p>
                   <ul className="space-y-4 text-sm text-gray-300">
                     {plan.features.map((feature, idx) => (
                       <li key={idx} className="flex items-start gap-3">
                         <span className="w-1.5 h-1.5 rounded-full bg-white flex-shrink-0 mt-1.5"></span>
                         <div className="flex-1">
-                          {feature.includes('(') ? (
+                          {feature.includes("(") ? (
                             <>
-                              <span className="text-white text-sm">{feature.split('(')[0].trim()}</span>
-                              <span className="text-gray-400 text-xs block mt-1">({feature.split('(')[1]}</span>
+                              <span className="text-white text-sm">
+                                {feature.split("(")[0].trim()}
+                              </span>
+                              <span className="text-gray-400 text-xs block mt-1">
+                                ({feature.split("(")[1]}
+                              </span>
                             </>
                           ) : (
-                            <span className="text-white text-sm">{feature}</span>
+                            <span className="text-white text-sm">
+                              {feature}
+                            </span>
                           )}
                         </div>
                       </li>
@@ -279,59 +288,63 @@ export default function MiraaiPrice() {
           </div>
 
           {/* Add-On Section */}
-          {/* Image Generation Add-On */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between pb-6 border-b border-zinc-800">
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold mb-1">Image Generation</h3>
-              <p className="text-gray-400 mb-3">₹1,000 / Add-On</p>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
-                  20 High-Resolution Edited Images
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
-                  10 Images Per Product
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
-                  Ultra-Realistic Enhancements & Refinements
-                </li>
-              </ul>
+          <div className="mt-20 max-w-4xl mx-auto text-left">
+             <h2 className="text-3xl font-bold mb-10 text-center">Customize Your Plan With Add-Ons</h2>
+             
+             {/* Image Generation Add-On */}
+             <div className="flex flex-col md:flex-row md:items-center md:justify-between pb-6 border-b border-zinc-800">
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold mb-1">Image Generation</h3>
+                <p className="text-gray-400 mb-3">₹1,000 / Add-On</p>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
+                    20 High-Resolution Edited Images
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
+                    10 Images Per Product
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
+                    Ultra-Realistic Enhancements & Refinements
+                  </li>
+                </ul>
+              </div>
+              <button className="mt-4 md:mt-0 md:ml-6 bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition whitespace-nowrap">
+                Add On
+              </button>
             </div>
-            <button className="mt-4 md:mt-0 md:ml-6 bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition whitespace-nowrap">
-              Add On
-            </button>
-          </div>
 
-          {/* Video Generation Add-On */}
-          <div className="flex flex-col md:flex-row md:items-center md:justify-between pt-6">
-            <div className="flex-1">
-              <h3 className="text-lg font-semibold mb-1">Video Generation</h3>
-              <p className="text-gray-400 mb-3">₹2,500 / Add-On</p>
-              <ul className="space-y-2 text-sm text-gray-300">
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
-                  5 High-Quality Edited Videos
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
-                  30-60 Seconds Duration
-                </li>
-                <li className="flex items-start">
-                  <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
-                  Ultra-Realistic Enhancements & Refinements
-                </li>
-              </ul>
+            {/* Video Generation Add-On */}
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between pt-6">
+              <div className="flex-1">
+                <h3 className="text-lg font-semibold mb-1">Video Generation</h3>
+                <p className="text-gray-400 mb-3">₹2,500 / Add-On</p>
+                <ul className="space-y-2 text-sm text-gray-300">
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2 flex-shrink-0">✔</span>5
+                    High-Quality Edited Videos
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
+                    30-60 Seconds Duration
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-green-400 mr-2 flex-shrink-0">✔</span>
+                    Ultra-Realistic Enhancements & Refinements
+                  </li>
+                </ul>
+              </div>
+              <button className="mt-4 md:mt-0 md:ml-6 bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition whitespace-nowrap">
+                Add On
+              </button>
             </div>
-            <button className="mt-4 md:mt-0 md:ml-6 bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition whitespace-nowrap">
-              Add On
-            </button>
           </div>
         </div>
 
         {/* Quality Commitment */}
-        <div className="mt-12 bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800 rounded-2xl p-8">
+        <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-zinc-900 to-zinc-950 border border-zinc-800 rounded-2xl p-8">
           <h3 className="text-lg font-semibold mb-4">
             Quality Commitment (Applies to All Plans)
           </h3>
@@ -355,7 +368,6 @@ export default function MiraaiPrice() {
             </li>
           </ul>
         </div>
-
       </div>
     </div>
   );
