@@ -179,9 +179,9 @@ export default function WhoNeedsOurServices() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
           viewport={{ once: true }}
-          className="mt-16 lg:mt-5 pb-10"
+          className="mt-32 lg:mt-48 pb-10"
         >
-          <p className="text-[#ccc] text-[1rem] lg:text-[1.3125rem] mt-35 md:mt-8 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-[#ccc] text-[1rem] lg:text-[1.3125rem] max-w-4xl mx-auto leading-relaxed px-4">
             If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.
           </p>
         </motion.div>
