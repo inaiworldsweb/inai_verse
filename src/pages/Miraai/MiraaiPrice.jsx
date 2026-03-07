@@ -95,7 +95,7 @@ export default function MiraaiPrice() {
       discount: "30% OFF",
       features: [
         "150 AI-Generated Images (High-Resolution & Ultra-Realistic)",
-        "5 Images Per Product (Multiple Angles & Styles)",
+        "5 Images / Product (Multiple Angles & Styles)",
         "1 Professional Product Catalogue",
         "1 AI-Generated Video (Complimentary)",
       ],
@@ -111,7 +111,7 @@ export default function MiraaiPrice() {
       popular: true,
       features: [
         "10 AI-Generated Videos",
-        "30 Images Per Video (10 Images Per Product × 3 Products)",
+        "30 Images / Video (10 Images / Product × 3 Products)",
         "3 Professional Product Catalogues",
         "Ultra-Realistic Enhancements & Refinements",
         "Priority Support",
@@ -127,7 +127,7 @@ export default function MiraaiPrice() {
       discount: "38% OFF",
       features: [
         "25 AI-Generated Videos",
-        "50 Images Per Video (10 Images Per Product × 5 Products)",
+        "50 Images / Video (10 Images / Product × 5 Products)",
         "5 Professional Product Catalogues",
         "Ultra-Realistic Enhancements & Refinements",
         "Dedicated Support",
@@ -144,7 +144,7 @@ export default function MiraaiPrice() {
       discount: "40% OFF",
       features: [
         "40 AI-Generated Videos",
-        "100 Images Per Video (10 Images Per Product × 10 Products)",
+        "100 Images / Video (10 Images / Product × 10 Products)",
         "10 Professional Product Catalogues",
         "Ultra-Realistic Enhancements & Refinements",
         "24/7 Dedicated Support",
@@ -162,7 +162,7 @@ export default function MiraaiPrice() {
       discount: "41% OFF",
       features: [
         "Unlimited AI-Generated Videos",
-        "Unlimited Images Per Video",
+        "Unlimited Images / Video",
         "Unlimited Professional Product Catalogues",
         "Ultra-Realistic Enhancements & Refinements",
         "24/7 Dedicated Support",
