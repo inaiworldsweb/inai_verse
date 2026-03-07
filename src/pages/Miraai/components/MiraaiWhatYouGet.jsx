@@ -51,10 +51,10 @@ const MiraaiWhatYouGet = () => {
     };
 
     return (
-        <section className="pt-5 pb-12 -mb-22 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="pt-5 pb-12  bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
-            <div className="w-full max-w-[1400px] mx-auto  text-center -mb-8 md:-mb-14 z-20">
-                <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] mb-2 md:mb-3">
+            <div className="w-full max-w-[1400px] mx-auto  text-center z-20">
+                <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
                     What You Get
                 </h2>
             </div>

@@ -104,7 +104,7 @@ const SynProHeroSection = () => {
                 <div className="md:hidden flex flex-col items-center justify-center px-6 py-12 mt-15     text-center bg-black w-full">
 
                     {/* Top Heading: Reduced margin-bottom */}
-                    <h2 className="text-[1.5625rem] font-semibold text-white leading-[1.2] tracking-[1px] uppercase max-w-[320px] mb-4">
+                    <h2 className="text-[1.5625rem] font-semibold text-white leading-[1.2] tracking-[1px] uppercase max-w-[320px]">
                         Miraai helps brands scale professional creative
                     </h2>
 

@@ -51,16 +51,16 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-3 -mb-18 md:-mb-27 bg-black overflow-hidden relative flex flex-col items-center justify-center py-3 md:py-8 lg:py-12">
+        <section className="py-3 md:py-8 lg:py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
-            <div className="w-full max-w-[1400px] mx-auto text-center -mb-6 md:-mb-14 z-20">
+            <div className="w-full max-w-[1400px] mx-auto text-center z-20">
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="inline-block px-6 py-2 mb-2"
+                    className="inline-block px-6 py-2"
                 >
                 </motion.div>
-                <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold mb-2 md:mb-3 text-white tracking-[1px]">
+                <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px]">
                     Explore Our Creative Portfolio
                 </h2>
             </div>

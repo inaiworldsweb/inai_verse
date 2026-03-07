@@ -48,7 +48,7 @@ const CommandConsole = ({ services }) => {
 
                         {/* Second pill: Description + Loading - hidden initially, shows after title types */}
                         <div className="desc-pill bg-[#2b2b2b] rounded-2xl px-5 py-4 shadow-[0_8px_24px_rgba(0,0,0,0.14)] opacity-0">
-                            <p className="desc-text text-white text-sm leading-snug mb-3" />
+                            <p className="desc-text text-white text-sm leading-snug" />
 
                             {/* Loading line inside description pill */}
                             <div className="progress-container opacity-0" ref={progressBarRef}>

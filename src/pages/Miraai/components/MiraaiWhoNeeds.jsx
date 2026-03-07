@@ -98,7 +98,7 @@ export default function WhoNeedsOurServices() {
     <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3 md:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         {/* Title: Desktop 40px, Mobile 25px */}
-        <h2 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-3">
+        <h2 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%]">
           Who Needs Our Services
         </h2>
 
@@ -133,7 +133,7 @@ export default function WhoNeedsOurServices() {
             </motion.div>
           </motion.div>
         ) : (
-          <div className="flex -mb-20 flex-col gap-12 items-center">
+          <div className="flex flex-col gap-12 items-center">
             <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
               {cardsData.slice(0, 4).map((card, index) => (
                 <FloatingCard

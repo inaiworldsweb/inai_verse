@@ -25,7 +25,7 @@ const QuestionCard = ({ icon, question, index }) => {
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div style={{ transform: "translateZ(50px)" }} className="relative z-10 flex flex-col items-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-5 border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
                     {enhancedIcon}
                 </div>
                 <p className="text-white/90 text-[0.75rem] md:text-[1rem] tracking-tight leading-relaxed">
@@ -50,12 +50,12 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-4 md:mb-5 tracking-[1px] [font-stretch:700%] leading-tight"
+                        className=" mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 w-full">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                         <QuestionCard
                             index={0}
                             icon={
@@ -90,9 +90,9 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="mb-6"
+                        className=""
                     >
-                        <p className="text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] text-[#ccc] mb-2 tracking-widest">If you answered YES to any of these</p>
+                        <p className="text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] text-[#ccc] tracking-widest">If you answered YES to any of these</p>
                         <h3 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
                     </motion.div>
 
@@ -100,7 +100,7 @@ const MiraaiCTA = () => {
                         <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
                             <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
                                 <div className="flex gap-2 items-center">
-                                    <span className="font-semibold text-white">Get Started Now</span>
+                                    <span className=" md-6 font-semibold text-white">Get Started Now</span>
                                 </div>
                             </div>
                         </button>

@@ -7,7 +7,7 @@ const ResultPreview = ({ services }) => {
     return (
         <div className="w-full max-w-2xl">
             {/* Icon status row - Visual feedback for active service type - Hidden on Desktop */}
-            <div className="flex justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:hidden">
+            <div className="flex justify-center gap-2 sm:gap-3 lg:hidden">
                 {/* 1. Video */}
                 <div className="icon-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
                     <Video className="w-5 h-5 sm:w-4 sm:h-4" />

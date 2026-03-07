@@ -16,15 +16,15 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
       </div>
 
       <div className="relative z-10 bg-[#0B0B0B] rounded-[18px] p-5 border border-white/5 flex flex-col h-full">
-        <div className="w-11 h-11 rounded-lg bg-black border border-white/10 flex items-center justify-center mb-4">
+        <div className="w-11 h-11 rounded-lg bg-black border border-white/10 flex items-center justify-center">
           <Icon className="text-white text-2xl" />
         </div>
 
-        <h3 className="text-white text-[1rem] md:text-[1.1rem] font-bold mb-1.5 tracking-[1px] [font-stretch:700%]">
+        <h3 className="  text-white text-[1rem] md:text-[1.1rem] font-bold tracking-[1px] [font-stretch:700%]">
           {title}
         </h3>
 
-        <p className="text-[#ccc] text-[0.75rem] md:text-[0.95rem] leading-snug">
+        <p className=" text-[#ccc] text-[0.75rem] md:text-[0.95rem] leading-snug">
           {description}
         </p>
       </div>
@@ -35,13 +35,13 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
 const MobileTruthCard = ({ title, description, icon: Icon }) => {
   return (
     <div
-      className="mb-3 overflow-hidden rounded-[20px] border border-white/15 relative p-5"
+      className="overflow-hidden rounded-[20px] border border-white/15 relative p-5"
       style={{
         background: `linear-gradient(180deg, rgba(38,38,38,0.8) 0%, rgba(10,10,10,0.95) 100%)`,
         backdropFilter: "blur(10px)",
       }}
     >
-      <div className="flex items-center gap-4 mb-3">
+      <div className="flex items-center gap-4">
         <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-black border border-white/20 shadow-2xl">
           <Icon className="text-xl text-white" />
         </div>
@@ -89,12 +89,12 @@ const MiraaiSimpleTruth = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-10 lg:mb-12"
+          className="text-center"
         >
-          <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-3 md:mb-4 tracking-[1px] [font-stretch:700%] leading-tight">
+          <h2 className=" mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] leading-tight">
             The Simple Truth
           </h2>
-          <p className="text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] font-normal leading-relaxed mx-auto">
+          <p className=" mb-10 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] font-normal leading-relaxed mx-auto">
             We handle everything from concept to final delivery. You just tell us what you need.
           </p>
         </motion.div>

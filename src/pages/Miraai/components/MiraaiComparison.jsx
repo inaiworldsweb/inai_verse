@@ -49,19 +49,19 @@ const MiraaiComparison = () => {
     <section className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 elative">
       <div className="max-w-[1200px] mx-auto">
         {/* --- Headers --- */}
-        <div className="text-center mb-16 lg:mb-16 lg:static lg:bg-transparent lg:py-0 sticky top-[70px] z-40 bg-black py-4">
+        <div className="text-center lg:static lg:bg-transparent lg:py-0 sticky top-[70px] z-40 bg-black py-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-3 md:mb-4 tracking-[1px] [font-stretch:700%]"
+            className=" mb-5 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]"
           >
             The Real Problem We Solve
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className="text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]"
+            className=" mb-6 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]"
           >
             Do It Yourself Vs Miraai Expert Team
           </motion.p>
@@ -69,7 +69,7 @@ const MiraaiComparison = () => {
 
         {/* --- DESKTOP VIEW: Table Layout (Visible on lg and up) --- */}
         <div className="hidden lg:block">
-          <div className="grid grid-cols-[1.2fr_1.5fr_1.5fr] gap-4 mb-6">
+          <div className="grid grid-cols-[1.2fr_1.5fr_1.5fr] gap-4">
             <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
               Area
             </div>
@@ -155,7 +155,7 @@ const MiraaiComparison = () => {
               className="w-full"
             >
               <div className="bg-[#0A0A0A] border border-white/10 rounded-[2rem] p-8 shadow-[0_-20px_60px_-15px_rgba(0,0,0,1)]">
-                <h3 className="text-white text-2xl font-bold mb-8 text-center border-b border-white/5 pb-4 tracking-[1px] [font-stretch:700%]">
+                <h3 className="text-white text-2xl font-bold text-center border-b border-white/5 pb-4 tracking-[1px] [font-stretch:700%]">
                   {item.area}
                 </h3>
 
