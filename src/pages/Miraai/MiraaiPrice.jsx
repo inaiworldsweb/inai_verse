@@ -175,6 +175,7 @@ export default function MiraaiPrice() {
     <div className="bg-gradient-to-b from-black via-zinc-950 to-black text-white min-h-screen">
       <PageHeader
         logoSrc={logoImage}
+        logoClassName="h-[34px] md:h-[44px] w-auto max-w-[130px] object-contain pl-6"
         showBackButton={false}
         showTitleText={false}
         showPriceButton={false}
@@ -221,12 +222,12 @@ export default function MiraaiPrice() {
             </div>
           </div>
 
-          {/* Pricing Cards - All 5 cards in 2 columns */}
-          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-4 lg:gap-6 max-w-[800px] mx-auto">
+          {/* Pricing Cards - Laptop: 3+2 layout, Mobile/Tablet: 2 columns */}
+          <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-4 lg:gap-6 max-w-[1200px] mx-auto">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className="relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-6 md:p-5 lg:p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[340px] md:max-w-[300px] lg:max-w-[380px] mx-auto mt-12"
+                className={`relative bg-gradient-to-b from-zinc-900 to-zinc-950 rounded-3xl p-6 md:p-5 lg:p-8 border-2 border-zinc-700 transition duration-300 hover:scale-105 w-full max-w-[340px] md:max-w-[300px] lg:max-w-[350px] mx-auto mt-12 ${index === 3 ? 'lg:col-start-1' : index === 4 ? 'lg:col-start-3' : ''}`}
               >
                 <div className="absolute top-4 right-4 bg-white text-black px-3 py-1.5 rounded-full text-xs font-bold">
                   {plan.discount}
