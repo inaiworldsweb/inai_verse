@@ -139,7 +139,7 @@ const MiraaiProcess = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative"
+      className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative"
     >
       <div className="max-w-[1400px] mx-auto ">
 

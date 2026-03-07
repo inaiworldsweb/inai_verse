@@ -4,7 +4,7 @@ import ctaBg from "../../../Assetsa/e.png";
 
 const MiraaiFinalCTA = () => {
   return (
-    <section className="py-3 md:py-8 lg:py-12 bg-black w-full px-6 md:px-8 lg:px-20">
+    <section className="py-10 md:py-16  bg-black w-full px-6 md:px-8 lg:px-20">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}

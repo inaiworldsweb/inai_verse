@@ -51,7 +51,7 @@ const MiraaiShowcase = () => {
     };
 
     return (
-        <section className="py-3 md:py-8 lg:py-12 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className="py-4 md:py-8  bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
             <div className="w-full max-w-[1400px] mx-auto text-center z-20">
                 <motion.div
@@ -66,7 +66,7 @@ const MiraaiShowcase = () => {
             </div>
 
             {/* Cards Container */}
-            <div className="relative h-[420px] md:h-[650px] flex items-center justify-center">
+            <div className="relative h-[320px] md:h-[500px] flex items-center justify-center">
                 <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {showcaseItems.map((item, index) => {

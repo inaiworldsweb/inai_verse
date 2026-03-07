@@ -46,7 +46,7 @@ const MiraaiComparison = () => {
   ];
 
   return (
-    <section className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 elative">
+    <section className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 elative">
       <div className="max-w-[1200px] mx-auto">
         {/* --- Headers --- */}
         <div className="text-center lg:static lg:bg-transparent lg:py-0 sticky top-[70px] z-40 bg-black py-4">
@@ -61,22 +61,22 @@ const MiraaiComparison = () => {
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
-            className=" mb-6 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]"
+            className=" md:mb-8  text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]"
           >
             Do It Yourself Vs Miraai Expert Team
           </motion.p>
         </div>
 
         {/* --- DESKTOP VIEW: Table Layout (Visible on lg and up) --- */}
-        <div className="hidden lg:block">
+        <div className=" hidden lg:block">
           <div className="grid grid-cols-[1.2fr_1.5fr_1.5fr] gap-4">
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
+            <div className=" bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
               Area
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
+            <div className=" bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
               Do It Yourself
             </div>
-            <div className="bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
+            <div className=" bg-white text-black py-4 rounded-xl flex items-center justify-center text-[1.125rem] font-bold shadow-lg uppercase">
               Miraai Expert Team
             </div>
           </div>

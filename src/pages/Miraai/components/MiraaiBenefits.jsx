@@ -30,7 +30,7 @@ const MiraaiBenefits = () => {
     ];
 
     return (
-        <section className="py-3 md:py-8 lg:py-12 bg-black relative overflow-hidden">
+        <section className="py-10 md:py-16  bg-black relative overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
                 <div className="text-center">
                     <motion.h2

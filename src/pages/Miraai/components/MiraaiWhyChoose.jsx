@@ -30,7 +30,7 @@ const features = [
 
 const MiraaiWhyChoose = () => {
     return (
-        <section className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 bg-black">
+        <section className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 bg-black">
             <div className=" mb-6 max-w-[1200px] mx-auto ">
 
                 {/* Section Header */}
@@ -40,7 +40,7 @@ const MiraaiWhyChoose = () => {
                     viewport={{ once: true }}
                     className="text-center"
                 >
-                    <h2 className=" mb-10 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] font-bold">
+                    <h2 className=" md:mb-10  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] font-bold">
                         Why Choose Miraai?
                     </h2>
                 </motion.div>

@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "Audit Skill": {
+      "source": "bhargavtz/audit-skill",
+      "sourceType": "github",
+      "computedHash": "4ff9e4076a6f99b590021b64912c5d89d5cbe93a265e6ad3a8273677025e5e49"
+    }
+  }
+}

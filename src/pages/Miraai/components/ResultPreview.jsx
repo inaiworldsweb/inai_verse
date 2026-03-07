@@ -5,7 +5,7 @@ const ResultPreview = ({ services }) => {
     const imageRefs = useRef([]);
 
     return (
-        <div className="w-full max-w-2xl">
+        <div className="w-full max-w-lg">
             {/* Icon status row - Visual feedback for active service type - Hidden on Desktop */}
             <div className="flex justify-center gap-2 sm:gap-3 lg:hidden">
                 {/* 1. Video */}
@@ -31,7 +31,7 @@ const ResultPreview = ({ services }) => {
             </div>
 
             {/* Image Preview Window */}
-            <div className="relative w-full aspect-[7/3] sm:aspect-video bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/5 mx-auto">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[16/9] bg-black rounded-xl sm:rounded-2xl overflow-hidden shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-white/5 mx-auto">
                 {/* Service images - toggled by GSAP via the 'service-image' class */}
                 {services.map((service, index) => (
                     <img

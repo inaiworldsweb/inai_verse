@@ -52,9 +52,10 @@ const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile 
 
   return (
     <motion.div
-      className={isMobile ? "w-full flex justify-center" : "absolute left-1/2 top-1/2"}
-      initial={isMobile ? { opacity: 0, y: 20 } : { x: 0, y: 0, opacity: 0, scale: 0.5, translateX: '-50%', translateY: '-50%' }}
-      animate={isMobile ? { opacity: 1, y: 0 } : controls}
+      className="relative inline-flex flex-col items-center cursor-pointer"
+      initial={isMobile ? { opacity: 0, scale: 0.8 } : { x: 0, y: 0, opacity: 0, scale: 0.5, translateX: '-50%', translateY: '-50%' }}
+      animate={isMobile ? { opacity: 1, scale: 1 } : controls}
+      style={isMobile ? {} : {}}
       transition={isMobile ? { delay: index * 0.1, duration: 0.5 } : {}}
     >
       <div className="relative inline-flex flex-col items-center cursor-pointer">
@@ -98,7 +99,7 @@ export default function WhoNeedsOurServices() {
     <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3 md:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         {/* Title: Desktop 40px, Mobile 25px */}
-        <h2 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%]">
+        <h2 className="md-2 text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%]">
           Who Needs Our Services
         </h2>
 
@@ -133,42 +134,98 @@ export default function WhoNeedsOurServices() {
             </motion.div>
           </motion.div>
         ) : (
-          <div className="flex flex-col gap-12 items-center">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
-              {cardsData.slice(0, 4).map((card, index) => (
-                <FloatingCard
-                  key={index}
-                  data={card}
-                  index={index}
-                  isMobile={true}
-                  randomValues={randomValues[index]}
-                  isInView={true}
-                />
-              ))}
+          <div className="flex flex-col gap-8 items-center px-4">
+            {/* First row - 2 cards */}
+            <div className="grid grid-cols-2 gap-50  w-full max-w-[320px]">
+              <FloatingCard
+                key={0}
+                data={cardsData[0]}
+                index={0}
+                isMobile={true}
+                randomValues={randomValues[0]}
+                isInView={true}
+              />
+              <FloatingCard
+                key={1}
+                data={cardsData[1]}
+                index={1}
+                isMobile={true}
+                randomValues={randomValues[1]}
+                isInView={true}
+              />
             </div>
 
+            {/* Second row - 2 cards */}
+            <div className=" md:mb-6 grid grid-cols-2 gap-50  w-full max-w-[320px]">
+              <FloatingCard
+                key={2}
+                data={cardsData[2]}
+                index={2}
+                isMobile={true}
+                randomValues={randomValues[2]}
+                isInView={true}
+              />
+              <FloatingCard
+                key={3}
+                data={cardsData[3]}
+                index={3}
+                isMobile={true}
+                randomValues={randomValues[3]}
+                isInView={true}
+              />
+            </div>
+
+            {/* Center text */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="py-6"
+              className="text-center max-w-[280px] md:max-w-[800px]"
             >
-              <p className="text-[1rem] lg:text-[1.3125rem] leading-relaxed max-w-[320px] mx-auto opacity-90 text-[#ccc]">
-                Miraai Is Built For Brands That Rely On High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
+              <p className=" md:mb-6 text-[1rem] leading-relaxed opacity-90 text-[#ccc]">
+                Miraai Is Built For Brands That Rely On High-Quality Visual Content,<br />
+                Frequent Campaigns, And Fast Execution.
               </p>
             </motion.div>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
-              {cardsData.slice(4, 8).map((card, index) => (
-                <FloatingCard
-                  key={index + 4}
-                  data={card}
-                  index={index + 4}
-                  isMobile={true}
-                  randomValues={randomValues[index + 4]}
-                  isInView={true}
-                />
-              ))}
+            {/* Third row - 2 cards */}
+            <div className="grid grid-cols-2 gap-50 w-full max-w-[320px]">
+              <FloatingCard
+                key={4}
+                data={cardsData[4]}
+                index={4}
+                isMobile={true}
+                randomValues={randomValues[4]}
+                isInView={true}
+              />
+              <FloatingCard
+                key={5}
+                data={cardsData[5]}
+                index={5}
+                isMobile={true}
+                randomValues={randomValues[5]}
+                isInView={true}
+              />
+            </div>
+
+            {/* Fourth row - 2 cards */}
+            <div className=" md:mb-6 grid grid-cols-2 gap-50 w-full max-w-[320px]">
+              <FloatingCard
+                key={6}
+                data={cardsData[6]}
+                index={6}
+                isMobile={true}
+                randomValues={randomValues[6]}
+                isInView={true}
+              />
+              <FloatingCard
+                key={7}
+                data={cardsData[7]}
+                index={7}
+                isMobile={true}
+                randomValues={randomValues[7]}
+                isInView={true}
+              />
             </div>
           </div>
         )}
@@ -179,7 +236,7 @@ export default function WhoNeedsOurServices() {
           whileInView={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
           viewport={{ once: true }}
-          className="mt-32 lg:mt-48 pb-10"
+          className="mt-6 lg:mt-8 pb-10"
         >
           <p className="text-[#ccc] text-[1rem] lg:text-[1.3125rem] max-w-4xl mx-auto leading-relaxed px-4">
             If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.

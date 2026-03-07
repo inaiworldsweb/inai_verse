@@ -149,7 +149,7 @@ const Miraai = () => {
                         headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
                     />
 
-                    <div className="w-full font-['Inter'] space-y-0">
+                    <div className="w-full font-['Inter'] ">
                         <section id="hero" className="flex-1 flex flex-col items-center justify-center max-w-[1400px] mx-auto ">
                             <MiraaiHero />
                         </section>
