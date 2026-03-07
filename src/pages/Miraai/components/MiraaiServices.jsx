@@ -47,7 +47,7 @@ const MiraaiServices = () => {
                 {/* STICKY WRAPPER 
                    We use pt-10 to pt-24 to ensure the heading isn't touching the very top edge.
                 */}
-                <div className="miraai-pin sticky top-10 min-h-screen flex flex-col items-center justify-start px-4 sm:px-6 overflow-hidden pt-10 md:pt-16 lg:pt-20">
+                <div className="miraai-pin sticky top-10 min-h-screen flex flex-col items-center justify-start px-4 sm:px-6 overflow-hidden pt-12 md:pt-16 lg:pt-20">
 
                     {/* 1. THE HEADING (Now stays visible inside the pin) */}
                     <div className="w-full flex flex-col items-center justify-center mb-6 md:mb-8 lg:mb-12">
