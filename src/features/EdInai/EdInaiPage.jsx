@@ -3,6 +3,9 @@ import EdinaiSidebar from "./EdinaiSidebar";
 import HeroSection from "./components/HeroSection";
 import PageHeader from "../../components/PageHeader";
 import Edinaichallenges from "./components/Edinaichallenges";
+import WhatIsEdInai from "./components/WhatIsEdInai";
+import "./components/EdInai.css"
+import EdInaiPlatform from "./components/EdInaiPlatform";
 
 const EdInaiPage = () => {
   return (
@@ -24,6 +27,8 @@ const EdInaiPage = () => {
         <HeroSection />
         <Edinaichallenges />
      
+        <WhatIsEdInai/>
+        <EdInaiPlatform/>
       </div>
     </div>
   );
