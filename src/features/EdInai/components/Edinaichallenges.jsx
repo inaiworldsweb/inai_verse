@@ -13,9 +13,10 @@ export default function Edinaichallenges() {
 
         {/* Heading */}
         <div className="text-center mb-14">
-          <h2 className="text-3xl md:text-4xl font-semibold">
+          <h1
+           className="text-3xl md:text-4xl font-semibold">
             Challenges in Traditional Education Systems
-          </h2>
+          </h1>
 
           <p className="text-gray-400 mt-3 max-w-3xl mx-auto">
             Many institutions face difficulties in delivering consistent,
