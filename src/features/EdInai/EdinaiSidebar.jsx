@@ -55,7 +55,7 @@ const EdinaiSidebar = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row bg-black text-white min-h-screen">
+    <>
       {/* Mobile Menu Button - Fixed position */}
       <button
         onClick={() => setIsMobileMenuOpen(true)}
@@ -121,8 +121,8 @@ const EdinaiSidebar = () => {
         </div>
       )}
 
-      {/* Desktop Sidebar - Part of flex layout */}
-      <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen overflow-y-auto">
+      {/* Desktop Sidebar - Fixed position */}
+      <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 overflow-y-auto">
         <div className="flex items-center justify-center mb-4">
           <Link to="/">
             <img
@@ -138,7 +138,7 @@ const EdinaiSidebar = () => {
           onSelectItem={handleSideMenuClick}
         />
       </aside>
-    </div>
+    </>
   );
 };
 

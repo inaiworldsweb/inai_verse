@@ -5,46 +5,40 @@ const HeroSection = () => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    // You can change this path to your desired destination
     navigate("/get-started");
   };
 
   return (
-    <section className="min-h-screen flex flex-col justify-center py-8 md:py-0 lg:pl-8 relative">
-      {/* Hero Title and CTA - Centered */}
-      <div className="text-center px-4">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-[3.5rem] font-bold leading-tight mb-2 md:mb-4 capitalize tracking-tight">
-          India's First
-          <br /> Virtual AI Teacher Platform
-        </h2>
-        <h3 className="text-center text-xs sm:text-sm md:text-base text-white/80 mb-3 md:mb-6 capitalize tracking-normal">
-          Teach smarter with AI-powered virtual teachers trained on your
-          syllabus
-        </h3>
+    <section className="min-h-[75vh] flex items-center justify-center py-16">
+      <div className="text-center px-6 max-w-6xl mx-auto">
+        {/* Main Heading */}
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-[1px]">
+          India’s First Virtual AI Teachers for 
+          <span className="block text-white/90">Smart Education</span>
+        </h1>
 
+        {/* Subtext - Balanced max-width for better readability */}
+        <p className="max-w-2xl mx-auto text-sm md:text-lg text-white/70 mb-10 leading-relaxed">
+          Empowering schools, colleges, and coaching institutes with AI-powered 
+          teaching, learning, and academic management solutions.
+        </p>
+
+        {/* CTA Button with subtle scale effect */}
         <button
           type="button"
           onClick={handleGetStarted}
           className="
-                        group
-                        w-full sm:w-auto
-                        bg-white text-black border-none
-                        py-3 px-6 sm:px-8 rounded-full
-                        text-sm font-semibold cursor-pointer
-                        inline-flex items-center justify-center gap-2
-                        transition-transform duration-200
-                    "
+            inline-flex items-center justify-center 
+            bg-white text-black 
+            py-4 px-10 rounded-full 
+            text-base font-bold 
+            hover:bg-gray-100 hover:scale-105 
+            active:scale-95
+            transition-all duration-200
+            shadow-lg
+          "
         >
-          <span className="relative inline-block overflow-hidden align-top font-['Inter']">
-            <span className="invisible">Get Started</span>
-            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
-              Get Started
-            </span>
-            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-              Get Started
-            </span>
-          </span>
-          <span aria-hidden="true">›</span>
+          Book a Demo
         </button>
       </div>
     </section>
