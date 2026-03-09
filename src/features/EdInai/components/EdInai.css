@@ -1,0 +1,32 @@
+/* Mobile Styles (Default) */
+h1 {
+  font-size: 25px;
+  font-weight: 700; /* Bold */
+ 
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 500; /* Medium/Semi-bold */
+}
+
+p {
+  font-size: 16px;
+ 
+}
+
+/* Tablet & Desktop Styles (Media Query) */
+/* 768px se upar ki screens ke liye font size badal jayega */
+@media (min-width: 768px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  p {
+    font-size: 18px;
+  }
+}

@@ -1,7 +1,9 @@
 ﻿import React from "react";
 import EdinaiSidebar from "./EdinaiSidebar";
 import HeroSection from "./components/HeroSection";
-import HA from "./components/HA";
+import WhatIsEdInai from "./components/WhatIsEdInai";
+import "./components/EdInai.css"
+import EdInaiPlatform from "./components/EdInaiPlatform";
 
 const EdInaiPage = () => {
   return (
@@ -12,7 +14,8 @@ const EdInaiPage = () => {
       {/* Main Content Area - All components on right side */}
       <div className="flex-1">
         <HeroSection />
-        <HA/>
+        <WhatIsEdInai/>
+        <EdInaiPlatform/>
       </div>
     </div>
   );
