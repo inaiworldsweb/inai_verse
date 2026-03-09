@@ -46,7 +46,7 @@ const MiraaiComparison = () => {
   ];
 
   return (
-    <section className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 elative">
+    <section className=" md:py-22 px-6 sm:px-6  elative">
       <div className="max-w-[1200px] mx-auto">
         {/* --- Headers --- */}
         <div className="text-center lg:static lg:bg-transparent lg:py-0 sticky top-[70px] z-40 bg-black py-4">
@@ -54,7 +54,7 @@ const MiraaiComparison = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className=" mb-5 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]"
+            className=" text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]"
           >
             The Real Problem We Solve
           </motion.h2>

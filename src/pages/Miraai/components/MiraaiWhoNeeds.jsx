@@ -115,7 +115,7 @@ export default function WhoNeedsOurServices() {
   );
 
   return (
-    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3 md:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
+    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3  md:py-10 px-4 sm:px-6  overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
         <h2 className=" md:mb-10 text-[25px] md:text-[40px] font-bold tracking-[1px]">
           Who Needs Our Services

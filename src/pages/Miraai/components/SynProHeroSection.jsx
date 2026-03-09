@@ -52,7 +52,7 @@ const SynProHeroSection = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="bg-black py-10 md:py-16 ">
+        <div ref={containerRef} className="bg-black   ">
             <section
                 ref={sectionRef}
                 /* Desktop stays h-screen for pinning, Mobile becomes auto-height */

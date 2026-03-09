@@ -93,21 +93,20 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-10 md:py-16  bg-black">
-            <div className="  max-w-[1200px] mx-auto px-6 lg:px-20">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-10 md:py-6 px-6  bg-black">
+            <div className="  max-w-[1200px] mx-auto ">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     className="text-center"
                 >
-                    <h2 className=" md:mb-4  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white font-bold tracking-tight">
+                    <h2 className="  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white font-bold tracking-tight">
                         Frequently Asked Questions
                     </h2>
-                    <p className=" md:mb-6 text-gray-400 text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]">
+                    <p className=" md:mb-10 text-gray-400 text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]">
                         Everything you need to know about our process and services.
-                    </p>
-                </motion.div>
+                    </p>               </motion.div>
 
                 <div className=" flex flex-col">
                     {faqs.map((faq, index) => (

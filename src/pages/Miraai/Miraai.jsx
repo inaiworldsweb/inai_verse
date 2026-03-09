@@ -126,7 +126,7 @@ const Miraai = () => {
                         </Link>
                     </div>
 
-                    <div className="flex-1 overflow-y-auto hide-scrollbar overscroll-contain px-6 xl:px-8 pb-10" data-lenis-prevent>
+                    <div className="flex-1  py-2 overflow-y-auto hide-scrollbar overscroll-contain px-6 xl:px-8 pb-10" data-lenis-prevent>
                         <SideMenu items={navLabels} variant="login" onSelectItem={handleSideMenuClick} />
                     </div>
                 </aside>

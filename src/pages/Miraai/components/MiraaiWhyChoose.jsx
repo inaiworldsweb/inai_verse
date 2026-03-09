@@ -30,7 +30,7 @@ const features = [
 
 const MiraaiWhyChoose = () => {
     return (
-        <section className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 bg-black">
+        <section className=" md:py-16  px-6 sm:px-6  bg-black">
             <div className=" mb-6 max-w-[1200px] mx-auto ">
 
                 {/* Section Header */}
@@ -75,7 +75,7 @@ const MiraaiWhyChoose = () => {
                                 bg-[#0A0A0A] rounded-[14px]
                                 h-full w-full
                                 p-6 sm:p-7
-                                border border-white/5
+                                border border-white/20
                             ">
                                 <h3 className="text-white font-bold text-[16px] sm:text-[17px] tracking-[1px] [font-stretch:700%]">
                                     {feature.title}

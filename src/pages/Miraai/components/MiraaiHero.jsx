@@ -50,7 +50,7 @@ const MiraaiHero = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-160px)] relative py-6 md:py-10 lg:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
+        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-160px)] relative py-6 md:py-10  px-6 sm:px-6  overflow-hidden">
 
             {/* Hero Content */}
             <div ref={contentRef} className="max-w-[70rem] mx-auto mt-4 md:mt-10 lg:mt-15 text-center z-10 opacity-0 mb-6">

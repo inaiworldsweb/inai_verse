@@ -11,7 +11,7 @@ const SideMenu = ({ className = '', items = [], variant = 'landing', onSelectIte
                 {items.map((item) => (
                     <button
                         key={item}
-                        className="group flex items-center justify-between py-3 px-0 bg-transparent border-none text-white/80 cursor-pointer transition-all duration-200 text-left w-full text-sm hover:text-white hover:translate-x-1"
+                        className="group font-semibold flex items-center justify-between py-2 bg-transparent border-none text-white/80 cursor-pointer transition-all duration-200 text-left w-full text-sm hover:text-white hover:translate-x-1"
                         type="button"
                         onClick={() => onSelectItem && onSelectItem(item)}
                     >

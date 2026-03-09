@@ -103,7 +103,7 @@ const MiraaiTestimonials = () => {
         ].filter(Boolean);
 
     return (
-        <section className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative">
+        <section className="py-10 md:py-16  px-6  sm:px-6  bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto ">
                 {/* Section Header */}
                 <div className="text-center">
@@ -111,7 +111,7 @@ const MiraaiTestimonials = () => {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className=" md:mb-4 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]"
+                        className="  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]"
                     >
                         What Our Clients Say About Miraai
                     </motion.h2>

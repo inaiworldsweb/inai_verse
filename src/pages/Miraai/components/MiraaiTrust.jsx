@@ -27,8 +27,8 @@ const MiraaiTrust = () => {
   ];
 
   return (
-    <section className="py-10 md:py-16  bg-black relative">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20 text-center">
+    <section className="py-10 md:py-16  px-6 sm:px-6  bg-black relative">
+      <div className="max-w-[1400px] mx-auto   text-center">
 
         {/* Heading */}
         <motion.div

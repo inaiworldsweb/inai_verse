@@ -139,13 +139,13 @@ const MiraaiProcess = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative"
+      className="py-10 md:py-16  px-6 sm:px-6  bg-black overflow-hidden relative"
     >
       <div className="max-w-[1400px] mx-auto ">
 
         {/* ================= HEADING ================= */}
         <div className="text-center">
-          <h2 className=" mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
+          <h2 className=" text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
             Here's Exactly How We Work With You
           </h2>
 

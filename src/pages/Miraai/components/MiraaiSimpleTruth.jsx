@@ -82,7 +82,7 @@ const MiraaiSimpleTruth = () => {
   ];
 
   return (
-    <section className="py-10 md:py-16  px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative">
+    <section className="  px-6 sm:px-6  bg-black overflow-hidden relative">
       <div className="max-w-[1200px] mx-auto relative z-10">
         {/* Section Header */}
         <motion.div
@@ -91,7 +91,7 @@ const MiraaiSimpleTruth = () => {
           viewport={{ once: true }}
           className="text-center"
         >
-          <h2 className=" mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] leading-tight">
+          <h2 className=" md:mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] leading-tight">
             The Simple Truth
           </h2>
           <p className=" mb-12 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] font-normal leading-relaxed mx-auto">
