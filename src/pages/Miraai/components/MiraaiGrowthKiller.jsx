@@ -100,13 +100,13 @@ const MiraaiGrowthKiller = () => {
 
 
         {/* Two-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 w-full">
           {/* Left side: The Breaking Point */}
           <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-5 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
               <div className="text-center lg:text-left">
-                <h3 className=" mb-6 text-[1.25rem] md:text-2xl text-white tracking-[1px] [font-stretch:700%]">The Breaking Point</h3>
-                <p className=" mb-6 text-[#ccc] text-[0.875rem] md:text-sm">Most growing businesses hit the same wall</p>
+                <h3 className=" mb-6 text-[1.25rem] md:text-2xl text-white tracking-[1px] [font-stretch:900%]">The Breaking Point</h3>
+                <p className=" mb-6 text-[#ccc] text-[0.875rem] md:text-sm  [font-stretch:900%]">Most growing businesses hit the same wall</p>
               </div>
 
               <div className="w-full flex flex-col gap-3">
@@ -128,7 +128,7 @@ const MiraaiGrowthKiller = () => {
 
               </div>
 
-              <div className="w-full flex flex-col gap-3">
+              <div className="w-full flex flex-col gap-1">
                 {solutions.map((text, index) => (
                   <BetterWayCard key={index} index={index} text={text} />
                 ))}
