@@ -6,6 +6,7 @@ import Edinaichallenges from "./components/Edinaichallenges";
 import WhatIsEdInai from "./components/WhatIsEdInai";
 import "./components/EdInai.css"
 import EdInaiPlatform from "./components/EdInaiPlatform";
+import ExaminationEngine from "./components/ExaminationEngine";
 
 const EdInaiPage = () => {
   return (
@@ -28,6 +29,7 @@ const EdInaiPage = () => {
         <Edinaichallenges />
         <WhatIsEdInai/>
         <EdInaiPlatform/>
+        <ExaminationEngine />
       </div>
     </div>
   );
