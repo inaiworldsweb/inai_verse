@@ -9,7 +9,10 @@ h1 {
 
 h2 {
   font-size: 18px;
-  font-weight: 500; /* Medium/Semi-bold */
+  font-weight: 500;
+  color: #ccc;
+
+   /* Medium/Semi-bold */
 }
 h3 {
   font-size: 30px;

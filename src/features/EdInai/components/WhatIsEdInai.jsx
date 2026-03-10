@@ -12,11 +12,11 @@ const WhatIsEdInai = () => {
   ];
 
   return (
-    <section className=" text-white min-h-[80vh] flex items-center justify-center p-6 md:p-12">
-      <div className="max-w-7xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
+    <section className=" text-white min-h-[70vh] flex items-center justify-center px-4 py-9 md:py-12">
+      <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2 p-4 md:p-8">
-          <div className="relative h-full min-h-[300px] md:min-h-[500px] rounded-[30px] overflow-hidden">
+          <div className="relative h-full min-h-[200px] md:min-h-[300px] rounded-[30px] overflow-hidden">
             <img
               src={img} // Replace with your actual image path
               alt="AI Classroom"
@@ -30,11 +30,9 @@ const WhatIsEdInai = () => {
         {/* Right Side: Content */}
         <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
           <div className="max-w-xl">
-            <h1 className="mb-6 ">
-              What is Ed-INAI?
-            </h1>
+            <h1 className="mb-6 ">What is edInai?</h1>
 
-            <p className="text-gray-400  leading-relaxed mb-8">
+            <p className="text-[#ccc] text-[18px]  leading-relaxed mb-6">
               Ed-INAI is an AI-powered education platform developed by INAI
               Worlds Pvt. Ltd. It enables institutions to automate teaching,
               personalize learning, and improve academic outcomes using advanced
@@ -42,7 +40,7 @@ const WhatIsEdInai = () => {
             </p>
 
             {/* Features List */}
-            <ul className="space-y-4 mb-10">
+            <ul className="space-y-2 mb-6">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 group">
                   <div className="w-2 h-2 bg-white rounded-full group-hover:bg-blue-500 transition-colors"></div>
