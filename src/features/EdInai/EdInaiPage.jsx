@@ -6,6 +6,8 @@ import Edinaichallenges from "./components/Edinaichallenges";
 import WhatIsEdInai from "./components/WhatIsEdInai";
 import "./components/EdInai.css"
 import EdInaiPlatform from "./components/EdInaiPlatform";
+import SmartFaculties from "./components/SmartFaculties";
+import PersonalisedLearning from "./components/PersonalisedLearning";
 
 const EdInaiPage = () => {
   return (
@@ -27,7 +29,9 @@ const EdInaiPage = () => {
         <HeroSection />
         <Edinaichallenges />
         <WhatIsEdInai/>
+        <SmartFaculties/>
         <EdInaiPlatform/>
+        <PersonalisedLearning/>
       </div>
     </div>
   );

@@ -2,10 +2,10 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import images - using available assets as placeholders
-import step1Img from '../../assets/inai.webp';
-import step2Img from '../../assets/Vinai.webp';
-import step3Img from '../../assets/inai.webp';
-import step4Img from '../../assets/Vinai.webp';
+import step1Img from '../../assets/EdInai_imgs/inai.webp';
+import step2Img from '../../assets/EdInai_imgs/Vinai.webp';
+import step3Img from '../../assets/EdInai_imgs/inai.webp';
+import step4Img from '../../assets/EdInai_imgs/Vinai.webp';
 import k12Img from '../../assets/bg.png';
 import collegeImg from '../../assets/bg.png';
 import coachingImg from '../../assets/bg.png';

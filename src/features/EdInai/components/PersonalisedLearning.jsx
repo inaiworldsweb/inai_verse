@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import office from "../../../assets/EdInai_imgs/office.jpeg";
 
-const EdInaiPlatform = () => {
+const PersonalisedLearning = () => {
   // Dummy images array (abhi ke liye sabme wahi office image use ki hai)
   const images = [office, office, office, office];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,14 +16,13 @@ const EdInaiPlatform = () => {
   }, [images.length]);
 
   return (
-    <section className="edinai-platform bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
+    <section className="personalised-learning bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
       <div className="max-w-6xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
-          <h1 className="mb-3">Inside the Ed-INAI AI Education Platform</h1>
+          <h1 className="mb-3">Personalised Learning with Ed-INAI</h1>
           <h2 className="text-center max-w-7xl mx-auto">
-            From Administration to Learning Ed-INAI Automates, Optimizes, and
-            Personalizes the Entire Education Journey.
+            Experience a tailored education journey that adapts to your unique learning style and pace.
           </h2>
         </div>
 
@@ -64,15 +63,14 @@ const EdInaiPlatform = () => {
         {/* Bottom Content */}
         <div className="flex flex-col items-center w-full">
           <p>
-            Students can choose exam categories, access study materials, and
-            attempt AI-generated mock tests anytime.
+            Our AI-driven platform analyzes your progress and provides customized resources to help you excel.
           </p>
 
-          <h2 className="mt-5">Upload & Organize Curriculum</h2>
+          <h2 className="mt-5">Adaptive Curriculum & Real-time Feedback</h2>
 
           {/* Learn More Button */}
           <button className="bg-white text-black font-semibold md:px-10 md:py-3 py-1 px-3 rounded-full hover:bg-gray-200 transition-all duration-300 mt-4 md:mt-6 text-base md:text-lg">
-            Learn more
+            Explore Features
           </button>
         </div>
       </div>
@@ -80,4 +78,4 @@ const EdInaiPlatform = () => {
   );
 };
 
-export default EdInaiPlatform;
+export default PersonalisedLearning;
