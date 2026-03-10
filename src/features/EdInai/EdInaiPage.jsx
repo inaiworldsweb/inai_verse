@@ -9,6 +9,8 @@ import EdInaiPlatform from "./components/EdInaiPlatform";
 import ExaminationEngine from "./components/ExaminationEngine";
 import SmartFaculties from "./components/SmartFaculties";
 import PersonalisedLearning from "./components/PersonalisedLearning";
+import EdInaiWork from "./components/EdInaiWork";
+import EdInaiPowerfulLearning from "./components/EdInaiPowerfulLearning";
 import WhyTrustEdInai from "./components/WhyTrustEdInai";
 import FaqSection from "./components/FaqSection";
 import AdaptSection from "./components/AdaptSection";
@@ -35,10 +37,15 @@ const EdInaiPage = () => {
         <HeroSection />
         <Edinaichallenges />
         <WhatIsEdInai/>
+      
         <SmartFaculties/>
         <EdInaiPlatform/>
-        <ExaminationEngine />
         <PersonalisedLearning/>
+       
+        <ExaminationEngine />
+        <EdInaiWork />
+         <EdInaiPowerfulLearning />
+      
         <WhyTrustEdInai/>
         <MissionVision/>
         <StreamsSection/>
