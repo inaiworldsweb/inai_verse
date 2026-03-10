@@ -20,9 +20,9 @@ const PersonalisedLearning = () => {
       <div className="max-w-6xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
-          <h1 className="mb-3">Personalised Learning with Ed-INAI</h1>
+          <h1 className="mb-3">Personalized Learning for Every Student</h1>
           <h2 className="text-center max-w-7xl mx-auto">
-            Experience a tailored education journey that adapts to your unique learning style and pace.
+           Each student gets learning support that matches their learning needs.
           </h2>
         </div>
 
@@ -63,14 +63,14 @@ const PersonalisedLearning = () => {
         {/* Bottom Content */}
         <div className="flex flex-col items-center w-full">
           <p>
-            Our AI-driven platform analyzes your progress and provides customized resources to help you excel.
+          Students can choose exam categories, access study materials, and attempt AI-generated mock tests anytime.
           </p>
 
           <h2 className="mt-5">Adaptive Curriculum & Real-time Feedback</h2>
 
           {/* Learn More Button */}
           <button className="bg-white text-black font-semibold md:px-10 md:py-3 py-1 px-3 rounded-full hover:bg-gray-200 transition-all duration-300 mt-4 md:mt-6 text-base md:text-lg">
-            Explore Features
+             Learn more
           </button>
         </div>
       </div>

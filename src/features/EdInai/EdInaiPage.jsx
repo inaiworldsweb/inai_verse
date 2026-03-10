@@ -11,6 +11,11 @@ import SmartFaculties from "./components/SmartFaculties";
 import PersonalisedLearning from "./components/PersonalisedLearning";
 import EdInaiWork from "./components/EdInaiWork";
 import EdInaiPowerfulLearning from "./components/EdInaiPowerfulLearning";
+import WhyTrustEdInai from "./components/WhyTrustEdInai";
+import FaqSection from "./components/FaqSection";
+import AdaptSection from "./components/AdaptSection";
+import StreamsSection from "./components/StreamsSection";
+import MissionVision from "./components/MissionVision";
 
 const EdInaiPage = () => {
   return (
@@ -41,6 +46,11 @@ const EdInaiPage = () => {
         <EdInaiWork />
          <EdInaiPowerfulLearning />
       
+        <WhyTrustEdInai/>
+        <MissionVision/>
+        <StreamsSection/>
+        <AdaptSection/>
+        <FaqSection/>
       </div>
     </div>
   );
