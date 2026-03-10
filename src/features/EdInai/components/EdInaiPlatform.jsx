@@ -1,5 +1,5 @@
 import React from 'react';
-import './Edinai.css';
+
 
 const EdInaiPlatform = () => {
   return (
@@ -7,9 +7,9 @@ const EdInaiPlatform = () => {
       <div className="max-w-5xl w-full flex flex-col items-center space-y-6">
         
         {/* Header Section */}
-        <div className="space-y-4">
+        <div className="flex items-center justify-center flex-col">
           <h1>Inside the Ed-INAI AI Education Platform</h1>
-          <p className="max-w-3xl mx-auto">
+          <p className=" mx-auto">
             From Administration to Learning Ed-INAI Automates, Optimizes, and Personalizes the Entire Education Journey.
           </p>
         </div>
@@ -32,15 +32,15 @@ const EdInaiPlatform = () => {
         </div>
 
         {/* Bottom Content */}
-        <div className="space-y-8 flex flex-col items-center w-full">
-          <p className="max-w-4xl">
+        <div className=" flex flex-col items-center w-full">
+          <p >
             Students can choose exam categories, access study materials, and attempt AI-generated mock tests anytime.
           </p>
 
-          <h2>Upload & Organize Curriculum</h2>
+          <h2 className='mt-8'>Upload & Organize Curriculum</h2>
 
           {/* Learn More Button */}
-          <button className="bg-white text-black font-semibold px-10 py-3 rounded-full hover:bg-gray-200 transition-all duration-300 mt-4 text-base md:text-lg">
+          <button className="bg-white text-black font-semibold px-10 py-3 rounded-full hover:bg-gray-200 transition-all duration-300 mt-10 text-base md:text-lg">
             Learn more
           </button>
         </div>

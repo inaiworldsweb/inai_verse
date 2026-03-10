@@ -9,16 +9,17 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-[75vh] flex items-center justify-center py-16">
-      <div className="text-center px-6 max-w-6xl mx-auto">
+    <section className="min-h-[85vh] flex items-center justify-center py-24">
+      <div className="text-center px-6 max-w-5xl mx-auto">
         {/* Main Heading */}
-        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 tracking-[1px]">
-          India’s First Virtual AI Teachers for 
-          <span className="block text-white/90">Smart Education</span>
-        </h1>
+        <h3 className="font-bold mb-6"  >
+          India’s First Virtual AI Teachers for
+           <br /> Smart Education
+         
+        </h3>
 
         {/* Subtext - Balanced max-width for better readability */}
-        <p className="max-w-2xl mx-auto text-sm md:text-lg text-white/70 mb-10 leading-relaxed">
+        <p className="max-w-4xl mx-auto text-sm md:text-lg text-white/70 mb-6 leading-relaxed">
           Empowering schools, colleges, and coaching institutes with AI-powered 
           teaching, learning, and academic management solutions.
         </p>
@@ -36,6 +37,7 @@ const HeroSection = () => {
             active:scale-95
             transition-all duration-200
             shadow-lg
+            mt-4
           "
         >
           Book a Demo

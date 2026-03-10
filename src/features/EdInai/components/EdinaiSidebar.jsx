@@ -1,23 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import SideMenu from "../../components/SideMenu";
-import logoImage from "../../assets/Inai Verse White Tred mark (1).png";
+import SideMenu from "../../../components/SideMenu";
+import logoImage from "../../../assets/Inai Verse White Tred mark (1).png";
 import { HiMenu, HiX } from "react-icons/hi";
 
 const navItems = [
-  "What is edinai?",
-  "Meet our faculties",
-  "Admin View  For Education Centres",
-  "Student View  For Learners",
-  "Teach in Every Way Your Students Want to Learn",
-  "Learning Modes",
-  "Why Ed-INAI Is the Future",
-  "Smart Automation",
-  "Modern Learning",
-  "Our Vision",
-  "Integration Options",
-  "Streams We Cover",
-  "Adapt and Evolve",
+  "Hero Section",
+  "what exactly we do",
+  "who needs our services",
+  "the real problem we solve",
+  "WHY CHOOSE MIRAAI",
+  "Final cTA with form fill-up",
+  "Testimonials",
   "FAQ",
 ];
 

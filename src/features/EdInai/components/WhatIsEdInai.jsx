@@ -12,7 +12,7 @@ const WhatIsEdInai = () => {
   ];
 
   return (
-    <section className="bg-black text-white min-h-screen flex items-center justify-center p-6 md:p-12">
+    <section className=" text-white min-h-[80vh] flex items-center justify-center p-6 md:p-12">
       <div className="max-w-7xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2 p-4 md:p-8">

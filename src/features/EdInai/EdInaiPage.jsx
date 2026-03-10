@@ -1,7 +1,7 @@
 ﻿import React from "react";
-import EdinaiSidebar from "./EdinaiSidebar";
+import EdinaiSidebar from "./components/EdinaiSidebar";
 import HeroSection from "./components/HeroSection";
-import PageHeader from "../../components/PageHeader";
+import EdInaiNavbar from "./components/EdInaiNavbar";
 import Edinaichallenges from "./components/Edinaichallenges";
 import WhatIsEdInai from "./components/WhatIsEdInai";
 import "./components/EdInai.css"
@@ -15,7 +15,7 @@ const EdInaiPage = () => {
 
       {/* Main Content Area - All components on right side */}
       <div className="lg:ml-[280px] flex-1">
-        <PageHeader
+        <EdInaiNavbar
           title="EdInai"
           showBackButton={true}
           showPriceButton={false}
@@ -26,7 +26,6 @@ const EdInaiPage = () => {
         />
         <HeroSection />
         <Edinaichallenges />
-     
         <WhatIsEdInai/>
         <EdInaiPlatform/>
       </div>
