@@ -7,6 +7,8 @@ import WhatIsEdInai from "./components/WhatIsEdInai";
 import "./components/EdInai.css"
 import EdInaiPlatform from "./components/EdInaiPlatform";
 import ExaminationEngine from "./components/ExaminationEngine";
+import SmartFaculties from "./components/SmartFaculties";
+import PersonalisedLearning from "./components/PersonalisedLearning";
 
 const EdInaiPage = () => {
   return (
@@ -28,8 +30,10 @@ const EdInaiPage = () => {
         <HeroSection />
         <Edinaichallenges />
         <WhatIsEdInai/>
+        <SmartFaculties/>
         <EdInaiPlatform/>
         <ExaminationEngine />
+        <PersonalisedLearning/>
       </div>
     </div>
   );
