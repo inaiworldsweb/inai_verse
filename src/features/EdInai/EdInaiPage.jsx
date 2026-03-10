@@ -6,6 +6,7 @@ import Edinaichallenges from "./components/Edinaichallenges";
 import WhatIsEdInai from "./components/WhatIsEdInai";
 import "./components/EdInai.css"
 import EdInaiPlatform from "./components/EdInaiPlatform";
+import ExaminationEngine from "./components/ExaminationEngine";
 import SmartFaculties from "./components/SmartFaculties";
 import PersonalisedLearning from "./components/PersonalisedLearning";
 import WhyTrustEdInai from "./components/WhyTrustEdInai";
@@ -36,6 +37,7 @@ const EdInaiPage = () => {
         <WhatIsEdInai/>
         <SmartFaculties/>
         <EdInaiPlatform/>
+        <ExaminationEngine />
         <PersonalisedLearning/>
         <WhyTrustEdInai/>
         <MissionVision/>
