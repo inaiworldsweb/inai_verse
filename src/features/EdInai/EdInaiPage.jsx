@@ -8,6 +8,7 @@ import "./components/EdInai.css"
 import EdInaiPlatform from "./components/EdInaiPlatform";
 import SmartFaculties from "./components/SmartFaculties";
 import PersonalisedLearning from "./components/PersonalisedLearning";
+import WhyTrustEdInai from "./components/WhyTrustEdInai";
 
 const EdInaiPage = () => {
   return (
@@ -32,6 +33,7 @@ const EdInaiPage = () => {
         <SmartFaculties/>
         <EdInaiPlatform/>
         <PersonalisedLearning/>
+        <WhyTrustEdInai/>
       </div>
     </div>
   );
