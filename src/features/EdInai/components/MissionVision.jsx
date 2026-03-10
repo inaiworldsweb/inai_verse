@@ -11,41 +11,42 @@ const MissionVision = () => {
     mission: {
       title: "Classes 1 to 12th | CBSE, ICSE & State Boards",
       description:
-        "We aim to remove friction between design and development by turning visual ideas into usable, production-ready code—quickly and reliably.",
+        "Schools can integrate Ed-INAI to provide consistent, high-quality AI-driven teaching support for all students.",
       points: [
         "AI-assisted teaching support",
         "AI-based internal exams",
         "Consistent learning across classes",
         "24/7 revision and learning access",
         "Reduced teacher dependency",
-        "Improved academic outcomes"
+        "Improved academic outcomes",
       ],
-      image: img1, // Yahan apni 1st image dalna
-  
+      image: img1,
     },
     vision: {
-      title: "Pioneering the Future of AI-Driven Education",
+      title:
+        "UG & PG Courses | Science, Commerce, Arts, Engineering, Medical & Management",
       description:
-        "Our vision is to create a world where high-quality, personalized education is accessible to every student through advanced AI faculties like Vnai and Aira.",
+        "Colleges can leverage Ed-INAI to optimize lectures, assessments, and performance tracking for higher education.",
       points: [
-        "Global accessibility",
-        "Personalized learning paths",
-        "Continuous AI innovation",
+        "Subject-wise AI lecture support",
+        "Smart internal assessments",
+        "AI-based semester exam generation",
+        "Performance analytics dashboard",
       ],
-      image: img2, // Yahan apni 2nd image dalna
-
+      image: img2,
     },
     benefit: {
-      title: "Unlock Maximum Efficiency For Your Institution",
+      title: "Entrance Exams, Competitive Tests & Career-Oriented Coaching",
       description:
-        "By integrating Ed-INAI, institutions can automate complex administrative tasks and focus purely on student academic excellence.",
+        "Coaching institutes can transform their training with AI-powered mock tests, practice sessions, and smart scheduling.",
       points: [
-        "90% Administrative automation",
-        "Real-time performance tracking",
-        "Scalable infrastructure",
+        "Competitive exam mock tests (NEET, JEE, UPSC, SSC, Banking)",
+        "Topic-wise AI practice tests",
+        "Hybrid format exam generation",
+        "Smart exam scheduling",
+        "Live countdown-based test activation",
       ],
-      image: img3, // Yahan apni 3rd image dalna
-  
+      image: img3,
     },
   };
 
@@ -59,12 +60,14 @@ const MissionVision = () => {
     <section className="bg-black text-white py-20 px-6 font-sans overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
-        <div className="text-center mb-10">
-          <h1 className="mt-4">Designed for Every Educational Institution</h1>
+        <div className="text-center mb-5">
+          <h1 className="mt-4 text-center">
+            Designed for Every Educational Institution
+          </h1>
         </div>
 
         {/* Custom Tab Switcher */}
-        <div className="flex border-b border-white/10 mb-8">
+        <div className="flex border-b border-white/10 mb-6">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -97,11 +100,11 @@ const MissionVision = () => {
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[450px]"
           >
             {/* Left Column: Text Content */}
-            <div className="space-y-6">
-              <h1 className=" leading-tight">{contentData[activeTab].title}</h1>
-              <p className="text-gray-400 text-lg leading-relaxed">
-                {contentData[activeTab].description}
-              </p>
+            <div className="space-y-4">
+              <h1 className=" leading-tight text-center mb-3">
+                {contentData[activeTab].title}
+              </h1>
+
               <ul className="space-y-4">
                 {contentData[activeTab].points.map((point, index) => (
                   <li key={index} className="flex items-center text-gray-300">
