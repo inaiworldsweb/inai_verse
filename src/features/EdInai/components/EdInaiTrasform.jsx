@@ -3,7 +3,7 @@ import CTAImage from '../../../assets/EdInai_imgs/CTA.png';
 
 const EdInaiTrasform = () => {
   return (
-    <section className="w-full py-8 md:py-16 px-4">
+    <section className="w-full py-9 md:py-12 px-4">
       <div className="max-w-5xl mx-auto relative overflow-hidden rounded-[2rem] min-h-[250px] md:min-h-[350px] flex items-center justify-center text-center p-6 md:p-16">
         {/* Background Image with Futuristic Classroom & VR Elements */}
         <div 

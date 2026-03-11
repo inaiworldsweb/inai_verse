@@ -57,7 +57,7 @@ const MissionVision = () => {
   ];
 
   return (
-    <section className="bg-black text-white pt-9 md:py-12  pb-4 px-4 font-sans overflow-hidden">
+    <section className="bg-black text-white pt-9 md:py-12 md:pt-18  pb-4 px-4 font-sans overflow-hidden">
       <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-5">

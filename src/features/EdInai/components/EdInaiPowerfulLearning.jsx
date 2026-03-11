@@ -110,7 +110,7 @@ const EdInaiPowerfulLearning = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-9 md:py-12 px-4 relative overflow-hidden">
+    <section ref={containerRef} className="w-full bg-black py-9 md:py-12 md:pb-35 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
         
         {/* Header - Z-index is kept lower than cards for stacking */}
