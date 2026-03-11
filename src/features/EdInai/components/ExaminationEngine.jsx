@@ -92,17 +92,6 @@ const ExaminationEngine = () => {
   );
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-20  overflow-visible">
-      <div className="max-w-5xl mx-auto">
-        
-        <div className="text-center mb-10 px-4">
-          <h1 className="h1  mb-3 ">
-            Smart & Scalable Examination Engine
-          </h1>
-          <h2 className=" h2">
-    <section ref={containerRef} className="w-full bg-black md:py-20 py-12 overflow-visible">
-      <div className="max-w-5xl mx-auto px-4">
-        
     <section
       ref={containerRef}
       className="w-full bg-black md:py-20 py-12 overflow-visible"
@@ -112,7 +101,6 @@ const ExaminationEngine = () => {
           <h1 className="h1 font-bold text-white mb-4">
             Smart & Scalable Examination Engine
           </h1>
-          <p className="text-gray-500 p max-w-2xl mx-auto">
           <h2 className="h2 max-w-2xl mx-auto">
             Ed-INAI now includes a complete AI-powered exam management solution.
           </h2>
@@ -140,9 +128,6 @@ const ExaminationEngine = () => {
             ))}
           </div>
 
-          <div className="flex-1 bg-white/5 rounded-r-[38px] p-16 flex items-center gap-12 pl-20 border-l border-white/5">
-          {/* Content Area */}
-          <div className="flex-1 bg-white/5 p-16 flex items-center gap-12 pl-32 border-l border-white/5">
           {/* Content Area */}
           <div className="flex-1 bg-white/5 rounded-r-[38px] p-16 flex items-center gap-12 pl-20 border-l border-white/5">
             <div ref={desktopTextRef} className="flex-1 space-y-6">
@@ -156,8 +141,6 @@ const ExaminationEngine = () => {
               </ul>
             </div>
             <div ref={desktopImageRef} className="flex-1 max-w-[400px]">
-              <div className="relative">
-                <img src={examData[activeTab].image} className="w-full h-full object-cover overflow-hidden  rounded-[30px]" alt={examData[activeTab].tabTitle} />
               <div className="relative aspect-[4/5] rounded-[30px] overflow-hidden border border-white/10">
                 <img
                   src={examData[activeTab].image}
