@@ -163,11 +163,11 @@ const EdInaiPowerfulLearning = ({ id }) => {
 
                 {/* Image */}
                 <div className="flex-1 w-full order-1 md:order-2">
-                  <div className="rounded-xl overflow-hidden border border-white/10 bg-black aspect-[4/3] md:aspect-auto md:h-[350px] shadow-2xl">
+                  <div className="  bg-black aspect-[4/3] md:aspect-auto md:h-[350px] shadow-2xl">
                     <img
                       src={mode.image}
                       alt={mode.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full rounded-xl overflow-hidden object-cover"
                     />
                   </div>
                 </div>
