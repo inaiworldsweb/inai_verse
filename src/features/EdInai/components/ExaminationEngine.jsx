@@ -65,7 +65,7 @@ const ExaminationEngine = () => {
 
   return (
     <section ref={containerRef} className="w-full bg-black py-20 px-4 md:px-10 overflow-visible">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         
         <div className="text-center mb-16 px-4">
           <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 tracking-tight">

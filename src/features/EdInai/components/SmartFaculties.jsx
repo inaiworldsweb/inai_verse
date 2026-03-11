@@ -37,7 +37,7 @@ const SmartFaculties = () => {
   }, []);
 
   return (
-    <section className="bg-black text-white md:py-12 py-9 px-4 overflow-hidden">
+    <section className="bg-black max-w-5xl text-white md:py-12 py-9 overflow-hidden">
       {/* Internal CSS for Flip Effect */}
       <style>{`
         .perspective { perspective: 1000px; }
@@ -46,7 +46,7 @@ const SmartFaculties = () => {
         .preserve-3d { transform-style: preserve-3d; }
       `}</style>
 
-      <div className="max-w-6xl mx-auto text-center mb-2">
+      <div className="max-w-5xl mx-auto text-center mb-2">
         <h1 className="mb-4">Meet Our Smart AI Faculties</h1>
         <h2 className=" mx-auto lg:mb-12 text-gray-400">
           Your always-available digital academic partners, delivering

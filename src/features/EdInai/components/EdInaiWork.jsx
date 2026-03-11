@@ -46,7 +46,7 @@ const EdInaiWork = () => {
 
   return (
     <section ref={containerRef} className="w-full bg-black py-9 md:py-12 px-4 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         
         {/* Header Section */}
         <div className="text-center mb-16 md:mb-24">

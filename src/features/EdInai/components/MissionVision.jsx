@@ -58,7 +58,7 @@ const MissionVision = () => {
 
   return (
     <section className="bg-black text-white py-20 px-6 font-sans overflow-hidden">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-5">
           <h1 className="mt-4 text-center">
@@ -67,7 +67,7 @@ const MissionVision = () => {
         </div>
 
         {/* Custom Tab Switcher */}
-        <div className="flex border-b border-white/10 mb-6">
+        <div className="flex border-b border-white/10">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -97,13 +97,13 @@ const MissionVision = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center min-h-[450px]"
+            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center min-h-[450px]"
           >
             {/* Left Column: Text Content */}
             <div className="space-y-4">
-              <h1 className=" leading-tight text-center mb-3">
+              <h4 className=" leading-tight text-[21px] mt-5 md:mt-0 md:text-[35px] text-center mb-12">
                 {contentData[activeTab].title}
-              </h1>
+              </h4>
 
               <ul className="space-y-4">
                 {contentData[activeTab].points.map((point, index) => (
@@ -120,13 +120,13 @@ const MissionVision = () => {
               {/* Background Glow Effect */}
               <div className="absolute w-[300px] h-[300px] bg-blue-600/20 rounded-full blur-[100px]" />
 
-              <div className="relative z-10 w-full max-w-[400px]">
+              <div className="relative z-10 w-full max-w-[500px]">
                 {/* Circular Energy Frame */}
-                <div className="relative p-2   rounded-full border border-white/5 bg-gradient-to-b from-white/5 to-transparent backdrop-blur-sm">
+                <div className="relative p-2  bg-black from-white/5 to-transparent backdrop-blur-sm">
                   <img
                     src={contentData[activeTab].image}
                     alt={activeTab}
-                    className="w-full h-auto rounded-full shadow-2xl border-2 border-white/10"
+                    className="w-full h-auto rounded-full shadow-2xl"
                   />
                 </div>
               </div>

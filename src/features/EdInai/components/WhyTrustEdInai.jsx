@@ -57,7 +57,7 @@ const WhyTrustEdInai = () => {
 
   return (
     <section className="bg-black text-white py-9 md:py-12 px-6 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-5xl mx-auto relative">
         {/* Heading */}
         <h1 className="text-center  mb-6 md:mb-12 tracking-tight">
           Why Institutions Trust Ed-INAI

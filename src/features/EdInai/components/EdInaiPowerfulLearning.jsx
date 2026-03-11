@@ -26,7 +26,7 @@ const EdInaiPowerfulLearning = () => {
 
   return (
     <section ref={containerRef} className="w-full bg-black py-28 px-4 relative">
-      <div className="max-w-[1082px] mx-auto">
+      <div className="max-w-5xl mx-auto">
 
         {/* Header - Sticky */}
         <div className="sticky top-20 text-center mb-24 z-0">
