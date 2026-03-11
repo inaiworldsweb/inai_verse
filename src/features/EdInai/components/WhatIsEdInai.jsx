@@ -16,7 +16,7 @@ const WhatIsEdInai = () => {
       <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2 p-4">
-          <div className="relative h-full min-h-[200px] md:min-h-[300px] rounded-[30px] overflow-hidden">
+          <div className="relative h-full min-h-[200px] md:min-h-[300px]  rounded-[30px] overflow-hidden">
             <img
               src={img} // Replace with your actual image path
               alt="AI Classroom"
@@ -28,12 +28,12 @@ const WhatIsEdInai = () => {
         </div>
 
         {/* Right Side: Content */}
-        <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+        <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-5 flex flex-col justify-center">
           <div className="max-w-xl">
-            <h1 className="h1 mb-6">What is Ed-INAI?</h1>
+            <h1 className="h1 mb-6">What is edInai?</h1>
 
             <p className="p text-gray-400 leading-relaxed mb-8">
-              Ed-INAI is an AI-powered education platform developed by INAI
+              edInai is an AI-powered education platform developed by INAI
               Worlds Pvt. Ltd. It enables institutions to automate teaching,
               personalize learning, and improve academic outcomes using advanced
               virtual AI teachers and smart analytics.
@@ -51,7 +51,7 @@ const WhatIsEdInai = () => {
               ))}
             </ul>
 
-            <p className="p text-gray-500 text-sm md:text-base">
+            <p className="p text-gray-500 md:mb-5 mb-2">
               Our virtual AI teachers conduct live, interactive lectures through
               intelligent digital interfaces.
             </p>

@@ -49,7 +49,7 @@ const EdInaiWork = () => {
       <div className="max-w-5xl mx-auto">
         
         {/* Header Section */}
-        <div className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-7 md:mb-17">
           <h1 className="mb-4 h1">
             How the Ed-INAI Platform Works
           </h1>
@@ -102,13 +102,13 @@ const EdInaiWork = () => {
         </div>
 
         {/* Mobile View */}
-        <div className="lg:hidden flex flex-col space-y-20 border-l border-white/10 ml-6 pl-10">
+        <div className="lg:hidden flex flex-col md:space-y-20 space-y-10 border-l border-white/10 ml-6 pl-10">
           {steps.map((step, index) => (
             <div key={index} className="relative">
-              <div className="absolute -left-[61px] top-0 w-11 h-11 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl">
+              <div className="absolute md:-left-[61px] -left-[55px] top-0 md:w-11 md:h-11 w-7 h-7 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl">
                 {step.number}
               </div>
-              <h2 className="text-white h2 font-bold text-2xl">{step.title}</h2>
+              <h2 className="text-white !text-[16px] h2 font-bold">{step.title}</h2>
             </div>
           ))}
         </div>

@@ -56,10 +56,10 @@ const WhyTrustEdInai = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-9 md:pb-4 md:pt-12 px-6 relative overflow-hidden">
+    <section className="bg-black text-white py-9 md:pb-4 md:pt-12 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto relative">
         {/* Heading */}
-        <h1 className="h1 text-center mb-6 md:mb-8">
+        <h1 className="h1 text-center mb-6 md:mb-2 lg:mb-8">
           Why Institutions Trust Ed-INAI
         </h1>
 
@@ -110,7 +110,7 @@ const WhyTrustEdInai = () => {
                   d={pt.path}
                   fill="none"
                   stroke="url(#lineGradient)"
-                  strokeWidth="4"
+                  strokeWidth="1"
                   strokeLinecap="round"
                   initial={{ pathLength: 0, opacity: 0 }}
                   animate={{

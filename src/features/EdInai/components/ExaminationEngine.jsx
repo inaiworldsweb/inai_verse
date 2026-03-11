@@ -44,18 +44,20 @@ const ExaminationEngine = () => {
     );
   }, { dependencies: [activeTab], scope: containerRef });
 
-  // Mobile Stacking Logic
+  // Mobile Stacking Logic - Ultra Smooth
   useGSAP(() => {
     const cards = gsap.utils.toArray('.mobile-card');
+    
     cards.forEach((card, i) => {
       if (i < cards.length - 1) {
         gsap.to(card, {
-          filter: "brightness(0.4) blur(1px)",
-          scale: 0.95,
+          scale: 0.92,
+          opacity: 0.3, // Fixed clean opacity fade
+          filter: "blur(4px)",
           scrollTrigger: {
             trigger: cards[i + 1],
-            start: "top 80%",
-            end: "top 20%",
+            start: "top 85%",
+            end: "top 25%",
             scrub: true,
           }
         });
@@ -72,18 +74,27 @@ const ExaminationEngine = () => {
             Smart & Scalable Examination Engine
           </h1>
           <h2 className=" h2">
+    <section ref={containerRef} className="w-full bg-black md:py-20 py-12 overflow-visible">
+      <div className="max-w-5xl mx-auto px-4">
+        
+        <div className="text-center mb-6 lg:mb-12">
+          <h1 className="h1 font-bold text-white mb-4">
+            Smart & Scalable Examination Engine
+          </h1>
+          <p className="text-gray-500 p max-w-2xl mx-auto">
             Ed-INAI now includes a complete AI-powered exam management solution.
-          </h2>
+          </p>
         </div>
 
         {/* --- DESKTOP VIEW --- */}
-        <div className="hidden lg:flex min-h-[400px] rounded-[40px] border border-white/10 bg-black">
-          <div className="w-[35%] bg-white rounded-l-[38px] p-12 flex flex-col justify-center gap-6 z-20">
+        <div className="hidden lg:flex min-h-[500px] rounded-[40px] border border-white/10 bg-black overflow-hidden">
+          {/* Sidebar */}
+          <div className="w-[35%] bg-white p-12 flex flex-col justify-center gap-3 z-20">
             {examData.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTab(index)}
-                className={`group flex items-center py-6 ps-5 px-2 transition-all duration-500 rounded-full text-left ${
+                className={`group flex items-center py-6 ps-5 px-4 transition-all duration-500 rounded-full text-left ${
                   activeTab === index 
                   ? 'bg-black text-white translate-x-12 w-[calc(100%+3rem)] shadow-2xl z-30 border border-white' 
                   : 'text-black hover:bg-gray-100'
@@ -96,10 +107,12 @@ const ExaminationEngine = () => {
           </div>
 
           <div className="flex-1 bg-white/5 rounded-r-[38px] p-16 flex items-center gap-12 pl-20 border-l border-white/5">
+          {/* Content Area */}
+          <div className="flex-1 bg-white/5 p-16 flex items-center gap-12 pl-32 border-l border-white/5">
             <div ref={desktopTextRef} className="flex-1 space-y-6">
-              <ul className="space-y-6 text-white text-xl font-medium">
+              <ul className="lg:space-y-6 space-y-4 text-white text-xl font-medium">
                 {examData[activeTab].bulletPoints.map((point, i) => (
-                  <li key={i} className="flex items-start gap-4">
+                  <li key={i} className="flex items-start lg:gap-4 gap-2">
                     <span className="text-white/30">—</span>{point}
                   </li>
                 ))}
@@ -108,41 +121,50 @@ const ExaminationEngine = () => {
             <div ref={desktopImageRef} className="flex-1 max-w-[400px]">
               <div className="relative">
                 <img src={examData[activeTab].image} className="w-full h-full object-cover overflow-hidden  rounded-[30px]" alt={examData[activeTab].tabTitle} />
+              <div className="relative aspect-[4/5] rounded-[30px] overflow-hidden border border-white/10">
+                {/* FIXED: changed item.tabTitle to examData[activeTab].tabTitle */}
+                <img 
+                  src={examData[activeTab].image} 
+                  className="w-full h-full object-cover" 
+                  alt={examData[activeTab].tabTitle} 
+                />
               </div>
             </div>
           </div>
         </div>
 
         {/* --- MOBILE STACK VIEW --- */}
-        <div className="lg:hidden flex flex-col gap-0 relative">
+        <div className="lg:hidden flex flex-col items-center">
           {examData.map((item, index) => (
             <div 
               key={item.id} 
-              className="mobile-card sticky w-full bg-[#0a0a0a] border border-white/10 rounded-[30px] p-6 shadow-2xl"
+              className="mobile-card sticky top-[100px] w-full bg-[#111] border border-white/10 rounded-[32px] p-8 mb-[8vh] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
               style={{ 
                 zIndex: index + 1,
-                top: `${80 + (index * 20)}px`,
-                marginBottom: index === examData.length - 1 ? '0' : '10vh'
               }}
             >
-              <h2 className="text-white font-bold text-2xl mb-4 tracking-tight">
-                {item.tabTitle}
-              </h2>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-white font-bold text-2xl tracking-tight">
+                  {item.tabTitle}
+                </h2>
+                <span className="text-white/20 font-mono text-sm">0{index + 1}</span>
+              </div>
               
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-4 mb-8">
                 {item.bulletPoints.map((point, i) => (
-                  <li key={i} className="text-gray-400 text-sm flex items-start gap-3">
-                    <span className="text-white/20">—</span>{point}
+                  <li key={i} className="text-gray-300 text-base flex items-start gap-3">
+                    <span className="text-blue-500 font-bold">—</span>{point}
                   </li>
                 ))}
               </ul>
 
-              <div className="w-full h-48 rounded-xl overflow-hidden border border-white/5 bg-black/40">
+              <div className="w-full h-60 rounded-2xl overflow-hidden border border-white/10 bg-black/50">
                 <img src={item.image} className="w-full h-full object-cover" alt={item.tabTitle} />
               </div>
             </div>
           ))}
-          <div className="h-[10vh]" />
+          {/* Bottom padding for scroll completion */}
+          <div className="h-[15vh]" />
         </div>
 
       </div>
