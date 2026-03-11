@@ -49,7 +49,7 @@ const faqItems = [
   },
 ];
 
-const FaqSection = () => {
+const FaqSection = ({ id }) => {
   const [openIndex, setOpenIndex] = useState(null);
 
   const handleToggle = (index) => {
@@ -57,7 +57,7 @@ const FaqSection = () => {
   };
 
   return (
-    <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-9 px-4 lg:py-12 bg-black" id="faq">
+    <section id={id} className="w-full py-9 md:py-12 px-4 bg-black text-white">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -65,12 +65,10 @@ const FaqSection = () => {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-7 lg:mb-12"
         >
-          <h2 className="h1 mb-2 ">
-            Frequently Asked Questions
-          </h2>
-          < h2 className=" h2 ">
+          <h2 className="h1 mb-2 ">Frequently Asked Questions</h2>
+          <h2 className=" h2 ">
             Everything you need to know about Ed-INAI and our services.
-          </h2 >
+          </h2>
         </motion.div>
 
         <div className="flex flex-col">
@@ -91,7 +89,7 @@ const FaqSection = () => {
                   className={`w-full bg-gradient-to-r from-[#0b0b0b] to-[#111827] 
                   border border-gray-700/50 rounded-xl transition-all duration-300 
                   ease-out cursor-pointer overflow-hidden 
-                  ${isOpen ? 'border-gray-500' : 'hover:border-gray-600'}`}
+                  ${isOpen ? "border-gray-500" : "hover:border-gray-600"}`}
                 >
                   <div className="p-6 flex items-center justify-between relative z-10">
                     <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white">
@@ -103,14 +101,14 @@ const FaqSection = () => {
                       transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="text-white text-2xl font-light flex-shrink-0"
                     >
-                      <svg 
-                        width="20" 
-                        height="20" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        strokeWidth="2" 
-                        strokeLinecap="round" 
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
                         strokeLinejoin="round"
                       >
                         <line x1="12" y1="5" x2="12" y2="19"></line>

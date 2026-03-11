@@ -1,7 +1,7 @@
 import React from "react";
 import img from "../../../assets/EdInai_imgs/What_EdInai.png";
 
-const WhatIsEdInai = () => {
+const WhatIsEdInai = ({ id }) => {
   const features = [
     "Automate Teaching",
     "Personalize Learning",
@@ -12,7 +12,10 @@ const WhatIsEdInai = () => {
   ];
 
   return (
-    <section className=" text-white min-h-[70vh] flex items-center justify-center px-4 py-9 md:py-12">
+    <section
+      id={id}
+      className="w-full py-9 md:py-12 px-4 bg-black text-white min-h-[70vh] flex items-center justify-center px-4 py-9 md:py-12"
+    >
       <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2 p-4">

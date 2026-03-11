@@ -10,117 +10,128 @@ import PowerfulSection4 from "../../../assets/EdInai_imgs/PowerfulSection4.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const learningModes = [
-  { 
-    id: 1, 
-    mode: "Mode 01", 
-    title: "Live AI Lectures", 
-    description: "Attend real-time AI-powered classes where students can interact, ask questions, and learn through visual explanations. Lessons are personalized to match the student’s level, helping improve understanding and engagement.", 
-    image: PowerfulSection1 
+  {
+    id: 1,
+    mode: "Mode 01",
+    title: "Live AI Lectures",
+    description:
+      "Attend real-time AI-powered classes where students can interact, ask questions, and learn through visual explanations. Lessons are personalized to match the student’s level, helping improve understanding and engagement.",
+    image: PowerfulSection1,
   },
-  { 
-    id: 2, 
-    mode: "Mode 02", 
-    title: "Recorded Revisions", 
-    description: "Access recorded lectures anytime to revise topics at your own pace. This mode helps students review concepts, strengthen weak areas, and prepare better for exams.", 
-    image: PowerfulSection2 
+  {
+    id: 2,
+    mode: "Mode 02",
+    title: "Recorded Revisions",
+    description:
+      "Access recorded lectures anytime to revise topics at your own pace. This mode helps students review concepts, strengthen weak areas, and prepare better for exams.",
+    image: PowerfulSection2,
   },
-  { 
-    id: 3, 
-    mode: "Mode 03", 
-    title: "Interactive Quizzes", 
-    description: "Practice with AI-generated quizzes designed to test understanding. Students receive instant feedback, performance insights, and guidance on areas that need improvement.", 
-    image: PowerfulSection3 
+  {
+    id: 3,
+    mode: "Mode 03",
+    title: "Interactive Quizzes",
+    description:
+      "Practice with AI-generated quizzes designed to test understanding. Students receive instant feedback, performance insights, and guidance on areas that need improvement.",
+    image: PowerfulSection3,
   },
-  { 
-    id: 4, 
-    mode: "Mode 04", 
-    title: "AI Exam & Mock Test Mode", 
-    description: "Full-length AI-generated exams, Competitive exam simulation, Hybrid question formats, Instant result & analytics, Smart performance tracking.", 
-    image: PowerfulSection4 
+  {
+    id: 4,
+    mode: "Mode 04",
+    title: "AI Exam & Mock Test Mode",
+    description:
+      "Full-length AI-generated exams, Competitive exam simulation, Hybrid question formats, Instant result & analytics, Smart performance tracking.",
+    image: PowerfulSection4,
   },
 ];
 
-const EdInaiPowerfulLearning = () => {
+const EdInaiPowerfulLearning = ({ id }) => {
   const containerRef = useRef(null);
   const headerRef = useRef(null);
   const cardsRef = useRef([]);
 
-  useGSAP(() => {
-    // Media Query for Responsive behavior
-    let mm = gsap.matchMedia();
+  useGSAP(
+    () => {
+      // Media Query for Responsive behavior
+      let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 768px)", () => {
-      // --- DESKTOP LOGIC ---
-      ScrollTrigger.create({
-        trigger: headerRef.current,
-        start: "top 100px",
-        endTrigger: containerRef.current,
-        end: "bottom bottom",
-        pin: true,
-        pinSpacing: false,
-      });
-
-      cardsRef.current.forEach((card, index) => {
+      mm.add("(min-width: 768px)", () => {
+        // --- DESKTOP LOGIC ---
         ScrollTrigger.create({
-          trigger: card,
-          start: `top 250px`, // Desktop par thoda niche se start
+          trigger: headerRef.current,
+          start: "top 100px",
           endTrigger: containerRef.current,
           end: "bottom bottom",
           pin: true,
           pinSpacing: false,
-          scrub: true,
-          onUpdate: (self) => {
-            if (index < cardsRef.current.length - 1) {
-              gsap.set(card, { 
-                scale: 1 - self.progress * 0.05,
-                opacity: 1 - self.progress * 0.5,
-              });
-            }
-          }
+        });
+
+        cardsRef.current.forEach((card, index) => {
+          ScrollTrigger.create({
+            trigger: card,
+            start: `top 250px`, // Desktop par thoda niche se start
+            endTrigger: containerRef.current,
+            end: "bottom bottom",
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+            onUpdate: (self) => {
+              if (index < cardsRef.current.length - 1) {
+                gsap.set(card, {
+                  scale: 1 - self.progress * 0.05,
+                  opacity: 1 - self.progress * 0.5,
+                });
+              }
+            },
+          });
         });
       });
-    });
 
-    mm.add("(max-width: 767px)", () => {
-      // --- MOBILE LOGIC ---
-      // Mobile par Header ko pin nahi karte taaki scrolling space mile
-      
-      cardsRef.current.forEach((card, index) => {
-        ScrollTrigger.create({
-          trigger: card,
-          start: `top 120px`, // Mobile Navbar ke just niche
-          endTrigger: containerRef.current,
-          end: "bottom bottom",
-          pin: true,
-          pinSpacing: false,
-          scrub: true,
-          onUpdate: (self) => {
-            if (index < cardsRef.current.length - 1) {
-              gsap.set(card, { 
-                scale: 1 - self.progress * 0.03,
-                opacity: 1 - self.progress * 0.3,
-              });
-            }
-          }
+      mm.add("(max-width: 767px)", () => {
+        // --- MOBILE LOGIC ---
+        // Mobile par Header ko pin nahi karte taaki scrolling space mile
+
+        cardsRef.current.forEach((card, index) => {
+          ScrollTrigger.create({
+            trigger: card,
+            start: `top 120px`, // Mobile Navbar ke just niche
+            endTrigger: containerRef.current,
+            end: "bottom bottom",
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+            onUpdate: (self) => {
+              if (index < cardsRef.current.length - 1) {
+                gsap.set(card, {
+                  scale: 1 - self.progress * 0.03,
+                  opacity: 1 - self.progress * 0.3,
+                });
+              }
+            },
+          });
         });
       });
-    });
 
-    return () => mm.revert();
-  }, { scope: containerRef });
+      return () => mm.revert();
+    },
+    { scope: containerRef },
+  );
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-9 md:py-12 md:pb-35 px-4 relative overflow-hidden">
+    <section
+      ref={containerRef}
+      id={id}
+      className="w-full bg-black py-9 md:py-12 md:pb-35 px-4 relative overflow-hidden"
+    >
       <div className="max-w-5xl mx-auto">
-        
         {/* Header - Z-index is kept lower than cards for stacking */}
-        <div ref={headerRef} className="text-center z-10 relative mb-12 md:mb-20">
-          <h1 className="h1 mb-4 text-white ">
+        <div
+          ref={headerRef}
+          className="text-center z-10 relative mb-12 md:mb-20"
+        >
+          <h1 className="h1 md:!text-[32px] lg:!text-[40px] mb-4 text-white ">
             Powerful Learning Modes for Every Student
           </h1>
-          <h2 className="h2">
-            Different ways to learn, one powerful platform
-          </h2>
+          <h2 className="h2">Different ways to learn, one powerful platform</h2>
         </div>
 
         {/* Cards Container */}
@@ -135,7 +146,6 @@ const EdInaiPowerfulLearning = () => {
               }}
             >
               <div className="bg-gradient-to-br from-[#1a1a1a] to-black p-6 md:p-14 flex flex-col md:flex-row items-center gap-8 md:gap-12 min-h-[400px] md:min-h-[450px]">
-                
                 {/* Content */}
                 <div className="flex-1 text-left order-2 md:order-1">
                   <div className="inline-block px-3 py-1 mb-4 bg-white/5 border border-white/10 rounded-full">
@@ -161,14 +171,13 @@ const EdInaiPowerfulLearning = () => {
                     />
                   </div>
                 </div>
-
               </div>
             </div>
           ))}
         </div>
-        
+
         {/* Bottom Spacer: It keeps the last card pinned for a while before scrolling away */}
-        <div className="h-[20vh] md:h-[40vh]" /> 
+        <div className="h-[20vh] md:h-[40vh]" />
       </div>
     </section>
   );

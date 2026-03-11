@@ -4,7 +4,7 @@ import HeroSection from "./components/HeroSection";
 import EdInaiNavbar from "./components/EdInaiNavbar";
 import Edinaichallenges from "./components/Edinaichallenges";
 import WhatIsEdInai from "./components/WhatIsEdInai";
-import "./components/EdInai.css"
+import "./components/EdInai.css";
 import EdInaiPlatform from "./components/EdInaiPlatform";
 import ExaminationEngine from "./components/ExaminationEngine";
 import SmartFaculties from "./components/SmartFaculties";
@@ -37,29 +37,27 @@ const EdInaiPage = () => {
           showBorder={false}
           headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
         />
-        <HeroSection />
-        <Edinaichallenges />
-        <WhatIsEdInai/>
-      
-        <SmartFaculties/>
-        <EdInaiPlatform/>
-        <PersonalisedLearning/>
-       
-        <ExaminationEngine />
-          <WhyTrustEdInai/>
+        <HeroSection id="hero" />
+        <Edinaichallenges id="education-challenges" />
+        <WhatIsEdInai id="about-edinai" />
+
+        <SmartFaculties />
+        <EdInaiPlatform />
+        <PersonalisedLearning />
+
+        <ExaminationEngine id="examination-engine" />
+        <WhyTrustEdInai id="why-trust-edinai" />
         <EdInaiWork />
-        <MissionVision/>
-        
-         <EdInaiPowerfulLearning />
-      
-        
-        <FutureSection/>
-        <StreamsSection/>
-        <AdaptSection/>
-         <EdInaiTrasform />
-        <FaqSection/>
+        <MissionVision />
+
+        <EdInaiPowerfulLearning id="powerful-learning" />
+
+        <FutureSection />
+        <StreamsSection />
+        <AdaptSection />
+        <EdInaiTrasform id="edinai-transform" />
+        <FaqSection id="faq-section" />
         <EdinaiSiteFooter />
-       
       </div>
     </div>
   );

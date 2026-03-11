@@ -49,7 +49,7 @@ const examData = [
   },
 ];
 
-const ExaminationEngine = () => {
+const ExaminationEngine = ({ id }) => {
   const [activeTab, setActiveTab] = useState(0);
   const containerRef = useRef(null);
   const desktopTextRef = useRef(null);
@@ -94,6 +94,7 @@ const ExaminationEngine = () => {
   return (
     <section
       ref={containerRef}
+      id={id}
       className="w-full bg-black md:py-12 py-9 overflow-visible"
     >
       <div className="max-w-5xl mx-auto">

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const HeroSection = () => {
+const HeroSection = ({ id }) => {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
@@ -9,13 +9,15 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-[85vh] flex items-center justify-center py-24">
+    <section
+      id={id}
+      className="min-h-[85vh] flex items-center justify-center py-24"
+    >
       <div className="text-center px-6 max-w-5xl mx-auto">
         {/* Main Heading */}
-        <h3 className=" h3 font-bold mb-6"  >
+        <h3 className=" h3 font-bold mb-6">
           India’s First Virtual AI Teachers for
-           <br /> Smart Education
-
+          <br /> Smart Education
         </h3>
 
         {/* Subtext - Balanced max-width for better readability */}
@@ -33,7 +35,9 @@ const HeroSection = () => {
           >
             <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-4 py-2">
               <div className="flex gap-2 items-center">
-                <span className="font-semibold text-white text-base">Book a Demo</span>
+                <span className="font-semibold text-white text-base">
+                  Book a Demo
+                </span>
               </div>
             </div>
           </button>

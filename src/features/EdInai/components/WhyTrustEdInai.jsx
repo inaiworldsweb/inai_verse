@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const WhyTrustEdInai = () => {
+const WhyTrustEdInai = ({ id }) => {
   const trustPoints = [
     {
       title: "AI-Powered Virtual Teachers",
@@ -56,7 +56,10 @@ const WhyTrustEdInai = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-9 md:pb-4 md:pt-12 px-4 relative overflow-hidden">
+    <section
+      id={id}
+      className="w-full bg-black text-white py-9 md:py-12 px-4 overflow-hidden"
+    >
       <div className="max-w-5xl mx-auto relative">
         {/* Heading */}
         <h1 className="h1 text-center mb-6 md:mb-2 lg:mb-8">

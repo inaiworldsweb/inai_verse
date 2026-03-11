@@ -6,12 +6,13 @@ import { HiMenu, HiX } from "react-icons/hi";
 
 const navItems = [
   "Hero Section",
-  "what exactly we do",
-  "who needs our services",
-  "the real problem we solve",
-  "WHY CHOOSE MIRAAI",
+  "Education Challenges",
+  "About Ed-INAI",
+  "Smart AI Exam Management System",
+  "Why Choose Ed-INAI",
+  "Learning Modes Section",
   "Final cTA with form fill-up",
-  "Testimonials",
+
   "FAQ",
 ];
 
@@ -20,21 +21,14 @@ const EdinaiSidebar = () => {
 
   const handleSideMenuClick = (item) => {
     const sectionMap = {
-      "What is edinai?": "what-is-edinai",
-      "Meet our faculties": "meet-our-faculties",
-      "Admin View  For Education Centres": "admin-view",
-      "Student View  For Learners": "student-view",
-      "Teach in Every Way Your Students Want to Learn":
-        "teach-in-every-way-your-students-want-to-learn",
-      "Learning Modes": "learning-modes",
-      "Why Ed-INAI Is the Future": "why-ed-inai",
-      "Smart Automation": "automation",
-      "Modern Learning": "modern-learning",
-      "Streams We Cover": "streams",
-      "Our Vision": "vision",
-      "Adapt and Evolve": "adapt",
-      "Integration Options": "integration-options",
-      FAQ: "faq",
+      "Hero Section": "hero",
+      "Education Challenges": "education-challenges",
+      "About Ed-INAI": "about-edinai",
+      "Smart AI Exam Management System": "examination-engine",
+      "Why Choose Ed-INAI": "why-trust-edinai",
+      "Learning Modes Section": "powerful-learning",
+      "Final cTA with form fill-up": "edinai-transform",
+      FAQ: "faq-section",
     };
 
     const sectionId = sectionMap[item];
