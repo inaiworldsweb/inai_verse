@@ -33,7 +33,7 @@ const StreamsSection = () => {
   const REPEAT_COUNT = 6;
 
   return (
-    <section className="py-10 md:py-16 bg-black" id="streams">
+    <section className="py-9 md:py-12 bg-black" id="streams">
       <div className="max-w-5xl mx-auto">
         <h1 className="h1 text-center mb-10 md:mb-12 text-white animate-fade-in px-4 capitalize tracking-tight">
           Streams We Cover

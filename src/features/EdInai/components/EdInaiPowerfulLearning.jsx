@@ -56,7 +56,7 @@ const EdInaiPowerfulLearning = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-20 px-4 relative">
+    <section ref={containerRef} className="w-full bg-black md:py-12 pt-9 py-12 px-4 relative">
       <div className="max-w-5xl mx-auto">
         
         {/* Header - Changed mb-32 to mb-12 for less gap */}
@@ -113,7 +113,7 @@ const EdInaiPowerfulLearning = () => {
         </div>
         
         {/* Spacer at bottom */}
-        <div className="h-[40vh]" /> 
+        <div className="h-[100vh]" /> 
       </div>
     </section>
   );
