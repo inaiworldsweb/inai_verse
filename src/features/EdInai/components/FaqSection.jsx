@@ -57,7 +57,7 @@ const FaqSection = () => {
   };
 
   return (
-    <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-3 md:py-8 lg:py-12 bg-black" id="faq">
+    <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-9 px-4 lg:py-12 bg-black" id="faq">
       <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -18,6 +18,7 @@ import AdaptSection from "./components/AdaptSection";
 import StreamsSection from "./components/StreamsSection";
 import MissionVision from "./components/MissionVision";
 import EdinaiSiteFooter from "./components/EdinaiSiteFooter";
+import FutureSection from "./components/FutureSection";
 
 const EdInaiPage = () => {
   return (
@@ -52,6 +53,7 @@ const EdInaiPage = () => {
          <EdInaiPowerfulLearning />
       
         
+        <FutureSection/>
         <StreamsSection/>
         <AdaptSection/>
          <EdInaiTrasform />
