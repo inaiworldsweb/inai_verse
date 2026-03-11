@@ -67,13 +67,13 @@ const ExaminationEngine = () => {
     <section ref={containerRef} className="w-full bg-black py-20 px-4 md:px-10 overflow-visible">
       <div className="max-w-5xl mx-auto">
         
-        <div className="text-center mb-16 px-4">
-          <h1 className="text-3xl md:text-6xl font-bold text-white mb-6 tracking-tight">
+        <div className="text-center mb-10 px-4">
+          <h1 className="h1 font-bold text-white mb-3 ">
             Smart & Scalable Examination Engine
           </h1>
-          <p className="text-gray-500 text-lg md:text-xl">
+          <h2 className="text-gray-500 h2">
             Ed-INAI now includes a complete AI-powered exam management solution.
-          </p>
+          </h2>
         </div>
 
         {/* --- DESKTOP VIEW --- */}

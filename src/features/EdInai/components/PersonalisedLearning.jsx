@@ -20,9 +20,10 @@ const PersonalisedLearning = () => {
       <div className="max-w-5xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
-          <h1 className="mb-3">Personalized Learning for Every Student</h1>
-          <h2 className="text-center max-w-7xl mx-auto">
-           Each student gets learning support that matches their learning needs.
+          <h1 className="h1 mb-3">Personalized Learning for Every Student</h1>
+          <h2 className="h2 text-center max-w-7xl mx-auto">
+            Each student gets learning support that matches their learning
+            needs.
           </h2>
         </div>
 
@@ -50,9 +51,9 @@ const PersonalisedLearning = () => {
                 key={index}
                 onClick={() => setCurrentIndex(index)}
                 className={`transition-all duration-300 rounded-full border border-white ${
-                  currentIndex === index 
-                  ? "w-6 h-2 bg-white" 
-                  : "w-2 h-2 bg-transparent hover:bg-white/30"
+                  currentIndex === index
+                    ? "w-6 h-2 bg-white"
+                    : "w-2 h-2 bg-transparent hover:bg-white/30"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
@@ -63,14 +64,15 @@ const PersonalisedLearning = () => {
         {/* Bottom Content */}
         <div className="flex flex-col items-center w-full">
           <p>
-          Students can choose exam categories, access study materials, and attempt AI-generated mock tests anytime.
+            Students can choose exam categories, access study materials, and
+            attempt AI-generated mock tests anytime.
           </p>
 
-          <h2 className="mt-5">Adaptive Curriculum & Real-time Feedback</h2>
+          <h2 className="h2 mt-5">Adaptive Curriculum & Real-time Feedback</h2>
 
           {/* Learn More Button */}
           <button className="bg-white text-black font-semibold md:px-10 md:py-3 py-1 px-3 rounded-full hover:bg-gray-200 transition-all duration-300 mt-4 md:mt-6 text-base md:text-lg">
-             Learn more
+            Learn more
           </button>
         </div>
       </div>
