@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import office from "../../../assets/EdInai_imgs/office.jpeg";
 
-const EdInaiPlatform = () => {
+const PersonalisedLearning = () => {
   // Dummy images array (abhi ke liye sabme wahi office image use ki hai)
   const images = [office, office, office, office];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -16,14 +16,14 @@ const EdInaiPlatform = () => {
   }, [images.length]);
 
   return (
-    <section className="edinai-platform bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
+    <section className="personalised-learning bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
       <div className="max-w-5xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
-          <h1 className="h1 mb-3">Inside the Ed-INAI AI Education Platform</h1>
+          <h1 className="h1 mb-3">Personalized Learning for Every Student</h1>
           <h2 className="h2 text-center max-w-7xl mx-auto">
-            From Administration to Learning Ed-INAI Automates, Optimizes, and
-            Personalizes the Entire Education Journey.
+            Each student gets learning support that matches their learning
+            needs.
           </h2>
         </div>
 
@@ -68,22 +68,16 @@ const EdInaiPlatform = () => {
             attempt AI-generated mock tests anytime.
           </p>
 
-          <h2 className="h2 mt-5">Upload & Organize Curriculum</h2>
+          <h2 className="h2 mt-5">Adaptive Curriculum & Real-time Feedback</h2>
 
           {/* Learn More Button */}
-          <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px] mt-4 md:mt-6 inline-block">
-            <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
-              <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
-                <div className="flex gap-2 items-center">
-                  <span className="font-semibold text-white text-base md:text-lg">Learn more</span>
-                </div>
-              </div>
-            </button>
-          </div>
+          <button className="bg-white text-black font-semibold md:px-10 md:py-3 py-1 px-3 rounded-full hover:bg-gray-200 transition-all duration-300 mt-4 md:mt-6 text-base md:text-lg">
+            Learn more
+          </button>
         </div>
       </div>
     </section>
   );
 };
 
-export default EdInaiPlatform;
+export default PersonalisedLearning;

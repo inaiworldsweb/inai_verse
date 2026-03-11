@@ -25,19 +25,23 @@ const HeroSection = () => {
         </p>
 
         {/* CTA Button with subtle scale effect */}
-        <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px] mt-4 inline-block">
-          <button
-            type="button"
-            onClick={handleGetStarted}
-            className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer"
-          >
-            <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-4 py-2">
-              <div className="flex gap-2 items-center">
-                <span className="font-semibold text-white text-base">Book a Demo</span>
-              </div>
-            </div>
-          </button>
-        </div>
+        <button
+          type="button"
+          onClick={handleGetStarted}
+          className="
+            inline-flex items-center justify-center
+            bg-white text-black
+            py-4 px-10 rounded-full
+            text-base font-bold
+            hover:bg-gray-100 hover:scale-105
+            active:scale-95
+            transition-all duration-200
+            shadow-lg
+            mt-4
+          "
+        >
+          Book a Demo
+        </button>
       </div>
     </section>
   );

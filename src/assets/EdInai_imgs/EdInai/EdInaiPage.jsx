@@ -45,13 +45,10 @@ const EdInaiPage = () => {
         <PersonalisedLearning/>
        
         <ExaminationEngine />
-          <WhyTrustEdInai/>
         <EdInaiWork />
-        <MissionVision/>
-        
          <EdInaiPowerfulLearning />
-      
-        
+        <WhyTrustEdInai/>
+        <MissionVision/>
         <StreamsSection/>
         <AdaptSection/>
          <EdInaiTrasform />

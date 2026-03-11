@@ -94,27 +94,27 @@ const ExaminationEngine = () => {
   return (
     <section
       ref={containerRef}
-      className="w-full bg-black md:py-16 py-10 overflow-visible"
+      className="w-full bg-black md:py-20 py-12 overflow-visible"
     >
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-6 lg:mb-10">
-          <h1 className="h1 font-bold text-white mb-3">
+        <div className="text-center mb-6 lg:mb-12">
+          <h1 className="h1 font-bold text-white mb-4">
             Smart & Scalable Examination Engine
           </h1>
-          <h2 className="h2 max-w-4xl mx-auto">
+          <h2 className="h2 max-w-2xl mx-auto">
             Ed-INAI now includes a complete AI-powered exam management solution.
           </h2>
         </div>
 
         {/* --- DESKTOP VIEW --- */}
-        <div className="hidden lg:flex min-h-[400px] rounded-[40px] border border-white/10 bg-black overflow-hidden">
+        <div className="hidden lg:flex min-h-[500px] rounded-[40px] border border-white/10 bg-black overflow-hidden">
           {/* Sidebar */}
-          <div className="w-[35%] bg-white p-8 flex flex-col justify-center gap-4 z-20">
+          <div className="w-[35%] bg-white p-12 flex flex-col justify-center gap-3 z-20">
             {examData.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTab(index)}
-                className={`group flex items-center py-4 ps-5 px-4 transition-all duration-500 rounded-full text-left ${
+                className={`group flex items-center py-6 ps-5 px-4 transition-all duration-500 rounded-full text-left ${
                   activeTab === index
                     ? "bg-black text-white translate-x-12 w-[calc(100%+3rem)] shadow-2xl z-30 border border-white"
                     : "text-black hover:bg-gray-100"
@@ -123,26 +123,25 @@ const ExaminationEngine = () => {
                 <div
                   className={`w-2 h-2 rounded-full mr-5 ${activeTab === index ? "bg-white" : "bg-black"}`}
                 />
-                <h4 className="font-bold text-[16px]">{item.tabTitle}</h4>
+                <h4 className="font-bold text-[18px]">{item.tabTitle}</h4>
               </button>
             ))}
           </div>
 
           {/* Content Area */}
-          <div className="flex-1 bg-white/5 rounded-r-[38px] p-12 flex items-center gap-10 pl-20 border-l border-white/5">
-            <div ref={desktopTextRef} className="flex-1 space-y-8">
-              <ul className="lg:space-y-8 space-y-4 text-white text-lg font-medium">
+          <div className="flex-1 bg-white/5 rounded-r-[38px] p-16 flex items-center gap-12 pl-20 border-l border-white/5">
+            <div ref={desktopTextRef} className="flex-1 space-y-6">
+              <ul className="lg:space-y-6 space-y-4 text-white text-xl font-medium">
                 {examData[activeTab].bulletPoints.map((point, i) => (
-                  <li key={i} className="flex items-start lg:gap-3 gap-2">
+                  <li key={i} className="flex items-start lg:gap-4 gap-2">
                     <span className="text-white/30">—</span>
                     {point}
                   </li>
                 ))}
               </ul>
             </div>
-
-            <div ref={desktopImageRef} className="flex-1 max-w-[450px]">
-              <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden border border-white/10">
+            <div ref={desktopImageRef} className="flex-1 max-w-[400px]">
+              <div className="relative aspect-[4/5] rounded-[30px] overflow-hidden border border-white/10">
                 <img
                   src={examData[activeTab].image}
                   className="w-full h-full object-cover"
@@ -158,13 +157,13 @@ const ExaminationEngine = () => {
           {examData.map((item, index) => (
             <div
               key={item.id}
-              className="mobile-card sticky top-[100px] w-full bg-[#111] border border-white/10 rounded-[32px] p-6 mb-[6vh] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
+              className="mobile-card sticky top-[100px] w-full bg-[#111] border border-white/10 rounded-[32px] p-8 mb-[8vh] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
               style={{
                 zIndex: index + 1,
               }}
             >
-              <div className="flex justify-between items-center mb-4">
-                <h2 className="text-white font-bold text-xl tracking-tight">
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-white font-bold text-2xl tracking-tight">
                   {item.tabTitle}
                 </h2>
                 <span className="text-white/20 font-mono text-sm">
@@ -172,11 +171,11 @@ const ExaminationEngine = () => {
                 </span>
               </div>
 
-              <ul className="space-y-3 mb-6">
+              <ul className="space-y-4 mb-8">
                 {item.bulletPoints.map((point, i) => (
                   <li
                     key={i}
-                    className="text-gray-300 text-sm flex items-start gap-3"
+                    className="text-gray-300 text-base flex items-start gap-3"
                   >
                     <span className="text-blue-500 font-bold">—</span>
                     {point}
@@ -184,7 +183,7 @@ const ExaminationEngine = () => {
                 ))}
               </ul>
 
-              <div className="w-full h-72 rounded-2xl overflow-hidden border border-white/10 bg-black/50">
+              <div className="w-full h-60 rounded-2xl overflow-hidden border border-white/10 bg-black/50">
                 <img
                   src={item.image}
                   className="w-full h-full object-cover"
@@ -194,7 +193,7 @@ const ExaminationEngine = () => {
             </div>
           ))}
           {/* Bottom padding for scroll completion */}
-          <div className="h-[10vh]" />
+          <div className="h-[15vh]" />
         </div>
       </div>
     </section>

@@ -1,15 +1,14 @@
 import React from 'react';
-import CTAImage from '../../../assets/EdInai_imgs/CTA.png';
 
 const EdInaiTrasform = () => {
   return (
     <section className="w-full py-8 md:py-16 px-4">
-      <div className="max-w-5xl mx-auto relative overflow-hidden rounded-[2rem] min-h-[250px] md:min-h-[350px] flex items-center justify-center text-center p-6 md:p-16">
+      <div className="max-w-5xl mx-auto relative overflow-hidden rounded-[2rem] min-h-[400px] md:min-h-[500px] flex items-center justify-center text-center p-6 md:p-16">
         {/* Background Image with Futuristic Classroom & VR Elements */}
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
           style={{ 
-            backgroundImage: `url(${CTAImage})`,
+            backgroundImage: "url('https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop')",
             filter: "brightness(0.4)"
           }}
         />
@@ -28,15 +27,9 @@ const EdInaiTrasform = () => {
           </p>
 
           <div className="flex justify-center">
-            <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">
-              <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
-                <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
-                  <div className="flex gap-2 items-center">
-                    <span className="font-semibold text-white">Book a Demo</span>
-                  </div>
-                </div>
-              </button>
-            </div>
+            <button className="bg-white text-black font-bold py-3 px-8 md:py-4 md:px-10 rounded-full transition-all duration-300 hover:scale-105 hover:bg-gray-100 shadow-xl text-sm md:text-base active:scale-95">
+              Book a Demo
+            </button>
           </div>
         </div>
 
