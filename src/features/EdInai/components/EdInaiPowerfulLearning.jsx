@@ -110,7 +110,7 @@ const EdInaiPowerfulLearning = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-9 md:py-12 md:pb-35 px-4 relative overflow-hidden">
+    <section ref={containerRef} className="w-full bg-black py-9 md:py-12 px-4 relative overflow-hidden">
       <div className="max-w-5xl mx-auto">
         
         {/* Header - Z-index is kept lower than cards for stacking */}
@@ -153,11 +153,11 @@ const EdInaiPowerfulLearning = () => {
 
                 {/* Image */}
                 <div className="flex-1 w-full order-1 md:order-2">
-                  <div className="rounded-xl overflow-hidden border border-white/10 bg-black aspect-[4/3] md:aspect-auto md:h-[350px] shadow-2xl">
+                  <div className="  bg-black aspect-[4/3] md:aspect-auto md:h-[350px] shadow-2xl">
                     <img
                       src={mode.image}
                       alt={mode.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full rounded-xl overflow-hidden object-cover"
                     />
                   </div>
                 </div>

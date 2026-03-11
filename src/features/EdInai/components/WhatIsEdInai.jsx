@@ -16,11 +16,11 @@ const WhatIsEdInai = () => {
       <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2 p-4">
-          <div className="relative h-full min-h-[200px] md:min-h-[300px]  rounded-[30px] overflow-hidden">
+          <div className="relative h-full min-h-[200px] md:min-h-[300px]  ">
             <img
               src={img} // Replace with your actual image path
               alt="AI Classroom"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover rounded-[30px] overflow-hidden  "
             />
             {/* Overlay Gradient for a premium look */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>

@@ -142,10 +142,10 @@ const ExaminationEngine = () => {
             </div>
 
             <div ref={desktopImageRef} className="flex-1 max-w-[450px]">
-              <div className="relative aspect-[4/5] rounded-[24px] overflow-hidden border border-white/10">
+              <div className="relative aspect-[4/5]">
                 <img
                   src={examData[activeTab].image}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full rounded-[24px] overflow-hidden object-cover"
                   alt={examData[activeTab].tabTitle}
                 />
               </div>
