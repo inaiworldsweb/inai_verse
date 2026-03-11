@@ -18,11 +18,11 @@ const EdInaiTrasform = () => {
 
         {/* Content Container */}
         <div className="relative z-20 px-6 md:px-12 max-w-5xl">
-          <h1 className="mb-6">
+          <h1 className="mb-6 h1">
             Transform Your Institution With AI-Powered Teaching & Exam Automation
           </h1>
           
-          <p className="font-medium mb-10 max-w-3xl mx-auto ">
+          <p className="p mb-10 max-w-3xl mx-auto ">
             Experience The Future Of Education With AI Lectures, Automated Exams, And Intelligent Analytics. All In One Platform.
           </p>
 
