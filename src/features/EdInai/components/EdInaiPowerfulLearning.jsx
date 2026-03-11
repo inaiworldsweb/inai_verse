@@ -25,17 +25,17 @@ const EdInaiPowerfulLearning = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="w-full bg-black py-28 px-4 relative">
+    <section ref={containerRef} className="w-full bg-black py-12 px-4 relative">
       <div className="max-w-5xl mx-auto">
 
         {/* Header - Sticky */}
         <div className="sticky top-20 text-center mb-24 z-0">
-          <h1 className="text-white text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-white h1 mb-6">
             Powerful Learning Modes for Every Student
           </h1>
-          <p className="text-gray-400 text-lg md:text-xl">
+          <h2 className="text-gray-400 h2 ">
             Different ways to learn, one powerful platform
-          </p>
+          </h2>
         </div>
 
         {/* Cards Container */}
@@ -61,10 +61,10 @@ const EdInaiPowerfulLearning = () => {
                       {mode.mode}
                     </span>
                   </div>
-                  <h2 className="text-white text-3xl md:text-5xl font-bold mb-6">
+                  <h2 className="text-white h2 mb-6">
                     {mode.title}
                   </h2>
-                  <p className="text-gray-400 text-lg leading-relaxed max-w-md">
+                  <p className="text-gray-400 p leading-relaxed max-w-md">
                     {mode.description}
                   </p>
                 </div>

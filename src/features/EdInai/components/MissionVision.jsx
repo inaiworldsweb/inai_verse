@@ -57,11 +57,11 @@ const MissionVision = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-20 px-6 font-sans overflow-hidden">
+    <section className="bg-black text-white py-12 px-4 font-sans overflow-hidden">
       <div className="max-w-5xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-5">
-          <h1 className="mt-4 text-center">
+          <h1 className="h1 md:mb-8 mb-2 text-center">
             Designed for Every Educational Institution
           </h1>
         </div>
@@ -101,11 +101,13 @@ const MissionVision = () => {
           >
             {/* Left Column: Text Content */}
             <div className="space-y-4">
-              <h4 className=" leading-tight text-[21px] mt-5 md:mt-0 md:text-[35px] text-center mb-12">
+              <h1 className="md:text-[35px] text-[25px] leading-tight text-start mt-6 md:mt-9 mb-6 md:mb-6">
                 {contentData[activeTab].title}
-              </h4>
+              </h1>
 
-              <ul className="space-y-4">
+              <p className="p mb-6">{contentData[activeTab].description}</p>
+
+              <ul className="space-y-3">
                 {contentData[activeTab].points.map((point, index) => (
                   <li key={index} className="flex items-center text-gray-300">
                     <span className="text-blue-500 mr-3">✔</span>

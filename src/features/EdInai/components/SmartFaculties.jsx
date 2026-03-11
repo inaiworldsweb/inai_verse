@@ -37,7 +37,7 @@ const SmartFaculties = () => {
   }, []);
 
   return (
-    <section className="bg-black max-w-5xl text-white md:py-12 py-9 overflow-hidden">
+    <section className="bg-black w-full text-white md:py-12 py-9 overflow-hidden flex flex-col items-center justify-center">
       {/* Internal CSS for Flip Effect */}
       <style>{`
         .perspective { perspective: 1000px; }
@@ -46,20 +46,20 @@ const SmartFaculties = () => {
         .preserve-3d { transform-style: preserve-3d; }
       `}</style>
 
-      <div className="max-w-5xl mx-auto text-center mb-2">
-        <h1 className="mb-4">Meet Our Smart AI Faculties</h1>
-        <h2 className=" mx-auto lg:mb-12 text-gray-400">
+      <div className="max-w-5xl mx-auto text-center mb-2 px-4">
+        <h1 className="h1 mb-4 text-center">Meet Our Smart AI Faculties</h1>
+        <h2 className="h2 text-center mx-auto lg:mb-12 text-gray-400">
           Your always-available digital academic partners, delivering
           consistent, high-quality instruction across subjects and grade levels.
         </h2>
       </div>
 
       {/* --- Desktop View: Hover Flip Grid --- */}
-      <div className="hidden lg:grid grid-cols-3 gap-8 px-10">
+      <div className="hidden w-full max-w-5xl lg:grid items-center justify-center grid-cols-3 gap-8 mx-auto">
         {faculties.map((fac) => (
           <div
             key={fac.id}
-            className="group rounded-[20px] h-[450px] w-[350px] perspective border cursor-pointer"
+            className="group rounded-[20px] h-[370px] w-[280px] perspective border cursor-pointer"
           >
             <div className="relative w-full h-full  transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
               {/* Front: Image */}
@@ -74,7 +74,7 @@ const SmartFaculties = () => {
               {/* Back: Details */}
               <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 bg-white text-black p-8 flex flex-col justify-between items-start text-left rounded-[20px]">
                 {/* Title: Top Left */}
-                <h4 className="text-black text-[40px] font-bold leading-tight m-0">
+                <h4 className="h4 text-black text-[40px] font-bold leading-tight m-0">
                   {fac.name}
                 </h4>
 
@@ -110,7 +110,7 @@ const SmartFaculties = () => {
               </div>
               {/* Details Bottom (White Card) */}
               <div className="h-[32%] w-full bg-white text-black rounded-b-[20px] p-6 text-center flex flex-col justify-center">
-                <h4 className="text-black text-2xl font-bold pt-2">
+                <h4 className="h4 text-black text-2xl font-bold pt-2">
                   {faculties[currentIndex].name}
                 </h4>
                 <span className="text-sm text-gray-600 p-2 leading-snug">
@@ -142,7 +142,7 @@ const SmartFaculties = () => {
       </div>
 
       <div className="max-w-4xl mx-auto text-center md:mt-10 mt-6">
-        <p className=" text-gray-500">
+        <p className="p text-gray-500">
           Together, INAI, VNAI, and AIRA deliver clear explanations, engaging
           lessons, and adaptive learning experiences tailored for Indian
           students

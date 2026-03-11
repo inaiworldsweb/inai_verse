@@ -11,14 +11,14 @@ export default function Edinaichallenges() {
       <div className="max-w-5xl w-full flex flex-col gap-8">
         
         {/* Heading Section */}
-        <div className="text-center mb-6">
-          <h1>
+        <div className="text-center mb-4">
+          <h1 className='h1 mb-2'>
             Challenges in Traditional Education Systems
           </h1>
           <div >
-            <p className=" max-w-4xl mx-auto">
+            <h2 className=" max-w-5xl h2 mx-auto">
               Many institutions face difficulties in delivering consistent, personalized, and scalable education.
-            </p>
+            </h2>
           </div>
         </div>
 

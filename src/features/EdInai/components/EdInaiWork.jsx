@@ -50,10 +50,10 @@ const EdInaiWork = () => {
         
         {/* Header Section */}
         <div className="text-center mb-16 md:mb-24">
-          <h1 className="mb-4">
+          <h1 className="mb-4 h1">
             How the Ed-INAI Platform Works
           </h1>
-          <h2>
+          <h2 className='h2'>
             Simple, Smart & Scalable Workflow
           </h2>
         </div>
@@ -74,7 +74,7 @@ const EdInaiWork = () => {
                 {step.position === "above" ? (
                   /* ABOVE: Content -> Circle -> Vertical Line (touches horizontal line) */
                   <div className="absolute bottom-1/2 flex flex-col items-center">
-                    <h2 className=" mb-8 text-center max-w-[200px] ">
+                    <h2 className=" h2 mb-8 text-center max-w-[200px] ">
                       {step.title}
                     </h2>
                     <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-black font-black text-2xl z-20 shadow-xl">
@@ -91,7 +91,7 @@ const EdInaiWork = () => {
                     <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center text-black font-black text-2xl z-20 shadow-xl">
                       {step.number}
                     </div>
-                    <h2 className=" mt-8 text-center max-w-[250px] leading-tight">
+                    <h2 className=" h2 mt-8 text-center max-w-[250px] leading-tight">
                       {step.title}
                     </h2>
                   </div>
@@ -108,7 +108,7 @@ const EdInaiWork = () => {
               <div className="absolute -left-[61px] top-0 w-11 h-11 bg-white rounded-full flex items-center justify-center text-black font-bold text-xl">
                 {step.number}
               </div>
-              <h2 className="text-white font-bold text-2xl">{step.title}</h2>
+              <h2 className="text-white h2 font-bold text-2xl">{step.title}</h2>
             </div>
           ))}
         </div>

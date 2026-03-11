@@ -56,15 +56,15 @@ const WhyTrustEdInai = () => {
   ];
 
   return (
-    <section className="bg-black text-white py-9 md:py-12 px-6 relative overflow-hidden">
+    <section className="bg-black text-white py-9 md:pb-4 md:pt-12 px-6 relative overflow-hidden">
       <div className="max-w-5xl mx-auto relative">
         {/* Heading */}
-        <h1 className="text-center  mb-6 md:mb-12 tracking-tight">
+        <h1 className="h1 text-center mb-6 md:mb-8">
           Why Institutions Trust Ed-INAI
         </h1>
 
         {/* Desktop Layout */}
-        <div className="hidden md:block relative min-h-[620px]">
+        <div className="hidden md:block relative min-h-[580px]">
           {/* Center Hub */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-40">
             <motion.div
@@ -138,7 +138,7 @@ const WhyTrustEdInai = () => {
                 key={point.id}
                 className={`absolute transition-all duration-300 ${
                   point.isFirstInRow ? "md:max-lg:mt-15" : ""
-                }`} 
+                }`}
                 /* Note: md:max-lg:mt-10 applies margin-top: 40px ONLY on Tablet screens */
                 style={{
                   top: point.top,
