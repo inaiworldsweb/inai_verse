@@ -16,6 +16,7 @@ import FaqSection from "./components/FaqSection";
 import AdaptSection from "./components/AdaptSection";
 import StreamsSection from "./components/StreamsSection";
 import MissionVision from "./components/MissionVision";
+import EdinaiSiteFooter from "./components/EdinaiSiteFooter";
 
 const EdInaiPage = () => {
   return (
@@ -51,6 +52,8 @@ const EdInaiPage = () => {
         <StreamsSection/>
         <AdaptSection/>
         <FaqSection/>
+        <EdinaiSiteFooter />
+       
       </div>
     </div>
   );
