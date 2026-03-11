@@ -50,55 +50,52 @@ const MiraaiHero = () => {
     }, { scope: containerRef });
 
     return (
-        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-160px)] relative py-12 overflow-hidden">
+        <div ref={containerRef} className="flex flex-col items-center justify-center min-h-[calc(100vh-100px)] md:min-h-[calc(100vh-140px)] lg:min-h-[calc(100vh-160px)] relative py-6 md:py-10  px-6 sm:px-6  overflow-hidden">
 
             {/* Hero Content */}
-            <div ref={contentRef} className="max-w-[70rem] mx-auto text-center z-10 opacity-0">
-                <h1 className="text-[25px] md:text-[40px] font-bold tracking-tight mb-6 leading-[1.05] text-white">
+            <div ref={contentRef} className="max-w-[70rem] mx-auto mt-4 md:mt-10 lg:mt-15 text-center z-10 opacity-0 mb-6">
+                <h1 className=" mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold tracking-[1px] [font-stretch:700%] leading-[1.20] text-white">
                     We Create Professional Videos & Visuals <br className="hidden md:block" />
                     For Your Brand Using AI
                 </h1>
 
-                <p className="text-white/50 text-[15px] md:text-[18px] leading-relaxed max-w-2xl mx-auto mb-10 font-medium font-['Inter']">
+                <p className=" mb-6 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.125rem] leading-relaxed max-w-2xl mx-auto font-medium font-['Inter']">
                     No cameras. No studios. No crews. Just give us your ideas—we'll deliver broadcast-quality
                     content in days using advanced AI technology.
                 </p>
 
-                <div className="flex justify-center mb-12">
-                    <button
-                        className="group min-w-[140px] md:min-w-[210px] h-[40px] md:h-[44px] px-4 md:px-4 flex items-center justify-center bg-white/90 text-black font-semibold rounded-full text-xs md:text-sm transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] backdrop-blur-sm"
-                    >
-                        <span className="relative block h-[1.15em] overflow-hidden leading-none font-['Inter']">
-                            <span className="invisible">Start Your First Project</span>
-                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full">
-                                Start Your First Project
-                            </span>
-                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0">
-                                Start Your First Project
-                            </span>
-                        </span>
-                    </button>
+                <div className="flex justify-center">
+                    <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">
+                        <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
+                            <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
+                                <div className="flex gap-2 items-center">
+                                    <span className="font-semibold text-white">Start Your First Project</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
 
             {/* Stats Section */}
             <div
                 ref={statsRef}
-                className="w-full max-w-[1070px] h-auto md:h-[164px] bg-[#0A0A0A] overflow-hidden mx-auto opacity-0"
+                className="w-full max-w-[1070px] h-auto md:h-[140px] lg:h-[164px] bg-[#0A0A0A] overflow-hidden mx-auto opacity-0 rounded-lg"
             >
-                <div className="grid grid-cols-1 md:grid-cols-4 h-full">
+                <div className="grid grid-cols-2 md:grid-cols-4 h-full">
                     {stats.map((stat, index) => (
                         <div
                             key={index}
-                            className={`px-6 py-10 md:py-16 flex flex-col items-center justify-center relative ${index !== stats.length - 1
-                                    ? 'after:content-[""] after:absolute after:right-0 after:top-1/4 after:bottom-1/4 after:w-[1px] after:bg-white/10'
-                                    : ''
-                                }`}
+                            className={`px-4 md:px-6 py-6 md:py-8 lg:py-10 flex flex-col items-center justify-center relative
+                                ${index === 0 ? 'border-b border-r border-white/10 md:border-b-0' : ''}
+                                ${index === 1 ? 'border-b border-white/10 md:border-b-0 md:border-r' : ''}
+                                ${index === 2 ? 'border-r border-white/10' : ''}
+                            `}
                         >
-                            <span className="text-2xl md:text-4xl mb-1 tracking-tight text-white">
+                            <span className="text-xl md:text-2xl lg:text-4xl text-[#ccc] tracking-tight text-white">
                                 {stat.value}
                             </span>
-                            <span className="text-white/40 text-[10px] md:text-[13px] uppercase">
+                            <span className="text-white/40 text-[9px] md:text-[11px] lg:text-[13px] text-[#ccc] uppercase whitespace-nowrap">
                                 {stat.label}
                             </span>
                         </div>

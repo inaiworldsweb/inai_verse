@@ -1,30 +1,21 @@
 @import "tailwindcss";
 
-
+@theme {
+  --color-black: #141414;
+}
 
 :root {
   color-scheme: dark;
 }
 
-/* Hide scrollbar for all browsers */
-* {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-}
-
-/* Hide scrollbar for WebKit (Chrome, Safari, etc) */
-*::-webkit-scrollbar {
-  display: none;
-  width: 0;
-  height: 0;
-}
+/* Scrollbar styles moved to specific components or classes for better control */
 
 html,
 body {
   height: 100%;
+  background-color: #141414 !important;
 }
+
 
 body {
   margin: 0;
@@ -32,17 +23,18 @@ body {
   font-family: 'Inter', sans-serif !important;
 }
 
+/* Button default styles */
 button {
-  text-transform: capitalize;
+  cursor: pointer;
 }
 
 .hide-scrollbar {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
 }
 
 .hide-scrollbar::-webkit-scrollbar {
-  display: none;
+  display: none !important;
 }
 
 @keyframes spin {
@@ -89,5 +81,32 @@ button {
 }
 
 .animate-marquee {
-  animation: marquee 25s linear infinite;
+  animation: marquee 100s linear infinite;
+}
+
+/* @keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  85% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-55px);
+    opacity: 0;
+  }
+}
+
+.animate-float {
+  animation: float infinite ease-in-out;
+} */
+
+@keyframes float {
+  0% { transform: translateY(0); opacity:0 }
+  50% { opacity:1 }
+  100% { transform: translateY(-40px); opacity:0 }
+}
+
+.animate-float{
+  animation: float 2s linear infinite;
 }

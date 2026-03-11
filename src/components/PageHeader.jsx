@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom'
+import logo from '../assets/Mirrai.svg'
 
 /**
  * Reusable Page Header Component
@@ -18,10 +19,10 @@ function PageHeader({
     breadcrumbs = [],
     showBackButton = false,
     showLogo = true,
-    logoSrc = '/miralogo.png',
+    logoSrc = logo,
     logoAlt = 'Miraai logo',
-    logoClassName = 'h-[34px] md:h-[44px] w-auto max-w-[180px] object-contain',
-    titleWrapperClassName = 'flex items-center gap-2',
+    logoClassName = 'h-[34px] md:pe-0 pe-5 -ms-4 md:-ms-0 md:h-[44px] w-auto max-w-[130px] object-contain',
+    titleWrapperClassName = 'flex items-center gap-5',
     titleClassName = 'text-white font-medium text-base',
     showTitleText = true,
     showPriceButton = true,
@@ -30,16 +31,14 @@ function PageHeader({
     onBackClick,
     onPriceClick,
     onMenuClick,
+    onLogoClick,
     showBorder = true,
+    headerClassName = 'bg-black/80 backdrop-blur-md',
 }) {
     const navigate = useNavigate()
 
     const handleBack = () => {
-        if (onBackClick) {
-            onBackClick()
-        } else {
-            navigate(-1)
-        }
+        navigate('/')
     }
 
     const handlePrice = () => {
@@ -60,44 +59,47 @@ function PageHeader({
         }
     }
 
+    const handleLogoClick = () => {
+        if (onLogoClick) {
+            onLogoClick();
+        } else {
+            navigate('/miraai');
+        }
+    };
+
     return (
-        <header className={`sticky top-0 z-50 flex items-center justify-between py-4 px-8 bg-black/80 backdrop-blur-md ${showBorder ? 'border-b border-white/10' : ''}`}>
+        <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 ${headerClassName} ${showBorder ? 'border-b border-white/10' : ''}`}>
             {/* Left Section - Back Button, Title, Breadcrumbs */}
             <div className="flex items-center gap-4">
-                {showBackButton && (
-                    <button
-                        type="button"
-                        className="bg-transparent border-none text-white text-2xl cursor-pointer p-2 hover:text-white/80 transition-colors"
-                        onClick={handleBack}
-                        aria-label="Go back"
-                    >
-                        <span aria-hidden="true">←</span>
-                    </button>
-                )}
+
 
                 {(title || (showLogo && logoSrc)) && (
-                    <div className={titleWrapperClassName}>
+                    <div className={titleWrapperClassName} >
                         {(breadcrumbs.length > 0 || title) && (
-                            <span className="text-white/50" aria-hidden="true">›</span>
+                            <span
+                                onClick={() => navigate('/')}
+                                className="text-white text-[40px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
+                                aria-hidden="true"
+                            >
+                                ‹
+                            </span>
                         )}
                         {showLogo && logoSrc && (
                             <img
                                 src={logoSrc}
                                 alt={logoAlt}
-                                className={logoClassName}
+                                className={`${logoClassName} cursor-pointer`}
+                                onClick={handleLogoClick}
                             />
-                        )}
-                        {showTitleText && title && (
-                            <span className={titleClassName}>{title}</span>
                         )}
                     </div>
                 )}
 
                 {breadcrumbs.length > 0 && (
-                    <nav className="flex items-center gap-2" aria-label="Breadcrumb">
+                    <nav className="flex items-center gap-1" aria-label="Breadcrumb">
                         {breadcrumbs.map((crumb, index) => (
                             <div key={index} className="flex items-center gap-2">
-                                <span className="text-white/50" aria-hidden="true">›</span>
+                                <span className="text-white pb-4 text-[30px] md:text-[50px]" aria-hidden="true">›</span>
                                 <button
                                     type="button"
                                     className="bg-transparent border-none text-white/70 cursor-pointer text-sm hover:text-white transition-colors"
@@ -116,24 +118,21 @@ function PageHeader({
                 {showPriceButton && (
                     <button
                         type="button"
-                        className="group bg-white text-black px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 transition-colors overflow-hidden"
+                        className="bg-gradient-to-b from-gray-700 to-gray-600 text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gradient-to-b hover:from-gray-600 hover:to-gray-700 transition-all duration-200 cursor-pointer shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995]"
                         onClick={handlePrice}
                     >
-                        <span className="relative block h-[1.2em]">
-                            <span className="block transition-transform duration-300 group-hover:-translate-y-[120%]">Price</span>
-                            <span className="absolute left-0 top-[120%] block transition-transform duration-300 group-hover:-translate-y-[120%]">Price</span>
-                        </span>
+                        <span>Price</span>
                     </button>
                 )}
 
                 {showHomeButton && (
                     <button
                         type="button"
-                        className="bg-transparent border-none text-white cursor-pointer p-2 hover:text-white/80 transition-colors"
+                        className="bg-transparent border-none text-white cursor-pointer hover:text-white/80 transition-colors"
                         aria-label="Go to home"
                         onClick={handleHome}
                     >
-                        <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" aria-hidden="true">
                             <path
                                 d="M3 11l9-8 9 8"
                                 fill="none"
@@ -157,11 +156,11 @@ function PageHeader({
                 {showMenuButton && (
                     <button
                         type="button"
-                        className="bg-transparent border-none text-white cursor-pointer p-2 hover:text-white/80 transition-colors"
+                        className="bg-transparent border-none text-white pe-1 cursor-pointer hover:text-white/80 transition-colors"
                         aria-label="Open menu"
                         onClick={handleMenu}
                     >
-                        <svg className="w-6 h-6" viewBox="0 0 24 24" aria-hidden="true">
+                        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" aria-hidden="true">
                             <line x1="5" y1="8" x2="19" y2="8" stroke="currentColor" strokeWidth="1.8" />
                             <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="1.8" />
                             <line x1="5" y1="16" x2="19" y2="16" stroke="currentColor" strokeWidth="1.8" />

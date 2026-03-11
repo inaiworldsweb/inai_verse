@@ -6,8 +6,8 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
   const progressPercentage = Math.min(100, Math.max(0, Number(percentage) || 0));
 
   return (
-    <div className="w-full text-left flex flex-col justify-center py-2 h-[80px]">
-      <div className="flex justify-between items-center mb-2 w-full">
+    <div className="w-full text-left flex flex-col justify-center py-2 h-auto md:h-[70px]">
+      <div className="flex justify-between items-center w-full">
         <h4 className="text-white text-sm md:text-base xl:text-lg tracking-tight pr-2">
           {label}
         </h4>
@@ -17,7 +17,7 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
       </div>
 
       {/* Progress Bar Container */}
-      <div className="w-full max-w-[500px] mx-auto">
+      <div className="w-full">
         <div className="h-[6px] w-full bg-white/10 rounded-full overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
@@ -42,15 +42,15 @@ const ProgressItem = ({ label, percentage, subtext, index }) => {
 };
 
 const BetterWayCard = ({ text, index }) => (
-  <div className="h-[80px] flex items-center w-full">
+  <div className="flex items-center w-full py-1">
     <motion.div
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="p-3 md:p-4 rounded-xl bg-[#000000] transition-all duration-300 flex items-center justify-start text-left group w-full h-auto min-h-[60px]"
+      className="p-3 md:p-3 rounded-xl bg-[#000000] transition-all duration-300 flex items-center justify-start text-left group w-full min-h-[50px]"
     >
-      <p className="text-white/80  transition-colors text-sm md:text-base font-medium tracking-tight">
+      <p className="text-white/80 transition-colors text-sm md:text-base font-medium tracking-tight">
         {text}
       </p>
     </motion.div>
@@ -73,28 +73,40 @@ const MiraaiGrowthKiller = () => {
   ];
 
   return (
-    <section className="py-8 md:py-12 bg-black overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-20 flex flex-col items-center">
+    <section className=" md:py-5 py-10  sm:px-6  bg-black overflow-hidden">
+      <div className="  max-w-[1400px] mx-auto  flex flex-col items-center">
         {/* Main Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-10 md:mb-14 max-w-4xl mx-auto"
+          className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-[25px] md:text-[40px] text-white font-bold mb-4 tracking-tight leading-relaxed">
-            When Content Production Becomes <br className="hidden md:block" /> The Growth Killer
+          <h2 className="  text-[1.5625rem] md:text-[2.5rem] text-white font-bold tracking-[1px]">
+            When Content Production Becomes The Growth Killer
           </h2>
         </motion.div>
+        
+
+             <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="  mb-12    text-center"
+        >
+          <p className="text-white text-base md:text-xl opacity-80">That's exactly what Miraai does.</p>
+        </motion.div>
+
 
         {/* Two-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-12 w-full">
           {/* Left side: The Breaking Point */}
-          <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-8 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
+          <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-5 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
-              <div className="mb-6 text-center lg:text-left">
-                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-tight">The Breaking Point</h3>
-                <p className="text-white/40 text-[13px] md:text-sm">Most growing businesses hit the same wall</p>
+              <div className="text-center lg:text-left">
+                <h3 className=" mb-6 text-[1.25rem] md:text-2xl text-white tracking-[1px] [font-stretch:900%]">The Breaking Point</h3>
+                <p className=" mb-6 text-[#ccc] text-[0.875rem] md:text-sm  [font-stretch:900%]">Most growing businesses hit the same wall</p>
               </div>
 
               <div className="w-full flex flex-col gap-3">
@@ -107,14 +119,16 @@ const MiraaiGrowthKiller = () => {
           </div>
 
           {/* Right side: There's A Better Way */}
-          <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-8 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
+          <div className="bg-[#0A0A0A] border border-white/5 p-5 md:p-5 rounded-[2rem] relative overflow-hidden flex flex-col h-full">
             <div className="relative z-10 w-full">
-              <div className="mb-6 text-center lg:text-left">
-                <h3 className="text-[20px] md:text-2xl text-white mb-1 tracking-tight">There's A Better Way</h3>
-                <p className="text-white/40 text-[13px] md:text-sm">With Miraai, you can:</p>
+              <div className="text-center lg:text-left">
+                <h3 className=" mb-6 text-[20px] md:text-2xl text-white tracking-[1px] [font-stretch:700%]">There's A Better Way</h3>
+                <p className=" mb-12 text-[#ccc] text-[0.875rem] md:text-sm">With Miraai, you can:</p>
+               
+
               </div>
 
-              <div className="w-full flex flex-col gap-3">
+              <div className="w-full flex flex-col gap-1">
                 {solutions.map((text, index) => (
                   <BetterWayCard key={index} index={index} text={text} />
                 ))}
@@ -124,16 +138,7 @@ const MiraaiGrowthKiller = () => {
           </div>
         </div>
 
-        {/* Bottom Statement */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-8 text-center"
-        >
-          <p className="text-white text-base md:text-xl opacity-80 mb-2">That's exactly what Miraai does.</p>
-        </motion.div>
+      
       </div>
     </section>
   );

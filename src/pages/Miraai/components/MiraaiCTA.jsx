@@ -25,10 +25,10 @@ const QuestionCard = ({ icon, question, index }) => {
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
             <div style={{ transform: "translateZ(50px)" }} className="relative z-10 flex flex-col items-center">
-                <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center mb-5 border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
+                <div className="w-14 h-14 md:w-16 md:h-16 bg-white/5 rounded-2xl flex items-center justify-center border border-white/5 transition-transform duration-300 relative group-hover:scale-105">
                     {enhancedIcon}
                 </div>
-                <p className="text-white/90 text-[14px] md:text-[15px] tracking-tight leading-relaxed">
+                <p className="mt-4 text-white/90 text-[0.75rem] md:text-[1rem] tracking-tight leading-relaxed">
                     {question}
                 </p>
             </div>
@@ -38,8 +38,8 @@ const QuestionCard = ({ icon, question, index }) => {
 
 const MiraaiCTA = () => {
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="pb-2 pt-15 px-4 sm:px-6 lg:px-20 bg-black flex justify-center">
-            <div className="w-full max-w-6xl bg-[#050505] rounded-[3rem] p-8 md:p-12 border border-white/5 relative overflow-hidden">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="  px-6 sm:px-6  bg-black flex justify-center">
+            <div className="w-full max-w-6xl bg-[#050505] rounded-[3rem]  border border-white/5 relative overflow-hidden">
                 {/* Background Glow */}
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[500px] bg-[radial-gradient(ellipse_at_top,rgba(255,255,255,0.15)_0%,transparent_70%)] pointer-events-none" />
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[420px] bg-[radial-gradient(ellipse_at_bottom,rgba(255,255,255,0.18)_0%,transparent_72%)] pointer-events-none" />
@@ -50,12 +50,12 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="text-[25px] md:text-[40px] font-bold text-white mb-12 tracking-tight leading-tight"
+                        className="mt-14 md:mb-8 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] leading-tight"
                     >
                         Is Miraai Right for You? See If This <br className="hidden md:block" /> Sounds Familiar...
                     </motion.h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 w-full">
+                    <div className="md:mb-8 grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
                         <QuestionCard
                             index={0}
                             icon={
@@ -90,29 +90,21 @@ const MiraaiCTA = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.5 }}
-                        className="mb-6"
+                        className=""
                     >
-                        <p className="text-[15px] md:text-[20px] text-white mb-2 opacity-80 tracking-widest">If you answered YES to any of these</p>
-                        <h3 className="text-[25px] md:text-[40px] text-white tracking-tighter">Miraai is for you.</h3>
+                        <p className="  text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] text-[#ccc] tracking-widest">If you answered YES to any of these</p>
+                        <h3 className=" mb-8 text-bold  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
                     </motion.div>
 
-                    <motion.button
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5, delay: 0.7 }}
-                        className="group relative overflow-hidden px-8 py-4 bg-white text-black text-[15px] rounded-full shadow-[0_20px_40px_rgba(255,255,255,0.1)] transition-all"
-                    >
-                        <span className="relative inline-block overflow-hidden align-top">
-                            <span className="invisible">Get Started Now</span>
-                            <span className="absolute inset-0 transition-transform duration-300 ease-out group-hover:-translate-y-full font-inter">
-                                Get Started Now
-                            </span>
-                            <span className="absolute inset-0 translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0 font-inter">
-                                Get Started Now
-                            </span>
-                        </span>
-                    </motion.button>
+                    <div className=" md:mb-14 bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px] mb-8">
+                        <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
+                            <div className=" bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
+                                <div className=" flex gap-2 items-center">
+                                    <span className=" font-semibold text-white">Get Started Now</span>
+                                </div>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>

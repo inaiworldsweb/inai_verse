@@ -30,15 +30,15 @@ const MiraaiBenefits = () => {
     ];
 
     return (
-        <section className="py-8 bg-black relative overflow-hidden">
+        <section className="py-10 md:py-16  bg-black relative overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
-                <div className="text-center mb-12">
+                <div className="text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-[40px] font-black mb-6 tracking-tight text-white"
+                        className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-black tracking-[1px] [font-stretch:700%] text-white"
                     >
                         Why Choose Miraai?
                     </motion.h2>
@@ -47,7 +47,7 @@ const MiraaiBenefits = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="text-white/40 text-base md:text-lg max-w-2xl mx-auto font-medium"
+                        className="text-[#ccc] text-base md:text-lg max-w-2xl mx-auto font-medium"
                     >
                         We combine human creativity with the world's most powerful AI to redefine content production.
                     </motion.p>
@@ -68,15 +68,15 @@ const MiraaiBenefits = () => {
                                 {benefit.icon}
                             </div>
 
-                            <div className="text-3xl md:text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-br from-white to-white/20 group-hover:from-purple-400 group-hover:to-white transition-all duration-500">
+                            <div className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/20 group-hover:from-purple-400 group-hover:to-white transition-all duration-500">
                                 {benefit.stat}
                             </div>
 
-                            <h3 className="text-xl font-black mb-4 text-white group-hover:text-purple-400 transition-colors">
+                            <h3 className="text-xl font-black text-white group-hover:text-purple-400 transition-colors tracking-[1px] [font-stretch:700%]">
                                 {benefit.title}
                             </h3>
 
-                            <p className="text-white/30 leading-relaxed font-medium group-hover:text-white/50 transition-colors">
+                            <p className="text-[#ccc] leading-relaxed font-medium group-hover:text-white/50 transition-colors">
                                 {benefit.desc}
                             </p>
 

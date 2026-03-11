@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { FiVideo, FiZap, FiDollarSign, FiClock } from "react-icons/fi";
 
@@ -9,24 +9,22 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative group rounded-[20px] p-[2.3px] overflow-hidden isolate bg-[#0B0B0B] h-full"
+      className="relative group rounded-[20px] p-[1.5px] overflow-hidden isolate bg-[#0B0B0B]"
     >
-      {/* Spinning snake border */}
       <div className="absolute inset-0 z-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
         <div className="absolute inset-[-150%] bg-[conic-gradient(from_0deg,transparent_0deg,transparent_270deg,white_360deg)] group-hover:animate-[spin_4s_linear_infinite]" />
       </div>
 
-      {/* Inner content */}
-      <div className="relative z-10 bg-[#0B0B0B] rounded-[18px] p-8 border border-white/5 h-full flex flex-col">
-        <div className="w-11 h-11 rounded-lg bg-black border border-white/10 flex items-center justify-center mb-8">
-          <Icon className="text-white text-xl" />
+      <div className="relative z-10 bg-[#0B0B0B] rounded-[18px] p-5 border border-white/5 flex flex-col h-full">
+        <div className="w-11 h-11 rounded-lg bg-black border border-white/10 flex items-center justify-center">
+          <Icon className="text-white text-2xl" />
         </div>
 
-        <h3 className="text-white text-[24px] font-bold mb-4 tracking-tight">
+        <h3 className="  text-white text-[1rem] md:text-[1.1rem] font-bold tracking-[1px] [font-stretch:700%]">
           {title}
         </h3>
 
-        <p className="text-white/40 text-[15px] leading-relaxed">
+        <p className=" text-[#ccc] text-[0.75rem] md:text-[0.95rem] leading-snug">
           {description}
         </p>
       </div>
@@ -34,114 +32,97 @@ const TruthCard = ({ title, description, icon: Icon, index }) => {
   );
 };
 
-const MobileTruthCard = ({ title, description, icon: Icon, isOpen, onClick }) => {
+const MobileTruthCard = ({ title, description, icon: Icon }) => {
   return (
-    <div className="mb-4 overflow-hidden rounded-xl border border-white/10 bg-[#0B0B0B]">
-      <button
-        onClick={onClick}
-        className="w-full p-5 text-left"
-      >
-        <div className="flex w-full items-start justify-between mb-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-black border border-white/10">
-            <Icon className="text-lg text-white" />
-          </div>
-          <div className={`transform transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 9L12 15L18 9" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
+    <div
+      className="overflow-hidden rounded-[20px] border border-white/15 relative p-5"
+      style={{
+        background: `linear-gradient(180deg, rgba(38,38,38,0.8) 0%, rgba(10,10,10,0.95) 100%)`,
+        backdropFilter: "blur(10px)",
+      }}
+    >
+      <div className="flex items-center gap-4">
+        <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-black border border-white/20 shadow-2xl">
+          <Icon className="text-xl text-white" />
         </div>
-        <span className="text-lg font-bold text-white block">{title}</span>
-      </button>
-      <motion.div
-        initial={false}
-        animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="overflow-hidden"
-      >
-        <div className="p-5 pt-0">
-          <p className="text-sm leading-relaxed text-white/40">
-            {description}
-          </p>
-        </div>
-      </motion.div>
+        <span className="text-[0.95rem] font-bold text-white tracking-[0.5px] [font-stretch:700%]">
+          {title}
+        </span>
+      </div>
+      
+      <p className="text-[0.8rem] leading-relaxed text-[#ccc] font-medium border-t border-white/5 pt-3">
+        {description}
+      </p>
     </div>
   );
 };
 
 const MiraaiSimpleTruth = () => {
-  const [openIndex, setOpenIndex] = useState(null);
-
   const truths = [
     {
       title: "What We Do",
-      description:
-        "Create High-Quality Videos And Images That Elevate Your Brand Across Ads, Social Media, Catalogs, And Digital Platforms.",
+      description: "Create High-Quality Videos And Images That Elevate Your Brand Across Ads, Social Media, Catalogs, And Digital Platforms.",
       icon: FiVideo,
     },
     {
       title: "How We Do It",
-      description:
-        "Use Advanced AI Technology Combined With Creative Intelligence To Produce Professional Visuals—Without Studios, Shoots, Or Long Production Cycles.",
+      description: "Use Advanced AI Technology Combined With Creative Intelligence To Produce Professional Visuals—Without Studios, Shoots, Or Long Production Cycles.",
       icon: FiZap,
     },
     {
       title: "What You Get",
-      description:
-        "Premium, Agency-Level Content At Nearly 10% Of The Traditional Cost, Making High-End Creativity Accessible To Every Brand.",
+      description: "Premium, Agency-Level Content At Nearly 10% Of The Traditional Cost, Making High-End Creativity Accessible To Every Brand.",
       icon: FiDollarSign,
     },
     {
       title: "When You Get It",
-      description:
-        "Fast Delivery In 2-4 Days, Instead Of Waiting 2-4 Months With Traditional Production.",
+      description: "Fast Delivery In 2-4 Days, Instead Of Waiting 2-4 Months With Traditional Production.",
       icon: FiClock,
     },
   ];
 
   return (
-    <section className="pt-10 -mb-5 md:py-32 bg-black overflow-hidden relative">
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-20 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-center">
-          {/* Header Section */}
-          <div className="w-full lg:w-[400px] flex flex-col items-center lg:items-start text-center lg:text-left">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-[25px] md:text-[40px] font-bold text-white mb-6 md:mb-6 tracking-tight leading-tight"
-            >
-              The Simple Truth
-            </motion.h2>
+    <section className="  px-6 sm:px-6  bg-black overflow-hidden relative">
+      <div className="max-w-[1200px] mx-auto relative z-10">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center"
+        >
+          <h2 className=" md:mb-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] leading-tight">
+            The Simple Truth
+          </h2>
+          <p className=" mb-12 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] font-normal leading-relaxed mx-auto">
+            We handle everything from concept to final delivery. You just tell us what you need.
+          </p>
+        </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-white/60 text-[15px] md:text-[20px] font-normal leading-[1.4] max-w-[320px] lg:max-w-none"
-            >
-              We handle everything from concept to final delivery. You just tell us what you need.
-            </motion.p>
+        {/* Cards Grid */}
+        <div className="w-full">
+          {/* Desktop (2x2 grid) */}
+          <div className="hidden md:grid grid-cols-2 gap-5">
+            {truths.map((truth, index) => (
+              <TruthCard key={index} index={index} {...truth} />
+            ))}
           </div>
 
-          {/* Cards Grid */}
-          <div className="flex-1">
-            {/* Desktop Grid */}
-            <div className="hidden md:grid grid-cols-2 gap-6 lg:gap-8">
-              {truths.map((truth, index) => (
-                <TruthCard key={index} index={index} {...truth} />
-              ))}
-            </div>
+          {/* Mobile (Static Full View) */}
+          <div className="md:hidden relative">
+            <div
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[100%] -z-10"
+              style={{
+                background: `radial-gradient(circle at center, rgba(255,255,255,0.12) 0%, transparent 70%)`,
+                filter: "blur(50px)",
+              }}
+            />
 
-            {/* Mobile Accordions */}
-            <div className="md:hidden flex flex-col gap-4">
+            <div className="flex flex-col gap-3 relative z-10">
               {truths.map((truth, index) => (
                 <MobileTruthCard
                   key={index}
                   {...truth}
-                  isOpen={openIndex === index}
-                  onClick={() => setOpenIndex(prev => prev === index ? null : index)}
                 />
               ))}
             </div>

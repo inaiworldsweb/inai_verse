@@ -139,17 +139,17 @@ const MiraaiProcess = () => {
   return (
     <section
       ref={sectionRef}
-      className="pt-20 pb-12 md:py-20 bg-black overflow-hidden relative"
+      className="py-10 md:py-16  px-6 sm:px-6  bg-black overflow-hidden relative"
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
+      <div className="max-w-[1400px] mx-auto ">
 
         {/* ================= HEADING ================= */}
-        <div className="text-center mb-16 md:mb-24">
-          <h2 className="text-[25px] md:text-[40px] font-bold mb-6 text-white tracking-tight">
+        <div className="text-center">
+          <h2 className=" text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
             Here's Exactly How We Work With You
           </h2>
 
-          <p className="text-white/60 text-[15px] md:text-[20px] w-full mx-auto">
+          <p className=" mb-10 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] w-full mx-auto">
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
           </p>
         </div>
@@ -165,7 +165,7 @@ const MiraaiProcess = () => {
 
 
           {/* ================= STEPS ================= */}
-          <div className="space-y-20 md:space-y-32 relative">
+          <div className="space-y-16 md:space-y-20 lg:space-y-32 relative">
             {steps.map((step, index) => (
               <div
                 key={index}
@@ -174,23 +174,23 @@ const MiraaiProcess = () => {
               >
 
                 {/* NUMBER CIRCLE */}
-                <div className="step-icon relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 mb-8 md:mb-0 opacity-100 scale-0">
-                  <div className="w-14 h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-xl border-4 border-black">
+                <div className="step-icon relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 opacity-100 scale-0">
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-lg md:text-xl border-4 border-black">
                     {step.number}
                   </div>
                 </div>
 
                 {/* TEXT */}
                 <div className="step-text w-full md:w-[42%] text-center md:text-left opacity-0">
-                  <h3 className="text-[23px] md:text-[38px] font-bold mb-4 text-white leading-tight tracking-tight">
+                  <h3 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2.5rem] font-bold text-white leading-tight tracking-[1px] [font-stretch:700%]">
                     {step.title}
                   </h3>
 
-                  <h4 className="text-white/80 font-normal mb-2 uppercase text-[15px] md:text-[20px]">
+                  <h4 className="font-semibold mb-2 uppercase text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]">
                     {step.subtitle}
                   </h4>
 
-                  <p className="text-white/40 leading-relaxed text-[12px] pb-5 md:text-lg">
+                  <p className="text-[#ccc] leading-relaxed text-[0.75rem] md:text-[0.875rem] lg:text-[1.125rem]">
                     {step.description}
                   </p>
                 </div>

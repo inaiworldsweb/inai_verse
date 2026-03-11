@@ -38,7 +38,7 @@ const MiraaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
     const SidebarContent = ({ isMobile = false }) => (
         <div className={`flex flex-col h-full ${isMobile ? 'pt-12' : 'pt-20'}`}>
             {/* Logo Section - Centered and prominent */}
-            <div className="flex items-center justify-center mb-24 px-8">
+            <div className="flex items-center justify-center px-8">
                 <Link to="/">
                     <img
                         src={logoImage}
