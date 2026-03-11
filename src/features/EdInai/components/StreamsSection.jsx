@@ -30,9 +30,9 @@ const StreamsSection = () => {
     return (
         <section className="py-10 md:py-16 bg-black" id="streams">
             <div className="max-w-[1200px] mx-auto px-4">
-                <h2 className="text-[25px] md:text-[40px] font-bold text-center mb-10 md:mb-12 text-white animate-fade-in px-4 capitalize tracking-tight">
+                <h1 className=" text-center mb-10 md:mb-12 text-white animate-fade-in px-4 capitalize tracking-tight">
                     Streams We Cover
-                </h2>
+                </h1>
 
                 <div className="scroll-wrapper">
                     {streamRows.map(({ id, items, direction, duration }) => (

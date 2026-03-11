@@ -58,7 +58,7 @@ const FaqSection = () => {
     return (
         <section className="py-10 md:py-16 bg-black" id="faq">
             <div className="max-w-narrow mx-auto px-4">
-                <h3 className="text-[25px] md:text-[40px] font-bold text-center mb-12 text-white capitalize tracking-tight">Frequently Asked Questions</h3>
+                <h1 className="text-center mb-12 text-white capitalize ">Frequently Asked Questions</h1>
                 <div className="flex flex-col gap-4">
                     {faqItems.map(({ question, answer }, index) => {
                         const isOpen = openIndex === index
