@@ -112,7 +112,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black py-12 md:pb-56 relative overflow-hidden"
+      className="w-full bg-black py-12 md:pb-66 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
@@ -127,12 +127,12 @@ const EdInaiPowerfulLearning = ({ id }) => {
             <div
               key={mode.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="w-full rounded-[24px] md:rounded-[40px] border border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-[#0c0c0c] will-change-transform"
+              className="w-full rounded-[24px] md:rounded-[40px] border border-white/10  overflow-hidden bg-[#0c0c0c] will-change-transform"
               style={{ zIndex: index + 20 }}
             >
               <div className="bg-gradient-to-br from-[#151515] to-black flex flex-col md:flex-row items-stretch min-h-[350px] md:h-[400px]">
                 {/* Content */}
-                <div className="w-full md:w-[42%] p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                <div className="w-full md:w-[42%] p-8 md:p-2 md:ps-12 lg:p-12 flex flex-col justify-center order-2 md:order-1">
                   <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-full">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{mode.mode}</span>
                   </div>

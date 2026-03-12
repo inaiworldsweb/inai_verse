@@ -14,7 +14,7 @@ const WhatIsEdInai = ({ id }) => {
   return (
     <section
       id={id}
-      className="w-full py-9 md:py-12 bg-black text-white min-h-[70vh] flex items-center justify-center"
+      className="w-full py-9 md:py-12 bg-black text-white min-h-[70vh] flex md:px-4 lg:px-0 items-center justify-center"
     >
       {/* Main Container: Right corners are 0 */}
       <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-[40px]  overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
