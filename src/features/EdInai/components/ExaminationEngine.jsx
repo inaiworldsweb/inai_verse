@@ -12,40 +12,42 @@ gsap.registerPlugin(ScrollTrigger);
 const examData = [
   {
     id: 1,
-    tabTitle: "AI Question Paper Generator",
+    tabTitle: "Live AI Lectures",
     bulletPoints: [
-      "Upload Syllabus Or PDF",
-      "Choose Difficulty",
-      "Choose Format",
-      "AI Generates Paper",
-      "Auto Answer Key",
-      "PDF Download",
+      "Attend real-time AI-powered classes where students can interact, ask questions, and learn through visual explanations.",
+      "Lessons are personalized to match the student's level, helping improve understanding and engagement."
     ],
     image: Examination1,
   },
   {
     id: 2,
-    tabTitle: "Smart Scheduling System",
+    tabTitle: "Recorded Revisions",
     bulletPoints: [
-      "Set date & time",
-      "Duration calculation",
-      "Unique Exam ID",
-      "Secure activation",
-      "Live countdown",
+      "Access recorded lectures anytime to revise topics at your own pace.",
+      "This mode helps students review concepts, strengthen weak areas, and prepare better for exams."
     ],
     image: Examination2,
   },
   {
     id: 3,
-    tabTitle: "Student Exam Portal",
+    tabTitle: "Interactive Quizzes",
     bulletPoints: [
-      "View scheduled exams",
-      "Practice tests",
-      "Study materials",
-      "Track performance",
-      "Review answers",
+      "Practice with AI-generated quizzes designed to test understanding.",
+      "Students receive instant feedback, performance insights, and guidance on areas that need improvement."
     ],
     image: Examination3,
+  },
+  {
+    id: 4,
+    tabTitle: "AI Exam & Mock Test Mode",
+    bulletPoints: [
+      "Full-length AI-generated exams",
+      "Competitive exam simulation",
+      "Hybrid question formats",
+      "Instant result & analytics",
+      "Smart performance tracking"
+    ],
+    image: Examination1,
   },
 ];
 

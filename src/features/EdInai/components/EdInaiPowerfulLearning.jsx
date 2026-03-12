@@ -14,32 +14,28 @@ const learningModes = [
     id: 1,
     mode: "Mode 01",
     title: "Live AI Lectures",
-    description:
-      "Attend real-time AI-powered classes where students can interact, ask questions, and learn through visual explanations. Lessons are personalized to match the student’s level, helping improve understanding and engagement.",
+    description: "Attend real-time AI-powered classes where students can interact, ask questions, and learn through visual explanations.",
     image: PowerfulSection1,
   },
   {
     id: 2,
     mode: "Mode 02",
     title: "Recorded Revisions",
-    description:
-      "Access recorded lectures anytime to revise topics at your own pace. This mode helps students review concepts, strengthen weak areas, and prepare better for exams.",
+    description: "Access recorded lectures anytime to revise topics at your own pace. Review concepts and strengthen weak areas.",
     image: PowerfulSection2,
   },
   {
     id: 3,
     mode: "Mode 03",
     title: "Interactive Quizzes",
-    description:
-      "Practice with AI-generated quizzes designed to test understanding. Students receive instant feedback, performance insights, and guidance on areas that need improvement.",
+    description: "Practice with AI-generated quizzes designed to test understanding with instant feedback and insights.",
     image: PowerfulSection3,
   },
   {
     id: 4,
     mode: "Mode 04",
-    title: "AI Exam & Mock Test Mode",
-    description:
-      "Full-length AI-generated exams, Competitive exam simulation, Hybrid question formats, Instant result & analytics, Smart performance tracking.",
+    title: "AI Exam & Mock Test",
+    description: "Full-length AI-generated exams, competitive simulation, and smart performance tracking for better results.",
     image: PowerfulSection4,
   },
 ];
@@ -54,10 +50,10 @@ const EdInaiPowerfulLearning = ({ id }) => {
       let mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
-        // --- DESKTOP LOGIC ---
+        // Pinned Header
         ScrollTrigger.create({
           trigger: headerRef.current,
-          start: "top 100px",
+          start: "top 120px", // Pushed header down slightly
           endTrigger: containerRef.current,
           end: "bottom bottom",
           pin: true,
@@ -67,7 +63,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
         cardsRef.current.forEach((card, index) => {
           ScrollTrigger.create({
             trigger: card,
-            start: `top 200px`, // 6xl width ke hisaab se space adjust kiya
+            start: `top 280px`, // Increased from 200px to move card down
             endTrigger: containerRef.current,
             end: "bottom bottom",
             pin: true,
@@ -86,11 +82,10 @@ const EdInaiPowerfulLearning = ({ id }) => {
       });
 
       mm.add("(max-width: 767px)", () => {
-        // --- MOBILE LOGIC ---
         cardsRef.current.forEach((card, index) => {
           ScrollTrigger.create({
             trigger: card,
-            start: `top 100px`,
+            start: `top 140px`, // Increased from 100px for mobile
             endTrigger: containerRef.current,
             end: "bottom bottom",
             pin: true,
@@ -117,59 +112,38 @@ const EdInaiPowerfulLearning = ({ id }) => {
     <section
       ref={containerRef}
       id={id}
-      /* width ko w-full rakha hai taaki responsive rahe */
       className="w-full bg-black py-12 md:pb-56 relative overflow-hidden"
     >
-      {/* Container को max-w-6xl किया गया है */}
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
-        <div
-          ref={headerRef}
-          className="text-center z-10 relative mb-16 md:mb-24"
-        >
-          <h1 className="h1 md:text-4xl lg:text-5xl mb-4 text-white">
-            Powerful Learning Modes for Every Student
-          </h1>
-          <h2 className="h2 text-gray-400">Different ways to learn, one powerful platform</h2>
+        <div ref={headerRef} className="text-center z-10 relative mb-16 md:mb-24">
+          <h1 className="h1 mb-3 text-white">Powerful Learning Modes for Every Student</h1>
+          <p className="h2 text-gray-400">Different ways to learn, one powerful platform</p>
         </div>
 
         {/* Cards Container */}
-        <div className="relative flex flex-col items-center gap-[10vh] md:gap-40">
+        <div className="relative flex flex-col items-center gap-[10vh] md:gap-32">
           {learningModes.map((mode, index) => (
             <div
               key={mode.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              /* Card width ab 6xl ke hisaab se stretch hogi */
               className="w-full rounded-[24px] md:rounded-[40px] border border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-[#0c0c0c] will-change-transform"
-              style={{
-                zIndex: index + 20,
-              }}
+              style={{ zIndex: index + 20 }}
             >
-              <div className="bg-gradient-to-br from-[#151515] to-black p-8 md:p-16 flex flex-col md:flex-row items-center gap-10 md:gap-16 min-h-[450px]">
+              <div className="bg-gradient-to-br from-[#151515] to-black flex flex-col md:flex-row items-stretch min-h-[350px] md:h-[400px]">
                 {/* Content */}
-                <div className="flex-[1.2] text-left order-2 md:order-1">
-                  <div className="inline-block px-4 py-1.5 mb-6 bg-white/5 border border-white/10 rounded-full">
-                    <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">
-                      {mode.mode}
-                    </span>
+                <div className="w-full md:w-[42%] p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
+                  <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-full">
+                    <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{mode.mode}</span>
                   </div>
-                  <h2 className="text-white h1 text-3xl md:text-5xl font-bold mb-6 tracking-tight">
-                    {mode.title}
-                  </h2>
-                  <p className="text-gray-400 p text-base md:text-xl leading-relaxed">
-                    {mode.description}
-                  </p>
+                  <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{mode.title}</h2>
+                  <p className="text-gray-400 text-sm md:text-base leading-relaxed">{mode.description}</p>
                 </div>
 
                 {/* Image */}
-                <div className="flex-1 w-full order-1 md:order-2">
-                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5">
-                    <img
-                      src={mode.image}
-                      alt={mode.title}
-                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
+                <div className="w-full md:w-[50%] ml-40 relative overflow-hidden order-1 md:order-2 h-56 md:h-auto">
+                  <img src={mode.image} alt={mode.title} className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none hidden md:block" />
                 </div>
               </div>
             </div>
