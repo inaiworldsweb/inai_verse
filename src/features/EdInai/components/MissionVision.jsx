@@ -101,7 +101,7 @@ const MissionVision = () => {
           >
             {/* Left Column: Text Content */}
             <div className="space-y-4">
-              <h1 className="md:text-[35px] text-[25px] leading-tight text-start mt-6 md:mt-9 mb-6 md:mb-6">
+              <h1 className="md:text-[35px] text-[25px] font-bold leading-tight text-start mt-6 md:mt-9 mb-6 md:mb-6">
                 {contentData[activeTab].title}
               </h1>
 

@@ -73,7 +73,7 @@ export default function Edinaichallenges({ id }) {
           <h1 className="h1 mb-4">
             Challenges in Traditional Education Systems
           </h1>
-          <p className="max-w-4xl mb-6 p mx-auto text-gray-400">
+          <p className="max-w-4xl p mx-auto text-gray-400">
             Many institutions face difficulties in delivering consistent,
             personalized, and scalable education.
           </p>

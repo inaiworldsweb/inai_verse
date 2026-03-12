@@ -12,42 +12,40 @@ gsap.registerPlugin(ScrollTrigger);
 const examData = [
   {
     id: 1,
-    tabTitle: "Live AI Lectures",
+    tabTitle: "AI Question Paper Generator",
     bulletPoints: [
-      "Attend real-time AI-powered classes where students can interact, ask questions, and learn through visual explanations.",
-      "Lessons are personalized to match the student's level, helping improve understanding and engagement."
+      "Upload syllabus or PDF",
+      "Choose difficulty (Easy / Medium / Hard)",
+      "Choose format (MCQ / Short / Hybrid)",
+      "AI generates structured exam paper",
+      "Auto answer key included",
+      "One-click PDF download",
     ],
     image: Examination1,
   },
   {
     id: 2,
-    tabTitle: "Recorded Revisions",
+    tabTitle: "Smart Scheduling System",
     bulletPoints: [
-      "Access recorded lectures anytime to revise topics at your own pace.",
-      "This mode helps students review concepts, strengthen weak areas, and prepare better for exams."
+      "Set date, time & duration",
+      "Automatic duration calculation",
+      "Unique Exam ID generation",
+      "Secure exam activation",
+      "Live countdown timer for students",
     ],
     image: Examination2,
   },
   {
     id: 3,
-    tabTitle: "Interactive Quizzes",
+    tabTitle: "Student Exam Portal",
     bulletPoints: [
-      "Practice with AI-generated quizzes designed to test understanding.",
-      "Students receive instant feedback, performance insights, and guidance on areas that need improvement."
+      "View scheduled exams",
+      "Practice topic-wise tests",
+      "Access study materials",
+      "Track results & performance",
+      "Review answers instantly",
     ],
     image: Examination3,
-  },
-  {
-    id: 4,
-    tabTitle: "AI Exam & Mock Test Mode",
-    bulletPoints: [
-      "Full-length AI-generated exams",
-      "Competitive exam simulation",
-      "Hybrid question formats",
-      "Instant result & analytics",
-      "Smart performance tracking"
-    ],
-    image: Examination1,
   },
 ];
 
@@ -62,10 +60,10 @@ const ExaminationEngine = ({ id }) => {
       gsap.fromTo(
         [desktopTextRef.current, desktopImageRef.current],
         { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" }
+        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
       );
     },
-    { dependencies: [activeTab], scope: containerRef }
+    { dependencies: [activeTab], scope: containerRef },
   );
 
   useGSAP(
@@ -87,7 +85,7 @@ const ExaminationEngine = ({ id }) => {
         }
       });
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -135,9 +133,9 @@ const ExaminationEngine = ({ id }) => {
               ref={desktopTextRef}
               className="flex-1 p-12 flex flex-col justify-center"
             >
-              <ul className="space-y-8 text-white text-lg font-medium">
+              <ul className="space-y-3 md:ml-6 text-white text-lg font-medium">
                 {examData[activeTab].bulletPoints.map((point, i) => (
-                  <li key={i} className="flex items-start gap-3">
+                  <li key={i} className="flex items-start text-[16px] gap-3">
                     <span className="text-white/30">—</span>
                     {point}
                   </li>
@@ -146,7 +144,10 @@ const ExaminationEngine = ({ id }) => {
             </div>
 
             {/* Image Section - Full Height/Width Control */}
-            <div ref={desktopImageRef} className="flex-1 relative overflow-hidden">
+            <div
+              ref={desktopImageRef}
+              className="flex-1 relative overflow-hidden"
+            >
               <img
                 src={examData[activeTab].image}
                 alt={examData[activeTab].tabTitle}
@@ -176,7 +177,10 @@ const ExaminationEngine = ({ id }) => {
               </div>
               <ul className="space-y-3 mb-6">
                 {item.bulletPoints.map((point, i) => (
-                  <li key={i} className="text-gray-300 text-sm flex items-start gap-3">
+                  <li
+                    key={i}
+                    className="text-gray-300 text-sm flex items-start gap-3"
+                  >
                     <span className="text-blue-500 font-bold">—</span>
                     {point}
                   </li>

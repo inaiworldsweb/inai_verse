@@ -155,7 +155,7 @@ const StreamsSection = () => {
           background: rgba(255, 255, 255, 0.03);
           border: 1.5px solid rgba(255, 255, 255, 0.1);
           color: #fff;
-          padding: 16px 32px;
+          padding: 10px 32px;
           border-radius: 50px;
           font-size: 1rem;
           font-weight: 500;

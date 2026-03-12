@@ -142,7 +142,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
 
                 {/* Image */}
                 <div className="w-full md:w-[50%] md:ml-40 relative overflow-hidden order-1 md:order-2 h-56 md:h-auto">
-                  <img src={mode.image} alt={mode.title} className="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" />
+                  <img src={mode.image} alt={mode.title} className="absolute inset-0 rounded-l-none w-full h-full object-cover transform scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none hidden md:block" />
                 </div>
               </div>
