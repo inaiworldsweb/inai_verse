@@ -60,7 +60,7 @@ const WhyTrustEdInai = ({ id }) => {
       id={id}
       className="w-full bg-black text-white py-9 md:py-12 px-4 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto relative">
+      <div className="max-w-6xl mx-auto relative">
         {/* Heading */}
         <h1 className="h1 text-center mb-6 md:mb-2 lg:mb-8">
           Why Institutions Trust Ed-INAI

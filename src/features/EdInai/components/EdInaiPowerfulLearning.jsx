@@ -145,7 +145,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
                 zIndex: index + 20, // Taaki cards header (z-10) ke upar aayein
               }}
             >
-              <div className="bg-gradient-to-br from-[#1a1a1a] to-black p-6 md:p-14 flex flex-col md:flex-row items-center gap-8 md:gap-12 min-h-[400px] md:min-h-[450px]">
+              <div className="bg-gradient-to-br w-6xl from-[#1a1a1a] to-black p-6 md:p-14 flex flex-col md:flex-row items-center gap-8 md:gap-12 min-h-[400px] md:min-h-[450px]">
                 {/* Content */}
                 <div className="flex-1 text-left order-2 md:order-1">
                   <div className="inline-block px-3 py-1 mb-4 bg-white/5 border border-white/10 rounded-full">

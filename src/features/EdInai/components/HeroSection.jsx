@@ -13,7 +13,7 @@ const HeroSection = ({ id }) => {
       id={id}
       className="min-h-[85vh] flex items-center justify-center py-24"
     >
-      <div className="text-center px-6 max-w-5xl mx-auto">
+      <div className="text-center px-6 max-w-6xl mx-auto">
         {/* Main Heading */}
         <h3 className=" h3 font-bold mb-6">
           India’s First Virtual AI Teachers for

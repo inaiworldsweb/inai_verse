@@ -153,7 +153,7 @@ const FutureSection = () => {
         style={{ zIndex: 5 }}
       />
 
-      <div className="max-w-5xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="h1 text-white">
