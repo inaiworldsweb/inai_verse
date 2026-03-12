@@ -51,7 +51,6 @@ const EdInaiPowerfulLearning = ({ id }) => {
 
   useGSAP(
     () => {
-      // Media Query for Responsive behavior
       let mm = gsap.matchMedia();
 
       mm.add("(min-width: 768px)", () => {
@@ -68,7 +67,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
         cardsRef.current.forEach((card, index) => {
           ScrollTrigger.create({
             trigger: card,
-            start: `top 250px`, // Desktop par thoda niche se start
+            start: `top 200px`, // 6xl width ke hisaab se space adjust kiya
             endTrigger: containerRef.current,
             end: "bottom bottom",
             pin: true,
@@ -88,12 +87,10 @@ const EdInaiPowerfulLearning = ({ id }) => {
 
       mm.add("(max-width: 767px)", () => {
         // --- MOBILE LOGIC ---
-        // Mobile par Header ko pin nahi karte taaki scrolling space mile
-
         cardsRef.current.forEach((card, index) => {
           ScrollTrigger.create({
             trigger: card,
-            start: `top 120px`, // Mobile Navbar ke just niche
+            start: `top 100px`,
             endTrigger: containerRef.current,
             end: "bottom bottom",
             pin: true,
@@ -113,61 +110,64 @@ const EdInaiPowerfulLearning = ({ id }) => {
 
       return () => mm.revert();
     },
-    { scope: containerRef },
+    { scope: containerRef }
   );
 
   return (
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black py-9 md:py-12 md:pb-35 px-4 relative overflow-hidden"
+      /* width ko w-full rakha hai taaki responsive rahe */
+      className="w-full bg-black py-12 md:pb-56 relative overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto">
-        {/* Header - Z-index is kept lower than cards for stacking */}
+      {/* Container को max-w-6xl किया गया है */}
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
         <div
           ref={headerRef}
-          className="text-center z-10 relative mb-12 md:mb-20"
+          className="text-center z-10 relative mb-16 md:mb-24"
         >
-          <h1 className="h1 md:!text-[32px] lg:!text-[40px] mb-4 text-white ">
+          <h1 className="h1 md:text-4xl lg:text-5xl mb-4 text-white">
             Powerful Learning Modes for Every Student
           </h1>
-          <h2 className="h2">Different ways to learn, one powerful platform</h2>
+          <h2 className="h2 text-gray-400">Different ways to learn, one powerful platform</h2>
         </div>
 
         {/* Cards Container */}
-        <div className="relative flex flex-col items-center gap-[15vh] md:gap-[30vh]">
+        <div className="relative flex flex-col items-center gap-[10vh] md:gap-40">
           {learningModes.map((mode, index) => (
             <div
               key={mode.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="w-full rounded-[24px] md:rounded-[32px] border border-white/10 shadow-[0_-20px_40px_rgba(0,0,0,0.7)] overflow-hidden bg-[#0c0c0c] will-change-transform"
+              /* Card width ab 6xl ke hisaab se stretch hogi */
+              className="w-full rounded-[24px] md:rounded-[40px] border border-white/10 shadow-[0_-20px_50px_rgba(0,0,0,0.8)] overflow-hidden bg-[#0c0c0c] will-change-transform"
               style={{
-                zIndex: index + 20, // Taaki cards header (z-10) ke upar aayein
+                zIndex: index + 20,
               }}
             >
-              <div className="bg-gradient-to-br w-6xl from-[#1a1a1a] to-black p-6 md:p-14 flex flex-col md:flex-row items-center gap-8 md:gap-12 min-h-[400px] md:min-h-[450px]">
+              <div className="bg-gradient-to-br from-[#151515] to-black p-8 md:p-16 flex flex-col md:flex-row items-center gap-10 md:gap-16 min-h-[450px]">
                 {/* Content */}
-                <div className="flex-1 text-left order-2 md:order-1">
-                  <div className="inline-block px-3 py-1 mb-4 bg-white/5 border border-white/10 rounded-full">
-                    <span className="text-blue-400 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+                <div className="flex-[1.2] text-left order-2 md:order-1">
+                  <div className="inline-block px-4 py-1.5 mb-6 bg-white/5 border border-white/10 rounded-full">
+                    <span className="text-blue-400 text-xs font-bold uppercase tracking-widest">
                       {mode.mode}
                     </span>
                   </div>
-                  <h2 className="text-white text-2xl md:text-4xl font-bold mb-4">
+                  <h2 className="text-white h1 text-3xl md:text-5xl font-bold mb-6 tracking-tight">
                     {mode.title}
                   </h2>
-                  <p className="text-gray-400 text-sm md:text-lg leading-relaxed">
+                  <p className="text-gray-400 p text-base md:text-xl leading-relaxed">
                     {mode.description}
                   </p>
                 </div>
 
                 {/* Image */}
                 <div className="flex-1 w-full order-1 md:order-2">
-                  <div className="  bg-black aspect-[4/3] md:aspect-auto md:h-[350px] shadow-2xl">
+                  <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5">
                     <img
                       src={mode.image}
                       alt={mode.title}
-                      className="w-full h-full rounded-xl overflow-hidden object-cover"
+                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 </div>
@@ -176,8 +176,8 @@ const EdInaiPowerfulLearning = ({ id }) => {
           ))}
         </div>
 
-        {/* Bottom Spacer: It keeps the last card pinned for a while before scrolling away */}
-        <div className="h-[20vh] md:h-[40vh]" />
+        {/* Bottom Spacer */}
+        <div className="h-[30vh] md:h-[50vh]" />
       </div>
     </section>
   );
