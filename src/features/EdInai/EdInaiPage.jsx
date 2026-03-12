@@ -31,7 +31,7 @@ const EdInaiPage = () => {
         <EdInaiNavbar
           title="EdInai"
           showBackButton={true}
-          showPriceButton={false}
+          showPriceButton={true}
           showHomeButton={true}
           showMenuButton={true}
           showBorder={false}

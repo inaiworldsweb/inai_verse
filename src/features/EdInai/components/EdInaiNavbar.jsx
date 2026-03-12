@@ -6,7 +6,7 @@ const EdInaiNavbar = ({
   showLogo = true,
   logoSrc = logo,
   logoAlt = "EdInai logo",
-  logoClassName = "h-[34px] md:h-[44px] w-auto object-contain",
+  logoClassName = "h-[30px] md:h-[38px] w-auto object-contain",
   showPriceButton = true,
   showHomeButton = true,
   showMenuButton = true,
@@ -14,36 +14,36 @@ const EdInaiNavbar = ({
   onPriceClick,
   onMenuClick,
   onLogoClick,
-  onBackClick,
   showBorder = true,
   headerClassName = "bg-black/80 backdrop-blur-md",
 }) => {
   const navigate = useNavigate();
 
-  // Unified Click Handler
   const handleClick = (defaultPath, customHandler) => {
     if (customHandler) customHandler();
     else navigate(defaultPath);
   };
 
   const handleBack = () => {
-    if (onBackClick) onBackClick();
-    else navigate(-1);
+    navigate(-1);
   };
 
   return (
     <header
-      className={`sticky top-0 z-50 flex items-center justify-between px-6 py-3 transition-all ${headerClassName} ${showBorder ? "border-b border-white/10" : ""}`}
+      className={`sticky top-0 z-50 flex items-center justify-between px-6 py-3 transition-all ${headerClassName} ${
+        showBorder ? "border-b border-white/10" : ""
+      }`}
     >
-      {/* LEFT: Back Button, Logo & Breadcrumbs */}
+      {/* LEFT: Back Button, Logo & Breadcrumbs in one row */}
       <div className="flex items-center gap-3">
         {showBackButton && (
           <button
             onClick={handleBack}
-            className="text-white text-[40px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
+          
+            className="flex items-center mt-4 justify-center text-white/80 hover:text-white transition-all active:scale-90"
             aria-label="Go back"
           >
-            ‹
+            <BackIcon />
           </button>
         )}
 
@@ -52,21 +52,18 @@ const EdInaiNavbar = ({
             src={logoSrc}
             alt={logoAlt}
             className={`${logoClassName} cursor-pointer hover:opacity-80 active:scale-95 transition-all`}
-            // onClick={() => handleClick('/EdInaiPage', onLogoClick)}
+            onClick={() => handleClick("/EdInaiPage", onLogoClick)}
           />
         )}
 
         {breadcrumbs.length > 0 && (
-          <nav
-            className="hidden sm:flex items-center gap-1"
-            aria-label="Breadcrumb"
-          >
+          <nav className="hidden sm:flex items-center" aria-label="Breadcrumb">
             {breadcrumbs.map((crumb, i) => (
               <div key={i} className="flex items-center">
-                <span className="text-white/30 text-xl font-light px-1">/</span>
+                <span className="text-white/20 text-lg font-light px-2 select-none">/</span>
                 <button
                   onClick={crumb.onClick}
-                  className="text-white/60 text-sm hover:text-white transition-colors tracking-[0.5px]"
+                  className="text-white/60 text-sm hover:text-white transition-colors tracking-wide"
                 >
                   {crumb.label}
                 </button>
@@ -81,8 +78,10 @@ const EdInaiNavbar = ({
         {showPriceButton && (
           <button
             onClick={() => handleClick("/pricing", onPriceClick)}
-            className="bg-white/10 hover:bg-white text-white hover:text-black border border-white/20 px-5 py-1.5 rounded-full text-sm font-semibold tracking-[1px] transition-all active:scale-95 shadow-sm"
+           
+            className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-6 py-2 rounded-[7px] text-l font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20"
           >
+           
             Price
           </button>
         )}
@@ -112,26 +111,21 @@ const EdInaiNavbar = ({
 };
 
 // --- Sub-components for cleaner JSX ---
+
+const BackIcon = () => (
+  <svg className="w-7 h-7" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+  </svg>
+);
+
 const HomeIcon = () => (
-  <svg
-    className="w-5 h-5"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    viewBox="0 0 24 24"
-  >
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
     <path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10" />
   </svg>
 );
 
 const MenuIcon = () => (
-  <svg
-    className="w-6 h-6"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    viewBox="0 0 24 24"
-  >
+  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
     <path d="M4 7h16M4 12h16M4 17h16" />
   </svg>
 );

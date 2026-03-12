@@ -40,13 +40,9 @@ const CombinedHallPage = () => {
                     transition={{ delay: 0.8 }}
                     className="flex flex-col sm:flex-row gap-4 justify-center"
                 >
-                    <div className="bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px]">
-                        <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
-                            <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
-                                <div className="flex gap-2 items-center">
-                                    <span className="font-semibold text-white text-lg">Get Started</span>
-                                </div>
-                            </div>
+                    <div className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-7 py-2 rounded-full text-l font-bold transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+                        <button className="relative flex items-center gap-2 bg-transparent text-white font-bold transition-all duration-300 text-lg">
+                            Get Started
                         </button>
                     </div>
                     <button className="px-10 py-5 bg-zinc-900 text-white font-bold rounded-full text-lg border border-white/10 hover:bg-zinc-800 transition-all">
