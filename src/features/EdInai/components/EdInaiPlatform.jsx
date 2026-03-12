@@ -29,7 +29,7 @@ const EdInaiPlatform = () => {
 
         {/* Carousel Container */}
         <div className="relative w-full overflow-hidden my-8 shadow-2xl">
-          <div className="relative h-[250px] md:h-[400px] w-full">
+          <div className="relative h-[250px] md:h-[500px] w-full">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndex}
