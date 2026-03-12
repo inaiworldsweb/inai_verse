@@ -12,7 +12,6 @@ const navItems = [
   "Why Choose Ed-INAI",
   "Learning Modes Section",
   "Final cTA with form fill-up",
-
   "FAQ",
 ];
 
@@ -110,7 +109,7 @@ const EdinaiSidebar = () => {
       )}
 
       {/* Desktop Sidebar - Fixed position */}
-      <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 overflow-y-auto">
+      <aside className="hidden lg:flex border-r border-white/30 lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 overflow-y-auto">
         <div className="flex items-center justify-center mb-4">
           <Link to="/">
             <img
