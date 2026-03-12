@@ -147,7 +147,7 @@ const FutureSection = () => {
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-4 md:mb-16">
           <h2 className="h1 text-white">
             How Ed-INAI Is Transforming Indian Education
           </h2>
@@ -178,7 +178,7 @@ const FutureSection = () => {
           </div>
 
           {/* Center Logo - Order 1 on mobile to stay at top, Order 2 on desktop */}
-          <div className="w-full flex justify-center items-center py-8 md:py-0 order-1 md:order-2">
+          <div className="w-full flex justify-center items-center py-2 md:py-0 order-1 md:order-2">
             <div
               ref={logoRef}
               className="relative w-40 h-40 md:w-56 md:h-56 rounded-full bg-black shadow-lg flex items-center justify-center border border-gray-800"
