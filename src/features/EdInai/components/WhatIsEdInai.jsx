@@ -14,24 +14,25 @@ const WhatIsEdInai = ({ id }) => {
   return (
     <section
       id={id}
-      className="w-full py-9 md:py-12 px-4 bg-black text-white min-h-[70vh] flex items-center justify-center px-4 py-9 md:py-12"
+      className="w-full py-9 md:py-12 px-4 bg-black text-white min-h-[70vh] flex items-center justify-center"
     >
-      <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
+      {/* Main Container: Right corners are 0 */}
+      <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] rounded-r-none overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
+        
         {/* Left Side: Image Container */}
-        <div className="w-full lg:w-1/2 p-4">
-          <div className="relative h-full min-h-[200px] md:min-h-[300px]  ">
+        <div className="w-full lg:w-1/2">
+          <div className="relative h-full min-h-[300px] md:min-h-[400px]">
             <img
-              src={img} // Replace with your actual image path
+              src={img}
               alt="AI Classroom"
-              className="w-full h-full object-cover rounded-[30px] overflow-hidden  "
+              /* Image: Right corners set to 0 to match the container */
+              className="w-full h-full object-cover rounded-[30px] rounded-r-none"
             />
-            {/* Overlay Gradient for a premium look */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
           </div>
         </div>
 
         {/* Right Side: Content */}
-        <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-5 flex flex-col justify-center">
+        <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-10 flex flex-col justify-center">
           <div className="max-w-xl">
             <h1 className="h1 mb-6">What is edInai?</h1>
 
@@ -43,18 +44,18 @@ const WhatIsEdInai = ({ id }) => {
             </p>
 
             {/* Features List */}
-            <ul className="space-y-2 mb-6">
+            <ul className="space-y-3 mb-8">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-center gap-3 group">
                   <div className="w-2 h-2 bg-white rounded-full group-hover:bg-blue-500 transition-colors"></div>
-                  <h2 className="h2 text-lg md:text-xl font-semibold text-gray-200">
+                  <p className="p !text-[16px] font-semibold text-gray-200">
                     {feature}
-                  </h2>
+                  </p>
                 </li>
               ))}
             </ul>
 
-            <p className="p text-gray-500 md:mb-5 mb-2">
+            <p className="p text-gray-500">
               Our virtual AI teachers conduct live, interactive lectures through
               intelligent digital interfaces.
             </p>
