@@ -13,10 +13,10 @@ const WhatIsEdInai = () => {
 
   return (
     <section className=" text-white min-h-[70vh] flex items-center justify-center px-4 py-9 md:py-12">
-      <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
+      <div className="max-w-5xl w-full bg-[#0a0a0a] rounded-[40px] rounded-r-none overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         {/* Left Side: Image Container */}
-        <div className="w-full lg:w-1/2 p-4">
-          <div className="relative h-full min-h-[200px] md:min-h-[300px]  rounded-[30px] overflow-hidden">
+        <div className="w-full lg:w-1/3 p-4">
+          <div className="relative h-full min-h-[200px] md:min-h-[300px]   rounded-[30px] overflow-hidden">
             <img
               src={img} // Replace with your actual image path
               alt="AI Classroom"

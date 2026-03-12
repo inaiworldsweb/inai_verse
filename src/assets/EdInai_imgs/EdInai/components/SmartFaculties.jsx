@@ -37,7 +37,7 @@ const SmartFaculties = () => {
   }, []);
 
   return (
-    <section className="bg-black w-full text-white md:py-12 py-9 overflow-hidden flex flex-col items-center justify-center">
+    <section className="bg-black w-full !px-12 text-white md:py-12 py-9 overflow-hidden flex flex-col items-center justify-center">
       {/* Internal CSS for Flip Effect */}
       <style>{`
         .perspective { perspective: 1000px; }

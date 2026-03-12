@@ -1,4 +1,4 @@
-﻿import React from "react";
+﻿import React , {useState} from "react";
 import EdinaiSidebar from "./components/EdinaiSidebar";
 import HeroSection from "./components/HeroSection";
 import EdInaiNavbar from "./components/EdInaiNavbar";
@@ -21,10 +21,14 @@ import EdinaiSiteFooter from "./components/EdinaiSiteFooter";
 import FutureSection from "./components/FutureSection";
 
 const EdInaiPage = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Sidebar - Fixed on left */}
-      <EdinaiSidebar />
+      <EdinaiSidebar 
+        isOpen={isSidebarOpen} 
+        setIsOpen={setIsSidebarOpen} 
+      />
 
       {/* Main Content Area - All components on right side */}
       <div className="lg:ml-[280px] flex-1">
@@ -35,6 +39,7 @@ const EdInaiPage = () => {
           showHomeButton={true}
           showMenuButton={true}
           showBorder={false}
+          onMenuClick={() => setIsSidebarOpen(true)} // राइट मेनू बटन से साइडबार खुलेगा
           headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
         />
         <HeroSection id="hero" />
