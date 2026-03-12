@@ -16,7 +16,7 @@ const CombinedHallPage = () => {
     const HeroSection = () => (
         <section className="min-h-[85vh] flex flex-col items-center justify-center relative overflow-hidden bg-black py-20 px-6">
             <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-blue-600/10 blur-[120px] rounded-full pointer-events-none" />
-            <div className="relative z-10 text-center max-w-5xl mx-auto">
+            <div className="relative z-10 text-center max-w-6xl mx-auto">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -118,7 +118,7 @@ const CombinedHallPage = () => {
 
         return (
             <section className="py-20 px-6 bg-black text-white">
-                <div className="max-w-5xl mx-auto">
+                <div className="max-w-6xl mx-auto">
                     <h2 className="text-4xl font-bold mb-16 text-center">Simple 4-Step Setup</h2>
                     <div className="relative">
                         <div className="absolute left-0 top-0 bottom-0 w-0.5 bg-white/10"></div>

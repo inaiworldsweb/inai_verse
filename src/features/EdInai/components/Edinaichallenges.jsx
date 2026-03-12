@@ -67,7 +67,7 @@ export default function Edinaichallenges({ id }) {
       id={id}
       className="w-full min-h-screen bg-black text-white flex items-center justify-center py-12 px-4"
     >
-      <div className="max-w-5xl w-full flex flex-col gap-12">
+      <div className="max-w-6xl w-full flex flex-col gap-12">
         {/* Heading Section */}
         <div className="text-center">
           <h1 className="h1 mb-4">

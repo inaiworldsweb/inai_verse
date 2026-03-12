@@ -27,14 +27,12 @@ const streamRows = [
 ];
 
 const StreamsSection = () => {
-  // Number of times to repeat items in one segment to ensure it covers the screen width
-  // Original had 1 set + 1 duplicate (implicitly). We'll use 6 sets per segment to be safe.
-  // We render [Segment][Segment] and scroll -50% (width of one segment).
+ 
   const REPEAT_COUNT = 6;
 
   return (
     <section className="py-9 md:py-12 bg-black" id="streams">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <h1 className="h1 text-center mb-10 md:mb-12 text-white animate-fade-in px-4 capitalize tracking-tight">
           Streams We Cover
         </h1>
@@ -45,8 +43,7 @@ const StreamsSection = () => {
               <div
                 className={`scroll-track ${direction === "right" ? "scroll-right" : "scroll-left"}`}
                 style={{
-                  // Adjust duration proportional to content length to maintain visual speed
-                  // Distance increased by REPEAT_COUNT, so time must increase by REPEAT_COUNT
+                
                   animationDuration: `${duration * REPEAT_COUNT}s`,
                 }}
               >
@@ -176,7 +173,6 @@ const StreamsSection = () => {
         .stream-tag:hover {
           background: rgba(255, 255, 255, 0.1);
           border-color: rgba(255, 255, 255, 0.3);
-          transform: scale(1.05);
           box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 

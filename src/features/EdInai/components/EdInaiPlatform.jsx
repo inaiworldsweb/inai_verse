@@ -17,7 +17,7 @@ const EdInaiPlatform = () => {
 
   return (
     <section className="edinai-platform bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
-      <div className="max-w-5xl w-full flex flex-col items-center space-y-3">
+      <div className="max-w-6xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
           <h1 className="h1 mb-3">Inside the Ed-INAI AI Education Platform</h1>

@@ -97,7 +97,7 @@ const ExaminationEngine = ({ id }) => {
       id={id}
       className="w-full bg-black md:py-12 py-9 overflow-visible"
     >
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <div className="text-center mb-6 lg:mb-10">
           <h1 className="h1 font-bold text-white mb-3">
             Smart & Scalable Examination Engine
