@@ -4,7 +4,7 @@ const FutureSection = () => {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const requestRef = useRef();
-  const pathsRef = useRef([]); // To store path and its corresponding dot
+  const pathsRef = useRef([]); 
   const startTimeRef = useRef(null);
 
   // Card data
@@ -35,12 +35,15 @@ const FutureSection = () => {
   const logoRef = useRef(null);
 
   useEffect(() => {
+    // Only run animation logic if screen is desktop (>= 768px)
+    if (window.innerWidth < 768) return;
+
     const svg = svgRef.current;
     const container = containerRef.current;
     if (!svg || !container) return;
 
     const updatePathsAndPositions = () => {
-      if (!container || !logoRef.current) return;
+      if (!container || !logoRef.current || window.innerWidth < 768) return;
 
       const logoRect = logoRef.current.getBoundingClientRect();
       const containerRect = container.getBoundingClientRect();
@@ -66,40 +69,26 @@ const FutureSection = () => {
         getCardCenter(rightCardRefs[1]),
       ].filter((pos) => pos !== null);
 
-      // Clear SVG completely
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       pathsRef.current = [];
 
-      // Draw new paths and create single dots
       cardPositions.forEach((pos) => {
-        // 1. Create Path
-        const path = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "path",
-        );
+        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
         const controlX = (logoCenter.x + pos.x) / 2;
         const controlY = (logoCenter.y + pos.y) / 2 - 30;
-        path.setAttribute(
-          "d",
-          `M ${logoCenter.x},${logoCenter.y} Q ${controlX},${controlY} ${pos.x},${pos.y}`,
-        );
+        path.setAttribute("d", `M ${logoCenter.x},${logoCenter.y} Q ${controlX},${controlY} ${pos.x},${pos.y}`);
         path.setAttribute("stroke", "#333");
         path.setAttribute("stroke-width", "1");
         path.setAttribute("fill", "none");
         path.setAttribute("stroke-dasharray", "4 4");
         svg.appendChild(path);
 
-        // 2. Create SINGLE dot per path
-        const dot = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "circle",
-        );
+        const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
         dot.setAttribute("r", "3");
         dot.setAttribute("fill", "white");
         dot.style.filter = "drop-shadow(0 0 4px white)";
         svg.appendChild(dot);
 
-        // Store reference
         pathsRef.current.push({ path, dot });
       });
     };
@@ -109,13 +98,11 @@ const FutureSection = () => {
     const animate = (timestamp) => {
       if (!startTimeRef.current) startTimeRef.current = timestamp;
       const elapsed = (timestamp - startTimeRef.current) / 3000;
-      const progress = elapsed % 1; // 0 to 1 loop
+      const progress = elapsed % 1;
 
       pathsRef.current.forEach(({ path, dot }) => {
         const pathLength = path.getTotalLength();
         const point = path.getPointAtLength(progress * pathLength);
-
-        // Update existing dot position instead of creating new ones
         dot.setAttribute("cx", point.x);
         dot.setAttribute("cy", point.y);
       });
@@ -126,7 +113,12 @@ const FutureSection = () => {
     requestRef.current = requestAnimationFrame(animate);
 
     const resizeObserver = new ResizeObserver(() => {
-      updatePathsAndPositions();
+      if (window.innerWidth < 768) {
+        while (svg.firstChild) svg.removeChild(svg.firstChild);
+        pathsRef.current = [];
+      } else {
+        updatePathsAndPositions();
+      }
     });
 
     resizeObserver.observe(container);
@@ -146,10 +138,10 @@ const FutureSection = () => {
       ref={containerRef}
       className="relative w-full min-h-screen bg-black text-white md:py-12 py-9 px-4 md:px-8 overflow-hidden"
     >
-      {/* SVG Layer */}
+      {/* SVG Layer - Hidden on mobile */}
       <svg
         ref={svgRef}
-        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        className="hidden md:block absolute top-0 left-0 w-full h-full pointer-events-none"
         style={{ zIndex: 5 }}
       />
 
@@ -164,10 +156,11 @@ const FutureSection = () => {
           </p>
         </div>
 
-        {/* Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center">
-          {/* Left Column */}
-          <div className="space-y-6">
+        {/* Grid Layout: Stacked on mobile, 3-column on desktop */}
+        <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 items-center">
+          
+          {/* Left Column (Top 2 cards on mobile) */}
+          <div className="w-full space-y-6 order-2 md:order-1">
             {leftCards.map((card, idx) => (
               <div
                 key={idx}
@@ -184,8 +177,8 @@ const FutureSection = () => {
             ))}
           </div>
 
-          {/* Center Logo */}
-          <div className="flex justify-center items-center py-8 md:py-0">
+          {/* Center Logo - Order 1 on mobile to stay at top, Order 2 on desktop */}
+          <div className="w-full flex justify-center items-center py-8 md:py-0 order-1 md:order-2">
             <div
               ref={logoRef}
               className="relative w-40 h-40 md:w-56 md:h-56 rounded-full bg-black shadow-lg flex items-center justify-center border border-gray-800"
@@ -197,8 +190,8 @@ const FutureSection = () => {
             </div>
           </div>
 
-          {/* Right Column */}
-          <div className="space-y-6">
+          {/* Right Column (Bottom 2 cards on mobile) */}
+          <div className="w-full space-y-6 order-3 md:order-3">
             {rightCards.map((card, idx) => (
               <div
                 key={idx}
