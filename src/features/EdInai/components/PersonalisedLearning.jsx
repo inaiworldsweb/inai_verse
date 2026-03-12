@@ -44,8 +44,29 @@ const PersonalisedLearning = () => {
             </AnimatePresence>
           </div>
 
+          {/* Content Overlay at Bottom */}
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 md:p-8 rounded-b-[30px] md:rounded-b-[50px]">
+            <div className="flex flex-col items-center text-center">
+              <p className="text-white/90 h2 text-sm md:text-base max-w-2xl mb-3">
+                Students can choose exam categories, access study materials, and
+                attempt AI-generated mock tests anytime.
+              </p>
+
+              <h2 className="p text-white mb-4">
+                Adaptive Curriculum & Real-time Feedback
+              </h2>
+
+              {/* Learn More Button */}
+              <div className="group relative flex items-center mb-3 gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[8px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+                <button className="relative px-6 py-3  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
+                  Learn more
+                </button>
+              </div>
+            </div>
+          </div>
+
           {/* Slider Pagination Dots (Functional) */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -58,23 +79,6 @@ const PersonalisedLearning = () => {
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
-          </div>
-        </div>
-
-        {/* Bottom Content */}
-        <div className="flex flex-col items-center w-full">
-          <p>
-            Students can choose exam categories, access study materials, and
-            attempt AI-generated mock tests anytime.
-          </p>
-
-          <h2 className="h2 mt-5">Adaptive Curriculum & Real-time Feedback</h2>
-
-          {/* Learn More Button */}
-          <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[8px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20 mt-4 md:mt-6 inline-block">
-            <button className="relative px-6 py-3 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
-              Learn more
-            </button>
           </div>
         </div>
       </div>
