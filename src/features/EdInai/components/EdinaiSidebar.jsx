@@ -11,7 +11,7 @@ const navItems = [
   "Smart AI Exam Management System",
   "Why Choose Ed-INAI",
   "Learning Modes Section",
-  "Final cTA with form fill-up",
+  "Final CTA with form fill-up",
   "FAQ",
 ];
 
