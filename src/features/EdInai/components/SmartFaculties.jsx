@@ -36,7 +36,7 @@ const SmartFaculties = () => {
   }, []);
 
   return (
-    <section className="bg-black w-full text-white md:py-12 py-9 overflow-hidden flex flex-col items-center justify-center">
+    <section className="bg-black w-full text-white md:py-12 py-9 overflow-hidden flex flex-col items-center px-4 justify-center">
       <style>{`
         .perspective { perspective: 1000px; }
         .preserve-3d { transform-style: preserve-3d; }

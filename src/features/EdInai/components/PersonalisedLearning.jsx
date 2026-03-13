@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 import office from "../../../assets/EdInai_imgs/office.jpeg";
 
 const PersonalisedLearning = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   // Dummy images array (abhi ke liye sabme wahi office image use ki hai)
   const images = [office, office, office, office];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -14,6 +16,10 @@ const PersonalisedLearning = () => {
     }, 4000); // 4 seconds interval
     return () => clearInterval(timer);
   }, [images.length]);
+
+  const handleLearnMoreClick = () => {
+    navigate("/edinai-student"); // Navigate to EdInaiStudentPage
+  };
 
   return (
     <section className="personalised-learning bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
@@ -58,7 +64,10 @@ const PersonalisedLearning = () => {
 
               {/* Learn More Button */}
               <div className="group relative mt-6 flex items-center mb-3 gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
-                <button className="relative md:px-6 md:py-3 px-3 py-1 text-[15px]  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
+                <button
+                  onClick={handleLearnMoreClick} // Add onClick handler
+                  className="relative md:px-6 md:py-3 px-3 py-1 text-[15px]  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
+                >
                   Learn more
                 </button>
               </div>
@@ -71,10 +80,11 @@ const PersonalisedLearning = () => {
               <button
                 key={index}
                 onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-[10px] border border-white ${currentIndex === index
+                className={`transition-all duration-300 rounded-[10px] border border-white ${
+                  currentIndex === index
                     ? "w-6 h-2 bg-white"
                     : "w-2 h-2 bg-transparent hover:bg-white/30"
-                  }`}
+                }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}

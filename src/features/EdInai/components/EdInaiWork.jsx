@@ -9,27 +9,27 @@ const steps = [
   {
     number: "01",
     title: "Register Institution",
-    desc: "Onboard your school to the ecosystem.",
+    
   },
   {
     number: "02",
     title: "Upload Academic Content",
-    desc: "Add your curriculum for AI processing.",
+   
   },
   {
     number: "03",
     title: "Generate AI Lectures & Question Papers",
-    desc: "Virtual models conduct live sessions and create assessments.",
+ 
   },
   {
     number: "04",
     title: "Schedule Classes & Exams",
-    desc: "Automate scheduling of papers and lessons.",
+    
   },
   {
     number: "05",
     title: "Activate AI Teaching & Assessments",
-    desc: "Launch AI-led teaching and testing instantly.",
+   
   },
 ];
 
@@ -67,13 +67,13 @@ const EdInaiWork = ({ id }) => {
       id={id}
       ref={containerRef}
       // Mobile par 'h-auto' (vertical scroll), Desktop par 'h-screen' (pinning)
-      className="w-full md:h-screen h-auto overflow-x-hidden flex flex-col justify-start md:justify-center relative bg-black text-white py-20 md:py-0"
+      className="w-full md:h-screen h-auto overflow-x-hidden flex flex-col justify-start md:justify-center relative bg-black text-white py-7 md:py-12 md:py-0"
     >
-      <div className="max-w-6xl mx-auto w-full px-6 flex-shrink-0 pt-10 md:pt-20 z-10">
+      <div className="max-w-6xl mx-auto w-full px-6 flex-shrink-0 pt-10 md:pt-4 md:pb-12 z-10">
         {/* Header Section */}
         <div className="mb-10 text-center">
           <h1 className="h1 mb-3">
-            How the <span className="text-gray-500">edInai Platform Works</span>
+            How the edInai Platform Works
           </h1>
           <h2 className="h2 mb-4 text-xl md:text-2xl">Simple, Smart & Scalable Workflow</h2>
           <div className="w-24 h-1 bg-[#ccc] mx-auto rounded-full"></div>
@@ -103,14 +103,14 @@ const EdInaiWork = ({ id }) => {
                   }`}
                 >
                   {/* Large Ghost Number */}
-                  <span className="absolute -top-12 md:-top-16 left-0 md:left-15 text-[60px] md:text-[100px] font-black text-white/20 md:text-white/[0.09] select-none z-0">
+                  <span className="absolute -top-12 md:-top-16 left-5 md:left-15 text-[60px] md:text-[100px] font-black text-white/20 md:text-white/[0.09] select-none z-0">
                     {step.number}
                   </span>
 
                   {/* Icon Box */}
                   <div className="w-12 h-12 md:w-15 md:h-15 mb-6 md:mb-8 border border-[#ccc]/30 bg-[#ccc]/5 rounded-2xl flex items-center justify-center z-10 backdrop-blur-sm">
                     <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-[#ccc] rounded-lg rotate-45 flex items-center justify-center">
-                      <div className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#ccc] rounded-full shadow-[0_0_10px_#ccc]"></div>
+                      
                     </div>
                   </div>
 

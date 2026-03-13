@@ -112,7 +112,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black py-12 md:pb-66 relative overflow-hidden"
+      className="w-full bg-black pb-18 pt-12 md:pb-66 relative overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
@@ -132,7 +132,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
             >
               <div className="bg-gradient-to-br from-[#151515] to-black flex flex-col md:flex-row items-stretch min-h-[350px] md:h-[400px]">
                 {/* Content */}
-                <div className="w-full md:w-[42%] p-8 md:p-2 md:ps-12 lg:p-12 flex flex-col justify-center order-2 md:order-1">
+                <div className="w-full md:w-[42%] p-5 md:p-2 md:ps-12 lg:p-12 flex flex-col justify-center order-2 md:order-1">
                   <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-[10px]">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{mode.mode}</span>
                   </div>

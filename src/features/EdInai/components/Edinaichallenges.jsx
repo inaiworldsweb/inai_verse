@@ -102,7 +102,7 @@ export default function Edinaichallenges({ id }) {
   return (
     <section
       id={id}
-      className="w-full bg-black text-white py-16 md:py-20 overflow-hidden"
+      className="w-full bg-black text-white py-9 md:py-12 overflow-hidden"
     >
 
       <div className="max-w-6xl mx-auto px-4 md:px-6">
