@@ -53,7 +53,7 @@ const EdinaiSidebar = ({ isOpen, setIsOpen }) => {
             {/* Close Button Inside Sidebar */}
             <button
               onClick={() => setIsOpen(false)}
-              className="absolute top-4 right-4 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
+              className="absolute top-4 right-14 p-2 text-white/70 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
             >
               <HiX className="w-6 h-6" />
             </button>
