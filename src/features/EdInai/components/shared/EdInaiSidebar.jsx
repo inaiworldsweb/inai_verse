@@ -70,7 +70,7 @@ const EdInaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                             flex items-center justify-between py-4 px-6 
                             bg-transparent border-none cursor-pointer 
                             transition-all duration-300 text-left w-full 
-                            rounded-[10px]-[10px] group
+                            rounded-[10px] group
                             ${activeId === item.id || item.active
                                 ? 'bg-white/5 text-white'
                                 : 'text-[#A1A1A1] hover:text-white hover:bg-white/5'
@@ -99,7 +99,7 @@ const EdInaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                 className="
                     lg:hidden fixed top-6 left-6 z-50
                     p-3 bg-black/50 backdrop-blur-xl border border-white/10 
-                    rounded-[10px]-[10px] text-white
+                    rounded-[10px] text-white
                     hover:bg-white/10 transition-all active:scale-95
                     shadow-2xl
                 "
@@ -130,7 +130,7 @@ const EdInaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
                             className="
                                 absolute top-6 right-6 p-2.5 
                                 text-white/50 hover:text-white 
-                                hover:bg-white/10 rounded-[10px]-[10px]
+                                hover:bg-white/10 rounded-[10px]
                                 transition-all active:scale-90
                             "
                             aria-label="Close navigation menu"

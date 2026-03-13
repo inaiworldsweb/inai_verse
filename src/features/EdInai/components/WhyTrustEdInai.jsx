@@ -77,10 +77,10 @@ const WhyTrustEdInai = ({ id }) => {
                 repeat: Infinity,
                 ease: "easeInOut",
               }}
-              className="w-28 h-28 bg-white rounded-[10px]-[10px] flex items-center justify-center shadow-[0_0_80px_rgba(255,255,255,0.3)]"
+              className="w-28 h-28 bg-white rounded-[10px] flex items-center justify-center shadow-[0_0_80px_rgba(255,255,255,0.3)]"
             >
               <div className="w-14 h-14 bg-black rotate-45 flex items-center justify-center">
-                <div className="w-5 h-5 bg-white rounded-[10px]-[10px]"></div>
+                <div className="w-5 h-5 bg-white rounded-[10px]"></div>
               </div>
             </motion.div>
           </div>
@@ -153,7 +153,7 @@ const WhyTrustEdInai = ({ id }) => {
                 <motion.div
                   whileHover={{ scale: 1.06 }}
                   transition={{ type: "spring", stiffness: 200 }}
-                  className="bg-[#0a0a0a]/80 border border-white/10 w-[280px] py-6 px-5 rounded-[10px]-[10px] backdrop-blur-lg shadow-2xl text-center hover:border-white/40"
+                  className="bg-[#0a0a0a]/80 border border-white/10 w-[280px] py-6 px-5 rounded-[10px] backdrop-blur-lg shadow-2xl text-center hover:border-white/40"
                 >
                   <span className="text-[16px] font-semibold text-gray-200">
                     {point.title}
@@ -166,16 +166,16 @@ const WhyTrustEdInai = ({ id }) => {
 
         {/* Mobile Layout */}
         <div className="md:hidden flex flex-col items-center gap-5">
-          <div className="w-20 h-20 bg-white rounded-[10px]-[10px] flex items-center justify-center mb-8 shadow-lg">
+          <div className="w-20 h-20 bg-white rounded-[10px] flex items-center justify-center mb-8 shadow-lg">
             <div className="w-10 h-10 bg-black rotate-45 flex items-center justify-center">
-              <div className="w-3 h-3 bg-white rounded-[10px]-[10px]"></div>
+              <div className="w-3 h-3 bg-white rounded-[10px]"></div>
             </div>
           </div>
 
           {trustPoints.map((point) => (
             <div
               key={point.id}
-              className="w-full bg-white/5 border border-white/10 p-2 rounded-[10px]-[10px] text-center active:bg-white/10 transition"
+              className="w-full bg-white/5 border border-white/10 p-2 rounded-[10px] text-center active:bg-white/10 transition"
             >
               <span className="text-base font-semibold">{point.title}</span>
             </div>

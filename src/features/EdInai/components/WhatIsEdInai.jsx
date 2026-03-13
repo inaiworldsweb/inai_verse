@@ -17,7 +17,7 @@ const WhatIsEdInai = ({ id }) => {
       className="w-full py-9 md:py-12 px-4 bg-black text-white min-h-[70vh] flex items-center justify-center"
     >
       {/* Main Container: Right corners are 0 */}
-      <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-[40px] rounded-r-none overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
+      <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-[10px] rounded-r-none overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
         
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2">
@@ -26,7 +26,7 @@ const WhatIsEdInai = ({ id }) => {
               src={img}
               alt="AI Classroom"
               /* Image: Right corners set to 0 to match the container */
-              className="w-full h-full object-cover rounded-[30px] rounded-r-none"
+              className="w-full h- scale-106 object-cover rounded-[10px] rounded-r-none"
             />
           </div>
         </div>

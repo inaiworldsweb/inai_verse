@@ -127,13 +127,13 @@ const EdInaiPowerfulLearning = ({ id }) => {
             <div
               key={mode.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="w-full rounded-[10px]-[10px] md:rounded-[10px]-[10px] border border-white/10  overflow-hidden bg-[#0c0c0c] will-change-transform"
+              className="w-full rounded-[10px] md:rounded-[10px] border border-white/10  overflow-hidden bg-[#0c0c0c] will-change-transform"
               style={{ zIndex: index + 20 }}
             >
               <div className="bg-gradient-to-br from-[#151515] to-black flex flex-col md:flex-row items-stretch min-h-[350px] md:h-[400px]">
                 {/* Content */}
                 <div className="w-full md:w-[42%] p-8 md:p-2 md:ps-12 lg:p-12 flex flex-col justify-center order-2 md:order-1">
-                  <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-[10px]-[10px]">
+                  <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-[10px]">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{mode.mode}</span>
                   </div>
                   <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{mode.title}</h2>
@@ -142,7 +142,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
 
                 {/* Image */}
                 <div className="w-full md:w-[50%] md:ml-40 relative overflow-hidden order-1 md:order-2 h-56 md:h-auto">
-                  <img src={mode.image} alt={mode.title} className="absolute inset-0 rounded-[10px]-[10px]-none w-full h-full object-cover transform scale-105 transition-transform duration-700" />
+                  <img src={mode.image} alt={mode.title} className="absolute inset-0 rounded-none w-full h-full object-cover transform scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-transparent pointer-events-none hidden md:block" />
                 </div>
               </div>

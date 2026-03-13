@@ -89,7 +89,7 @@ export default function Edinaichallenges({ id }) {
             {/* Navigation Buttons - Hidden on small mobile, visible on tablet+ */}
             <button
               onClick={movePrev}
-              className="absolute left-0 z-10 p-3 rounded-[10px]-[10px] bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all active:scale-90"
+              className="absolute left-0 z-10 p-3 rounded-[10px] bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all active:scale-90"
               aria-label="Previous"
             >
               <ChevronLeft className="md:w-6 md:h-6 w-4 h-4" />
@@ -109,13 +109,13 @@ export default function Edinaichallenges({ id }) {
                     x: { type: "spring", stiffness: 300, damping: 30 },
                     opacity: { duration: 0.2 },
                   }}
-                  className="flex flex-col items-center justify-center gap-6  rounded-[10px]-[10px] p-10 md:p-16 bg-[#0c0d0e] shadow-2xl"
+                  className="flex flex-col items-center justify-center gap-6  rounded-[10px] p-10 md:p-16 bg-[#0c0d0e] shadow-2xl"
                 >
-                  <div className="p-4 bg-white/5 rounded-[10px]-[10px]">
+                  <div className="p-4 bg-white/5 rounded-[10px]">
                     <img
                       src={allChallenges[currentIndex].icon}
                       alt="Challenge Icon"
-                      className="w-7 h-7 rounded-[10px]-[10px]"
+                      className="w-7 h-7 rounded-[10px]"
                     />
                   </div>
                   <p className="text-center p font-medium text-white tracking-tight">
@@ -127,7 +127,7 @@ export default function Edinaichallenges({ id }) {
 
             <button
               onClick={moveNext}
-              className="absolute right-0 z-10 p-3 rounded-[10px]-[10px] bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all active:scale-90"
+              className="absolute right-0 z-10 p-3 rounded-[10px] bg-white/5 hover:bg-white/10 border border-white/10 text-white transition-all active:scale-90"
               aria-label="Next"
             >
               <ChevronRight className="md:w-6 md:h-6 w-4 h-4" />
@@ -140,7 +140,7 @@ export default function Edinaichallenges({ id }) {
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`transition-all duration-300 rounded-[10px]-[10px] ${
+                className={`transition-all duration-300 rounded-[10px] ${
                   index === currentIndex
                     ? "bg-white w-10 h-2"
                     : "bg-white/20 w-2 h-2 hover:bg-white/40"

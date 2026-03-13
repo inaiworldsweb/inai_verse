@@ -39,7 +39,7 @@ const EdInaiPlatform = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="w-full h-full rounded-[10px]-[10px] md:rounded-[10px]-[10px] object-cover opacity-80"
+                className="w-full h-full rounded-[10px] md:rounded-[10px] object-cover opacity-80"
               />
             </AnimatePresence>
 
@@ -56,7 +56,7 @@ const EdInaiPlatform = () => {
                 </h2>
 
                 {/* Learn More Button */}
-                <div className="group relative mt-6 flex items-center mb-4 gap-4 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px]-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+                <div className="group relative mt-6 flex items-center mb-4 gap-4 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
                   <button className="relative md:px-6 px-3 py-1 md:py-2 text-[15px] md:text-[20px]  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
                     Learn more
                   </button>
@@ -70,7 +70,7 @@ const EdInaiPlatform = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`transition-all duration-300 rounded-[10px]-[10px] border border-white ${currentIndex === index
+                  className={`transition-all duration-300 rounded-[10px] border border-white ${currentIndex === index
                     ? "w-6 h-2 bg-white"
                     : "w-2 h-2 bg-transparent hover:bg-white/30"
                     }`}

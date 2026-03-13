@@ -93,7 +93,7 @@ const SmartFaculties = () => {
             <div className="relative w-full h-full transition-transform duration-700 preserve-3d group-hover:rotate-y-180">
               
               {/* FRONT SIDE */}
-              <div className="absolute inset-0 w-full h-full backface-hidden rounded-[10px]-[10px] bg-[#151515] overflow-hidden border border-white/10 z-20">
+              <div className="absolute inset-0 w-full h-full backface-hidden rounded-[10px] bg-[#151515] overflow-hidden border border-white/10 z-20">
                 <div className="circle-bg top-[-10px] left-[-10px] bg-blue-500"></div>
                 <div className="circle-bg bottom-[-20px] right-[-10px] bg-indigo-600" style={{ animationDelay: "-800ms" }}></div>
                 
@@ -106,17 +106,17 @@ const SmartFaculties = () => {
                         className="w-[85%] h-auto object-contain transition-opacity duration-300 group-hover:opacity-0" 
                       />
                    </div>
-                   <div className="bg-black/40 backdrop-blur-md p-3 rounded-[10px]-[10px] border border-white/10 relative z-20 transition-opacity duration-300 group-hover:opacity-0">
+                   <div className="bg-black/40 backdrop-blur-md p-3 rounded-[10px] border border-white/10 relative z-20 transition-opacity duration-300 group-hover:opacity-0">
                       <p className="font-bold text-center text-lg tracking-wide uppercase">{fac.name}</p>
                    </div>
                 </div>
               </div>
 
               {/* BACK SIDE */}
-              <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[10px]-[10px] bg-[#151515] overflow-hidden flex items-center justify-center border border-white/5 z-10">
+              <div className="absolute inset-0 w-full h-full backface-hidden rotate-y-180 rounded-[10px] bg-[#151515] overflow-hidden flex items-center justify-center border border-white/5 z-10">
                 <div className="back-content-wrapper relative w-full h-full flex items-center justify-center overflow-hidden">
                   {/* Added a solid dark inner div to block any image transparency */}
-                  <div className="relative z-10 bg-[#151515] w-[98.5%] h-[98.5%] rounded-[10px]-[10px] p-8 flex flex-col justify-between items-start text-left shadow-2xl">
+                  <div className="relative z-10 bg-[#151515] w-[98.5%] h-[98.5%] rounded-[10px] p-8 flex flex-col justify-between items-start text-left shadow-2xl">
                     <h4 className="text-white text-[32px] font-bold leading-tight mb-4 tracking-tighter">
                       {fac.name}
                     </h4>
@@ -141,7 +141,7 @@ const SmartFaculties = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="w-full h-full flex flex-col bg-[#151515] border border-white/10 rounded-[10px]-[10px] overflow-hidden"
+              className="w-full h-full flex flex-col bg-[#151515] border border-white/10 rounded-[10px] overflow-hidden"
             >
               <div className="h-[65%] w-full relative bg-[#1c1c1c]">
                 <img src={faculties[currentIndex].image} className="w-full h-full object-contain" alt="AI" />
@@ -156,7 +156,7 @@ const SmartFaculties = () => {
         <div className="flex gap-2 mt-8">
             {faculties.map((_, idx) => (
               <button key={idx} onClick={() => setCurrentIndex(idx)}
-                className={`transition-all duration-300 rounded-[10px]-[10px] h-1.5 ${currentIndex === idx ? "w-8 bg-white" : "w-2 bg-gray-800"}`} />
+                className={`transition-all duration-300 rounded-[10px] h-1.5 ${currentIndex === idx ? "w-8 bg-white" : "w-2 bg-gray-800"}`} />
             ))}
         </div>
       </div>
