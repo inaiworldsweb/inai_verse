@@ -63,7 +63,7 @@ const EdInaiHeader = ({ activeView = 'admin', menuItems, showSubNav = true }) =>
                 <div className="flex items-center gap-2 md:gap-4 flex-shrink-0 ml-2">
                     <Link
                         to="/"
-                        className="bg-transparent border-none text-white cursor-pointer p-1.5 md:p-2 hover:text-white/80 hover:bg-white/5 rounded-lg transition-colors"
+                        className="bg-transparent border-none text-white cursor-pointer p-1.5 md:p-2 hover:text-white/80 hover:bg-white/5 rounded-[10px]-[10px] transition-colors"
                         aria-label="Go to home"
                     >
                         <HiHome className="w-5 h-5 md:w-6 md:h-6" />
@@ -72,7 +72,7 @@ const EdInaiHeader = ({ activeView = 'admin', menuItems, showSubNav = true }) =>
                     <div className="relative" ref={menuRef}>
                         <button
                             type="button"
-                            className="bg-transparent border-none text-white cursor-pointer p-1.5 md:p-2 hover:text-white/80 hover:bg-white/5 rounded-lg transition-colors"
+                            className="bg-transparent border-none text-white cursor-pointer p-1.5 md:p-2 hover:text-white/80 hover:bg-white/5 rounded-[10px]-[10px] transition-colors"
                             aria-label="Open menu"
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
                         >
@@ -80,7 +80,7 @@ const EdInaiHeader = ({ activeView = 'admin', menuItems, showSubNav = true }) =>
                         </button>
 
                         {isMenuOpen && (
-                            <div className="absolute top-full right-0 mt-2 w-48 bg-[#111] border border-white/10 rounded-xl shadow-2xl overflow-hidden py-1 z-50">
+                            <div className="absolute top-full right-0 mt-2 w-48 bg-[#111] border border-white/10 rounded-[10px]-[10px] shadow-2xl overflow-hidden py-1 z-50">
                                 {items.map((item) => (
                                     <Link
                                         key={item.to}

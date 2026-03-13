@@ -105,21 +105,21 @@ const ExaminationEngine = ({ id }) => {
         </div>
 
         {/* --- DESKTOP VIEW --- */}
-        <div className="hidden lg:flex h-[400px] rounded-[40px] border border-white/10 bg-black overflow-hidden">
+        <div className="hidden lg:flex h-[400px] rounded-[10px]-[10px] border border-white/10 bg-black overflow-hidden">
           {/* Sidebar */}
           <div className="w-[35%] bg-white p-8 flex flex-col justify-center gap-4 z-20">
             {examData.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => setActiveTab(index)}
-                className={`group flex items-center py-4 ps-5 px-4 transition-all duration-500 rounded-full text-left ${
+                className={`group flex items-center py-4 ps-5 px-4 transition-all duration-500 rounded-[10px]-[10px] text-left ${
                   activeTab === index
                     ? "bg-black text-white translate-x-12 w-[calc(100%+3rem)] shadow-2xl z-30 border border-white"
                     : "text-black hover:bg-gray-100"
                 }`}
               >
                 <div
-                  className={`w-2 h-2 rounded-full mr-5 ${activeTab === index ? "bg-white" : "bg-black"}`}
+                  className={`w-2 h-2 rounded-[10px]-[10px] mr-5 ${activeTab === index ? "bg-white" : "bg-black"}`}
                 />
                 <h4 className="font-bold text-[16px]">{item.tabTitle}</h4>
               </button>
@@ -164,7 +164,7 @@ const ExaminationEngine = ({ id }) => {
           {examData.map((item, index) => (
             <div
               key={item.id}
-              className="mobile-card sticky top-[100px] w-full bg-[#111] border border-white/10 rounded-[32px] p-6 mb-[6vh] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
+              className="mobile-card sticky top-[100px] w-full bg-[#111] border border-white/10 rounded-[10px]-[10px] p-6 mb-[6vh] shadow-[0_-20px_50px_rgba(0,0,0,0.8)]"
               style={{ zIndex: index + 1 }}
             >
               <div className="flex justify-between items-center mb-4">
@@ -186,7 +186,7 @@ const ExaminationEngine = ({ id }) => {
                   </li>
                 ))}
               </ul>
-              <div className="w-full h-72 rounded-2xl overflow-hidden border border-white/10 bg-black/50">
+              <div className="w-full h-72 rounded-[10px]-[10px] overflow-hidden border border-white/10 bg-black/50">
                 <img
                   src={item.image}
                   className="w-full h-full object-cover"

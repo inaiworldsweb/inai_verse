@@ -120,7 +120,7 @@ const MissionVision = () => {
             {/* Right Column: Animated Image/Graphic */}
             <div className="relative flex justify-center items-center">
               {/* Background Glow Effect */}
-              <div className="absolute w-[300px] h-[300px] bg-blue-600/20 rounded-full blur-[100px]" />
+              <div className="absolute w-[300px] h-[300px] bg-blue-600/20 rounded-[10px]-[10px] blur-[100px]" />
 
               <div className="relative z-10 w-full max-w-[500px]">
                 {/* Circular Energy Frame */}
@@ -128,7 +128,7 @@ const MissionVision = () => {
                   <img
                     src={contentData[activeTab].image}
                     alt={activeTab}
-                    className="w-full h-auto rounded-full shadow-2xl"
+                    className="w-full h-auto rounded-[10px]-[10px] shadow-2xl"
                   />
                 </div>
               </div>

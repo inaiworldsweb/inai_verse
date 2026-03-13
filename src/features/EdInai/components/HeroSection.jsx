@@ -27,7 +27,7 @@ const HeroSection = ({ id }) => {
         </p>
 
         {/* CTA Button with subtle scale effect */}
-        <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20  rounded-[8px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20 mt-4 inline-block">
+        <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20  rounded-[10px]-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20 mt-4 inline-block">
           <button
             type="button"
             onClick={handleGetStarted}

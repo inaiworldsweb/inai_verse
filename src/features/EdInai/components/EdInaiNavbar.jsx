@@ -80,7 +80,7 @@ const EdInaiNavbar = ({
         {showPriceButton && (
           <button
             onClick={() => handleClick("/pricing", onPriceClick)}
-            className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-4 md:px-6 py-1.5 md:py-2 rounded-[7px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20"
+            className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-4 md:px-6 py-1.5 md:py-2 rounded-[10px]-[10px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20"
           >
             Price
           </button>

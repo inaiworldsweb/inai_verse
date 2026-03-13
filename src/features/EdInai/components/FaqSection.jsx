@@ -87,7 +87,7 @@ const FaqSection = ({ id }) => {
                 <div
                   onClick={() => handleToggle(index)}
                   className={`w-full bg-gradient-to-r from-[#0b0b0b] to-[#111827] 
-                  border border-gray-700/50 rounded-xl transition-all duration-300 
+                  border border-gray-700/50 rounded-[10px]-[10px] transition-all duration-300 
                   ease-out cursor-pointer overflow-hidden 
                   ${isOpen ? "border-gray-500" : "hover:border-gray-600"}`}
                 >

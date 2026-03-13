@@ -165,7 +165,7 @@ const FutureSection = () => {
               <div
                 key={idx}
                 ref={leftCardRefs[idx]}
-                className="bg-black border border-gray-600 rounded-2xl p-6 hover:border-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] md:h-70 lg:h-52 flex flex-col justify-center"
+                className="bg-black border border-gray-600 rounded-[10px]-[10px] p-6 hover:border-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] md:h-70 lg:h-52 flex flex-col justify-center"
               >
                 <h3 className="text-xl font-semibold mb-2 text-white">
                   {card.title}
@@ -181,12 +181,12 @@ const FutureSection = () => {
           <div className="w-full flex justify-center items-center py-2 md:py-0 order-1 md:order-2">
             <div
               ref={logoRef}
-              className="relative w-40 h-40 md:w-56 md:h-56 rounded-full bg-black shadow-lg flex items-center justify-center border border-gray-800"
+              className="relative w-40 h-40 md:w-56 md:h-56 rounded-[10px]-[10px] bg-black shadow-lg flex items-center justify-center border border-gray-800"
             >
-              <div className="w-36 h-36 md:w-48 md:h-48 rounded-full bg-black flex items-center justify-center text-2xl md:text-3xl font-black text-white border border-gray-600 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
+              <div className="w-36 h-36 md:w-48 md:h-48 rounded-[10px]-[10px] bg-black flex items-center justify-center text-2xl md:text-3xl font-black text-white border border-gray-600 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
                 EdiNAI
               </div>
-              <div className="absolute -inset-2 rounded-full bg-white/5 blur-2xl -z-10 animate-pulse" />
+              <div className="absolute -inset-2 rounded-[10px]-[10px] bg-white/5 blur-2xl -z-10 animate-pulse" />
             </div>
           </div>
 
@@ -196,7 +196,7 @@ const FutureSection = () => {
               <div
                 key={idx}
                 ref={rightCardRefs[idx]}
-                className="bg-black border border-gray-600 rounded-2xl p-6 hover:border-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] md:h-70 lg:h-52 flex flex-col justify-center"
+                className="bg-black border border-gray-600 rounded-[10px]-[10px] p-6 hover:border-white transition-all duration-500 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] md:h-70 lg:h-52 flex flex-col justify-center"
               >
                 <h3 className="text-xl font-semibold mb-2 text-white">
                   {card.title}
