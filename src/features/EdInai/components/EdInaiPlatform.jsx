@@ -20,9 +20,9 @@ const EdInaiPlatform = () => {
       <div className="max-w-6xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
-          <h1 className="h1 mb-3">Inside the Ed-INAI AI Education Platform</h1>
+          <h1 className="h1 mb-3">Inside the edInai AI Education Platform</h1>
           <h2 className="h2 text-center max-w-7xl mx-auto">
-            From Administration to Learning Ed-INAI Automates, Optimizes, and
+            From Administration to Learning edInai Automates, Optimizes, and
             Personalizes the Entire Education Journey.
           </h2>
         </div>
@@ -70,10 +70,11 @@ const EdInaiPlatform = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentIndex(index)}
-                  className={`transition-all duration-300 rounded-[10px] border border-white ${currentIndex === index
-                    ? "w-6 h-2 bg-white"
-                    : "w-2 h-2 bg-transparent hover:bg-white/30"
-                    }`}
+                  className={`transition-all duration-300 rounded-[10px] border border-white ${
+                    currentIndex === index
+                      ? "w-6 h-2 bg-white"
+                      : "w-2 h-2 bg-transparent hover:bg-white/30"
+                  }`}
                   aria-label={`Go to slide ${index + 1}`}
                 />
               ))}

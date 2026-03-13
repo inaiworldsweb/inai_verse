@@ -1,4 +1,4 @@
-﻿import React , {useState} from "react";
+﻿import React, { useState } from "react";
 import EdinaiSidebar from "./components/EdinaiSidebar";
 import HeroSection from "./components/HeroSection";
 import EdInaiNavbar from "./components/EdInaiNavbar";
@@ -25,10 +25,7 @@ const EdInaiPage = () => {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Sidebar - Fixed on left */}
-      <EdinaiSidebar 
-        isOpen={isSidebarOpen} 
-        setIsOpen={setIsSidebarOpen} 
-      />
+      <EdinaiSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
       {/* Main Content Area - All components on right side */}
       <div className="lg:ml-[280px] flex-1">

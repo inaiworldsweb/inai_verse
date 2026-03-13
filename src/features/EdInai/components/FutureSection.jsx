@@ -4,7 +4,7 @@ const FutureSection = () => {
   const containerRef = useRef(null);
   const svgRef = useRef(null);
   const requestRef = useRef();
-  const pathsRef = useRef([]); 
+  const pathsRef = useRef([]);
   const startTimeRef = useRef(null);
 
   // Card data
@@ -15,7 +15,7 @@ const FutureSection = () => {
     },
     {
       title: "Smart Automation for Institutions",
-      desc: "Ed-INAI simplifies class scheduling, student tracking, and performance monitoring, helping schools and colleges reduce manual work and save time.",
+      desc: "edInai simplifies class scheduling, student tracking, and performance monitoring, helping schools and colleges reduce manual work and save time.",
     },
   ];
   const rightCards = [
@@ -25,7 +25,7 @@ const FutureSection = () => {
     },
     {
       title: "Future-Ready Education",
-      desc: "Ed-INAI supports India's journey toward global education standards by combining innovation, accessibility, and AI-driven teaching.",
+      desc: "edInai supports India's journey toward global education standards by combining innovation, accessibility, and AI-driven teaching.",
     },
   ];
 
@@ -73,17 +73,26 @@ const FutureSection = () => {
       pathsRef.current = [];
 
       cardPositions.forEach((pos) => {
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+        const path = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "path",
+        );
         const controlX = (logoCenter.x + pos.x) / 2;
         const controlY = (logoCenter.y + pos.y) / 2 - 30;
-        path.setAttribute("d", `M ${logoCenter.x},${logoCenter.y} Q ${controlX},${controlY} ${pos.x},${pos.y}`);
+        path.setAttribute(
+          "d",
+          `M ${logoCenter.x},${logoCenter.y} Q ${controlX},${controlY} ${pos.x},${pos.y}`,
+        );
         path.setAttribute("stroke", "#333");
         path.setAttribute("stroke-width", "1");
         path.setAttribute("fill", "none");
         path.setAttribute("stroke-dasharray", "4 4");
         svg.appendChild(path);
 
-        const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+        const dot = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "circle",
+        );
         dot.setAttribute("r", "3");
         dot.setAttribute("fill", "white");
         dot.style.filter = "drop-shadow(0 0 4px white)";
@@ -149,7 +158,7 @@ const FutureSection = () => {
         {/* Header */}
         <div className="text-center mb-4 md:mb-16">
           <h2 className="h1 text-white">
-            How Ed-INAI Is Transforming Indian Education
+            How edInai Is Transforming Indian Education
           </h2>
           <p className="text-gray-400 h2 mt-4 max-w-2xl mx-auto ">
             The Future of AI-Powered, Personalized Learning Across India
@@ -158,7 +167,6 @@ const FutureSection = () => {
 
         {/* Grid Layout: Stacked on mobile, 3-column on desktop */}
         <div className="flex flex-col md:grid md:grid-cols-3 gap-6 md:gap-8 items-center">
-          
           {/* Left Column (Top 2 cards on mobile) */}
           <div className="w-full space-y-6 order-2 md:order-1">
             {leftCards.map((card, idx) => (
@@ -184,7 +192,7 @@ const FutureSection = () => {
               className="relative w-40 h-40 md:w-56 md:h-56 rounded-[10px] bg-black shadow-lg flex items-center justify-center border border-gray-800"
             >
               <div className="w-36 h-36 md:w-48 md:h-48 rounded-[10px] bg-black flex items-center justify-center text-2xl md:text-3xl font-black text-white border border-gray-600 shadow-[inset_0_0_20px_rgba(255,255,255,0.05)]">
-                EdiNAI
+                edInai
               </div>
               <div className="absolute -inset-2 rounded-[10px] bg-white/5 blur-2xl -z-10 animate-pulse" />
             </div>

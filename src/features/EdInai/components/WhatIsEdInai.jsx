@@ -18,7 +18,6 @@ const WhatIsEdInai = ({ id }) => {
     >
       {/* Main Container: Right corners are 0 */}
       <div className="max-w-6xl w-full bg-[#0a0a0a] rounded-[10px] rounded-r-none overflow-hidden border border-gray-800 flex flex-col lg:flex-row items-stretch shadow-2xl">
-        
         {/* Left Side: Image Container */}
         <div className="w-full lg:w-1/2">
           <div className="relative h-full min-h-[300px] md:min-h-[400px]">

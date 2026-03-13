@@ -100,7 +100,7 @@ const ExaminationEngine = ({ id }) => {
             Smart & Scalable Examination Engine
           </h1>
           <h2 className="h2 max-w-4xl mx-auto">
-            Ed-INAI now includes a complete AI-powered exam management solution.
+            edInai now includes a complete AI-powered exam management solution.
           </h2>
         </div>
 
