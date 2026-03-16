@@ -41,16 +41,12 @@ const EdInaiAdminPage = () => {
                     <AdminHero />
                     <EdInaiInside />
                     <EdInaiCommandPanel />
-
-
                     <EdinaiKeyFeature />
                     <EdInaiInstitutionBenefits />
                     <EdInaiEducationProvider />
-
                     <EDInaiHowTosetUp />
                     <EdInaiAdminTrasform />
                     <EdInaiAdminFAQ />
-
                     <EdinaiSiteFooter />
 
                 </main>

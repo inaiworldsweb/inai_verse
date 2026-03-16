@@ -27,7 +27,7 @@ const StudentPersonalised = ({ id }) => {
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Top Static Content */}
-        <div className="text-center mb-5 md:mb-6">
+        <div className="text-center mb-5 md:mb-10">
           <h1 className=" h1 md:text-5xl font-bold mb-4">
             A Personalized Learning Experience
           </h1>
@@ -66,7 +66,7 @@ const StudentPersonalised = ({ id }) => {
         </div>
 
         {/* Dynamic Changing Content */}
-        <div className="text-center mt-10 md:mt-12 min-h-[140px]">
+        <div className="text-center mt-10 md:mt-8 min-h-[140px]">
           <AnimatePresence mode="wait">
             <motion.div
               key={index}

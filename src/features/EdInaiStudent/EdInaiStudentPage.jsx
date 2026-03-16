@@ -8,6 +8,8 @@ import ExamSystem from "./components/ExamSystem";
 import WhyStudentsLove from "./components/WhyStudentsLove";
 import StudentPortal from "./components/StudentPortal";
 
+import FaqSection from "./components/FaqSection";
+
 const EdInaiStudentPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -39,6 +41,7 @@ const EdInaiStudentPage = () => {
        <ExamSystem/>
        <WhyStudentsLove/>
        <StudentPortal/>
+       <FaqSection/>
       </div>
     </div>
   );
