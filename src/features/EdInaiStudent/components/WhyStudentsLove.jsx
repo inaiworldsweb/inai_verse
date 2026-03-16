@@ -30,101 +30,123 @@ const cardData = [
 
 const WhyStudentsLove = ({ id }) => {
   const containerRef = useRef(null);
-  const scrollRef = useRef(null);
+  const cardsContainerRef = useRef(null);
 
   useGSAP(
     () => {
       let mm = gsap.matchMedia();
 
+      // --- DESKTOP: Horizontal Scroll ---
       mm.add("(min-width: 1024px)", () => {
-        const scrollContent = scrollRef.current;
-        // Pura scroll distance calculate kar rahe hain: Total content width - Visible screen width
-        const getScrollAmount = () =>
-          -(scrollContent.scrollWidth - window.innerWidth + 120);
+        const scrollContent = cardsContainerRef.current;
 
         gsap.to(scrollContent, {
-          x: getScrollAmount,
+          x: () => -(scrollContent.scrollWidth - window.innerWidth + 120),
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
-            pin: true, // Jab tak cards khatam nahi honge, page niche nahi jayega
+            pin: true,
             scrub: 1,
             start: "top top",
-            // 'end' itna rakha hai taaki 7th card ke baad hi scroll unlock ho
-            end: () =>
-              `+=${scrollContent.scrollWidth + window.innerWidth * 0.2}`,
+            end: () => `+=${scrollContent.scrollWidth}`,
             invalidateOnRefresh: true,
-            anticipatePin: 1,
           },
         });
       });
 
-      // Mobile Stacking Logic
+      // --- MOBILE: Stacking Effect ---
       mm.add("(max-width: 1023px)", () => {
         const cards = gsap.utils.toArray(".love-card");
+
         cards.forEach((card, i) => {
           ScrollTrigger.create({
             trigger: card,
-            start: `top ${80 + i * 20}px`,
+            start: "top 15%", 
+            endTrigger: containerRef.current,
+            end: "bottom bottom",
             pin: true,
-            pinSpacing: false,
+            pinSpacing: false, 
             scrub: true,
+            invalidateOnRefresh: true,
           });
+
+          // Only subtle scale for depth, NO opacity change
+          if (i < cards.length - 1) {
+            gsap.to(card, {
+              scale: 0.95,
+              scrollTrigger: {
+                trigger: cards[i + 1],
+                start: "top 60%",
+                end: "top 15%",
+                scrub: true,
+              },
+            });
+          }
         });
       });
 
       return () => mm.revert();
     },
-    { scope: containerRef },
+    { scope: containerRef }
   );
 
   return (
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black text-white md:min-h-screen flex flex-col justify-center py-9 md:pt-12 md:pb-0 px-4 overflow-hidden"
+      className="w-full bg-black text-white relative md:py-12 py-9  overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="h1 mb-4 tracking-tight">Why Students Love Ed-INAI</h2>
-        <p className="text-gray-400 h2">
+      {/* Header Section */}
+      <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-100">
+        <h2 className="h1 mb-4">
+          Why Students Love Ed-INAI
+        </h2>
+        <p className="h2">
           More Confidence, Better Results, And Stress-Free Learning.
         </p>
       </div>
 
-      {/* Outer wrapper to contain the flex content */}
-      <div className="relative px-6 md:px-6 h-[400px] flex items-center">
+      {/* Cards Container */}
+      <div className="relative px-6 w-full max-w-6xl mx-auto">
         <div
-          ref={scrollRef}
-          className="flex flex-col lg:flex-row gap-6 lg:gap-10 will-change-transform"
+          ref={cardsContainerRef}
+          className="flex flex-col lg:flex-row gap-8 lg:gap-10"
         >
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="love-card flex-shrink-0 w-full md:w-80.5 h-[300px] md:h-[300px] bg-[#0e0f10] border border-white/10 rounded-[40px] p-10 flex flex-col justify-between relative group hover:border-white/20 transition-all duration-500 shadow-2xl"
+              className={`love-card text-[#ccc] w-full lg:w-[330px] flex-shrink-0 h-[250px] md:h-[280px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-15px_30px_rgba(0,0,0,0.9)] overflow-hidden ${
+                index !== 0 ? "mt-5 lg:mt-0" : "mt-0"
+              }`}
             >
               <div className="relative z-10">
-                <h3 className=" h2 font-semibold ">{card.title}</h3>
+                <span className="text-white/30 text-sm mb-2 block font-mono">
+                  0{index + 1}
+                </span>
+
+                <h3 className="text-xl md:text-2xl font-semibold leading-tight">
+                  {card.title}
+                </h3>
               </div>
 
               <div className="flex justify-between items-end relative z-10">
-                <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-white/10 transition-all duration-500">
+                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-[10px] flex items-center justify-center text-gray-400">
                   {card.icon}
                 </div>
 
-                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black group-hover:bg-white group-hover:text-black transition-all duration-300">
-                  <ChevronRight size={24} />
+                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black">
+                  <ChevronRight size={20} />
                 </div>
               </div>
 
-              {/* Gradient layer */}
-              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none rounded-[40px]" />
+              {/* Internal Gradient - Radius fixed to 10px */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none rounded-[10px]" />
             </div>
           ))}
-
-          {/* Ek extra empty div desktop par padding maintain karne ke liye */}
-          <div className="hidden lg:block w-[10px] flex-shrink-0" />
         </div>
       </div>
+
+      {/* <div className="h-[20vh] lg:hidden" /> */}
     </section>
   );
 };
