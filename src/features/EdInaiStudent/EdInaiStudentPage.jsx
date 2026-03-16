@@ -3,6 +3,10 @@ import EdInaiNavbar from "../EdInai/components/EdInaiNavbar";
 import EdinaiStudentSidebar from "./components/EdinaiStudentSidebar";
 import StudentHero from "./components/StudentHero";
 import StudentPersonalised from "./components/StudentPersonalised";
+import SmartTools from "./components/SmartTools";
+import ExamSystem from "./components/ExamSystem";
+import WhyStudentsLove from "./components/WhyStudentsLove";
+import StudentPortal from "./components/StudentPortal";
 
 const EdInaiStudentPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -30,6 +34,10 @@ const EdInaiStudentPage = () => {
 
        <StudentHero/>
        <StudentPersonalised/>
+       <SmartTools/>
+       <ExamSystem/>
+       <WhyStudentsLove/>
+       <StudentPortal/>
       </div>
     </div>
   );
