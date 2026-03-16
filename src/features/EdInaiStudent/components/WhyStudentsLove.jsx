@@ -39,11 +39,11 @@ const WhyStudentsLove = ({ id }) => {
       // --- DESKTOP: Horizontal Scroll (Fixed for Last Card) ---
       mm.add("(min-width: 1024px)", () => {
         const scrollContent = cardsContainerRef.current;
-        
+
         // Exact scroll calculation: total content minus visible part of the screen
         const getScrollAmount = () => {
-            const contentWidth = scrollContent.scrollWidth;
-            return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
+          const contentWidth = scrollContent.scrollWidth;
+          return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
         };
 
         gsap.to(scrollContent, {
@@ -68,11 +68,11 @@ const WhyStudentsLove = ({ id }) => {
         cards.forEach((card, i) => {
           ScrollTrigger.create({
             trigger: card,
-            start: "top 12%", 
+            start: "top 12%",
             endTrigger: containerRef.current,
-            end: "bottom 80%", 
+            end: "bottom 80%",
             pin: true,
-            pinSpacing: false, 
+            pinSpacing: false,
             scrub: true,
             invalidateOnRefresh: true,
           });
@@ -121,9 +121,8 @@ const WhyStudentsLove = ({ id }) => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
-                index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
-              }`}
+              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
+                }`}
             >
               <div className="relative z-10">
                 <span className="text-white/20 text-sm mb-2 block font-mono tracking-tighter">

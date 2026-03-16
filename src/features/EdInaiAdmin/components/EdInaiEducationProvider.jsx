@@ -61,7 +61,7 @@ const EdInaiEducationProvider = ({ id }) => {
     >
       <div className="max-w-6xl mx-auto px-4 w-full">
         {/* Header */}
-        <div className="text-center mb-6">
+        <div className="text-center mb-12">
           <h2 className="h1 mb-3">Built For Education Providers</h2>
           <p className="h2 max-w-4xl mx-auto">
             Designed For Institutions That Want Scalable And Intelligent

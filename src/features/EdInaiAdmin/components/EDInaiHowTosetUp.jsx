@@ -124,15 +124,15 @@ const EDInaiHowTosetUp = ({ id }) => {
   );
 
   return (
-    <div ref={containerRef} className="bg-black">
+    <section id={id} ref={containerRef} className="bg-black py-9 md:py-12 px-4 md:px-6 overflow-hidden">
       {/* desktop View: Header stays at top */}
-      <div className="max-w-6xl mx-auto px-6 text-center pt-15  hidden md:block">
-        <h2 className="h1 mb-2">How to Set Up Ed-INAI</h2>
+      <div className="max-w-6xl mx-auto text-center mb-12 hidden md:block">
+        <h2 className="h1 mb-3">How to Set Up Ed-INAI</h2>
         <p className="h2">Fast onboarding. Smooth deployment. Instant impact.</p>
       </div>
 
       {/* ── MOBILE VIEW CONTENT (Stacking Cards) ── */}
-      <div className="flex flex-col gap-6 px-4 md:hidden py-9">
+      <div className="flex flex-col gap-6 md:hidden">
         <div className="mb-10 text-center">
           <h2 className="text-3xl font-bold text-white mb-2">How to Set Up</h2>
           <p className="text-white/40 text-sm">Scroll to see the steps</p>
@@ -156,7 +156,7 @@ const EDInaiHowTosetUp = ({ id }) => {
       </div>
 
       {/* ── DESKTOP VIEW CONTENT (Original Logic) ── */}
-      <section className="hidden md:flex w-full h-[80vh] flex-col justify-center items-center overflow-hidden py-12 px-6">
+      <div className="hidden md:flex w-full h-[80vh] flex-col justify-center items-center overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 flex flex-row gap-10 items-center w-full">
           {/* Timeline side */}
           <div className="w-[40%] relative">
@@ -188,8 +188,8 @@ const EDInaiHowTosetUp = ({ id }) => {
             </div>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </section>
   );
 };
 

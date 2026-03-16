@@ -121,9 +121,9 @@ const EdInaiAdminFAQ = () => {
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-12 md:mb-20"
+                    className="text-center mb-12"
                 >
-                    <h2 className="h1 mb-4">
+                    <h2 className="h1 mb-3">
                         Frequently Asked Questions
                     </h2>
                     <p className="h2 max-w-4xl mx-auto">

@@ -133,7 +133,7 @@ const EdinaiKeyFeature = ({ id }) => {
     >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
-        <div ref={headerRef} className="text-center z-10 relative mb-16 md:mb-24">
+        <div ref={headerRef} className="text-center z-10 relative mb-12">
           <h1 className="h1 mb-3 text-white">Powerful Tools for Education Management</h1>
           <p className="h2 text-gray-400">Automate operations. Simplify administration. Enhance outcomes.</p>
         </div>

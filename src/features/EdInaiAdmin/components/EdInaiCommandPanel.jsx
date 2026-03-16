@@ -59,8 +59,8 @@ const EdInaiCommandPanel = ({ id }) => {
       <div className="max-w-6xl mx-auto flex flex-col items-center">
 
         {/* Top Static Content */}
-        <div className="text-center mb-8 md:mb-10">
-          <h2 className="h1 ">
+        <div className="text-center mb-12">
+          <h2 className="h1 mb-3 ">
             Your Central Command Panel
           </h2>
           <p className=" h2 ">

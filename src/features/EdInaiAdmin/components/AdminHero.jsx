@@ -20,7 +20,7 @@ const AdminHero = () => {
         <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
 
         {/* Content Container */}
-        <div className="relative h-full min-h-[450px] flex flex-col items-center justify-center top-0 left-0 w-full px-4 text-center z-10">
+        <div className="relative h-full min-h-[450px] flex flex-col items-center justify-center top-0 left-0 w-full  text-center z-10">
           <h1 className="h1  mb-4 max-w-4xl mx-auto tracking-wide">
             Smart Academic Management with<br className="hidden md:block" /> edInai
           </h1>
