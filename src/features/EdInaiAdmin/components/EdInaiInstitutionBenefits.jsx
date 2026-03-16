@@ -10,7 +10,7 @@ import {
   GraduationCap,
   Heart,
   Boxes,
-  ChevronRight
+  ChevronRight,
 } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -27,94 +27,125 @@ const cardData = [
 
 const EdInaiInstitutionBenefits = ({ id }) => {
   const containerRef = useRef(null);
-  const scrollRef = useRef(null);
+  const cardsContainerRef = useRef(null);
 
-  useGSAP(() => {
-    let mm = gsap.matchMedia();
+  useGSAP(
+    () => {
+      let mm = gsap.matchMedia();
 
-    mm.add("(min-width: 1024px)", () => {
-      const scrollContent = scrollRef.current;
-      // Calculate scroll distance to bring last card fully into view
-      const getScrollAmount = () => -(scrollContent.scrollWidth - window.innerWidth + 120);
+      // --- DESKTOP: Horizontal Scroll (No Changes) ---
+      mm.add("(min-width: 1024px)", () => {
+        const scrollContent = cardsContainerRef.current;
+        const getScrollAmount = () => -(scrollContent.scrollWidth - window.innerWidth + 250);
 
-      gsap.to(scrollContent, {
-        x: getScrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          pin: true,
-          scrub: 1,
-          start: "top top",
-          // End is set slightly longer than the scroll distance to "hold" the last card
-          end: () => `+=${scrollContent.scrollWidth + window.innerWidth * 0.2}`,
-          invalidateOnRefresh: true,
-          anticipatePin: 1,
-        },
-      });
-    });
-
-    mm.add("(max-width: 1023px)", () => {
-      const cards = gsap.utils.toArray(".benefit-card");
-      cards.forEach((card, i) => {
-        ScrollTrigger.create({
-          trigger: card,
-          start: `top ${80 + i * 20}px`,
-          pin: true,
-          pinSpacing: false,
-          scrub: true,
+        gsap.to(scrollContent, {
+          x: getScrollAmount,
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            pin: true,
+            scrub: 1,
+            start: "top top",
+            end: () => `+=${scrollContent.scrollWidth}`,
+            invalidateOnRefresh: true,
+          },
         });
       });
-    });
 
-    return () => mm.revert();
-  }, { scope: containerRef });
+      // --- MOBILE: High-End Stacking (Fixed Header Cutting) ---
+      mm.add("(max-width: 1023px)", () => {
+        const cards = gsap.utils.toArray(".benefit-card");
+
+        cards.forEach((card, i) => {
+          ScrollTrigger.create({
+            trigger: card,
+            // Header ko space dene ke liye 180px niche se sticky hoga
+            start: `top ${2 + (i * 10)}px`,
+            endTrigger: containerRef.current,
+            end: "bottom 80%",
+            pin: true,
+            pinSpacing: false,
+            scrub: true,
+            invalidateOnRefresh: true,
+          });
+
+          // Previous card transition logic
+          if (i < cards.length - 1) {
+            gsap.to(card, {
+              scale: 0.94,
+              opacity: 0.6,
+              filter: "brightness(0.5)",
+              scrollTrigger: {
+                trigger: cards[i + 1],
+                start: "top 60%",
+                end: `top ${180 + (i * 10)}px`,
+                scrub: true,
+              },
+            });
+          }
+        });
+      });
+
+      return () => mm.revert();
+    },
+    { scope: containerRef }
+  );
 
   return (
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black text-white md:min-h-screen flex flex-col justify-center py-20 overflow-hidden"
+      className="w-full bg-black text-white relative py-9 md:py-12 px-4 md:px-6 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 text-center mb-16 px-4">
-        <h2 className="h1 mb-4">
+      {/* Header Section - Increased Z-index and Margin */}
+      <div className="max-w-6xl mx-auto text-center mb-12 relative z-[200]">
+        <h2 className="h1 mt-5 mb-3">
           Why Institutions Choose Ed-INAI
         </h2>
-        <p className="text-gray-400 h2">
+        <p className="h2  mx-auto">
           Smarter operations. Better outcomes. Lower costs.
         </p>
       </div>
 
-      <div className="relative  px-6 md:px-6 h-full flex items-center">
+      {/* Cards Container */}
+      <div className="relative w-full max-w-6xl mx-auto">
         <div
-          ref={scrollRef}
-          className="flex flex-col lg:flex-row gap-6 lg:gap-10 will-change-transform"
+          ref={cardsContainerRef}
+          className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-center"
         >
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="benefit-card flex-shrink-0 w-full md:w-[330px] h-[300px] md:h-[280px] bg-[#0e0f10] border border-white/10 rounded-[40px] p-10 flex flex-col justify-between relative group hover:border-white/20 transition-all duration-500 shadow-2xl"
+              className="benefit-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[260px] bg-[#111214] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-10px_30px_rgba(0,0,0,0.8)] overflow-hidden transition-colors duration-300 hover:border-white/20 will-change-transform"
+              style={{ zIndex: index + 20 }}
             >
               <div className="relative z-10">
-                <h3 className="h2 font-semibold">
+                <span className="text-white/20 text-xs mb-3 block font-mono">
+                  0{index + 1}
+                </span>
+
+                <h3 className="text-xl md:text-2xl font-semibold leading-tight text-white/90">
                   {card.title}
                 </h3>
               </div>
 
               <div className="flex justify-between items-end relative z-10">
-                <div className="w-16 h-16 bg-white/5 border border-white/10 rounded-2xl flex items-center justify-center text-gray-400 group-hover:text-white group-hover:bg-white/10 transition-all duration-500">
+                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-[12px] flex items-center justify-center text-gray-400">
                   {card.icon}
                 </div>
 
-                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black group-hover:bg-white group-hover:text-black transition-all duration-300">
-                  <ChevronRight size={24} />
+                <div className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center bg-black hover:bg-white hover:text-black transition-colors">
+                  <ChevronRight size={18} />
                 </div>
               </div>
 
-              <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none rounded-[40px]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none" />
             </div>
           ))}
 
-          <div className="hidden lg:block w-[10px] flex-shrink-0" />
+          {/* Spacer for Mobile Scroll */}
+          <div className="h-[20vh] lg:hidden" />
+          <div className="hidden lg:block w-[100px] flex-shrink-0 h-1" />
         </div>
       </div>
     </section>

@@ -44,6 +44,8 @@ const WhyStudentsLove = ({ id }) => {
         const getScrollAmount = () => {
           const contentWidth = scrollContent.scrollWidth;
           return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
+          const contentWidth = scrollContent.scrollWidth;
+          return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
         };
 
         gsap.to(scrollContent, {
@@ -119,7 +121,7 @@ const WhyStudentsLove = ({ id }) => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`love-card text-[#ccc] w-full lg:w-77.5 flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
+              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
                 index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
               }`}
             >

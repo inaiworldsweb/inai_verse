@@ -5,7 +5,7 @@ import previewImg from "../../../assets/final/edinai_admin_preview.png";
 
 const EdInaiInside = ({ id }) => {
   return (
-    <section id={id} className="w-full bg-black text-white py-16 md:py-24 px-4 overflow-hidden">
+    <section id={id} className="w-full bg-black text-white py-9 md:py-12 px-4 md:px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         {/* Header Section */}
         <div className="text-center mb-12">

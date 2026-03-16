@@ -3,8 +3,8 @@ import CTAImage from "../../../assets/EdInai_imgs/CTA.png";
 
 const EdInaiAdminTrasform = ({ id }) => {
   return (
-    <section id={id} className="w-full py-9 md:py-12 px-4">
-      <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[10px] min-h-[250px] md:min-h-[450px] flex items-center justify-center text-center p-6 md:p-16">
+    <section id={id} className="w-full py-9 md:py-12 px-4 md:px-6">
+      <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[10px] min-h-[250px] md:min-h-[450px] flex items-center justify-center text-center p-6 md:p-16\">
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
@@ -18,7 +18,7 @@ const EdInaiAdminTrasform = ({ id }) => {
         <div className="absolute inset-0 z-10 bg-black/50 backdrop-blur-[1px]" />
 
         {/* Content Container */}
-        <div className="relative z-20 w-full max-w-4xl mx-auto">
+        <div className="relative z-20 w-full mb-12 max-w-4xl mx-auto">
           <h1 className="h1 mb-6 text-white text-2xl sm:text-3xl md:text-5xl lg:text-6xl">
             Ready to Transform Your Institution?
           </h1>
