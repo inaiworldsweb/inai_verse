@@ -39,11 +39,11 @@ const WhyStudentsLove = ({ id }) => {
       // --- DESKTOP: Horizontal Scroll (Fixed for Last Card) ---
       mm.add("(min-width: 1024px)", () => {
         const scrollContent = cardsContainerRef.current;
-        
+
         // Exact scroll calculation: total content minus visible part of the screen
         const getScrollAmount = () => {
-            const contentWidth = scrollContent.scrollWidth;
-            return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
+          const contentWidth = scrollContent.scrollWidth;
+          return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
         };
 
         gsap.to(scrollContent, {
@@ -68,11 +68,11 @@ const WhyStudentsLove = ({ id }) => {
         cards.forEach((card, i) => {
           ScrollTrigger.create({
             trigger: card,
-            start: "top 12%", 
+            start: "top 12%",
             endTrigger: containerRef.current,
-            end: "bottom 80%", 
+            end: "bottom 80%",
             pin: true,
-            pinSpacing: false, 
+            pinSpacing: false,
             scrub: true,
             invalidateOnRefresh: true,
           });
@@ -93,7 +93,7 @@ const WhyStudentsLove = ({ id }) => {
 
       return () => mm.revert();
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -104,9 +104,7 @@ const WhyStudentsLove = ({ id }) => {
     >
       {/* Header Section */}
       <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-[100]">
-        <h2 className="h1 mb-4  pt-5 ">
-          Why Students Love Ed-INAI
-        </h2>
+        <h2 className="h1 mb-4  pt-5 ">Why Students Love Ed-INAI</h2>
         <p className="h2 text-gray-400 text-lg md:text-xl leading-relaxed">
           More Confidence, Better Results, And Stress-Free Learning.
         </p>
@@ -121,7 +119,7 @@ const WhyStudentsLove = ({ id }) => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
+              className={`love-card text-[#ccc] w-full lg:w-77.5 flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
                 index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
               }`}
             >
