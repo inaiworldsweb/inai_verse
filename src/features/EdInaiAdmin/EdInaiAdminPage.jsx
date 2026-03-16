@@ -2,8 +2,12 @@ import { useState, useEffect } from 'react';
 import EdInaiNavbar from "../EdInai/components/EdInaiNavbar";
 import EdinaiAdminSidebar from "./components/EdinaiAdminSidebar";
 import AdminHero from "./components/AdminHero";
+import EdInaiInside from "./components/EdInaiInside";
 import EdInaiCommandPanel from "./components/EdInaiCommandPanel";
+import EdInaiInstitutionBenefits from "./components/EdInaiInstitutionBenefits";
 import EdinaiKeyFeature from "./components/EdinaiKeyFeature";
+import EdInaiEducationProvider from "./components/EdInaiEducationProvider";
+import EdInaiAdminTrasform from "./components/EdInaiAdminTrasform";
 import EdInaiAdminFAQ from "./components/EdInaiAdminFAQ";
 import EdinaiSiteFooter from "../EdInai/components/EdinaiSiteFooter";
 
@@ -33,8 +37,12 @@ const EdInaiAdminPage = () => {
 
                 <main className="overflow-y-auto bg-black scrollbar-hide">
                     <AdminHero />
+                    <EdInaiInside />
                     <EdInaiCommandPanel />
+                    <EdInaiInstitutionBenefits />
                     <EdinaiKeyFeature />
+                    <EdInaiEducationProvider />
+                    <EdInaiAdminTrasform />
                     <EdInaiAdminFAQ />
 
                     <EdinaiSiteFooter />
