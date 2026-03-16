@@ -116,7 +116,7 @@ const EdInaiInstitutionBenefits = ({ id }) => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="benefit-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[260px] bg-[#111214] border border-white/10 rounded-[20px] p-8 flex flex-col justify-between relative shadow-[0_-10px_30px_rgba(0,0,0,0.8)] overflow-hidden transition-colors duration-300 hover:border-white/20 will-change-transform"
+              className="benefit-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[260px] bg-[#111214] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-10px_30px_rgba(0,0,0,0.8)] overflow-hidden transition-colors duration-300 hover:border-white/20 will-change-transform"
               style={{ zIndex: index + 20 }}
             >
               <div className="relative z-10">
