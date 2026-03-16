@@ -57,7 +57,7 @@ const MissionVision = () => {
   ];
 
   return (
-    <section className="bg-black text-white pt-9 md:py-12 md:pt-18  pb-4 px-4 font-sans overflow-hidden">
+    <section className="bg-black text-white pt-9 md:py-12 md:pt-18 pb-4 px-4 font-sans overflow-hidden">
       <div className="max-w-6xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-5">
@@ -67,7 +67,7 @@ const MissionVision = () => {
         </div>
 
         {/* Custom Tab Switcher */}
-        <div className="flex border-b border-white/10">
+        <div className="flex border-b border-white/10 mb-8">
           {tabs.map((tab) => (
             <button
               key={tab.id}
@@ -89,47 +89,53 @@ const MissionVision = () => {
           ))}
         </div>
 
-        {/* Content Area */}
+        {/* Content Area with Animated Title and Grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4, ease: "easeOut" }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center min-h-[450px]"
           >
-            {/* Left Column: Text Content */}
-            <div className="space-y-4">
-              <h1 className="md:text-[35px] text-[25px] font-bold leading-tight text-start mt-6 md:mt-9 mb-6 md:mb-6">
+            {/* Title Section - Now Outside the Grid for Full Width Impact */}
+            <div className="w-full mb-8 md:mb-12">
+              <h2 className="md:text-[29px]  text-[25px] font-bold leading-tight text-start md:text-center text-white">
                 {contentData[activeTab].title}
-              </h1>
-
-              <p className="p mb-6">{contentData[activeTab].description}</p>
-
-              <ul className="space-y-3">
-                {contentData[activeTab].points.map((point, index) => (
-                  <li key={index} className="flex items-center text-gray-300">
-                    <span className="text-blue-500 mr-3">✔</span>
-                    {point}
-                  </li>
-                ))}
-              </ul>
+              </h2>
             </div>
 
-            {/* Right Column: Animated Image/Graphic */}
-            <div className="relative flex justify-center items-center">
-              {/* Background Glow Effect */}
-              <div className="absolute w-[300px] h-[300px] bg-blue-600/20 rounded-[10px] blur-[100px]" />
+            {/* Two Column Layout for Description and Image */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+              {/* Left Column: Text Content */}
+              <div className="space-y-6">
+                <p className="text-lg text-gray-400 leading-relaxed">
+                  {contentData[activeTab].description}
+                </p>
 
-              <div className="relative z-10 w-full max-w-[500px]">
-                {/* Circular Energy Frame */}
-                <div className="relative p-2  bg-black from-white/5 to-transparent backdrop-blur-sm">
-                  <img
-                    src={contentData[activeTab].image}
-                    alt={activeTab}
-                    className="w-full h-auto rounded-[10px] shadow-2xl"
-                  />
+                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 gap-3">
+                  {contentData[activeTab].points.map((point, index) => (
+                    <li key={index} className="flex items-start text-gray-300">
+                      <span className="text-blue-500 mr-3 mt-1">✔</span>
+                      <span className="text-[15px] md:text-[16px]">{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Right Column: Animated Image/Graphic */}
+              <div className="relative flex justify-center items-center">
+                {/* Background Glow Effect */}
+                <div className="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px] bg-blue-600/15 rounded-full blur-[80px]" />
+
+                <div className="relative   z-10 w-full max-w-[500px]">
+                  <div className="relative p-1 bg-gradient-to-b   from-white/10 scale-85 to-transparent rounded-full  backdrop-blur-sm">
+                    <img
+                      src={contentData[activeTab].image}
+                      alt={activeTab}
+                      className="w-full h-auto rounded-[10px] shadow-2xl"
+                    />
+                  </div>
                 </div>
               </div>
             </div>

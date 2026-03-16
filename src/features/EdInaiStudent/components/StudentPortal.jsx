@@ -20,19 +20,18 @@ const StudentPortal = ({ id }) => {
         </div>
 
         {/* Content Section */}
-        <div className="relative z-10 text-center px-6 max-w-4xl flex flex-col items-center">
-          <h1 className="text-white text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.15] md:leading-tight mb-6 tracking-tight">
-            Start Your AI-Powered <br className="hidden md:block" />
-            Learning Journey Today
+        <div className="relative z-10 text-center px-6 max-w-3xl flex flex-col items-center">
+          <h1 className="text-white h1  leading-[1.15] md:leading-tight mb-6">
+            Start Your AI-Powered <br /> Learning Journey Today
+
           </h1>
 
-          <p className="text-gray-200 text-sm md:text-lg mb-10 max-w-2xl font-light">
-            Join Thousands Of Students Learning Smarter With Ed-INAI's <br className="hidden md:block" />
-            Intelligent Platform.
+          <p className="text-gray-200 h2 text-sm md:text-lg mb-10 max-w-5xl font-light">
+            Join thousands of students learning smarter with edInai's intelligent platform.
           </p>
 
           {/* Styled Button - Image ki tarah exact match */}
-          <button className="bg-white text-black hover:bg-gray-200 transition-all duration-300 px-10 py-4 md:px-12 md:py-5 rounded-full font-bold text-sm md:text-base shadow-[0_10px_40px_rgba(255,255,255,0.1)] active:scale-95">
+          <button className="bg-white text-black hover:bg-gray-200 transition-all duration-300 px-10 py-4 md:px-12 md:py-5 rounded-[10px] font-bold text-sm md:text-base shadow-[0_10px_40px_rgba(255,255,255,0.1)] active:scale-95">
             Access Student Portal
           </button>
         </div>

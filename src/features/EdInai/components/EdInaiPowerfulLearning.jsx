@@ -136,7 +136,7 @@ const EdInaiPowerfulLearning = ({ id }) => {
                   <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-[10px]">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{mode.mode}</span>
                   </div>
-                  <h2 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-4 tracking-tight">{mode.title}</h2>
+                  <h2 className="text-white text-2xl w-[390px] md:text-3xl lg:text-4xl font-bold mb-4">{mode.title}</h2>
                   <p className="text-gray-400 text-sm md:text-base leading-relaxed">{mode.description}</p>
                 </div>
 
