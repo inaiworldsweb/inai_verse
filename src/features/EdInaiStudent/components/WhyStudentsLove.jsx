@@ -44,8 +44,7 @@ const WhyStudentsLove = ({ id }) => {
         const getScrollAmount = () => {
           const contentWidth = scrollContent.scrollWidth;
           return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
-          const contentWidth = scrollContent.scrollWidth;
-          return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
+         
         };
 
         gsap.to(scrollContent, {
