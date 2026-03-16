@@ -2,21 +2,30 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Bell, Clock, PlayCircle, TrendingUp, Zap, Smile, Trophy, ChevronRight } from "lucide-react";
+import {
+  Users,
+  Briefcase,
+  CheckCircle2,
+  Zap,
+  GraduationCap,
+  Heart,
+  Boxes,
+  ChevronRight
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cardData = [
-  { title: "Never Miss A Class", icon: <Bell size={24} /> },
-  { title: "Learn At Your Own Pace", icon: <Clock size={24} /> },
-  { title: "Revise Anytime With Recordings", icon: <PlayCircle size={24} /> },
-  { title: "Improve Exam Scores", icon: <TrendingUp size={24} /> },
-  { title: "Stay Motivated", icon: <Zap size={24} /> },
-  { title: "Reduce Study Stress", icon: <Smile size={24} /> },
-  { title: "Prepare Confidently For Competitive Exams", icon: <Trophy size={24} /> },
+  { title: "Overcome faculty shortages", icon: <Users size={24} /> },
+  { title: "Reduce administrative workload", icon: <Briefcase size={24} /> },
+  { title: "Ensure consistent teaching quality", icon: <CheckCircle2 size={24} /> },
+  { title: "Faster exam preparation", icon: <Zap size={24} /> },
+  { title: "Improve student engagement", icon: <GraduationCap size={24} /> },
+  { title: "Support 24×7 learning ecosystem", icon: <Heart size={24} /> },
+  { title: "Scale across multiple campuses", icon: <Boxes size={24} /> },
 ];
 
-const WhyStudentsLove = ({ id }) => {
+const EdInaiInstitutionBenefits = ({ id }) => {
   const containerRef = useRef(null);
   const scrollRef = useRef(null);
 
@@ -25,7 +34,7 @@ const WhyStudentsLove = ({ id }) => {
 
     mm.add("(min-width: 1024px)", () => {
       const scrollContent = scrollRef.current;
-      // Pura scroll distance calculate kar rahe hain: Total content width - Visible screen width
+      // Calculate scroll distance to bring last card fully into view
       const getScrollAmount = () => -(scrollContent.scrollWidth - window.innerWidth + 120);
 
       gsap.to(scrollContent, {
@@ -33,10 +42,10 @@ const WhyStudentsLove = ({ id }) => {
         ease: "none",
         scrollTrigger: {
           trigger: containerRef.current,
-          pin: true, // Jab tak cards khatam nahi honge, page niche nahi jayega
+          pin: true,
           scrub: 1,
           start: "top top",
-          // 'end' itna rakha hai taaki 7th card ke baad hi scroll unlock ho
+          // End is set slightly longer than the scroll distance to "hold" the last card
           end: () => `+=${scrollContent.scrollWidth + window.innerWidth * 0.2}`,
           invalidateOnRefresh: true,
           anticipatePin: 1,
@@ -44,9 +53,8 @@ const WhyStudentsLove = ({ id }) => {
       });
     });
 
-    // Mobile Stacking Logic
     mm.add("(max-width: 1023px)", () => {
-      const cards = gsap.utils.toArray(".love-card");
+      const cards = gsap.utils.toArray(".benefit-card");
       cards.forEach((card, i) => {
         ScrollTrigger.create({
           trigger: card,
@@ -67,17 +75,16 @@ const WhyStudentsLove = ({ id }) => {
       id={id}
       className="w-full bg-black text-white md:min-h-screen flex flex-col justify-center py-20 overflow-hidden"
     >
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <h2 className="h1 mb-4 tracking-tight">
-          Why Students Love Ed-INAI
+      <div className="max-w-6xl mx-auto px-6 text-center mb-16 px-4">
+        <h2 className="h1 mb-4">
+          Why Institutions Choose Ed-INAI
         </h2>
         <p className="text-gray-400 h2">
-          More Confidence, Better Results, And Stress-Free Learning.
+          Smarter operations. Better outcomes. Lower costs.
         </p>
       </div>
 
-      {/* Outer wrapper to contain the flex content */}
-      <div className="relative px-6 md:px-6 h-full flex items-center">
+      <div className="relative  px-6 md:px-6 h-full flex items-center">
         <div
           ref={scrollRef}
           className="flex flex-col lg:flex-row gap-6 lg:gap-10 will-change-transform"
@@ -85,10 +92,10 @@ const WhyStudentsLove = ({ id }) => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className="love-card flex-shrink-0 w-full md:w-[330px] h-[300px] md:h-[300px] bg-[#0e0f10] border border-white/10 rounded-[40px] p-10 flex flex-col justify-between relative group hover:border-white/20 transition-all duration-500 shadow-2xl"
+              className="benefit-card flex-shrink-0 w-full md:w-[330px] h-[300px] md:h-[280px] bg-[#0e0f10] border border-white/10 rounded-[40px] p-10 flex flex-col justify-between relative group hover:border-white/20 transition-all duration-500 shadow-2xl"
             >
               <div className="relative z-10">
-                <h3 className=" h2 font-semibold ">
+                <h3 className="h2 font-semibold">
                   {card.title}
                 </h3>
               </div>
@@ -103,12 +110,10 @@ const WhyStudentsLove = ({ id }) => {
                 </div>
               </div>
 
-              {/* Gradient layer */}
               <div className="absolute inset-0 bg-gradient-to-b from-white/[0.03] to-transparent pointer-events-none rounded-[40px]" />
             </div>
           ))}
 
-          {/* Ek extra empty div desktop par padding maintain karne ke liye */}
           <div className="hidden lg:block w-[10px] flex-shrink-0" />
         </div>
       </div>
@@ -116,4 +121,4 @@ const WhyStudentsLove = ({ id }) => {
   );
 };
 
-export default WhyStudentsLove;
+export default EdInaiInstitutionBenefits;

@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import office from "../../../assets/EdInai_imgs/office.jpeg";
 
 const EdInaiPlatform = () => {
+  const navigate = useNavigate();
   // Dummy images array (abhi ke liye sabme wahi office image use ki hai)
   const images = [office, office, office, office];
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -57,7 +59,7 @@ const EdInaiPlatform = () => {
 
                 {/* Learn More Button */}
                 <div className="group relative mt-6 flex items-center mb-4 gap-4 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
-                  <button className="relative md:px-6 px-3 py-1 md:py-2 text-[15px] md:text-[20px]  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
+                  <button onClick={() => navigate('/edinai-admin')} className="relative md:px-6 px-3 py-1 md:py-2 text-[15px] md:text-[20px]  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
                     Learn more
                   </button>
                 </div>
