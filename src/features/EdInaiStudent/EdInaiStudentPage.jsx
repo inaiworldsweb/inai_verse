@@ -30,6 +30,7 @@ const EdInaiStudentPage = () => {
           showBorder={false}
           onMenuClick={() => setIsSidebarOpen(true)}
           headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
+          //bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl
         />
 
        <StudentHero/>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const ExamSystem = ({ id }) => {
@@ -22,13 +22,12 @@ const ExamSystem = ({ id }) => {
     {
       id: "02",
       label: "Study Materials Section",
-      title: "Smart Study Materials",
+      title: "Study Materials Section",
       points: [
-        "Download AI-generated summaries",
-        "Access chapter-wise notes",
-        "Watch recorded lecture backup",
-        "Interactive PDF viewer",
-        "Mark important topics for revision",
+        "Access subject-wise PDF materials",
+        "Download revision notes",
+        "Institution-uploaded content",
+        "Organized by exam category",
       ],
       image:
         "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071",
@@ -36,18 +35,26 @@ const ExamSystem = ({ id }) => {
     {
       id: "03",
       label: "AI Mock Test Mode",
-      title: "Real-time AI Mock Tests",
+      title: "AI Mock Test Mode",
       points: [
-        "Practice with competitive questions",
-        "Instant score evaluation",
-        "Get detailed mistake analysis",
-        "Adaptive difficulty level",
-        "All India ranking simulation",
+        "Attempt AI-generated question papers",
+        "Hybrid format (MCQ + Short + Very Short)",
+        "Instant result evaluation",
+        "Answer review with correct solutions",
+        "Performance analytics",
       ],
       image:
         "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
     },
   ];
+
+  // Mobile Carousel Auto-play Logic
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveTab((prev) => (prev + 1) % features.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [features.length]);
 
   return (
     <section
@@ -55,29 +62,28 @@ const ExamSystem = ({ id }) => {
       className="w-full bg-black text-white py-6 md:py-0 md:min-h-screen flex items-center overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-4 w-full">
-        {/* Header - Hamesha Visible */}
+        {/* Header */}
         <div className="text-center mb-6">
           <h2 className="h1 mb-4">Practice, Attempt & Track Exams Anytime</h2>
           <p className="h2 max-w-3xl mx-auto">
-            Students Now Get Access To A Complete AI-Based Exam System Inside
-            The Portal.
+            Students now get access to a complete AI-based exam system inside
+            the portal.
           </p>
         </div>
 
         {/* Main Card Section */}
-        <div className="bg-[#0e0f10] border border-white/10 rounded-[10px] mb-1 h-[350px] overflow-hidden">
-          {/* Mobile Layout: Direct Stack | Desktop Layout: 2 Columns */}
-          <div className="flex h-full flex-col lg:flex-row gap-8 lg:gap-16 items-center">
+        <div className="bg-[#0e0f10] border border-white/10 rounded-[10px] mb-6 md:mb-1 h-auto md:h-[350px] overflow-hidden">
+          <div className="flex h-full flex-col lg:flex-row items-center">
             {/* Image Box */}
-            <div className="w-full lg:w-1/2 h-full relative overflow-hidden">
+            <div className="w-full lg:w-1/2 h-64 md:h-full relative overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeTab}
                   src={features[activeTab].image}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.4 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -20 }}
+                  transition={{ duration: 0.5 }}
                   className="w-full h-full object-cover"
                   alt="Exam System"
                 />
@@ -85,7 +91,7 @@ const ExamSystem = ({ id }) => {
             </div>
 
             {/* Text Box */}
-            <div className="w-full lg:w-1/2">
+            <div className="w-full lg:w-1/2 p-6 md:p-10">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={activeTab}
@@ -94,10 +100,10 @@ const ExamSystem = ({ id }) => {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h3 className="text-2xl md:text-4xl font-bold mb-6 text-white">
+                  <h3 className="text-xl md:text-4xl font-bold mb-4 md:mb-6 text-white">
                     {features[activeTab].title}
                   </h3>
-                  <ul className="space-y-4">
+                  <ul className="space-y-2 md:space-y-4">
                     {features[activeTab].points.map((point, i) => (
                       <li
                         key={i}
@@ -116,28 +122,26 @@ const ExamSystem = ({ id }) => {
           </div>
         </div>
 
-        {/* Navigation Tabs - Mobile par normal stack, Tablet/Laptop par grid */}
+        {/* Navigation Tabs/Dots */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 border-t border-white/5 pt-8">
           {features.map((feature, idx) => (
             <button
               key={idx}
               onClick={() => setActiveTab(idx)}
-              className="group text-left focus:outline-none relative pb-4"
+              className="group text-left focus:outline-none relative pb-4 md:block hidden"
             >
               <div className="flex items-center justify-between mb-2">
                 <span
-                  className={`font-mono text-xs md:text-sm ${activeTab === idx ? "text-white" : "text-gray-600"}`}
+                  className={`font-mono text-xs md:text-sm ${
+                    activeTab === idx ? "text-white" : "text-gray-600"
+                  }`}
                 >
                   {feature.id}
                 </span>
-                {/* Mobile Active Indicator */}
-                {activeTab === idx && (
-                  <span className="md:hidden w-2 h-2 rounded-full bg-white" />
-                )}
               </div>
 
-              {/* Progress Line */}
-              <div className="hidden md:block h-[2px] w-full bg-white/10 mb-4 relative overflow-hidden">
+              {/* Progress Line Desktop */}
+              <div className="h-[2px] w-full bg-white/10 mb-4 relative overflow-hidden">
                 {activeTab === idx && (
                   <motion.div
                     layoutId="activeUnderline"
@@ -155,13 +159,21 @@ const ExamSystem = ({ id }) => {
               >
                 {feature.label}
               </h4>
-
-              {/* Mobile Underline (Only Active) */}
-              {activeTab === idx && (
-                <div className="md:hidden absolute bottom-0 left-0 w-full h-[2px] bg-white" />
-              )}
             </button>
           ))}
+          
+          {/* Carousel Dots - Mobile Only */}
+          <div className="flex md:hidden justify-center gap-3 w-full pb-4">
+            {features.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveTab(idx)}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeTab === idx ? "w-8 bg-white" : "w-2 bg-white/20"
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

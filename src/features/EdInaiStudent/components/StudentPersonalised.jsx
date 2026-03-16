@@ -37,7 +37,7 @@ const StudentPersonalised = ({ id }) => {
         </div>
 
         {/* Carousel Image Area */}
-        <div className="relative w-full aspect-video md:h-[400px] overflow-hidden rounded-3xl border border-white/10">
+        <div className="relative w-full aspect-video md:h-[400px] overflow-hidden rounded-[10px] border border-white/10">
           <AnimatePresence mode="wait">
             <motion.img
               key={index}

@@ -48,7 +48,7 @@ const SmartTools = ({ id }) => {
       <div className="max-w-6xl mx-auto">
         
         {/* Header Section */}
-        <div className="text-center mb-5 md:mb-7">
+        <div className="text-center mb-5 md:mb-8">
           <h2 className="h1 mb-4 tracking-tight">
             Powerful Tools for Smarter Learning
           </h2>
