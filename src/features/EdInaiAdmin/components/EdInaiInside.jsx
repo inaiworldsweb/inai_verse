@@ -26,6 +26,17 @@ const EdInaiInside = ({ id }) => {
           >
             A centralized control system for planning, delivery, and academic monitoring.
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="mt-3 text-center"
+          >
+            <p className="p max-w-6xl mx-auto px-4">
+              Ed-INAI is a smart learning automation platform that unifies planning, teaching delivery, and performance tracking into one coordinated system. It helps institutions streamline operations and deliver consistent education across devices and locations.
+            </p>
+          </motion.div>
         </div>
 
         {/* Video Preview Section */}
@@ -55,17 +66,7 @@ const EdInaiInside = ({ id }) => {
         </motion.div>
 
         {/* Bottom Description Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="mt-12 text-center"
-        >
-          <p className="p max-w-6xl mx-auto px-4">
-            Ed-INAI is a smart learning automation platform that unifies planning, teaching delivery, and performance tracking into one coordinated system. It helps institutions streamline operations and deliver consistent education across devices and locations.
-          </p>
-        </motion.div>
+
       </div>
     </section>
   );

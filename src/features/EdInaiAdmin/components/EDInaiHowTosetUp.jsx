@@ -156,8 +156,8 @@ const EDInaiHowTosetUp = ({ id }) => {
       </div>
 
       {/* ── DESKTOP VIEW CONTENT (Original Logic) ── */}
-      <div className="hidden md:flex w-full h-[80vh] flex-col justify-center items-center overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 flex flex-row gap-10 items-center w-full">
+      <div className="hidden md:flex w-full h-[70vh] flex-col justify-center items-center overflow-hidden">
+        <div className="max-w-6xl mx-auto  flex flex-row gap-10 items-center w-full">
           {/* Timeline side */}
           <div className="w-[40%] relative">
             <div className="absolute left-[19px] top-0 bottom-0 w-[1px] bg-white/10" />
