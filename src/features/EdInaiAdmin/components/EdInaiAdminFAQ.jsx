@@ -17,7 +17,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 ease-out cursor-pointer overflow-hidden 
                 ${isOpen ? 'border-gray-500' : 'hover:border-gray-600'}`}
             >
-                <div className="p-6 flex items-center justify-between relative z-10">
+                <div className="p-4 flex items-center justify-between relative z-10">
                     <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white ">
                         {question}
                     </h3>
@@ -27,14 +27,14 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="text-white text-2xl font-light flex-shrink-0"
                     >
-                        <svg 
-                            width="20" 
-                            height="20" 
-                            viewBox="0 0 24 24" 
-                            fill="none" 
-                            stroke="currentColor" 
-                            strokeWidth="2" 
-                            strokeLinecap="round" 
+                        <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
                             strokeLinejoin="round"
                         >
                             <line x1="12" y1="5" x2="12" y2="19"></line>
@@ -51,7 +51,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="border-t border-gray-700/30 p-6">
+                            <div className="border-t border-gray-700/30 p-4">
                                 <p className="text-[#ccc] text-[1rem] leading-relaxed">
                                     {answer}
                                 </p>
@@ -115,7 +115,7 @@ const EdInaiAdminFAQ = () => {
     ];
 
     return (
-        <section className="py-12 md:py-24 bg-black">
+        <section className="py-9 md:py-12 px-4 md:px-6 bg-black">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -126,7 +126,7 @@ const EdInaiAdminFAQ = () => {
                     <h2 className="h1 mb-4">
                         Frequently Asked Questions
                     </h2>
-                    <p className="h2 max-w-2xl mx-auto">
+                    <p className="h2 max-w-4xl mx-auto">
                         Everything you need to know about the Ed-INAI Admin Portal and its capabilities.
                     </p>
                 </motion.div>

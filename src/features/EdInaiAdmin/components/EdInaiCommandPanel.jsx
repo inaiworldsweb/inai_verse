@@ -55,7 +55,7 @@ const EdInaiCommandPanel = ({ id }) => {
   }, [carouselData.length]);
 
   return (
-    <section id={id} className="w-full  py-9 md:py-12 overflow-hidden">
+    <section id={id} className="w-full py-9 md:py-12 px-4 md:px-6 overflow-hidden">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
 
         {/* Top Static Content */}
@@ -70,32 +70,28 @@ const EdInaiCommandPanel = ({ id }) => {
         </div>
 
         {/* Carousel Image Area */}
-        <div className="relative w-full aspect-video md:h-[450px] overflow-hidden rounded-[10px] md:rounded-[10px] border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.05)]">
+        <div className="relative w-full aspect-video md:h-[450px] overflow-hidden rounded-[10px] border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.05)]">
           <AnimatePresence mode="wait">
             <motion.img
               key={index}
               src={carouselData[index].image}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
               className="w-full h-full object-cover"
               alt={carouselData[index].title}
             />
           </AnimatePresence>
 
-          {/* Dark Overlay gradient inside image bottom for better dot visibility */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
-
           {/* Indicators (Dots) overlay on image bottom */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-20">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
             {carouselData.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setIndex(i)}
-                className={`transition-all duration-300 rounded-full border border-white/40 ${i === index ? "w-8 h-2.5 bg-white border-white" : "w-2.5 h-2.5 bg-transparent hover:bg-white/40"
+                className={`transition-all duration-300 rounded-full ${i === index ? "w-8 h-2 bg-white" : "w-2 h-2 bg-white/40"
                   }`}
-                aria-label={`Go to slide ${i + 1}`}
               />
             ))}
           </div>
@@ -104,22 +100,20 @@ const EdInaiCommandPanel = ({ id }) => {
         {/* Dynamic Changing Content */}
         <div className="text-center mt-10 md:mt-12 min-h-[140px] max-w-4xl">
           <AnimatePresence mode="wait">
-            <motion.div
+            <motion.h3
               key={index}
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col items-center"
+              className="text-2xl md:text-3xl font-bold mb-4"
             >
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                {carouselData[index].title}
-              </h3>
-              <p className="p max-w-3xl mx-auto leading-relaxed text-gray-400">
-                {carouselData[index].desc}
-              </p>
-            </motion.div>
+              {carouselData[index].title}
+            </motion.h3>
           </AnimatePresence>
+          <p className="p max-w-6xl mx-auto leading-relaxed text-gray-400">
+            {sharedDesc}
+          </p>
         </div>
 
       </div>
