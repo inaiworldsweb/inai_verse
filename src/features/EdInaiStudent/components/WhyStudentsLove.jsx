@@ -36,48 +36,54 @@ const WhyStudentsLove = ({ id }) => {
     () => {
       let mm = gsap.matchMedia();
 
-      // --- DESKTOP: Horizontal Scroll ---
+      // --- DESKTOP: Horizontal Scroll (Fixed for Last Card) ---
       mm.add("(min-width: 1024px)", () => {
         const scrollContent = cardsContainerRef.current;
+        
+        // Exact scroll calculation: total content minus visible part of the screen
+        const getScrollAmount = () => {
+            const contentWidth = scrollContent.scrollWidth;
+            return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
+        };
 
         gsap.to(scrollContent, {
-          x: () => -(scrollContent.scrollWidth - window.innerWidth + 120),
+          x: getScrollAmount,
           ease: "none",
           scrollTrigger: {
             trigger: containerRef.current,
             pin: true,
             scrub: 1,
             start: "top top",
+            // Scroll distance content ki width ke proportional rakha hai
             end: () => `+=${scrollContent.scrollWidth}`,
             invalidateOnRefresh: true,
           },
         });
       });
 
-      // --- MOBILE: Stacking Effect ---
+      // --- MOBILE: High-End Stacking ---
       mm.add("(max-width: 1023px)", () => {
         const cards = gsap.utils.toArray(".love-card");
 
         cards.forEach((card, i) => {
           ScrollTrigger.create({
             trigger: card,
-            start: "top 15%", 
+            start: "top 12%", 
             endTrigger: containerRef.current,
-            end: "bottom bottom",
+            end: "bottom 80%", 
             pin: true,
             pinSpacing: false, 
             scrub: true,
             invalidateOnRefresh: true,
           });
 
-          // Only subtle scale for depth, NO opacity change
           if (i < cards.length - 1) {
             gsap.to(card, {
               scale: 0.95,
               scrollTrigger: {
                 trigger: cards[i + 1],
                 start: "top 60%",
-                end: "top 15%",
+                end: "top 12%",
                 scrub: true,
               },
             });
@@ -94,14 +100,14 @@ const WhyStudentsLove = ({ id }) => {
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black text-white relative md:py-12 py-9  overflow-hidden"
+      className="w-full bg-black text-white relative md:py-12 py-9 overflow-hidden"
     >
       {/* Header Section */}
-      <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-100">
-        <h2 className="h1 mb-4">
+      <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-[100]">
+        <h2 className="h1 mb-4  pt-5 ">
           Why Students Love Ed-INAI
         </h2>
-        <p className="h2">
+        <p className="h2 text-gray-400 text-lg md:text-xl leading-relaxed">
           More Confidence, Better Results, And Stress-Free Learning.
         </p>
       </div>
@@ -110,21 +116,21 @@ const WhyStudentsLove = ({ id }) => {
       <div className="relative px-6 w-full max-w-6xl mx-auto">
         <div
           ref={cardsContainerRef}
-          className="flex flex-col lg:flex-row gap-8 lg:gap-10"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-center"
         >
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`love-card text-[#ccc] w-full lg:w-[330px] flex-shrink-0 h-[250px] md:h-[280px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-15px_30px_rgba(0,0,0,0.9)] overflow-hidden ${
-                index !== 0 ? "mt-5 lg:mt-0" : "mt-0"
+              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
+                index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
               }`}
             >
               <div className="relative z-10">
-                <span className="text-white/30 text-sm mb-2 block font-mono">
+                <span className="text-white/20 text-sm mb-2 block font-mono tracking-tighter">
                   0{index + 1}
                 </span>
 
-                <h3 className="text-xl md:text-2xl font-semibold leading-tight">
+                <h3 className="text-xl md:text-2xl font-semibold leading-tight text-white group-hover:text-white">
                   {card.title}
                 </h3>
               </div>
@@ -134,19 +140,19 @@ const WhyStudentsLove = ({ id }) => {
                   {card.icon}
                 </div>
 
-                <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center bg-black">
-                  <ChevronRight size={20} />
+                <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center bg-black">
+                  <ChevronRight size={18} />
                 </div>
               </div>
 
-              {/* Internal Gradient - Radius fixed to 10px */}
-              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.03] to-transparent pointer-events-none rounded-[10px]" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/[0.04] to-transparent pointer-events-none rounded-[10px]" />
             </div>
           ))}
+
+          {/* DESKTOP SPACER: Ye zaruri hai last card ko screen ke andar lane ke liye */}
+          <div className="hidden lg:block w-[100px] flex-shrink-0 h-1" />
         </div>
       </div>
-
-      {/* <div className="h-[20vh] lg:hidden" /> */}
     </section>
   );
 };

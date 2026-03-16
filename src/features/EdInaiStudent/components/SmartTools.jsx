@@ -44,7 +44,7 @@ const tools = [
 
 const SmartTools = ({ id }) => {
   return (
-    <section id={id} className="w-full bg-black text-white py-9 md:py-20 px-4">
+    <section id={id} className="w-full bg-black text-white py-9 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         
         {/* Header Section */}
