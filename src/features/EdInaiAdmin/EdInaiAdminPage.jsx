@@ -8,6 +8,8 @@ import EdInaiInstitutionBenefits from "./components/EdInaiInstitutionBenefits";
 import EdinaiKeyFeature from "./components/EdinaiKeyFeature";
 import EdInaiEducationProvider from "./components/EdInaiEducationProvider";
 import EdInaiAdminTrasform from "./components/EdInaiAdminTrasform";
+import EDInaiHowTosetUp from "./components/EDInaiHowTosetUp";
+
 import EdInaiAdminFAQ from "./components/EdInaiAdminFAQ";
 import EdinaiSiteFooter from "../EdInai/components/EdinaiSiteFooter";
 
@@ -20,7 +22,7 @@ const EdInaiAdminPage = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white font-sans">
+        <div className="min-h-screen bg-black text-white">
             <EdinaiAdminSidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
 
             <div className="lg:ml-[280px] flex-1">
@@ -39,9 +41,13 @@ const EdInaiAdminPage = () => {
                     <AdminHero />
                     <EdInaiInside />
                     <EdInaiCommandPanel />
-                    <EdInaiInstitutionBenefits />
+
+
                     <EdinaiKeyFeature />
+                    <EdInaiInstitutionBenefits />
                     <EdInaiEducationProvider />
+
+                    <EDInaiHowTosetUp />
                     <EdInaiAdminTrasform />
                     <EdInaiAdminFAQ />
 
