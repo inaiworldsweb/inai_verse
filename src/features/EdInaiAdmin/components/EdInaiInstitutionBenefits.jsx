@@ -60,7 +60,7 @@ const EdInaiInstitutionBenefits = ({ id }) => {
           ScrollTrigger.create({
             trigger: card,
             // Header ko space dene ke liye 180px niche se sticky hoga
-            start: `top ${5 + (i * 10)}px`,
+            start: `top ${2 + (i * 10)}px`,
             endTrigger: containerRef.current,
             end: "bottom 80%",
             pin: true,
@@ -95,14 +95,14 @@ const EdInaiInstitutionBenefits = ({ id }) => {
     <section
       ref={containerRef}
       id={id}
-      className="w-full bg-black text-white relative py-12 md:py-20 px-4 md:px-6 overflow-hidden"
+      className="w-full bg-black text-white relative py-9 md:py-12 px-4 md:px-6 overflow-hidden"
     >
       {/* Header Section - Increased Z-index and Margin */}
-      <div className="max-w-6xl mx-auto text-center mb-20 relative z-[200]">
-        <h2 className="text-3xl md:text-5xl font-bold mb-4">
+      <div className="max-w-6xl mx-auto text-center mb-12 relative z-[200]">
+        <h2 className="h1 mt-5 mb-3">
           Why Institutions Choose Ed-INAI
         </h2>
-        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+        <p className="h2  mx-auto">
           Smarter operations. Better outcomes. Lower costs.
         </p>
       </div>

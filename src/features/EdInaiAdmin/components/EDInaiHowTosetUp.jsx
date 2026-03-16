@@ -127,14 +127,14 @@ const EDInaiHowTosetUp = ({ id }) => {
     <section id={id} ref={containerRef} className="bg-black py-9 md:py-12 px-4 md:px-6 overflow-hidden">
       {/* desktop View: Header stays at top */}
       <div className="max-w-6xl mx-auto text-center mb-12 hidden md:block">
-        <h2 className="h1 mb-3">How to Set Up Ed-INAI</h2>
+        <h2 className="h1 mb-3 mt-5">How to Set Up Ed-INAI</h2>
         <p className="h2">Fast onboarding. Smooth deployment. Instant impact.</p>
       </div>
 
       {/* ── MOBILE VIEW CONTENT (Stacking Cards) ── */}
       <div className="flex flex-col gap-6 md:hidden">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl font-bold text-white mb-2">How to Set Up</h2>
+        <div className=" text-center">
+          <h2 className="text-4xl font-bold text-white mb-2">How to Set Up</h2>
           <p className="text-white/40 text-sm">Scroll to see the steps</p>
         </div>
         {steps.map((step, index) => (
