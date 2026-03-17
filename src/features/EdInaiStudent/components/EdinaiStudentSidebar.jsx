@@ -55,8 +55,7 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
               <HiX className="w-6 h-6" />
             </button>
 
-            {/* Logo */}
-            <div className="pt-12 px-6 flex justify-center">
+            <div className="pt-12 px-6 flex justify-center md:flex">
               <Link to="/">
                 <img
                   src={logoImage}
@@ -78,7 +77,7 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
                       {item}
                     </button>
                     {/* 50% Opacity White Line */}
-                    <div className="h-[1px] w-full bg-[#757474]" />
+                    <div className="h-px w-full bg-[#757474]" />
                   </div>
                 ))}
               </nav>
@@ -118,7 +117,7 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
             />
           </Link>
         </div>
-        
+
         <div className="flex-1">
           <SideMenu
             items={navItems}
@@ -129,8 +128,18 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
 
         {/* Desktop Bottom Portals */}
         <div className="mt-auto pt-6 border-t border-white/10 space-y-2">
-           <Link to="/student-portal" className="block text-white/60 hover:text-blue-400 text-sm py-2 transition-colors">Student Portal</Link>
-           <Link to="/admin-portal" className="block text-white/60 hover:text-blue-400 text-sm py-2 transition-colors">Admin Portal</Link>
+          <Link
+            to="/student-portal"
+            className="block text-white/60 hover:text-blue-400 text-sm py-2 transition-colors"
+          >
+            Student Portal
+          </Link>
+          <Link
+            to="/admin-portal"
+            className="block text-white/60 hover:text-blue-400 text-sm py-2 transition-colors"
+          >
+            Admin Portal
+          </Link>
         </div>
       </aside>
     </>
