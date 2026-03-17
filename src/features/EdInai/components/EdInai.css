@@ -1,0 +1,58 @@
+/* Mobile Styles (Default) */
+.h1 {
+  font-size: 1.5625rem;
+  font-weight: 700; /* Bold */
+  letter-spacing: 1px;
+ 
+}
+
+
+.h2 {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #ccc;
+
+   /* Medium/Semi-bold */
+}
+.h3 {
+  font-size: 1.875rem;
+  font-weight: 700; /* Semi-bold */
+  letter-spacing: 1px;
+}
+
+.p {
+  font-size: 1rem;
+  color: #ccc;
+ 
+}
+
+/* Tablet & Desktop Styles (Media Query) */
+/* 768px se upar ki screens ke liye font size badal jayega */
+@media (min-width: 768px) {
+  .h1 {
+    font-size: 2.5rem;
+     font-weight: 700; /* Bold */
+  letter-spacing: 1px;
+  }
+
+  .sp-h{
+    font-size: 30px;
+  }
+
+  .h2 {
+    font-size: 1.3125rem;
+     font-weight: 500;
+  color: #ccc;
+  }
+  
+  .h3 {
+    font-size: 3.25rem;
+    font-weight: 700; /* Semi-bold */
+  letter-spacing: 1px;
+  }
+
+  .p {
+    font-size: 1.125rem;
+    color: #ccc;
+  }
+}
