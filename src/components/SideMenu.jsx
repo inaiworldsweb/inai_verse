@@ -30,8 +30,9 @@ const SideMenu = ({
 
   return (
     <aside className={`flex flex-col ${className}`}>
+      {/* Logo Section - Hidden on Mobile, Visible from Tablet (md) and up */}
       {logoSrc && (
-        <div className="flex justify-center p-4 w-full">
+        <div className="hidden md:flex justify-center p-4 w-full">
           <img
             src={logoSrc}
             alt="Logo"
@@ -39,6 +40,7 @@ const SideMenu = ({
           />
         </div>
       )}
+      
       <nav className="flex flex-col gap-2">
         {items.map((item) => (
           <button
