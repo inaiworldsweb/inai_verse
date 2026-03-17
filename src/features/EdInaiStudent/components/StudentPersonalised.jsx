@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import img1 from "../../../assets/EdInai_Student_imgs/A Personalized Learning Experience/Attend live AI lectures.webp";
+import img2 from "../../../assets/EdInai_Student_imgs/A Personalized Learning Experience/Access recorded classes.webp";
+import img3 from "../../../assets/EdInai_Student_imgs/A Personalized Learning Experience/View study materials.webp";
+import img4 from "../../../assets/EdInai_Student_imgs/A Personalized Learning Experience/Attempt AI-generated exams.webp";
+import img5 from "../../../assets/EdInai_Student_imgs/A Personalized Learning Experience/Track academic progress.webp";
+import img6 from "../../../assets/EdInai_Student_imgs/A Personalized Learning Experience/Practice topic-wise tests.webp";
 
 const StudentPersonalised = ({ id }) => {
   // Aap yahan apni images import karke dalo
@@ -7,32 +13,32 @@ const StudentPersonalised = ({ id }) => {
     {
       title: "Attend live AI lectures",
       image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
+        img1,
     },
     {
       title: "Access recorded classes",
       image:
-        "https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?q=80&w=2070",
+        img2,
     },
     {
       title: "View study materials",
       image:
-        "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?q=80&w=2073",
+        img3,
     },
     {
       title: "Attempt AI-generated exams",
       image:
-        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070",
+        img4,
     },
     {
       title: "Track academic progress",
       image:
-        "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070",
+        img5,
     },
     {
       title: "Practice topic-wise tests",
       image:
-        "https://images.unsplash.com/photo-1454165833267-028cc21e7867?q=80&w=2070",
+        img6,
     },
   ];
 
@@ -76,7 +82,7 @@ const StudentPersonalised = ({ id }) => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                   alt={carouselData[index].title}
                 />
               </AnimatePresence>

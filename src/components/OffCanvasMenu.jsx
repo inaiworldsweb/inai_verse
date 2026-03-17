@@ -28,9 +28,9 @@ const OffCanvasMenu = ({ isOpen, onClose }) => {
   ];
 
   const products = [
-    { name: "EdInai", href: "/EdInaiPage" },
+    { name: "EdInai", href: "/edinai" },
     { name: "Miraai", href: "/miraai" },
-    { name: "Vantage AI", href: "/vantage-ai" },
+    { name: "Vantage AI", href: "/community" },
   ];
 
   if (!isOpen) return null;
