@@ -30,15 +30,15 @@ const MiraaiBenefits = () => {
     ];
 
     return (
-        <section className="py-3 md:py-8 lg:py-12 bg-black relative overflow-hidden">
+        <section className="py-10 md:py-16  bg-black relative overflow-hidden">
             <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-20">
-                <div className="text-center mb-8 md:mb-10 lg:mb-12">
+                <div className="text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
-                        className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-black mb-4 md:mb-5 lg:mb-6 tracking-[1px] [font-stretch:700%] text-white"
+                        className="text-[1.75rem] md:text-[2rem] lg:text-[2.5rem] font-black tracking-[1px] [font-stretch:700%] text-white"
                     >
                         Why Choose Miraai?
                     </motion.h2>
@@ -68,11 +68,11 @@ const MiraaiBenefits = () => {
                                 {benefit.icon}
                             </div>
 
-                            <div className="text-3xl md:text-4xl font-black mb-8 text-transparent bg-clip-text bg-gradient-to-br from-white to-white/20 group-hover:from-purple-400 group-hover:to-white transition-all duration-500">
+                            <div className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-white/20 group-hover:from-purple-400 group-hover:to-white transition-all duration-500">
                                 {benefit.stat}
                             </div>
 
-                            <h3 className="text-xl font-black mb-4 text-white group-hover:text-purple-400 transition-colors tracking-[1px] [font-stretch:700%]">
+                            <h3 className="text-xl font-black text-white group-hover:text-purple-400 transition-colors tracking-[1px] [font-stretch:700%]">
                                 {benefit.title}
                             </h3>
 

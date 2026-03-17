@@ -61,14 +61,14 @@ const MiraaiGallery = () => {
   };
 
   return (
-    <section className="-mb-15 bg-black overflow-hidden relative flex flex-col items-center justify-center py-3 md:py-8 lg:py-12">
-      <div className="w-full max-w-[1400px] mx-auto px-4 text-center -mb-8 md:-mb-14 z-20">
-        <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
+    <section className=" bg-black overflow-hidden relative flex flex-col items-center justify-center ">
+      <div className=" w-full max-w-[1400px] mx-auto px-4 text-center z-20">
+        <h2 className="  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
           Visualizing The Future Of Creativity
         </h2>
       </div>
 
-      <div className="relative h-[400px] md:h-[650px] flex items-center justify-center">
+      <div className="relative h-[300px] md:h-[500px] flex items-center justify-center">
         <div className="relative w-full max-w-[1500px] h-full flex items-center justify-center overflow-visible">
           <AnimatePresence initial={false} mode="popLayout">
             {galleryItems.map((item, index) => {

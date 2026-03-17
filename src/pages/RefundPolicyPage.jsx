@@ -192,7 +192,7 @@ const RefundPolicyPage = () => {
                             {/* Introduction */}
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8">
                                 <p className="text-white/80 leading-relaxed mb-4">
-                                    This Refund & Cancellation Policy ("Policy") applies to all payments, purchases, subscriptions, licenses, and transactions made with <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our") through our website <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a>, applications, platforms, APIs, artificial intelligence products, software solutions, or any related services (collectively, the "Services").
+                                    This Refund & Cancellation Policy ("Policy") applies to all payments, purchases, subscriptions, licenses, and transactions made with <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our") through our website <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a>, applications, platforms, APIs, artificial intelligence products, software solutions, or any related services (collectively, the "Services").
                                 </p>
                                 <p className="text-white/80 leading-relaxed mb-4">
                                     This Policy is drafted to keep the Company on the maximum safe side, while maintaining transparency for customers using different products and pricing models.
@@ -424,7 +424,7 @@ const RefundPolicyPage = () => {
                                             📧 <strong>Email:</strong> <a href="mailto:info@inaiworlds.com" className="text-blue-400 hover:text-blue-300">info@inaiworlds.com</a>
                                         </p>
                                         <p className="text-white/80">
-                                            🌐 <strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a>
+                                            🌐 <strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a>
                                         </p>
                                     </div>
                                 </div>

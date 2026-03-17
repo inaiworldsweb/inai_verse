@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const TestimonialCard = ({ quote, name, role }) => (
-    <div className="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+    <div className="w-full md:w-1/2 px-4">
         <motion.div
             whileHover={{ y: -5 }}
             className="group bg-[#111111] rounded-[2rem] p-8 md:p-10 h-full flex flex-col justify-between relative overflow-hidden border border-white/5 transition-all duration-300 hover:border-white/20 hover:bg-[#161616] hover:shadow-[0_22px_70px_rgba(0,0,0,0.55)]"
@@ -15,9 +15,9 @@ const TestimonialCard = ({ quote, name, role }) => (
             {/* Glossy Brand Sweep Effect */}
             <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-white/5 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
-            <div className="relative z-10 flex flex-col h-full justify-between">
+            <div className=" md-6 relative z-10 flex flex-col h-full justify-between">
                 <div>
-                    <p className="text-white/60 text-[15px] md:text-[16px] leading-relaxed mb-8 font-light tracking-wide">
+                    <p className=" text-white/60 text-[15px] md:text-[16px] leading-relaxed font-light tracking-wide">
                         "{quote}"
                     </p>
                 </div>
@@ -103,15 +103,15 @@ const MiraaiTestimonials = () => {
         ].filter(Boolean);
 
     return (
-        <section className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative">
+        <section className="py-10 md:py-16  px-6  sm:px-6  bg-black overflow-hidden relative">
             <div className="max-w-[1400px] mx-auto ">
                 {/* Section Header */}
-                <div className="text-center mb-6 md:mb-8 lg:mb-10">
+                <div className="text-center">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-3 md:mb-4 tracking-[1px] [font-stretch:700%]"
+                        className="  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]"
                     >
                         What Our Clients Say About Miraai
                     </motion.h2>
@@ -120,7 +120,7 @@ const MiraaiTestimonials = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
-                        className="text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] w-full mx-auto font-light lg:whitespace-nowrap"
+                        className=" mb-4   text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] w-full mx-auto font-light lg:whitespace-nowrap"
                     >
                         Join 500+ businesses across India who trust Miraai for professional creative services.
                     </motion.p>
@@ -145,7 +145,7 @@ const MiraaiTestimonials = () => {
 
                     {/* Testimonials Grid */}
                     {/* Added pt-6 and pb-6 to ensure shadows aren't cut */}
-                    <div className="overflow-hidden pt-6 pb-6 -mt-6 -mb-6">
+                    <div className="overflow-hidden pt-6 pb-6">
                         <AnimatePresence mode="wait">
                             <motion.div
                                 key={currentIndex}

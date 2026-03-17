@@ -201,7 +201,7 @@ const PrivacyPolicyPage = () => {
                             {/* Introduction */}
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8">
                                 <p className="text-white/80 leading-relaxed mb-4">
-                                    This Privacy Policy explains in detail how <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our") collects, receives, uses, stores, processes, shares, transfers, protects, and otherwise handles information when you access or use <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a> and any related websites, applications, software, platforms, APIs, artificial intelligence systems, products, tools, dashboards, communications, or services (collectively, the "Services").
+                                    This Privacy Policy explains in detail how <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our") collects, receives, uses, stores, processes, shares, transfers, protects, and otherwise handles information when you access or use <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a> and any related websites, applications, software, platforms, APIs, artificial intelligence systems, products, tools, dashboards, communications, or services (collectively, the "Services").
                                 </p>
                                 <p className="text-white/80 leading-relaxed">
                                     This document is drafted to cover all standard and advanced privacy topics required for legal safety, regulatory compliance, advertising approvals, investor due diligence, and enterprise partnerships.
@@ -218,7 +218,7 @@ const PrivacyPolicyPage = () => {
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-3">
                                     <p className="text-white/80"><strong>Legal Name:</strong> INAI Worlds Private Limited</p>
-                                    <p className="text-white/80"><strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a></p>
+                                    <p className="text-white/80"><strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a></p>
                                     <p className="text-white/80"><strong>Official Contact Email:</strong> <a href="mailto:info@inaiworlds.com" className="text-blue-400 hover:text-blue-300">info@inaiworlds.com</a></p>
                                 </div>
                             </section>
@@ -678,7 +678,7 @@ const PrivacyPolicyPage = () => {
                                             📧 <strong>Email:</strong> <a href="mailto:info@inaiworlds.com" className="text-blue-400 hover:text-blue-300">info@inaiworlds.com</a>
                                         </p>
                                         <p className="text-white/80">
-                                            🌐 <strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a>
+                                            🌐 <strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase ">https://inaiworlds.com/</a>
                                         </p>
                                     </div>
                                 </div>

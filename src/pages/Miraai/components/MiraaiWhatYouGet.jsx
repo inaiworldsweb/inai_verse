@@ -51,16 +51,16 @@ const MiraaiWhatYouGet = () => {
     };
 
     return (
-        <section className="pt-5 pb-12 -mb-22 md:-mb-25 bg-black overflow-hidden relative flex flex-col items-center justify-center">
+        <section className=" pb-4 md:py-8 bg-black overflow-hidden relative flex flex-col items-center justify-center">
             {/* Heading */}
-            <div className="w-full max-w-[1400px] mx-auto  text-center -mb-8 md:-mb-14 z-20">
-                <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%] mb-2 md:mb-3">
+            <div className="w-full max-w-[1400px] mx-auto  text-center z-20">
+                <h2 className=" md-6 text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
                     What You Get
                 </h2>
             </div>
 
             {/* Cards Container */}
-            <div className="relative h-[420px] md:h-[650px] flex items-center justify-center">
+            <div className="relative h-[320px] md:h-[500px] flex items-center justify-center">
                 <div className="relative w-full max-w-[1600px] h-full flex items-center justify-center overflow-visible">
                     <AnimatePresence initial={false} mode='popLayout'>
                         {galleryItems.map((item, index) => {

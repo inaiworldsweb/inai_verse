@@ -6,28 +6,39 @@ import { HiX } from "react-icons/hi";
 import { LayoutDashboard, UserCircle } from "lucide-react"; // Icons for portals
 
 const navItems = [
-  "What is edInai?",
-  "Meet our faculties",
-  "Admin View \u2013 For Education Centres",
-  "Student View \u2013 For Learners",
-  "Teach in Every Way Your Students Want to Learn",
+  "Hero Section",
+  "edinai Admin portel",
+  "Admin Dashboard",
+  "Institution Benefits",
+  "How to Set Up Ed-INAI",
+  "CTA Section ",
+  "FAQ",
 ];
 
 const EdinaiAdminSidebar = ({ isOpen, setIsOpen }) => {
   const handleSideMenuClick = (item) => {
     const sectionMap = {
-      "What is edInai?": "what-is-edinai",
-      "Meet our faculties": "meet-faculties",
-      "Admin View \u2013 For Education Centres": "admin-view",
-      "Student View \u2013 For Learners": "student-view",
-      "Teach in Every Way Your Students Want to Learn": "teach",
+      "Hero Section": "hero-section",
+      "edinai Admin portel": "admin-portal",
+      "Admin Dashboard": "admin-dashboard",
+      "Institution Benefits": "institution-benefits",
+      "How to Set Up Ed-INAI": "setup-guide",
+      "CTA Section ": "cta-section",
+      "FAQ": "faq-section",
     };
 
     const sectionId = sectionMap[item];
     if (sectionId) {
       const section = document.getElementById(sectionId);
       if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
+        // Offset for the fixed/sticky navbar (approx 80px)
+        const navbarHeight = 80;
+        const targetPosition = section.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth"
+        });
       }
     }
     setIsOpen(false);

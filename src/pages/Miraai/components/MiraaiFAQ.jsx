@@ -8,7 +8,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className="mb-4 w-full"
+            className="w-full mb-5"
         >
             <div
                 onClick={onToggle}
@@ -93,23 +93,22 @@ const MiraaiFAQ = () => {
     ];
 
     return (
-        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-3 md:py-8 lg:py-12 bg-black">
-            <div className="max-w-[1200px] mx-auto px-6 lg:px-20">
+        <section style={{ fontFamily: 'Inter, sans-serif' }} className="py-10 md:py-6 px-6  bg-black">
+            <div className="  max-w-[1200px] mx-auto ">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-8 md:mb-10 lg:mb-12"
+                    className="text-center"
                 >
-                    <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white font-bold tracking-tight mb-3 md:mb-4">
+                    <h2 className="  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white font-bold tracking-tight">
                         Frequently Asked Questions
                     </h2>
-                    <p className="text-gray-400 text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]">
+                    <p className=" md:mb-10 text-gray-400 text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem]">
                         Everything you need to know about our process and services.
-                    </p>
-                </motion.div>
+                    </p>               </motion.div>
 
-                <div className="flex flex-col">
+                <div className=" flex flex-col">
                     {faqs.map((faq, index) => (
                         <FAQItem
                             key={index}

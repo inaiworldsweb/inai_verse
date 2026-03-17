@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DemoModal from "./Demo";
 
 const HeroSection = ({ id }) => {
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    navigate("/get-started");
+    setIsDemoOpen(true);
   };
 
   return (
@@ -37,6 +39,7 @@ const HeroSection = ({ id }) => {
           </button>
         </div>
       </div>
+      <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </section>
   );
 };

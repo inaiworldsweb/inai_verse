@@ -4,7 +4,7 @@ import ctaBg from "../../../Assetsa/e.png";
 
 const MiraaiFinalCTA = () => {
   return (
-    <section className="py-3 md:py-8 lg:py-12 bg-black w-full px-6 md:px-8 lg:px-20">
+    <section className="py-10 md:py-6  bg-black w-full px-6 md:px-6">
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -29,7 +29,7 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white mb-4 md:mb-6 lg:mb-8 tracking-tight leading-[1.2]"
+            className="  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-tight leading-[1.2]"
           >
             Ready To Grow Your Brand With Professional Content?
           </motion.h2>
@@ -39,7 +39,7 @@ const MiraaiFinalCTA = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-white/80 text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] font-['Inter'] font-medium mb-8 md:mb-10 lg:mb-12 max-w-2xl mx-auto leading-normal"
+            className=" mb-6  text-white/80 text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] font-['Inter'] font-medium max-w-2xl mx-auto leading-normal"
           >
             Let Our AI-Powered Expert Team Handle Your Videos, Ads, And Branding{" "}
             <br className="hidden md:block" />
@@ -51,7 +51,7 @@ const MiraaiFinalCTA = () => {
               <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
                 <div className="bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
                   <div className="flex gap-2 items-center">
-                    <span className="font-semibold text-white">Contact Our Team</span>
+                    <span className=" md-6 font-semibold text-white">Contact Our Team</span>
                   </div>
                 </div>
               </button>

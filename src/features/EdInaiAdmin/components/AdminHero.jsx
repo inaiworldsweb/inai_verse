@@ -1,9 +1,9 @@
 import React from 'react';
 import heroBg from '../../../assets/final/Future-Ready Education.jfif';
 
-const AdminHero = () => {
+const AdminHero = ({ id }) => {
   return (
-    <section className="w-full py-9 md:py-12 px-4 md:px-6 flex justify-center">
+    <section id={id} className="w-full py-9 md:py-12 px-4 md:px-6 flex justify-center">
       <div
         className="w-full max-w-6xl  rounded-[10px] overflow-hidden relative"
         style={{
