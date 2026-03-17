@@ -1,6 +1,6 @@
 import React from "react";
 // Agar aapke paas apni local image hai to ise uncomment karein:
-// import BannerImg from "../assets/student-group.jpg";
+import BannerImg from "../../../assets/EdInai_Student_imgs/Start Your AI-Powered Learning Journey Today.webp";
 
 const StudentPortal = ({ id }) => {
   return (
@@ -10,7 +10,7 @@ const StudentPortal = ({ id }) => {
         {/* Background Image Area */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" // Replace with BannerImg
+            src={BannerImg}
             alt="Students Learning"
             className="w-full h-full object-cover"
           />

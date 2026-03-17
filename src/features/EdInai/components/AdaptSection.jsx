@@ -6,7 +6,7 @@ const AdaptSection = () => {
           Made to adapt and evolve
         </h1>
         <p className="p  text-white/70 leading-relaxed capitalize tracking-normal">
-          Ed-INAI is built to learn and improve continuously. The more it
+          edInai is built to learn and improve continuously. The more it
           teaches, the smarter it becomes—enhancing explanations, query-solving,
           and student understanding. That's the true power of artificial
           intelligence in education: continuous learning that evolves to empower

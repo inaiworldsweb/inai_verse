@@ -67,7 +67,7 @@ function PageHeader({
     if (onLogoClick) {
       onLogoClick();
     } else {
-      navigate("/miraai");
+      navigate("/edinai");
     }
   };
 

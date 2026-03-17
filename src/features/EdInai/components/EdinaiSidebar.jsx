@@ -12,7 +12,7 @@ const navItems = [
   "Smart AI Exam Management System",
   "Why Choose edInai",
   "Learning Modes Section",
-  "Final CTA with form fill-up",
+  "CTA Section",
   "FAQ",
 ];
 
@@ -25,7 +25,7 @@ const EdinaiSidebar = ({ isOpen, setIsOpen }) => {
       "Smart AI Exam Management System": "examination-engine",
       "Why Choose edInai": "why-trust-edinai",
       "Learning Modes Section": "powerful-learning",
-      "Final cTA with form fill-up": "edinai-transform",
+      "CTA Section": "edinai-transform",
       FAQ: "faq-section",
     };
 
