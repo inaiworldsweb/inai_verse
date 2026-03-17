@@ -59,12 +59,20 @@ const EdinaiSidebar = ({ isOpen, setIsOpen }) => {
             </button>
 
             <div className="pt-16 px-4">
-              <div className="flex items-center justify-center mb-6">
+              <div className="flex items-center justify-center mb-6 md:flex">
                 <Link to="/">
-                  <img src={logoImage} alt="Logo" className="w-full max-w-[80px] h-auto" />
+                  <img
+                    src={logoImage}
+                    alt="Logo"
+                    className="w-full max-w-[80px] h-auto"
+                  />
                 </Link>
               </div>
-              <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
+              <SideMenu
+                items={navItems}
+                variant="login"
+                onSelectItem={handleSideMenuClick}
+              />
             </div>
           </aside>
         </div>
@@ -74,10 +82,18 @@ const EdinaiSidebar = ({ isOpen, setIsOpen }) => {
       <aside className="hidden lg:flex border-r border-white/30 lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 z-50 overflow-y-auto">
         <div className="flex items-center justify-center mb-4">
           <Link to="/">
-            <img src={logoImage} alt="Logo" className="w-full max-w-[100px] h-auto" />
+            <img
+              src={logoImage}
+              alt="Logo"
+              className="w-full max-w-[100px] h-auto"
+            />
           </Link>
         </div>
-        <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
+        <SideMenu
+          items={navItems}
+          variant="login"
+          onSelectItem={handleSideMenuClick}
+        />
       </aside>
     </>
   );

@@ -9,7 +9,7 @@ const navItems = [
   "Meet our faculties",
   "Admin View \u2013 For Education Centres",
   "Student View \u2013 For Learners",
-  "Teach in Every Way Your Students Want to Learn"
+  "Teach in Every Way Your Students Want to Learn",
 ];
 
 const EdinaiAdminSidebar = ({ isOpen, setIsOpen }) => {
@@ -37,11 +37,11 @@ const EdinaiAdminSidebar = ({ isOpen, setIsOpen }) => {
       {/* Mobile Sidebar Overlay */}
       {isOpen && (
         <div
-          className="lg:hidden fixed inset-0 z-[60] bg-black/80 backdrop-blur-sm"
+          className="lg:hidden fixed inset-0 z-60 bg-black/80 backdrop-blur-sm"
           onClick={() => setIsOpen(false)}
         >
           <aside
-            className="w-[280px] max-w-[85vw] h-full bg-black border-r border-white/20 shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300"
+            className="w-70 max-w-[85vw] h-full bg-black border-r border-white/20 shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button Inside Sidebar */}
@@ -53,25 +53,41 @@ const EdinaiAdminSidebar = ({ isOpen, setIsOpen }) => {
             </button>
 
             <div className="pt-16 px-4">
-              <div className="flex items-center justify-center mb-6">
+              <div className="flex items-center justify-center mb-6 md:flex">
                 <Link to="/">
-                  <img src={logoImage} alt="Logo" className="w-full max-w-[80px] h-auto" />
+                  <img
+                    src={logoImage}
+                    alt="Logo"
+                    className="w-full max-w-20 h-auto"
+                  />
                 </Link>
               </div>
-              <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
+              <SideMenu
+                items={navItems}
+                variant="login"
+                onSelectItem={handleSideMenuClick}
+              />
             </div>
           </aside>
         </div>
       )}
 
       {/* Desktop Sidebar - Always visible on LG */}
-      <aside className="hidden lg:flex border-r border-white/30 lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 z-50 overflow-y-auto">
+      <aside className="hidden lg:flex border-r border-white/30 lg:flex-col w-70 bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 z-50 overflow-y-auto">
         <div className="flex items-center justify-center mb-4">
           <Link to="/">
-            <img src={logoImage} alt="Logo" className="w-full max-w-[100px] h-auto" />
+            <img
+              src={logoImage}
+              alt="Logo"
+              className="w-full max-w-25 h-auto"
+            />
           </Link>
         </div>
-        <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
+        <SideMenu
+          items={navItems}
+          variant="login"
+          onSelectItem={handleSideMenuClick}
+        />
       </aside>
     </>
   );
