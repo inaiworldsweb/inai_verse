@@ -44,7 +44,6 @@ const WhyStudentsLove = ({ id }) => {
         const getScrollAmount = () => {
           const contentWidth = scrollContent.scrollWidth;
           return -(contentWidth - window.innerWidth + 250); // 80px extra safety padding ke liye
-         
         };
 
         gsap.to(scrollContent, {
@@ -124,23 +123,27 @@ const WhyStudentsLove = ({ id }) => {
                 index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
               }`}
             >
-              <div className="relative z-10">
-                <span className="text-white/20 text-sm mb-2 block font-mono tracking-tighter">
-                  0{index + 1}
-                </span>
-
-                <h3 className="text-xl md:text-2xl font-semibold leading-tight text-white group-hover:text-white">
-                  {card.title}
-                </h3>
-              </div>
-
-              <div className="flex justify-between items-end relative z-10">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-[10px] flex items-center justify-center text-gray-400">
-                  {card.icon}
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  
+                   <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-[10px] flex items-center justify-center text-gray-400">
+                    {card.icon}
+                  </div>
                 </div>
 
-                <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center bg-black">
-                  <ChevronRight size={18} />
+                <div className="flex justify-between items-end relative">
+                 <h3 className="text-xl md:text-2xl font-semibold leading-tight text-white group-hover:text-white">
+                    {card.title}
+                  </h3>
+
+                  {/* Large Ghost Number behind ChevronRight button */}
+                  <span className="absolute right-2 bottom-14 text-[100px] font-black text-white/5 select-none z-0">
+                    0{index + 1}
+                  </span>
+
+                  <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center bg-black relative z-10">
+                    <ChevronRight size={18} />
+                  </div>
                 </div>
               </div>
 

@@ -6,8 +6,7 @@ const StudentPortal = ({ id }) => {
   return (
     <section id={id} className="w-full bg-black py-9 md:py-12 px-4">
       {/* Main Container with Rounded Corners */}
-      <div className="max-w-6xl mx-auto overflow-hidden rounded-[30px] md:rounded-[50px] relative min-h-[450px] md:min-h-[550px] flex items-center justify-center border border-white/10">
-        
+      <div className="max-w-6xl mx-auto overflow-hidden rounded-[30px] md:rounded-[50px] relative min-h-112.5 md:min-h-137.5 flex items-center justify-center border border-white/10">
         {/* Background Image Area */}
         <div className="absolute inset-0 z-0">
           <img
@@ -23,21 +22,20 @@ const StudentPortal = ({ id }) => {
         <div className="relative z-10 text-center px-6 max-w-3xl flex flex-col items-center">
           <h1 className="text-white h1  leading-[1.15] md:leading-tight mb-6">
             Start Your AI-Powered <br /> Learning Journey Today
-
           </h1>
 
           <p className="text-gray-200 h2 text-sm md:text-lg mb-10 max-w-5xl font-light">
-            Join thousands of students learning smarter with edInai's intelligent platform.
+            Join thousands of students learning smarter with edInai's
+            intelligent platform.
           </p>
 
           {/* Styled Button - Image ki tarah exact match */}
-          <button className="bg-white text-black hover:bg-gray-200 transition-all duration-300 px-10 py-4 md:px-12 md:py-5 rounded-[10px] font-bold text-sm md:text-base shadow-[0_10px_40px_rgba(255,255,255,0.1)] active:scale-95">
+          <button className="group relative flex items-center gap-2 bg-white/5 hover:bg-white/12 text-white border border-white/10 hover:border-white/20 px-10 py-4 md:px-12 md:py-5 rounded-[10px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
             Access Student Portal
           </button>
         </div>
 
         {/* Optional Inner Glow/Border Effect like reference image */}
-       
       </div>
     </section>
   );

@@ -65,7 +65,7 @@ const ExamSystem = ({ id }) => {
         {/* Header */}
         <div className="text-center mb-6">
           <h2 className="h1 mb-4">Practice, Attempt & Track Exams Anytime</h2>
-          <p className="h2 max-w-3xl mx-auto">
+          <p className="h2 max-w-4xl mb-8 mx-auto">
             Students now get access to a complete AI-based exam system inside
             the portal.
           </p>
