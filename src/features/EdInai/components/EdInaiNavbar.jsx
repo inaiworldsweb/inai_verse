@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../../assets/EdInai Logo.png";
 
 const EdInaiNavbar = ({
@@ -19,6 +19,7 @@ const EdInaiNavbar = ({
   headerClassName = "bg-black/80 backdrop-blur-md",
 }) => {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleClick = (defaultPath, customHandler) => {
     if (customHandler) customHandler();
@@ -81,7 +82,9 @@ const EdInaiNavbar = ({
         {/* Student Portal Link */}
         <button
           onClick={() => navigate("/edinai-student")}
-          className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
+          className={`hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors ${
+            location.pathname.includes('/edinai-student') ? 'border-b-2 border-white' : ''
+          }`}
         >
           Student Portal
         </button>
@@ -89,7 +92,9 @@ const EdInaiNavbar = ({
         {/* Admin Portal Link */}
         <button
           onClick={() => navigate("/edinai-admin")}
-          className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
+          className={`hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors ${
+            location.pathname.includes('/edinai-admin') ? 'border-b-2 border-white' : ''
+          }`}
         >
           Admin Portal
         </button>

@@ -1,5 +1,5 @@
 import React from 'react';
-import heroBg from '../../../assets/final/Future-Ready Education.jfif';
+import heroBg from '../../../assets/images/edInai/Admin/1.webp';
 
 const AdminHero = ({ id }) => {
   return (

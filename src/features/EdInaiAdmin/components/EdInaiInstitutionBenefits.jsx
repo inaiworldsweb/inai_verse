@@ -101,7 +101,7 @@ const EdInaiInstitutionBenefits = ({ id }) => {
     >
       {/* Header Section */}
       <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-[100]">
-        <h2 className="h1 mb-4  pt-5 ">Why Institutions Choose Ed-INAI</h2>
+        <h2 className="h1 mb-4  pt-5 ">Why Institutions Choose edInai</h2>
         <p className="h2 text-gray-400 text-lg md:text-xl leading-relaxed">
           Smarter operations. Better outcomes. Lower costs.
         </p>

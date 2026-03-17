@@ -6,9 +6,11 @@ import { HiX } from "react-icons/hi";
 
 const navItems = [
   "Hero Section",
-  "edinai Admin portel",
+  "edinai Admin portal",
   "Admin Dashboard",
+  "Key Features",
   "Institution Benefits",
+  "Education Providers",
   "How to Set Up Ed-INAI",
   "CTA Section ",
   "FAQ",
@@ -18,9 +20,11 @@ const EdinaiAdminSidebar = ({ isOpen, setIsOpen }) => {
   const handleSideMenuClick = (item) => {
     const sectionMap = {
       "Hero Section": "hero-section",
-      "edinai Admin portel": "admin-portal",
+      "edinai Admin portal": "admin-portal",
       "Admin Dashboard": "admin-dashboard",
+      "Key Features": "key-features",
       "Institution Benefits": "institution-benefits",
+      "Education Providers": "education-providers",
       "How to Set Up Ed-INAI": "setup-guide",
       "CTA Section ": "cta-section",
       "FAQ": "faq-section",
