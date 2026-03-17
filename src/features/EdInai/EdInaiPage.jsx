@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import EdinaiSidebar from "./components/EdinaiSidebar";
 import HeroSection from "./components/HeroSection";
 import EdInaiNavbar from "./components/EdInaiNavbar";
@@ -19,9 +19,14 @@ import StreamsSection from "./components/StreamsSection";
 import MissionVision from "./components/MissionVision";
 import EdinaiSiteFooter from "./components/EdinaiSiteFooter";
 import FutureSection from "./components/FutureSection";
+import DemoModal from "./components/Demo";
 
 const EdInaiPage = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isDemoOpen, setIsDemoOpen] = useState(false);
+
+  const toggleDemo = () => setIsDemoOpen(!isDemoOpen);
+
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Sidebar - Fixed on left */}
@@ -39,7 +44,7 @@ const EdInaiPage = () => {
           onMenuClick={() => setIsSidebarOpen(true)} // राइट मेनू बटन से साइडबार खुलेगा
           headerClassName="bg-gradient-to-r from-[#141414]/90 via-white/5 to-[#141414]/90 backdrop-blur-xl"
         />
-        <HeroSection id="hero" />
+        <HeroSection id="hero" onDemoClick={toggleDemo} />
         <Edinaichallenges id="education-challenges" />
         <WhatIsEdInai id="about-edinai" />
 
@@ -57,10 +62,12 @@ const EdInaiPage = () => {
         <FutureSection />
         <StreamsSection />
         <AdaptSection />
-        <EdInaiTrasform id="edinai-transform" />
+        <EdInaiTrasform id="edinai-transform" onDemoClick={toggleDemo} />
         <FaqSection id="faq-section" />
         <EdinaiSiteFooter />
       </div>
+
+      <DemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </div>
   );
 };

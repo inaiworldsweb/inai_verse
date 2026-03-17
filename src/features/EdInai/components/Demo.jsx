@@ -366,7 +366,7 @@ export default function Demo({ isOpen, onClose }) {
                         <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:opacity-90 px-10 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-500/20 transition active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+                            className="w-full sm:w-auto group relative flex items-center justify-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-10 py-3.5 rounded-[10px] text-sm md:text-[15px] font-bold transition-all duration-300 active:scale-95 shadow-lg shadow-black/20 disabled:cursor-not-allowed disabled:opacity-60"
                         >
                             {isSubmitting ? "Submitting..." : "Request a Demo"}
                         </button>
