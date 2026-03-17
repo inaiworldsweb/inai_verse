@@ -30,7 +30,7 @@ const AdminHero = ({ id }) => {
           </p>
 
           <div className="group relative mt-10 flex items-center mb-4 gap-4 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
-            <button className="relative md:px-6 px-3 py-1 md:py-2 text-[15px] md:text-[20px] flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
+            <button className="relative md:px-6 px-3 py-1 md:py-3 text-[15px] md:text-[20px] flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
               Request Admin Demo
             </button>
           </div>
