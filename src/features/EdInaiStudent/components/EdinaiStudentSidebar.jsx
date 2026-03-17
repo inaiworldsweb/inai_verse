@@ -5,21 +5,25 @@ import logoImage from "../../../assets/Inai Verse White Tred mark (1).png";
 import { HiX } from "react-icons/hi";
 
 const navItems = [
-  "Student View",
-  "Track Progress",
-  "Learning Modules",
-  "Mock Tests",
-  "Performance Analytics",
+  "Student Hero",
+  "Personalised Learning",
+  "Smart Tools",
+  "Exam System",
+  "Why Students Love",
+  "Student Portal",
+  "FAQ",
 ];
 
 const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
   const handleSideMenuClick = (item) => {
     const sectionMap = {
-      "Student View": "student-view",
-      "Track Progress": "track-progress",
-      "Learning Modules": "learning-modules",
-      "Mock Tests": "mock-tests",
-      "Performance Analytics": "analytics",
+      "Student Hero": "student-hero",
+      "Personalised Learning": "student-personalised",
+      "Smart Tools": "smart-tools",
+      "Exam System": "exam-system",
+      "Why Students Love": "why-students-love",
+      "Student Portal": "student-portal",
+      FAQ: "faq-section",
     };
 
     const sectionId = sectionMap[item];
@@ -41,7 +45,7 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
           onClick={() => setIsOpen(false)}
         >
           <aside
-            className="w-[280px] max-w-[85vw] h-full bg-black border-r border-white/20 shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300"
+            className="w-[200px] max-w-[80vw] h-full bg-black border-r border-white/20 shadow-2xl overflow-y-auto animate-in slide-in-from-left duration-300"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button Inside Sidebar */}
@@ -55,10 +59,18 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
             <div className="pt-16 px-4">
               <div className="flex items-center justify-center mb-6">
                 <Link to="/">
-                  <img src={logoImage} alt="Logo" className="w-full max-w-[80px] h-auto" />
+                  <img
+                    src={logoImage}
+                    alt="Logo"
+                    className="w-full max-w-[80px] h-auto"
+                  />
                 </Link>
               </div>
-              <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
+              <SideMenu
+                items={navItems}
+                variant="login"
+                onSelectItem={handleSideMenuClick}
+              />
             </div>
           </aside>
         </div>
@@ -68,10 +80,18 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
       <aside className="hidden lg:flex border-r border-white/30 lg:flex-col w-[280px] bg-black p-6 xl:p-8 h-screen fixed left-0 top-0 z-50 overflow-y-auto">
         <div className="flex items-center justify-center mb-4">
           <Link to="/">
-            <img src={logoImage} alt="Logo" className="w-full max-w-[100px] h-auto" />
+            <img
+              src={logoImage}
+              alt="Logo"
+              className="w-full max-w-[100px] h-auto"
+            />
           </Link>
         </div>
-        <SideMenu items={navItems} variant="login" onSelectItem={handleSideMenuClick} />
+        <SideMenu
+          items={navItems}
+          variant="login"
+          onSelectItem={handleSideMenuClick}
+        />
       </aside>
     </>
   );

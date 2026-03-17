@@ -1,12 +1,12 @@
 import React from "react";
-import { 
-  Video, 
-  FileText, 
-  MessageSquare, 
-  BarChart3, 
-  Smartphone, 
-  BrainCircuit, 
-  ClipboardCheck 
+import {
+  Video,
+  FileText,
+  MessageSquare,
+  BarChart3,
+  Smartphone,
+  BrainCircuit,
+  ClipboardCheck,
 } from "lucide-react";
 
 const tools = [
@@ -46,7 +46,6 @@ const SmartTools = ({ id }) => {
   return (
     <section id={id} className="w-full bg-black text-white py-9 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
-        
         {/* Header Section */}
         <div className="text-center mb-5 md:mb-8">
           <h2 className="h1 mb-4 tracking-tight">
@@ -60,43 +59,46 @@ const SmartTools = ({ id }) => {
         {/* Tools Grid (6 Cards) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
           {tools.map((tool, index) => (
-            <div 
-              key={index} 
-              className="bg-[#0e0f10] border border-white/5 p-8 rounded-[10px] flex flex-col justify-between hover:border-white/20 transition-all group"
+            <div
+              key={index}
+              className="bg-[#0e0f10] border border-white/5 p-8 rounded-[10px] flex flex-col hover:border-white/20 transition-all group"
             >
-              <div>
-                <p className="text-gray-400 text-sm md:text-base mb-2 group-hover:text-gray-300 transition-colors">
+              {/* Icon at top */}
+              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white/10 transition-all mb-6">
+                {tool.icon}
+              </div>
+
+              {/* Text content */}
+              <div className="flex-1 flex flex-col justify-center">
+                <h3 className="text-xl font-semibold mb-2">{tool.title}</h3>
+                <p className="text-gray-400 text-sm md:text-base group-hover:text-gray-300 transition-colors">
                   {tool.desc}
                 </p>
-                <h3 className="text-xl font-semibold mb-8">{tool.title}</h3>
-              </div>
-              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white/10 transition-all">
-                {tool.icon}
               </div>
             </div>
           ))}
         </div>
 
-      <div className="w-full">
-  <div className="bg-[#0e0f10] border border-white/5 p-8 rounded-[10px] flex flex-col justify-center items-center hover:border-white/20 transition-all group">
-    
-    <div>
-      <p className="text-gray-400 md:text-center text-sm md:text-base mb-2 group-hover:text-gray-300 transition-colors">
-        AI-powered tests, competitive mock exams, and real-time evaluation.
-      </p>
-      <h3 className="text-xl font-semibold md:text-center mb-4">
-        Smart Exam & Practice Mode
-      </h3>
+        {/* Special Card - Smart Exam & Practice Mode */}
+        <div className="w-full">
+          <div className="bg-[#0e0f10] border border-white/5 p-8 rounded-[10px] flex flex-col items-center hover:border-white/20 transition-all group">
+            {/* Icon at top */}
+            <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white/10 transition-all mb-6">
+              <ClipboardCheck className="w-6 h-6 text-white" />
+            </div>
 
-    </div>
-
-    <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center border border-white/10 group-hover:bg-white/10 transition-all">
-      <ClipboardCheck className="w-6 h-6 text-white " />
-    </div>
-
-  </div>
-</div>
-
+            {/* Text content */}
+            <div className="text-center">
+              <h3 className="text-xl font-semibold mb-2">
+                Smart Exam & Practice Mode
+              </h3>
+              <p className="text-gray-400 text-sm md:text-base group-hover:text-gray-300 transition-colors">
+                AI-powered tests, competitive mock exams, and real-time
+                evaluation.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

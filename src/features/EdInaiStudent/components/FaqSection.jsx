@@ -37,7 +37,7 @@ const FaqSection = ({ id }) => {
 
   return (
     <section id={id} className="w-full py-12 md:py-16 lg:py-20 px-4 bg-black text-white">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -45,7 +45,7 @@ const FaqSection = ({ id }) => {
           className="text-center mb-10 md:mb-12"
         >
           <h2 className="h1 mb-4">Frequently Asked Questions</h2>
-          <p className="h2 text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="h2 text-gray-400 max-w-3xl mx-auto leading-relaxed">
             Everything students need to know about using the edInai learning platform.
           </p>
         </motion.div>
@@ -66,7 +66,7 @@ const FaqSection = ({ id }) => {
                 <div
                   onClick={() => handleToggle(index)}
                   className={`w-full bg-gradient-to-r from-[#0b0b0b] to-[#111827] 
-                  border rounded-[10px] md:rounded-[12px] transition-all duration-300 
+                  border rounded-[10px] transition-all duration-300 
                   ease-out cursor-pointer overflow-hidden 
                   ${isOpen ? "border-gray-500 shadow-[0_4px_20px_rgba(255,255,255,0.03)]" : "border-gray-800 hover:border-gray-600"}`}
                 >

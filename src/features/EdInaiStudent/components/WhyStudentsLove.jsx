@@ -93,7 +93,7 @@ const WhyStudentsLove = ({ id }) => {
 
       return () => mm.revert();
     },
-    { scope: containerRef }
+    { scope: containerRef },
   );
 
   return (
@@ -104,9 +104,7 @@ const WhyStudentsLove = ({ id }) => {
     >
       {/* Header Section */}
       <div className="max-w-6xl mx-auto px-6 text-center mb-16 relative z-[100]">
-        <h2 className="h1 mb-4  pt-5 ">
-          Why Students Love Ed-INAI
-        </h2>
+        <h2 className="h1 mb-4  pt-5 ">Why Students Love Ed-INAI</h2>
         <p className="h2 text-gray-400 text-lg md:text-xl leading-relaxed">
           More Confidence, Better Results, And Stress-Free Learning.
         </p>
@@ -121,26 +119,31 @@ const WhyStudentsLove = ({ id }) => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
-                }`}
+              className={`love-card text-[#ccc] w-full lg:w-[310px] flex-shrink-0 h-[250px] md:h-[250px] bg-[#1a1b1e] border border-white/10 rounded-[10px] p-8 flex flex-col justify-between relative shadow-[0_-20px_40px_rgba(0,0,0,1)] overflow-hidden transition-colors duration-300 hover:border-white/20 ${
+                index !== 0 ? "mt-6 lg:mt-0" : "mt-0"
+              }`}
             >
-              <div className="relative z-10">
-                <span className="text-white/20 text-sm mb-2 block font-mono tracking-tighter">
-                  0{index + 1}
-                </span>
-
-                <h3 className="text-xl md:text-2xl font-semibold leading-tight text-white group-hover:text-white">
-                  {card.title}
-                </h3>
-              </div>
-
-              <div className="flex justify-between items-end relative z-10">
-                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-[10px] flex items-center justify-center text-gray-400">
-                  {card.icon}
+              <div className="relative z-10 flex flex-col justify-between h-full">
+                <div>
+                  
+                   <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-[10px] flex items-center justify-center text-gray-400">
+                    {card.icon}
+                  </div>
                 </div>
 
-                <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center bg-black">
-                  <ChevronRight size={18} />
+                <div className="flex justify-between items-end relative">
+                 <h3 className="text-xl md:text-2xl font-semibold leading-tight text-white group-hover:text-white">
+                    {card.title}
+                  </h3>
+
+                  {/* Large Ghost Number behind ChevronRight button */}
+                  <span className="absolute right-2 bottom-14 text-[100px] font-black text-white/5 select-none z-0">
+                    0{index + 1}
+                  </span>
+
+                  <div className="w-11 h-11 rounded-full border border-white/10 flex items-center justify-center bg-black relative z-10">
+                    <ChevronRight size={18} />
+                  </div>
                 </div>
               </div>
 
