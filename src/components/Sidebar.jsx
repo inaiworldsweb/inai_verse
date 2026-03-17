@@ -7,7 +7,7 @@ function Sidebar({ isOpen, onClose }) {
     const navigate = useNavigate()
 
     const menuItems = [
-        { name: 'Edinai' },
+        { name: 'Edinai', path: '/edinai' },
         { name: 'Miraai', path: '/miraai' },
         // { name: 'NCD' },
         { name: 'Vantage AI' },
