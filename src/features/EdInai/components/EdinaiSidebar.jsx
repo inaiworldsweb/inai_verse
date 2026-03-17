@@ -8,9 +8,9 @@ import { LayoutDashboard, UserCircle } from "lucide-react"; // Icons for portals
 const navItems = [
   "Hero Section",
   "Education Challenges",
-  "About Ed-INAI",
+  "About edInai",
   "Smart AI Exam Management System",
-  "Why Choose Ed-INAI",
+  "Why Choose edInai",
   "Learning Modes Section",
   "Final CTA with form fill-up",
   "FAQ",
@@ -21,9 +21,9 @@ const EdinaiSidebar = ({ isOpen, setIsOpen }) => {
     const sectionMap = {
       "Hero Section": "hero",
       "Education Challenges": "education-challenges",
-      "About Ed-INAI": "about-edinai",
+      "About edInai": "about-edinai",
       "Smart AI Exam Management System": "examination-engine",
-      "Why Choose Ed-INAI": "why-trust-edinai",
+      "Why Choose edInai": "why-trust-edinai",
       "Learning Modes Section": "powerful-learning",
       "Final cTA with form fill-up": "edinai-transform",
       FAQ: "faq-section",

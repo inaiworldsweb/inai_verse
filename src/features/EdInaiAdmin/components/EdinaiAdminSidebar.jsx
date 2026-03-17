@@ -22,7 +22,7 @@ const EdinaiAdminSidebar = ({ isOpen, setIsOpen }) => {
       "edinai Admin portel": "admin-portal",
       "Admin Dashboard": "admin-dashboard",
       "Institution Benefits": "institution-benefits",
-      "How to Set Up Ed-INAI": "setup-guide",
+      "How to Set Up edInai": "setup-guide",
       "CTA Section ": "cta-section",
       "FAQ": "faq-section",
     };
