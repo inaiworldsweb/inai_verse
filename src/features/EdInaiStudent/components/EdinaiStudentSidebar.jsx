@@ -85,7 +85,7 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
             </div>
 
             {/* Bottom Portals Section */}
-            <div className="p-6 bg-white/5 border-t border-white/10 space-y-3">
+            <div className="p-6 bg-white/5 border-t md:hidden border-white/10 space-y-3">
               <Link
                 to="/edinai-student"
                 className="flex items-center gap-3 w-full  bg-white/10 hover:bg-white/20 text-white p-3 rounded-xl transition-all font-medium text-sm shadow-lg shadow-blue-900/20"

@@ -61,8 +61,7 @@ function LandingPage() {
             </div>
 
             {/* Bottom Banner */}
-            {/* Changed: Fixed height issues, ensured it doesn't cover text on tiny screens */}
-            <div className="fixed bottom-0 right-0 md:left-64 left-0 bg-white text-black py-3 px-4 md:px-8 lg:px-12 flex flex-col md:flex-row items-center justify-between z-40 gap-4 md:gap-0">
+            {/* <div className="fixed bottom-0 right-0 md:left-64 left-0 bg-white text-black py-2 px-4 md:px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between z-40">
 
                 <p className="text-[10px] sm:text-xs md:text-sm font-medium text-center md:text-left leading-tight max-w-md lg:max-w-2xl">
                     INAI Worlds is proudly recognized among the best AI companies building India's next generation of AI tech.
@@ -88,7 +87,7 @@ function LandingPage() {
                     </svg>
                 </button>
 
-            </div>
+            </div> */}
 
         </div>
     );

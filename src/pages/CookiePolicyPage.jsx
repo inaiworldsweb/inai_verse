@@ -186,7 +186,7 @@ const CookiePolicyPage = () => {
                             {/* Introduction */}
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8">
                                 <p className="text-white/80 leading-relaxed mb-4">
-                                    This Cookie Policy explains how <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our") uses cookies and similar technologies on our website <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a> and related platforms, applications, and services (collectively, the "Website").
+                                    This Cookie Policy explains how <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our") uses cookies and similar technologies on our website <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase ">https://inaiworlds.com/</a> and related platforms, applications, and services (collectively, the "Website").
                                 </p>
                                 <p className="text-white/80 leading-relaxed mb-4">
                                     This policy is written in a fully safe, GDPR-ready, and advertising-compliant manner to protect both users and the Company.
@@ -365,7 +365,7 @@ const CookiePolicyPage = () => {
                                             📧 <strong>Email:</strong> <a href="mailto:info@inaiworlds.com" className="text-blue-400 hover:text-blue-300">info@inaiworlds.com</a>
                                         </p>
                                         <p className="text-white/80">
-                                            🌐 <strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a>
+                                            🌐 <strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a>
                                         </p>
                                     </div>
                                 </div>

@@ -139,17 +139,17 @@ const MiraaiProcess = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-3 md:py-8 lg:py-12 px-4 sm:px-6 lg:px-20 bg-black overflow-hidden relative"
+      className="py-10 md:py-16  px-6 sm:px-6  bg-black overflow-hidden relative"
     >
       <div className="max-w-[1400px] mx-auto ">
 
         {/* ================= HEADING ================= */}
-        <div className="text-center mb-12 md:mb-16 lg:mb-24">
-          <h2 className="text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold mb-3 md:mb-4 text-white tracking-[1px] [font-stretch:700%]">
+        <div className="text-center">
+          <h2 className=" text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] font-bold text-white tracking-[1px] [font-stretch:700%]">
             Here's Exactly How We Work With You
           </h2>
 
-          <p className="text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] w-full mx-auto">
+          <p className=" mb-10 text-[#ccc] text-[0.875rem] md:text-[1rem] lg:text-[1.3125rem] w-full mx-auto">
             No Confusion. No Complexity. Just A Simple 4-Step Process From Idea To Delivery.
           </p>
         </div>
@@ -174,7 +174,7 @@ const MiraaiProcess = () => {
               >
 
                 {/* NUMBER CIRCLE */}
-                <div className="step-icon relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 mb-6 md:mb-8 opacity-100 scale-0">
+                <div className="step-icon relative md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 z-30 opacity-100 scale-0">
                   <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-white text-black flex items-center justify-center font-black text-lg md:text-xl border-4 border-black">
                     {step.number}
                   </div>
@@ -182,7 +182,7 @@ const MiraaiProcess = () => {
 
                 {/* TEXT */}
                 <div className="step-text w-full md:w-[42%] text-center md:text-left opacity-0">
-                  <h3 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2.5rem] font-bold mb-3 md:mb-4 text-white leading-tight tracking-[1px] [font-stretch:700%]">
+                  <h3 className="text-[1.25rem] md:text-[1.75rem] lg:text-[2.5rem] font-bold text-white leading-tight tracking-[1px] [font-stretch:700%]">
                     {step.title}
                   </h3>
 
@@ -190,7 +190,7 @@ const MiraaiProcess = () => {
                     {step.subtitle}
                   </h4>
 
-                  <p className="text-[#ccc] leading-relaxed text-[0.75rem] md:text-[0.875rem] lg:text-[1.125rem] pb-4 md:pb-5">
+                  <p className="text-[#ccc] leading-relaxed text-[0.75rem] md:text-[0.875rem] lg:text-[1.125rem]">
                     {step.description}
                   </p>
                 </div>

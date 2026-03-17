@@ -1,5 +1,5 @@
-import { motion, useAnimationControls } from 'framer-motion';
-import { useEffect, useMemo, useState } from 'react';
+import { motion, useAnimationControls } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
 
 const cardsData = [
   { title: "Education & EdTech", image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=400&fit=crop" },
@@ -13,9 +13,16 @@ const cardsData = [
 ];
 
 const cardPositions = [
-  { x: -320, y: -160 }, { x: 0, y: -180 }, { x: 320, y: -160 },
-  { x: -380, y: 0 }, { x: 380, y: 0 },
-  { x: -320, y: 160 }, { x: 0, y: 180 }, { x: 320, y: 160 },
+  { x: -300, y: -220 },
+  { x: 0, y: -260 },
+  { x: 300, y: -220 },
+
+  { x: -420, y: -20 },
+  { x: 420, y: -20 },
+
+  { x: -300, y: 200 },
+  { x: 0, y: 240 },
+  { x: 300, y: 200 },
 ];
 
 const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile }) => {
@@ -27,45 +34,56 @@ const FloatingCard = ({ data, position, index, randomValues, isInView, isMobile 
 
     const sequence = async () => {
       await controls.start({
-        opacity: 1, scale: 1, x: 0, y: 0,
-        transition: { duration: 0.4, delay: index * 0.03 }
+        opacity: 1,
+        scale: 1,
+        x: 0,
+        y: 0,
+        transition: { duration: 0.4, delay: index * 0.05 },
       });
-      await new Promise(resolve => setTimeout(resolve, 500));
+
+      await new Promise((resolve) => setTimeout(resolve, 400));
+
       await controls.start({
         x: position.x,
         y: position.y,
         transition: { duration: 1, ease: [0.16, 1, 0.3, 1] },
       });
+
       controls.start({
         x: [position.x - xAmp, position.x + xAmp, position.x - xAmp],
         y: [position.y - yAmp, position.y + yAmp, position.y - yAmp],
         rotate: [-rotAmp, rotAmp, -rotAmp],
         transition: {
-          x: { duration, repeat: Infinity, ease: 'easeInOut' },
-          y: { duration: duration * 1.1, repeat: Infinity, ease: 'easeInOut' },
-          rotate: { duration: duration * 1.3, repeat: Infinity, ease: 'easeInOut' },
+          x: { duration, repeat: Infinity, ease: "easeInOut" },
+          y: { duration: duration * 1.1, repeat: Infinity, ease: "easeInOut" },
+          rotate: { duration: duration * 1.3, repeat: Infinity, ease: "easeInOut" },
         },
       });
     };
+
     sequence();
   }, [controls, position, index, duration, xAmp, yAmp, rotAmp, isInView, isMobile]);
 
   return (
     <motion.div
-      className={isMobile ? "w-full flex justify-center" : "absolute left-1/2 top-1/2"}
-      initial={isMobile ? { opacity: 0, y: 20 } : { x: 0, y: 0, opacity: 0, scale: 0.5, translateX: '-50%', translateY: '-50%' }}
-      animate={isMobile ? { opacity: 1, y: 0 } : controls}
+      className={`inline-flex flex-col items-center cursor-pointer ${
+        isMobile
+          ? "relative"
+          : "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+      }`}
+      initial={isMobile ? { opacity: 0, scale: 0.8 } : { opacity: 0, scale: 0.5 }}
+      animate={isMobile ? { opacity: 1, scale: 1 } : controls}
       transition={isMobile ? { delay: index * 0.1, duration: 0.5 } : {}}
     >
-      <div className="relative inline-flex flex-col items-center cursor-pointer">
-        <div className="w-[110px] h-[110px] xs:w-[130px] xs:h-[130px] sm:w-[140px] sm:h-[140px] bg-transparent">
-          {/* Borders and Rounding applied directly to the image */}
+      <div className="relative inline-flex flex-col items-center">
+        <div className="w-[110px] h-[110px] xs:w-[130px] xs:h-[130px] sm:w-[140px] sm:h-[140px]">
           <img
             src={data.image}
             alt={data.title}
             className="w-full h-full object-cover rounded-2xl border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.8)]"
           />
         </div>
+
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 bg-[#101010eb] border border-white/20 px-3 py-2 rounded-xl text-[10px] sm:text-[12px] whitespace-nowrap shadow-[0_10px_25px_rgba(0,0,0,0.6)]">
           {data.title}
         </div>
@@ -81,30 +99,31 @@ export default function WhoNeedsOurServices() {
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth <= 1024);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  const randomValues = useMemo(() =>
-    cardsData.map(() => ({
-      duration: 5 + Math.random() * 2,
-      xAmp: 5 + Math.random() * 5,
-      yAmp: 6 + Math.random() * 6,
-      rotAmp: 0.5 + Math.random() * 1,
-    })), []
+  const randomValues = useMemo(
+    () =>
+      cardsData.map(() => ({
+        duration: 5 + Math.random() * 2,
+        xAmp: 5 + Math.random() * 5,
+        yAmp: 6 + Math.random() * 6,
+        rotAmp: 0.5 + Math.random(),
+      })),
+    []
   );
 
   return (
-    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3 md:py-12 px-4 sm:px-6 lg:px-20 overflow-hidden">
+    <section className="relative min-h-screen bg-black text-white flex items-center justify-center py-3  md:py-10 px-4 sm:px-6  overflow-hidden">
       <div className="w-full max-w-7xl mx-auto text-center">
-        {/* Title: Desktop 40px, Mobile 25px */}
-        <h2 className="text-[25px] md:text-[40px] font-bold tracking-[1px] [font-stretch:700%] mb-3">
+        <h2 className=" md:mb-10 text-[25px] md:text-[40px] font-bold tracking-[1px]">
           Who Needs Our Services
         </h2>
 
         {!isMobile ? (
           <motion.div
-            className="relative h-[650px] flex items-center justify-center"
+            className="relative h-[650px] flex items-center justify-center overflow-visible"
             onViewportEnter={() => setIsInView(true)}
             viewport={{ once: true, amount: 0.3 }}
           >
@@ -119,74 +138,63 @@ export default function WhoNeedsOurServices() {
                 isMobile={false}
               />
             ))}
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: 1, duration: 0.8 }}
               className="z-10 max-w-2xl"
             >
-              <p className="text-[1rem] leading-relaxed drop-shadow-[0_0_20px_rgba(0,0,0,0.8)] text-[#ccc]">
-                Miraai Is Built For Brands That Rely On<br />
-                High-Quality Visual Content, Frequent<br />
+              <p className="text-[21px] leading-relaxed text-[#ccc]">
+                Miraai Is Built For Brands That Rely On
+                <br />
+                High-Quality Visual Content, Frequent
+                <br />
                 Campaigns, And Fast Execution.
               </p>
             </motion.div>
           </motion.div>
         ) : (
-          <div className="flex -mb-20 flex-col gap-12 items-center">
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
-              {cardsData.slice(0, 4).map((card, index) => (
-                <FloatingCard
-                  key={index}
-                  data={card}
-                  index={index}
-                  isMobile={true}
-                  randomValues={randomValues[index]}
-                  isInView={true}
-                />
+          <div className="flex flex-col gap-8 items-center px-4">
+            {/* Mobile / Tablet layout */}
+            <div className="grid grid-cols-2 gap-10 w-full max-w-[320px]">
+              {cardsData.slice(0, 2).map((card, i) => (
+                <FloatingCard key={i} data={card} index={i} isMobile randomValues={randomValues[i]} isInView />
               ))}
             </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="py-6"
-            >
-              <p className="text-[1rem] lg:text-[1.3125rem] leading-relaxed max-w-[320px] mx-auto opacity-90 text-[#ccc]">
-                Miraai Is Built For Brands That Rely On High-Quality Visual Content, Frequent Campaigns, And Fast Execution.
-              </p>
-            </motion.div>
+            <div className="grid grid-cols-2 gap-10 w-full max-w-[320px]">
+              {cardsData.slice(2, 4).map((card, i) => (
+                <FloatingCard key={i + 2} data={card} index={i + 2} isMobile randomValues={randomValues[i + 2]} isInView />
+              ))}
+            </div>
 
-            <div className="grid grid-cols-2 gap-x-8 gap-y-10 w-full max-w-[450px]">
-              {cardsData.slice(4, 8).map((card, index) => (
-                <FloatingCard
-                  key={index + 4}
-                  data={card}
-                  index={index + 4}
-                  isMobile={true}
-                  randomValues={randomValues[index + 4]}
-                  isInView={true}
-                />
+            <p className="mt-4 text-[1rem] leading-relaxed opacity-90 text-[#ccc] max-w-[280px] text-center">
+              Miraai Is Built For Brands That Rely On High-Quality Visual Content,
+              <br />
+              Frequent Campaigns, And Fast Execution.
+            </p>
+
+            <div className="grid grid-cols-2 gap-10 w-full max-w-[320px]">
+              {cardsData.slice(4, 6).map((card, i) => (
+                <FloatingCard key={i + 4} data={card} index={i + 4} isMobile randomValues={randomValues[i + 4]} isInView />
+              ))}
+            </div>
+
+            <div className="grid grid-cols-2 gap-10 w-full max-w-[320px]">
+              {cardsData.slice(6, 8).map((card, i) => (
+                <FloatingCard key={i + 6} data={card} index={i + 6} isMobile randomValues={randomValues[i + 6]} isInView />
               ))}
             </div>
           </div>
         )}
 
-        {/* Bottom Descriptive Line */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 1.2, duration: 1 }}
-          viewport={{ once: true }}
-          className="mt-32 lg:mt-48 pb-10"
-        >
-          <p className="text-[#ccc] text-[1rem] lg:text-[1.3125rem] max-w-4xl mx-auto leading-relaxed px-4">
-            If your industry relies on content at scale-but struggles with time, cost, or creative consistency-Miraai is made for you.
+        <div className="mt-10  lg:mt-8 pb-10">
+          <p className="text-[#ccc] text-[1rem] lg:text-[1.3rem] max-w-4xl mx-auto leading-relaxed px-4">
+            If your industry relies on content at scale—but struggles with time, cost, or creative consistency—Miraai is made for you.
           </p>
-        </motion.div>
+        </div>
       </div>
-
     </section>
   );
 }

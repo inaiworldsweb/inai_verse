@@ -197,7 +197,7 @@ const TermsPage = () => {
                             {/* Introduction */}
                             <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 mb-8">
                                 <p className="text-white/80 leading-relaxed mb-4">
-                                    These Terms & Conditions ("Terms") govern your access to and use of the website <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a> and all related applications, platforms, software, APIs, artificial intelligence products, tools, content, and services provided by <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our").
+                                    These Terms & Conditions ("Terms") govern your access to and use of the website <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a> and all related applications, platforms, software, APIs, artificial intelligence products, tools, content, and services provided by <strong>INAI Worlds Private Limited</strong> ("INAI Worlds", "Company", "we", "us", or "our").
                                 </p>
                                 <p className="text-white/80 leading-relaxed mb-4">
                                     These Terms are drafted in a deep, comprehensive, and company-protective manner to ensure maximum legal safety, compliance, and operational clarity.
@@ -214,7 +214,7 @@ const TermsPage = () => {
                                 </h2>
                                 <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 space-y-3">
                                     <p className="text-white/80"><strong>Legal Name:</strong> INAI Worlds Private Limited</p>
-                                    <p className="text-white/80"><strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300">https://inaiworlds.com/</a></p>
+                                    <p className="text-white/80"><strong>Website:</strong> <a href="https://inaiworlds.com/" className="text-blue-400 hover:text-blue-300 lowercase">https://inaiworlds.com/</a></p>
                                     <p className="text-white/80"><strong>Official Email:</strong> <a href="mailto:info@inaiworlds.com" className="text-blue-400 hover:text-blue-300">info@inaiworlds.com</a></p>
                                 </div>
                             </section>

@@ -9,23 +9,23 @@ const ResultPreview = ({ services }) => {
             {/* Icon status row - Visual feedback for active service type - Hidden on Desktop */}
             <div className="flex justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 lg:hidden">
                 {/* 1. Video */}
-                <div className="icon-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
+                <div className="icon-0 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
                     <Video className="w-5 h-5 sm:w-4 sm:h-4" />
                 </div>
                 {/* 2. Image */}
-                <div className="icon-1 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
+                <div className="icon-1 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
                     <ImageIcon className="w-5 h-5 sm:w-4 sm:h-4" />
                 </div>
                 {/* 3. Catalog */}
-                <div className="icon-2 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
+                <div className="icon-2 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
                     <Folder className="w-5 h-5 sm:w-4 sm:h-4" />
                 </div>
                 {/* 4. UGC Style Video */}
-                <div className="icon-3 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
+                <div className="icon-3 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
                     <Users className="w-5 h-5 sm:w-4   sm:h-4" />
                 </div>
                 {/* 5. Multi-language Video */}
-                <div className="icon-4 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1a1a1a] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
+                <div className="icon-4 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1A1A1A] border border-white/10 flex items-center justify-center text-gray-400 shadow-lg">
                     <Globe className="w-5 h-5 sm:w-4 sm:h-4" />
                 </div>
             </div>

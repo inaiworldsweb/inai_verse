@@ -38,8 +38,8 @@ const SiteFooter = () => {
     const linkClassName = "group flex items-center gap-2 text-[#ccc] text-[15px] transition-all duration-200 hover:text-white hover:translate-x-1";
 
     return (
-        <footer className="bg-dark-card py-12 border-t border-white/10">
-            <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-12 lg:px-20">
+        <footer className="bg-dark-card py-10 border-t border-white/10">
+            <div className="w-full max-w-[1400px] mx-auto px-6 sm:px-12 ">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
                     {productSections.map(({ title, items }) => (
                         <section key={title} className="flex flex-col items-start text-left w-full">
@@ -81,16 +81,41 @@ const SiteFooter = () => {
             </div>
 
             {/* ✅ INFINITE MARQUEE */}
-            <div className="relative w-full overflow-hidden py-6 mb-8">
+            <div className="relative w-full overflow-hidden ">
                 <div className="flex w-max animate-marquee">
                     {[...Array(16)].map((_, i) => (
                         <span
                             key={i}
-                            className="mx-12 text-[30px] md:text-[80px] font-medium text-white whitespace-nowrap"
+                            className=" mx-12 text-[30px] md:text-[80px] font-medium text-white whitespace-nowrap"
                         >
-                            INAI WORLDS
+                            INAI WORLDS 
+
+
+                             <span
+                            key={i}
+                            className=" mx-12 text-[30px] md:text-[80px] font-medium text-white whitespace-nowrap"
+                        >
+                            INAI VERSE 
                         </span>
-                    ))}
+
+                             <span
+                            key={i}
+                            className=" mx-12 text-[30px] md:text-[80px] font-medium text-white whitespace-nowrap"
+                        >
+                            MIRAAI
+                        </span>
+
+                         <span
+                            key={i}
+                            className=" mx-12 text-[30px] md:text-[80px] font-medium text-white whitespace-nowrap"
+                        >
+                            edInai
+                        </span>
+
+                        </span>
+
+                        
+             ))}
                 </div>
             </div>
         </footer>
