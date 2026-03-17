@@ -29,7 +29,7 @@ const EdInaiInside = ({ id }) => {
         <div className="text-center  mb-14">
           <h1
             className="h1 font-bold mb-6 tracking-tight text-white leading-tight">
-            Inside the Ed-INAI Admin Portal
+            Inside the edInai Admin Portal
           </h1>
           <h2 className="h2 font-medium  mb-1 leading-relaxed">
             A centralized control system for planning, delivery, and academic monitoring.

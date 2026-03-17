@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
+import logoImage from "../assets/Inai Verse White Tred mark (1).png";
 
 function Header({ onMenuClick }) {
     return (
         <header className="fixed top-7 left-0 right-0 h-20 bg-black z-50">
-            <div className="flex h-full items-start justify-end px-10 pt-4">
+            <div className="flex h-full items-start justify-between md:justify-end px-10 pt-4">
+                {/* Mobile Logo (Left Side) */}
+                <Link to="/" className="md:hidden flex items-center">
+                    <img src={logoImage} alt="INAI Verse" className="h-10 w-auto" />
+                </Link>
+
                 {/* Right Side Actions */}
                 <div className="flex items-center gap-4">
                     <Link

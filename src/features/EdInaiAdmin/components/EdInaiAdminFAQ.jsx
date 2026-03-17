@@ -64,7 +64,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
     );
 };
 
-const EdInaiAdminFAQ = () => {
+const EdInaiAdminFAQ = ({ id }) => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const faqs = [
@@ -115,7 +115,7 @@ const EdInaiAdminFAQ = () => {
     ];
 
     return (
-        <section className="py-9 md:py-12 px-4 md:px-6 bg-black">
+        <section id={id} className="py-9 md:py-12 px-4 md:px-6 bg-black">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
