@@ -69,7 +69,13 @@ const EdInaiNavbar = ({
               src={logoSrc}
               alt={logoAlt}
               className={`${logoClassName} cursor-pointer hover:opacity-80 active:scale-95 transition-all`}
-              onClick={() => handleClick("/EdInaiPage", onLogoClick)}
+              onClick={() => {
+                if (window.location.pathname === "/edinai") {
+                  window.location.reload();
+                } else {
+                  window.location.href = "/edinai";
+                }
+              }}
             />
           )}
 
