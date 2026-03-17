@@ -42,9 +42,9 @@ const EdInaiWork = ({ id }) => {
     <section
       id={id}
       ref={containerRef}
-      className="w-full md:h-screen h-auto overflow-x-hidden flex flex-col justify-start md:justify-center relative bg-black text-white py-12 md:py-0"
+      className="w-full md:h-screen h-auto overflow-x-hidden flex flex-col justify-start md:justify-center relative bg-black text-white py-9 md:py-0"
     >
-      <div className="max-w-6xl mx-auto w-full px-6 flex-shrink-0 pt-10 md:pt-4 md:pb-12 z-10">
+      <div className="max-w-6xl mx-auto w-full px-6 flex-shrink-0  md:pt-4 md:pb-12 z-10">
         <div className="mb-10 text-center">
           <h1 className="h1 mb-3">How the edInai Platform Works</h1>
           <h2 className="h2 mb-4 text-xl md:text-2xl">Simple, Smart & Scalable Workflow</h2>
