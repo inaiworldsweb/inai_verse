@@ -1,44 +1,17 @@
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logoImage from "../assets/Inai Verse White Tred mark (1).png";
+import OffCanvasMenu from "./OffCanvasMenu";
 
 function Header({ onMenuClick }) {
-    return (
-        <header className="fixed top-7 left-0 right-0 h-20 bg-black z-50">
-            <div className="flex h-full items-start justify-between md:justify-end px-10 pt-4">
-                {/* Mobile Logo (Left Side) */}
-                <Link to="/" className="md:hidden flex items-center">
-                    <img src={logoImage} alt="INAI Verse" className="h-10 w-auto" />
-                </Link>
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-                {/* Right Side Actions */}
-                <div className="flex items-center gap-4">
-                    <Link
-                        to="/community"
-                        className="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition font-['Inter']"
-                    >
-                        <span>
-                            Community
-                        </span>
-                    </Link>
-
-                    {/* <button
-                        className="w-9 h-9 flex items-center justify-center rounded-md border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition"
-                        aria-label="Home"
-                    >
-                        <svg
-                            className="w-5 h-5"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                        >
-                            <path d="M3 11l9-8 9 8" />
-                            <path d="M5 10v10h14V10" />
-                        </svg>
-                    </button> */}
-
+  const handleMenuClick = () => {
+    // Only open the off-canvas menu for tablet and desktop sizes
+    if (window.innerWidth >= 768) {
+      setIsMenuOpen(true);
+    }
+    
     // Always call the original onMenuClick for sidebar behavior
     if (typeof onMenuClick === "function") {
       onMenuClick();
@@ -52,30 +25,20 @@ function Header({ onMenuClick }) {
   return (
     <>
       <header className="fixed top-7 left-0 right-0 h-20 bg-black z-50">
-        <div className="flex h-full items-start justify-end px-10 pt-4">
+        <div className="flex h-full items-start justify-between md:justify-end px-10 pt-4">
+          {/* Mobile Logo (Left Side) */}
+          <Link to="/" className="md:hidden flex items-center">
+            <img src={logoImage} alt="INAI Verse" className="h-10 w-auto" />
+          </Link>
+
           {/* Right Side Actions */}
           <div className="flex items-center gap-4">
-            <button className="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition font-['Inter']">
-              <span>Community</span>
-            </button>
-
-            <button
-              className="w-9 h-9 flex items-center justify-center rounded-md border border-white/20 text-white/80 hover:text-white hover:border-white/40 transition"
-              aria-label="Home"
+            <Link
+              to="/community"
+              className="bg-white text-black px-4 py-1.5 rounded-full text-sm font-medium hover:bg-gray-200 transition font-['Inter']"
             >
-              <svg
-                className="w-5 h-5"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M3 11l9-8 9 8" />
-                <path d="M5 10v10h14V10" />
-              </svg>
-            </button>
+              <span>Community</span>
+            </Link>
 
             <button
               onClick={handleMenuClick}
