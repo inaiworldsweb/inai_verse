@@ -1,6 +1,7 @@
 
 import { Link } from 'react-router-dom'
-import { cn } from '@/utils/cn'
+import { cn } from '../../utils/cn'
+import { useIntersectionObserver } from '../../hooks/useIntersectionObserver'
 
 interface FooterProps {
     className?: string
@@ -22,7 +23,7 @@ const footerLinks = {
     resources: [
         { label: 'Documentation', href: '#docs' },
         { label: 'API Reference', href: '#api' },
-        { label: 'Community', href: '#community' },
+        { label: 'Community', href: '/community' },
         { label: 'Support', href: '#support' },
     ],
     legal: [
