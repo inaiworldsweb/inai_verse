@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import img1 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Curriculum_content.webp";
+import img1 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Cc.webp";
 import img2 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/AI_led_lectures.webp";
 import img3 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/AI_generated_question_papers.webp";
 import img4 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/image_384.webp";
-import img5 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Students_faculty.webp";
+import img5 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Sf.webp";
 import img6 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Reports_analytics.webp";
 
 const EdInaiCommandPanel = ({ id }) => {
