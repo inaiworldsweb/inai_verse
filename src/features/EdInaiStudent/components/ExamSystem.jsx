@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import img1 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/Scheduled Exams Section.webp";
-import img2 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/Ai Mock Test Mode.webp";
+import img2 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/AI Mock Test Mode.webp";
 import img3 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/Study Materials Section.webp";
 
 const ExamSystem = ({ id }) => {

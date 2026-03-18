@@ -3,27 +3,28 @@ name: Frontend – Build, Push & Deploy (STAGING)
 on:
   push:
     branches: ["main"]
+  pull_request:
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
   id-token: write
   contents: read
+  packages: write
+  security-events: write
 
 env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
-
-  # FULL ECR URI (example: 7245...amazonaws.com/inaiworlds)
   ECR_REPOSITORY_URI: ${{ secrets.ECR_REPOSITORY }}
-
-  # EC2 instance-id (staging FE instance)
   TARGET_INSTANCE_ID: ${{ secrets.TARGET_INSTANCE_ID }}
-
   IMAGE_TAG: ${{ github.sha }}
 
 jobs:
+  # Build and Deploy
   build_and_deploy:
     runs-on: ubuntu-latest
     timeout-minutes: 25
+    if: github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch'
 
     steps:
       - name: Checkout code
@@ -39,51 +40,146 @@ jobs:
       - name: Verify AWS identity
         run: aws sts get-caller-identity
 
-      - name: Set up Docker Buildx (docker-container)
+      - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
         with:
           driver: docker-container
+          platforms: linux/amd64,linux/arm64
 
       - name: Login to Amazon ECR
         uses: aws-actions/amazon-ecr-login@v2
+
+      - name: Extract metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.ECR_REPOSITORY_URI }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=sha,prefix={{branch}}-
+            type=raw,value=staging
+            type=raw,value=latest,enable={{is_default_branch}}
 
       - name: Build & Push Docker Image (STAGING)
         uses: docker/build-push-action@v5
         with:
           context: .
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ env.ECR_REPOSITORY_URI }}:${{ env.IMAGE_TAG }}
             ${{ env.ECR_REPOSITORY_URI }}:staging
             ${{ env.ECR_REPOSITORY_URI }}:latest
+          labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          # Build with more verbose output for debugging
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
+        continue-on-error: false
 
-      # ✅ Auto Deploy: remove old containers + pull latest + run + cleanup old images
-      - name: Deploy on EC2 (SSM) - FE auto (cleanup)
+      # Test the built image to ensure it works
+      - name: Test Docker image locally
+        run: |
+          echo "Testing Docker image before deployment..."
+          docker run --rm -d --name test-container ${{ env.ECR_REPOSITORY_URI }}:latest
+          sleep 15
+          
+          # Check if container is running
+          if ! docker ps | grep test-container; then
+            echo "❌ Container failed to start"
+            docker logs test-container
+            exit 1
+          fi
+          
+          # Test if the app responds
+          if ! curl -f -s http://localhost/ > /dev/null; then
+            echo "❌ Application not responding"
+            docker logs test-container
+            exit 1
+          fi
+          
+          echo "✅ Docker image test passed"
+          docker stop test-container
+
+      # Deploy with improved error handling and rollback
+      - name: Deploy on EC2 (SSM) - FE with rollback support
         run: |
           aws ssm send-command \
             --region "${{ env.AWS_REGION }}" \
             --instance-ids "${{ env.TARGET_INSTANCE_ID }}" \
             --document-name "AWS-RunShellScript" \
-            --comment "Deploy inaiworlds FE STAGING (auto + cleanup)" \
+            --comment "Deploy inaiworlds FE STAGING with rollback support" \
             --parameters commands='[
               "set -euo pipefail",
-              "echo \"[INFO] Deploy start\"",
+              "echo \"[INFO] Deploy start at $(date)\"",
               "docker --version",
               "aws --version",
               "echo \"[INFO] ECR login\"",
               "aws ecr get-login-password --region ${{ env.AWS_REGION }} | docker login --username AWS --password-stdin $(echo ${{ env.ECR_REPOSITORY_URI }} | cut -d/ -f1)",
               "echo \"[INFO] Pull latest image\"",
               "docker pull ${{ env.ECR_REPOSITORY_URI }}:latest",
-              "echo \"[INFO] Remove old containers (if any)\"",
-              "docker rm -f inaiworlds 2>/dev/null || true",
-              "docker rm -f inaiworlds-fe 2>/dev/null || true",
+              "echo \"[INFO] Backup current container\"",
+              "docker stop inaiworlds-backup 2>/dev/null || true",
+              "docker rm inaiworlds-backup 2>/dev/null || true",
+              "docker stop inaiworlds 2>/dev/null || true",
+              "docker rename inaiworlds inaiworlds-backup 2>/dev/null || true",
               "echo \"[INFO] Run new container\"",
-              "docker run -d --name inaiworlds --restart unless-stopped -p 3000:80 ${{ env.ECR_REPOSITORY_URI }}:latest",
+              "docker run -d --name inaiworlds --restart unless-stopped -p 3000:80 --health-cmd=\"curl -f http://localhost/ || exit 1\" --health-interval=30s --health-timeout=10s --health-retries=3 ${{ env.ECR_REPOSITORY_URI }}:latest",
+              "echo \"[INFO] Wait for health check\"",
+              "sleep 30",
+              "HEALTH_STATUS=$(docker inspect --format=\"{{.State.Health.Status}}\" inaiworlds || echo \"unknown\")",
+              "if [ \"$HEALTH_STATUS\" != \"healthy\" ]; then",
+              "  echo \"[ERROR] New container not healthy, rolling back...\"",
+              "  docker stop inaiworlds",
+              "  docker rm inaiworlds",
+              "  docker start inaiworlds-backup 2>/dev/null || echo \"No backup to restore\"",
+              "  exit 1",
+              "fi",
+              "echo \"[INFO] Deployment successful, cleaning up\"",
+              "docker rm -f inaiworlds-backup 2>/dev/null || true",
               "echo \"[INFO] Cleanup old images (unused + dangling)\"",
               "docker image prune -a -f",
-              "echo \"[INFO] Status\"",
-              "docker ps -a | head -n 25",
-              "docker images | head -n 25"
+              "echo \"[INFO] Final status\"",
+              "docker ps -a | head -n 10",
+              "docker images | head -n 10",
+              "echo \"[INFO] Deploy completed at $(date)\""
             ]'
+
+      # Post-deployment verification
+      - name: Verify deployment
+        run: |
+          echo "Waiting for deployment to be ready..."
+          sleep 60
+          
+          # Get instance public IP
+          INSTANCE_IP=$(aws ec2 describe-instances \
+            --instance-ids "${{ env.TARGET_INSTANCE_ID }}" \
+            --region "${{ env.AWS_REGION }}" \
+            --query "Reservations[0].Instances[0].PublicIpAddress" \
+            --output text)
+          
+          echo "Testing deployment at http://$INSTANCE_IP:3000"
+          
+          # Health check
+          for i in {1..10}; do
+            if curl -f -s "http://$INSTANCE_IP:3000/health" > /dev/null; then
+              echo "✅ Deployment is healthy!"
+              break
+            else
+              echo "⏳ Waiting for deployment... (attempt $i/10)"
+              sleep 10
+            fi
+          done
+
+      # Notification (optional)
+      - name: Notify deployment status
+        if: always()
+        run: |
+          if [ "${{ job.status }}" == "success" ]; then
+            echo "✅ Frontend deployment to staging completed successfully!"
+          else
+            echo "❌ Frontend deployment to staging failed!"
+            exit 1
+          fi
