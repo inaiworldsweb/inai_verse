@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import schoolImg from "../../../assets/images/edInai/Admin/Built for Education Providers/Built for Education Providers/Schools.webp";
-import collegeImg from "../../../assets/images/edInai/Admin/Built for Education Providers/Built for Education Providers/Colleges & Universities.webp";
-import coachingImg from "../../../assets/images/edInai/Admin/Built for Education Providers/Built for Education Providers/Coaching Institutes.webp";
+import schoolImg from "../../../assets/images/EdInai/Admin/Built for Education Providers/Built for Education Providers/Schools.webp";
+import collegeImg from "../../../assets/images/EdInai/Admin/Built for Education Providers/Built for Education Providers/Colleges & Universities.webp";
+import coachingImg from "../../../assets/images/EdInai/Admin/Built for Education Providers/Built for Education Providers/Coaching Institutes.webp";
 
 const EdInaiEducationProvider = ({ id }) => {
   const [activeTab, setActiveTab] = useState(0);
