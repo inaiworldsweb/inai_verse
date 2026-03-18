@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import schoolImg from "../../../assets/final/education_schools.png";
-import collegeImg from "../../../assets/final/education_colleges.png";
-import coachingImg from "../../../assets/final/education_coaching.png";
+import schoolImg from "../../../assets/images/edInai/Admin/Built for Education Providers/Built for Education Providers/Schools.webp";
+import collegeImg from "../../../assets/images/edInai/Admin/Built for Education Providers/Built for Education Providers/Colleges & Universities.webp";
+import coachingImg from "../../../assets/images/edInai/Admin/Built for Education Providers/Built for Education Providers/Coaching Institutes.webp";
 
 const EdInaiEducationProvider = ({ id }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -70,7 +70,7 @@ const EdInaiEducationProvider = ({ id }) => {
         </div>
 
         {/* Main Card Section */}
-        <div className="bg-[#0e0f10] border border-white/10 rounded-[10px] mb-6 md:mb-1 h-auto md:h-[350px] overflow-hidden">
+        <div className="bg-[#0e0f10] border border-white/10 rounded-[7px] md:rounded-[10px] mb-6 md:mb-1 h-auto md:h-[350px] overflow-hidden">
           <div className="flex h-full flex-col lg:flex-row items-center">
             {/* Image Box */}
             <div className="w-full lg:w-1/2 h-64 md:h-full relative overflow-hidden">
@@ -164,7 +164,7 @@ const EdInaiEducationProvider = ({ id }) => {
               <button
                 key={idx}
                 onClick={() => setActiveTab(idx)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${activeTab === idx ? "w-8 bg-white" : "w-2 bg-white/20"
+                className={`h-1.5 rounded-[7px] md:rounded-[10px] transition-all duration-300 ${activeTab === idx ? "w-8 bg-white" : "w-2 bg-white/20"
                   }`}
               />
             ))}

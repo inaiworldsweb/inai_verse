@@ -127,13 +127,13 @@ const EdInaiPowerfulLearning = ({ id }) => {
             <div
               key={mode.id}
               ref={(el) => (cardsRef.current[index] = el)}
-              className="w-full rounded-[10px] md:rounded-[10px] border border-white/10  overflow-hidden bg-[#0c0c0c] will-change-transform"
+              className="w-full rounded-[7px] md:rounded-[10px] border border-white/10 overflow-hidden bg-[#0c0c0c] will-change-transform"
               style={{ zIndex: index + 20 }}
             >
               <div className="bg-gradient-to-br from-[#151515] to-black flex flex-col md:flex-row items-stretch min-h-[350px] md:h-[400px]">
                 {/* Content */}
                 <div className="w-full md:w-[42%] p-5 md:p-2 md:ps-12 lg:p-12 flex flex-col justify-center order-2 md:order-1">
-                  <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-[10px]">
+                  <div className="inline-block w-fit px-4 py-1 mb-4 bg-white/5 border border-white/10 rounded-[7px] md:rounded-[10px]">
                     <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">{mode.mode}</span>
                   </div>
                   <h2 className="text-white text-2xl w-[390px] md:text-3xl lg:text-4xl font-bold mb-4">{mode.title}</h2>

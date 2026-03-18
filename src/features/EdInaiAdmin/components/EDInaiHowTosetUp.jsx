@@ -4,12 +4,12 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Step images
-import img1 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg1.png";
-import img2 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg2.png";
-import img3 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg3.png";
-import img4 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg4.png";
-import img5 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg5.png";
-import img6 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg6.png";
+import img1 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Create Admin Profile.webp";
+import img2 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Upload Curriculum & Topics.webp";
+import img3 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Schedule Sessions & Tests.webp";
+import img4 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Add Academic Structure.webp";
+import img5 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Generate AI Lectures & Exams.webp";
+import img6 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Monitor & Optimize with Analytics.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -140,14 +140,14 @@ const EDInaiHowTosetUp = ({ id }) => {
         {steps.map((step, index) => (
           <div
             key={step.id}
-            className="mobile-step-card w-full bg-[#0c0c0c] border border-white/10 rounded-[24px] p-6 shadow-2xl overflow-hidden h-[450px] flex flex-col justify-between"
+            className="mobile-step-card w-full bg-[#0c0c0c] border border-white/10 rounded-[7px] md:rounded-[10px] p-6 shadow-2xl overflow-hidden h-[450px] flex flex-col justify-between"
             style={{ zIndex: index + 1 }}
           >
             <div>
               <span className="text-white/20 font-black text-5xl">0{step.id}</span>
               <h3 className="text-xl font-bold text-white mt-4">{step.title}</h3>
             </div>
-            <div className="mt-6 rounded-[14px] overflow-hidden border border-white/5 h-full">
+            <div className="mt-6 rounded-[7px] md:rounded-[10px] overflow-hidden border border-white/5 h-full">
               <img src={step.image} alt={step.title} className="w-full h-full object-cover" />
             </div>
           </div>
@@ -178,11 +178,11 @@ const EDInaiHowTosetUp = ({ id }) => {
 
           {/* Image side */}
           <div className="w-[60%]">
-            <div className="relative aspect-video rounded-[14px] overflow-hidden border border-white/10 bg-[#0c0c0c]">
+            <div className="relative aspect-video rounded-[7px] md:rounded-[10px] overflow-hidden border border-white/10 bg-[#0c0c0c]">
               {steps.map((step, index) => (
                 <img key={step.id} ref={(el) => (imgRefs.current[index] = el)} src={step.image} alt={step.title} className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-0" />
               ))}
-              <div ref={badgeRef} className="absolute bottom-4 left-4 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-[10px] px-4 py-2 text-white text-xs">
+              <div ref={badgeRef} className="absolute bottom-4 left-4 z-20 bg-black/60 backdrop-blur-md border border-white/10 rounded-[7px] md:rounded-[10px] px-4 py-2 text-white text-xs">
                 Step 1 of 6
               </div>
             </div>

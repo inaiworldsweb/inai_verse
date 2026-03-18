@@ -30,12 +30,12 @@ function LandingPage() {
 
                         {/* Main Title */}
                         {/* Changed: Responsive text sizes for better mobile fitting */}
-                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-tight text-center">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 tracking-[0.1px] text-center">
                             Welcome to INAI Verse
                         </h1>
 
                         {/* Subtitle */}
-                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-center tracking-tight">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 text-center tracking-[0.5px]">
                             We are for people, We are for Digital{' '}
                             <span className="inline-flex">
                                 <span className="text-[#FF671F]">IN</span>

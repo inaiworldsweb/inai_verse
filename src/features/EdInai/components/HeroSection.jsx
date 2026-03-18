@@ -8,7 +8,7 @@ const HeroSection = ({ id, onDemoClick }) => {
   return (
     <section
       id={id}
-      className="min-h-[85vh] flex items-center justify-center py-12 md:py-24"
+      className="min-h-[85vh] flex items-center justify-center py-9 md:py-24"
     >
       <div className="text-center px-6 max-w-6xl mx-auto">
         {/* Main Heading */}

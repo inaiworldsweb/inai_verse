@@ -1,5 +1,5 @@
-import React, { useState } from "react"; // 1. useState import kiya
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react"; // 1. useState import kiya 
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../../assets/EdInai Logo.png";
 import OffCanvasMenu from "../../../components/OffCanvasMenu";
 
@@ -20,9 +20,10 @@ const EdInaiNavbar = ({
   headerClassName = "bg-black/80 backdrop-blur-md",
 }) => {
   const navigate = useNavigate();
-  
+
   // 3. Menu state manage karne ke liye
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleClick = (defaultPath, customHandler) => {
     if (customHandler) customHandler();
@@ -80,7 +81,10 @@ const EdInaiNavbar = ({
           )}
 
           {breadcrumbs.length > 0 && (
-            <nav className="hidden sm:flex items-center" aria-label="Breadcrumb">
+            <nav
+              className="hidden sm:flex items-center"
+              aria-label="Breadcrumb"
+            >
               {breadcrumbs.map((crumb, i) => (
                 <div key={i} className="flex items-center">
                   <span className="text-white/20 text-lg font-light px-2 select-none">
@@ -100,16 +104,26 @@ const EdInaiNavbar = ({
 
         {/* RIGHT: Actions */}
         <div className="flex items-center gap-3 md:gap-5">
+          {/* Student Portal Link */}
           <button
             onClick={() => navigate("/edinai-student")}
-            className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
+            className={`hidden md:block text-[13px] md:text-[14px] font-medium transition-colors ${
+              location.pathname.includes("/edinai-student")
+                ? "text-white border-b-2 border-white"
+                : "text-white/70 hover:text-white"
+            }`}
           >
             Student Portal
           </button>
 
+          {/* Admin Portal Link */}
           <button
             onClick={() => navigate("/edinai-admin")}
-            className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
+            className={`hidden md:block text-[13px] md:text-[14px] font-medium transition-colors ${
+              location.pathname.includes("/edinai-admin")
+                ? "text-white border-b-2 border-white"
+                : "text-white/70 hover:text-white"
+            }`}
           >
             Admin Portal
           </button>
@@ -135,7 +149,7 @@ const EdInaiNavbar = ({
 
           {showMenuButton && (
             <button
-              onClick={handleMenuAction} // Updated handler
+              onClick={handleMenuAction}
               className="text-white/80 hover:text-white transition-transform active:scale-90 p-1"
               aria-label="Menu"
             >
@@ -146,29 +160,44 @@ const EdInaiNavbar = ({
       </header>
 
       {/* 5. Off Canvas Menu Component */}
-      <OffCanvasMenu 
-        isOpen={isMenuOpen} 
-        onClose={() => setIsMenuOpen(false)} 
-      />
+      <OffCanvasMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </>
   );
 };
 
 // --- Icons Sub-components (Same as before) ---
 const BackIcon = () => (
-  <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+  <svg
+    className="w-5 h-5 md:w-6 md:h-6"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    viewBox="0 0 24 24"
+  >
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
   </svg>
 );
 
 const HomeIcon = () => (
-  <svg className="w-5 h-5 md:w-5.5 md:h-5.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+  <svg
+    className="w-5 h-5 md:w-5.5 md:h-5.5"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
     <path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1h3a1 1 0 001-1V10" />
   </svg>
 );
 
 const MenuIcon = () => (
-  <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+  <svg
+    className="w-6 h-6"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
     <path d="M4 7h16M4 12h16M4 17h16" />
   </svg>
 );

@@ -33,7 +33,7 @@ const EdInaiTrasform = ({ id, onDemoClick }) => {
             <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
               <button 
                 onClick={onDemoClick}
-                className="relative px-6 py-3 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
+                className="relative md:px-6 px-4 py-3 text-[16px] md:text-[20px] flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
               >
                 Book a Demo
               </button>

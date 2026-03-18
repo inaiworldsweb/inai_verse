@@ -46,7 +46,7 @@ const EdInaiInside = ({ id }) => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           onMouseMove={handleMouseMove}
-          className="relative w-full aspect-video md:aspect-[25/9] rounded-2xl overflow-hidden group cursor-pointer border border-white/10 bg-[#0a0a0a]"
+          className="relative w-full aspect-video md:aspect-[25/9] rounded-[7px] md:rounded-[10px] overflow-hidden group cursor-pointer border border-white/10 bg-[#0a0a0a]"
         >
           {/* Background Image */}
           <img

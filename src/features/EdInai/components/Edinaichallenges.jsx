@@ -95,11 +95,12 @@ export default function Edinaichallenges({ id }) {
         {/* Header */}
 
         <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl h1 md:text-5xl font-bold mb-6 tracking-tight">
+
+          <h2 className="h1 mb-6 ">
             Challenges in Traditional Education
           </h2>
 
-          <p className="text-gray-400 max-w-4xl h2  mx-auto text-base md:text-lg">
+          <p className=" max-w-4xl h2 mx-auto ">
             Many institutions face difficulties in delivering consistent,
             personalized, and scalable education. edInai addresses these
             challenges through intelligent automation.
