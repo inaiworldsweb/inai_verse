@@ -21,7 +21,7 @@ const PersonalisedLearning = () => {
   };
 
   return (
-    <section className="personalised-learning bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 py-9 md:py-12">
+    <section className="personalised-learning bg-black min-h-screen text-center flex flex-col items-center justify-center px-4 pt-4 pb-0 md:py-12">
       <div className="max-w-6xl w-full flex flex-col items-center space-y-3">
         {/* Header Section */}
         <div className="flex items-center justify-center flex-col mb-3">
@@ -49,7 +49,7 @@ const PersonalisedLearning = () => {
             </AnimatePresence>
 
             {/* Content Overlay - Added pb-20 on mobile to clear dots and justify-end to stay low */}
-            <div className="absolute inset-0 flex flex-col justify-end items-center bg-gradient-to-t from-black via-black/40 to-transparent p-6 pb-20 md:pb-12">
+            <div className="absolute inset-0 flex flex-col justify-end items-center bg-gradient-to-t from-black via-black/40 to-transparent p-6 pb-7 md:pb-12">
               <div className="flex flex-col items-center text-center max-w-2xl">
 
                 {/* Description - Lowered on mobile via mt-6 */}

@@ -91,7 +91,7 @@ const FaqSection = ({ id }) => {
                   ease-out cursor-pointer overflow-hidden 
                   ${isOpen ? "border-gray-500" : "hover:border-gray-600"}`}
                 >
-                  <div className="p-5 flex items-center justify-between relative z-10">
+                  <div className="md:p-5 p-3 flex items-center justify-between relative z-10">
                     <h3 className="text-[14px] md:text-[16px] font-medium tracking-wide text-white">
                       {question}
                     </h3>

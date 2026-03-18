@@ -25,7 +25,7 @@ const WhatIsEdInai = ({ id }) => {
               src={img}
               alt="AI Classroom"
               /* Image: Right corners set to 0 to match the container */
-              className="w-full h- scale-106 object-cover rounded-[10px] rounded-r-none"
+              className="w-full scale-106 object-cover rounded-[10px] rounded-r-none"
             />
           </div>
         </div>
@@ -33,9 +33,9 @@ const WhatIsEdInai = ({ id }) => {
         {/* Right Side: Content */}
         <div className="w-full lg:w-1/2 p-8 md:p-12 lg:p-10 flex flex-col justify-center">
           <div className="max-w-xl">
-            <h1 className="h1 mb-6">What is edInai?</h1>
+            <h1 className="h1 mt-2 md:mt-0 md:mb-6 mb-4">What is edInai?</h1>
 
-            <p className="p text-gray-400 leading-relaxed mb-8">
+            <p className="p text-gray-400 leading-relaxed md:mb-8 mb-4">
               edInai is an AI-powered education platform developed by INAI
               Worlds Pvt. Ltd. It enables institutions to automate teaching,
               personalize learning, and improve academic outcomes using advanced
