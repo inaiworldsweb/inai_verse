@@ -70,7 +70,7 @@ const EdInaiCommandPanel = ({ id }) => {
         </div>
 
         {/* Main Card Section - Side-by-Side Layout */}
-        <div className="w-full bg-[#0c0c0c] border border-white/10 rounded-[10px] h-auto md:h-[450px] overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)]">
+        <div className="w-full bg-[#0c0c0c] border border-white/10 rounded-[7px] md:rounded-[10px] h-auto md:h-[450px] overflow-hidden shadow-[0_0_40px_rgba(255,255,255,0.05)]">
           <div className="flex h-full flex-col lg:flex-row items-stretch">
             {/* Image Box - Left Side */}
             <div className="w-full lg:w-1/2 h-64 md:h-auto relative overflow-hidden">
@@ -88,7 +88,7 @@ const EdInaiCommandPanel = ({ id }) => {
               </AnimatePresence>
 
               {/* Indicators (Dots) overlay on image bottom */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20">
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-20 rounded-[7px] md:rounded-[10px]">
                 {carouselData.map((_, i) => (
                   <button
                     key={i}

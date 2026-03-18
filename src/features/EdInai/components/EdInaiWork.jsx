@@ -75,8 +75,8 @@ const EdInaiWork = ({ id }) => {
                   </span>
 
                   {/* Icon Box - HIDDEN ON MOBILE (hidden md:flex) */}
-                  <div className="hidden md:flex w-12 h-12 md:w-15 md:h-15 mb-6 md:mb-8 border border-[#ccc]/30 bg-[#ccc]/5 rounded-2xl items-center justify-center z-10 backdrop-blur-sm">
-                    <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-[#ccc] rounded-lg rotate-45 flex items-center justify-center"></div>
+                  <div className="hidden md:flex w-12 h-12 md:w-15 md:h-15 mb-6 md:mb-8 border border-[#ccc]/30 bg-[#ccc]/5 rounded-[7px] md:rounded-[10px] items-center justify-center z-10 backdrop-blur-sm">
+                    <div className="w-8 h-8 md:w-10 md:h-10 border-2 border-[#ccc] rounded-[7px] md:rounded-[10px] rotate-45 flex items-center justify-center"></div>
                   </div>
 
                   {/* Text Content - mt-10 on mobile to clear the ghost number space */}
