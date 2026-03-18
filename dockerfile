@@ -5,16 +5,20 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
+# Install dependencies
 RUN npm ci || npm install
 
 # Copy source code
 COPY . .
 
-# Debug: Show what we're building
-RUN ls -la && echo "Node version:" && node --version && echo "NPM version:" && npm --version
+# Set Node.js memory limit and build
+ENV NODE_OPTIONS="--max-old-space-size=4096"
 
-# Build with error handling
-RUN npm run build || (echo "Build failed, checking for issues..." && ls -la && cat package.json && exit 1)
+# Clean build with error handling
+RUN npm run build
+
+# Verify build output
+RUN ls -la dist/ && echo "Build completed successfully"
 
 # Production stage
 FROM nginx:alpine
