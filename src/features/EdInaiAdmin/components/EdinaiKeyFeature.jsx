@@ -3,12 +3,12 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import img1 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg1.png";
-import img2 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg2.png";
-import img3 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg3.png";
-import img4 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg4.png";
-import img5 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg5.png";
-import img6 from "../../../assets/EdInai_imgs/EdinaiKeyFeatureImg6.png";
+import img1 from "../../../assets/edInai_imgs/EdinaiKeyFeatureImg1.png";
+import img2 from "../../../assets/edInai_imgs/EdinaiKeyFeatureImg2.png";
+import img3 from "../../../assets/edInai_imgs/EdinaiKeyFeatureImg3.png";
+import img4 from "../../../assets/edInai_imgs/EdinaiKeyFeatureImg4.png";
+import img5 from "../../../assets/edInai_imgs/EdinaiKeyFeatureImg5.png";
+import img6 from "../../../assets/edInai_imgs/EdinaiKeyFeatureImg6.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
