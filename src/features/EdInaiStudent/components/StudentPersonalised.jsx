@@ -73,7 +73,7 @@ const StudentPersonalised = ({ id }) => {
         <div className="bg-[#0e0f10] border border-white/10 rounded-[10px] h-auto md:h-[400px] overflow-hidden">
           <div className="flex h-full flex-col lg:flex-row items-center">
             {/* Image Box - Left Side */}
-            <div className="w-full lg:w-1/2 h-64 md:h-full relative overflow-hidden">
+            <div className="w-full lg:w-1/2 h-64 ps-10 md:h-full relative overflow-hidden">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={index}
