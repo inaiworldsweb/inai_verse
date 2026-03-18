@@ -5,8 +5,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci || npm install
+# Install dependencies - using --legacy-peer-deps to handle Tailwind v4/Vite 6 conflicts
+RUN npm install --legacy-peer-deps
 
 # Copy source code
 COPY . .
@@ -14,7 +14,7 @@ COPY . .
 # Set Node.js memory limit and build
 ENV NODE_OPTIONS="--max-old-space-size=4096"
 
-# Clean build with error handling
+# Build with verbose output to catch errors
 RUN npm run build
 
 # Verify build output

@@ -10,3 +10,6 @@ README.md
 .env.production.local
 coverage
 .nyc_output
+
+# Exclude large GIF files from build context to speed up transfer and prevent potential timeouts
+src/assets/images/Miraai/video/*.gif

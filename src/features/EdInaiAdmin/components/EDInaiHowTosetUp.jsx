@@ -4,12 +4,12 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 // Step images
-import img1 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Create Admin Profile.webp";
-import img2 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Upload Curriculum & Topics.webp";
-import img3 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Schedule Sessions & Tests.webp";
-import img4 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Add Academic Structure.webp";
-import img5 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Generate AI Lectures & Exams.webp";
-import img6 from "../../../assets/images/edInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Monitor & Optimize with Analytics.webp";
+import img1 from "../../../assets/images/EdInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Create Admin Profile.webp";
+import img2 from "../../../assets/images/EdInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Upload Curriculum & Topics.webp";
+import img3 from "../../../assets/images/EdInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Schedule Sessions & Tests.webp";
+import img4 from "../../../assets/images/EdInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Add Academic Structure.webp";
+import img5 from "../../../assets/images/EdInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Generate AI Lectures & Exams.webp";
+import img6 from "../../../assets/images/EdInai/Admin/How to Set Up Ed-INAI/How to Set Up Ed-INAI/Monitor & Optimize with Analytics.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
