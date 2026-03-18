@@ -1,5 +1,5 @@
 import React from 'react';
-import heroBg from '../../../assets/images/EdInai/Admin/1.webp';
+import heroBg from '../../../assets/images/edInai/Admin/Hero.webp';
 
 const AdminHero = ({ id }) => {
   return (
@@ -11,6 +11,7 @@ const AdminHero = ({ id }) => {
         }}
       >
         {/* Background Image Setup */}
+
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: `url(${heroBg})` }}

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-import img1 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Cc.webp";
-import img2 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/AI_led_lectures.webp";
-import img3 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/AI_generated_question_papers.webp";
-import img4 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/image_384.webp";
-import img5 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Sf.webp";
-import img6 from "../../../assets/images/EdInai/Admin/Your Central Command Panel/Reports_analytics.webp";
+import img1 from "../../../assets/images/EdInai/Admin/YourCentralCommandPanel/Cc.webp";
+import img2 from "../../../assets/images/EdInai/Admin/YourCentralCommandPanel/AI_led_lectures.webp";
+import img3 from "../../../assets/images/EdInai/Admin/YourCentralCommandPanel/AI_generated_question_papers.webp";
+import img4 from "../../../assets/images/EdInai/Admin/YourCentralCommandPanel/image_384.webp";
+import img5 from "../../../assets/images/EdInai/Admin/YourCentralCommandPanel/Sf.webp";
+import img6 from "../../../assets/images/EdInai/Admin/YourCentralCommandPanel/Reports_analytics.webp";
 
 const EdInaiCommandPanel = ({ id }) => {
   const sharedDesc = "The Admin View enables institutions to manage curriculum, schedules, users, and analytics from a single dashboard. Structured controls ensure smooth governance and operational efficiency.";
