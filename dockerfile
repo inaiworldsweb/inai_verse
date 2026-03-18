@@ -1,12 +1,22 @@
 FROM node:22-alpine AS builder
+
 WORKDIR /app
 
+# Copy package files
 COPY package*.json ./
+
 RUN npm ci || npm install
 
+# Copy source code
 COPY . .
-RUN npm run build
 
+# Debug: Show what we're building
+RUN ls -la && echo "Node version:" && node --version && echo "NPM version:" && npm --version
+
+# Build with error handling
+RUN npm run build || (echo "Build failed, checking for issues..." && ls -la && cat package.json && exit 1)
+
+# Production stage
 FROM nginx:alpine
 
 RUN apk add --no-cache curl
@@ -32,4 +42,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD curl -f http://localhost/ || exit 1
 
 EXPOSE 80
+
 CMD ["nginx", "-g", "daemon off;"]

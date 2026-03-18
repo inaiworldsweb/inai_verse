@@ -74,6 +74,34 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          # Build with more verbose output for debugging
+          build-args: |
+            BUILDKIT_INLINE_CACHE=1
+        continue-on-error: false
+
+      # Test the built image to ensure it works
+      - name: Test Docker image locally
+        run: |
+          echo "Testing Docker image before deployment..."
+          docker run --rm -d --name test-container ${{ env.ECR_REPOSITORY_URI }}:latest
+          sleep 15
+          
+          # Check if container is running
+          if ! docker ps | grep test-container; then
+            echo "❌ Container failed to start"
+            docker logs test-container
+            exit 1
+          fi
+          
+          # Test if the app responds
+          if ! curl -f -s http://localhost/ > /dev/null; then
+            echo "❌ Application not responding"
+            docker logs test-container
+            exit 1
+          fi
+          
+          echo "✅ Docker image test passed"
+          docker stop test-container
 
       # Deploy with improved error handling and rollback
       - name: Deploy on EC2 (SSM) - FE with rollback support
