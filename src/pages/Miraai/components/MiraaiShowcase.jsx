@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import model images
-import img1 from '../../../assets/images/Miraai/video/download 1.gif';
-import img2 from '../../../assets/images/Miraai/video/download 2.gif';
-import img3 from '../../../assets/images/Miraai/video/download 3.gif';
-import img4 from '../../../assets/images/Miraai/video/download 4.gif';
-import img5 from '../../../assets/images/Miraai/video/download 5.gif';
-import img6 from '../../../assets/images/Miraai/video/download 6.gif';
-import img7 from '../../../assets/images/Miraai/video/download 7.gif';
+import img1 from '../../../assets/images/Miraai/video/download1.gif';
+import img2 from '../../../assets/images/Miraai/video/download2.gif';
+import img3 from '../../../assets/images/Miraai/video/download3.gif';
+import img4 from '../../../assets/images/Miraai/video/download4.gif';
+import img5 from '../../../assets/images/Miraai/video/download5.gif';
+import img6 from '../../../assets/images/Miraai/video/download6.gif';
+import img7 from '../../../assets/images/Miraai/video/download7.gif';
 
 const showcaseItems = [
     { url: img1 }, { url: img2 }, { url: img3 },
