@@ -2,7 +2,7 @@ import { useNavigate, Link } from 'react-router-dom'
 
 import PageHeader from '../components/PageHeader'
 
-import logoImage from '../assets/Inai Verse White Tred mark (1).png'
+import logoImage from '../assets/EdInai Logo.png'
 import { FiCheck } from 'react-icons/fi'
 
 const pricingPlans = [
@@ -137,16 +137,14 @@ const PricingPage = () => {
         <div className="flex flex-col min-h-screen bg-black text-white">
             <PageHeader
                 logoSrc={logoImage}
+                logoClassName="h-[34px] md:h-[44px] w-auto max-w-[130px] object-contain pl-6"
                 showBackButton={false}
                 showTitleText={false}
                 showPriceButton={false}
                 showHomeButton={true}
                 showMenuButton={true}
+                onLogoClick={() => navigate("/edinai")}
                 showBorder={false}
-                headerClassName="py-4 px-8 md:py-6 md:px-12"
-                logoClassName="h-[50px] md:h-[75px] w-auto max-w-[280px] object-contain"
-                homeIconClassName="w-6 h-6 md:w-7 md:h-7"
-                menuIconClassName="w-6 h-6 md:w-7 md:h-7"
             />
 
             {/* Main Content */}

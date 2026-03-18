@@ -128,11 +128,11 @@ const MissionVision = () => {
                 <div className="absolute w-[250px] h-[250px] md:w-[350px] md:h-[350px] bg-blue-600/15 rounded-full blur-[80px]" />
 
                 <div className="relative   z-10 w-full max-w-[500px]">
-                  <div className="relative p-1 bg-gradient-to-b   from-white/10 scale-85 to-transparent rounded-full  backdrop-blur-sm">
+                  <div className="relative p-1 bg-gradient-to-b   from-white/10 scale-85 to-transparent rounded-[7px] md:rounded-[10px] backdrop-blur-sm">
                     <img
                       src={contentData[activeTab].image}
                       alt={activeTab}
-                      className="w-full h-auto rounded-[10px] shadow-2xl"
+                      className="w-full h-auto rounded-[7px] md:rounded-[10px] shadow-2xl"
                     />
                   </div>
                 </div>

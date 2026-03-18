@@ -5,7 +5,7 @@ import BannerImg from "../../../assets/EdInai_Student_imgs/Learn Smarter, Revise
 const StudentHero = () => {
   return (
     <section className="w-full bg-black py-9 md:py-12 px-4">
-      <div className="max-w-6xl mx-auto overflow-hidden rounded-[10px]  relative min-h-[400px] md:min-h-[500px] flex items-center justify-center">
+      <div className="max-w-6xl mx-auto overflow-hidden rounded-[10px]  relative min-h-[400px] md:min-h-[550px] flex items-center justify-center">
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0">
           <img

@@ -30,7 +30,7 @@ const EdInaiPlatform = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative w-full overflow-hidden my-8 shadow-2xl rounded-[10px]">
+        <div className="relative w-full overflow-hidden my-8 shadow-2xl rounded-[7px] md:rounded-[10px]">
           <div className="relative h-[450px] md:h-[500px] w-full">
             <AnimatePresence mode="wait">
               <motion.img

@@ -161,8 +161,8 @@ const EdinaiKeyFeature = ({ id }) => {
                 <div className="hidden md:block md:w-[5%]" />
 
                 {/* Image */}
-                <div className="w-full md:w-[50%] relative overflow-hidden order-1 md:order-2 h-56 md:h-auto">
-                  <img src={feature.image} alt={feature.title} className="absolute inset-0 rounded-none w-full h-full object-cover transform scale-105 transition-transform duration-700" />
+                <div className="w-full md:w-[50%] relative overflow-hidden order-1 md:order-2 h-56 md:h-auto flex items-center justify-center">
+                  <img src={feature.image} alt={feature.title} className="w-full h-full object-contain transition-transform duration-700" />
                   <div className={`absolute inset-0 bg-gradient-to-r ${index % 2 === 0 ? 'from-black/60' : 'to-black/60'} via-transparent pointer-events-none hidden md:block`} />
                 </div>
               </div>

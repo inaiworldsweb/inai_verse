@@ -1,5 +1,7 @@
 import React, { useState } from "react"; // 1. useState import kiya
 import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../../assets/EdInai Logo.png";
 import OffCanvasMenu from "../../../components/OffCanvasMenu";
 
@@ -23,6 +25,7 @@ const EdInaiNavbar = ({
   
   // 3. Menu state manage karne ke liye
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleClick = (defaultPath, customHandler) => {
     if (customHandler) customHandler();
@@ -107,6 +110,58 @@ const EdInaiNavbar = ({
             Student Portal
           </button>
 
+        {showLogo && (
+          <img
+            src={logoSrc}
+            alt={logoAlt}
+            className={`${logoClassName} cursor-pointer hover:opacity-80 active:scale-95 transition-all`}
+            onClick={() => handleClick("/EdInaiPage", onLogoClick)}
+          />
+        )}
+
+        {breadcrumbs.length > 0 && (
+          <nav className="hidden sm:flex items-center" aria-label="Breadcrumb">
+            {breadcrumbs.map((crumb, i) => (
+              <div key={i} className="flex items-center">
+                <span className="text-white/20 text-lg font-light px-2 select-none">
+                  /
+                </span>
+                <button
+                  onClick={crumb.onClick}
+                  className="text-white/60 text-sm hover:text-white transition-colors tracking-wide"
+                >
+                  {crumb.label}
+                </button>
+              </div>
+            ))}
+          </nav>
+        )}
+      </div>
+
+      {/* RIGHT: Actions */}
+      <div className="flex items-center gap-3 md:gap-5">
+        
+        {/* Student Portal Link */}
+        <button
+          onClick={() => navigate("/edinai-student")}
+          className={`hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors ${
+            location.pathname.includes('/edinai-student') ? 'border-b-2 border-white' : ''
+          }`}
+        >
+          Student Portal
+        </button>
+
+        {/* Admin Portal Link */}
+        <button
+          onClick={() => navigate("/edinai-admin")}
+          className={`hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors ${
+            location.pathname.includes('/edinai-admin') ? 'border-b-2 border-white' : ''
+          }`}
+        >
+          Admin Portal
+        </button>
+
+        {showPriceButton && (
           <button
             onClick={() => navigate("/edinai-admin")}
             className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
