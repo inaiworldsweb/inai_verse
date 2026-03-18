@@ -1,5 +1,5 @@
 import React from "react";
-import CTAImage from "../../../assets/EdInai_imgs/CTA.png";
+import CTAImage from "../../../assets/edInai_imgs/CTA.png";
 
 const EdInaiAdminTrasform = ({ id }) => {
   return (
