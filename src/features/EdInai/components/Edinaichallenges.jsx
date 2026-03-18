@@ -9,7 +9,6 @@ import Icon3 from "../EdInaiIcon/Icon (3).svg";
 import Icon4 from "../EdInaiIcon/Container.svg";
 
 export default function Edinaichallenges({ id }) {
-
   const challenges = [
     { icon: Icon2, title: "Shortage Of Qualified Teachers" },
     { icon: Icon3, title: "Lack Of Personalized Attention" },
@@ -27,7 +26,6 @@ export default function Edinaichallenges({ id }) {
   const autoPlayRef = useRef(null);
 
   useEffect(() => {
-
     const updateSize = () => {
       if (window.innerWidth >= 1024) setCardsToShow(4);
       else if (window.innerWidth >= 768) setCardsToShow(3);
@@ -39,17 +37,14 @@ export default function Edinaichallenges({ id }) {
     window.addEventListener("resize", updateSize);
 
     return () => window.removeEventListener("resize", updateSize);
-
   }, []);
 
   const startAutoPlay = () => {
-
     stopAutoPlay();
 
     autoPlayRef.current = setInterval(() => {
       moveNext();
     }, 4000);
-
   };
 
   const stopAutoPlay = () => {
@@ -62,33 +57,25 @@ export default function Edinaichallenges({ id }) {
   }, [currentIndex]);
 
   useEffect(() => {
-
     if (currentIndex >= challenges.length * 2) {
-
       setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(challenges.length);
       }, 500);
-
     }
 
     if (currentIndex <= challenges.length - 1) {
-
       setTimeout(() => {
         setIsTransitioning(false);
         setCurrentIndex(challenges.length * 2 - 1);
       }, 500);
-
     }
-
   }, [currentIndex]);
 
   useEffect(() => {
-
     if (!isTransitioning) {
       setTimeout(() => setIsTransitioning(true), 50);
     }
-
   }, [isTransitioning]);
 
   const moveNext = () => {
@@ -104,23 +91,19 @@ export default function Edinaichallenges({ id }) {
       id={id}
       className="w-full bg-black text-white py-9 md:py-12 overflow-hidden"
     >
-
       <div className="max-w-6xl mx-auto px-4 md:px-6">
-
         {/* Header */}
 
         <div className="text-center mb-12 md:mb-16">
-
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 tracking-tight">
+          <h2 className="text-3xl h1 md:text-5xl font-bold mb-6 tracking-tight">
             Challenges in Traditional Education
           </h2>
 
-          <p className="text-gray-400 max-w-4xl mx-auto text-base md:text-lg">
+          <p className="text-gray-400 max-w-4xl h2  mx-auto text-base md:text-lg">
             Many institutions face difficulties in delivering consistent,
-            personalized, and scalable education.
-            Ed-INAI addresses these challenges through intelligent automation.
+            personalized, and scalable education. edInai addresses these
+            challenges through intelligent automation.
           </p>
-
         </div>
 
         {/* Carousel */}
@@ -130,9 +113,7 @@ export default function Edinaichallenges({ id }) {
           onMouseEnter={stopAutoPlay}
           onMouseLeave={startAutoPlay}
         >
-
           <div className="overflow-hidden">
-
             <motion.div
               className="flex"
               style={{ gap: cardsToShow === 1 ? "0px" : "20px" }}
@@ -140,7 +121,7 @@ export default function Edinaichallenges({ id }) {
                 x:
                   cardsToShow === 1
                     ? `-${currentIndex * 100}%`
-                    : `calc(-${currentIndex * (100 / cardsToShow)}% - ${(currentIndex * 20) / cardsToShow}px)`
+                    : `calc(-${currentIndex * (100 / cardsToShow)}% - ${(currentIndex * 20) / cardsToShow}px)`,
               }}
               transition={
                 isTransitioning
@@ -148,22 +129,18 @@ export default function Edinaichallenges({ id }) {
                   : { duration: 0 }
               }
             >
-
               {duplicatedChallenges.map((item, index) => (
-
                 <div
                   key={index}
                   style={{
                     flex:
                       cardsToShow === 1
                         ? "0 0 100%"
-                        : `0 0 calc(${100 / cardsToShow}% - ${(20 * (cardsToShow - 1)) / cardsToShow}px)`
+                        : `0 0 calc(${100 / cardsToShow}% - ${(20 * (cardsToShow - 1)) / cardsToShow}px)`,
                   }}
                   className="min-h-[260px] md:min-h-[220px] md:px-0"
                 >
-
                   <div className="bg-[#0c0d0e]  p-8 rounded-2xl h-full flex flex-col items-center text-center justify-center transition-all hover:bg-[#161617] hover:border-white/20">
-
                     <div className="mb-6 p-4 bg-white/5 rounded-2xl">
                       <img
                         src={item.icon}
@@ -175,15 +152,10 @@ export default function Edinaichallenges({ id }) {
                     <h3 className="text-xl md:text-xl font-medium leading-snug">
                       {item.title}
                     </h3>
-
                   </div>
-
                 </div>
-
               ))}
-
             </motion.div>
-
           </div>
 
           {/* Buttons */}
@@ -201,15 +173,12 @@ export default function Edinaichallenges({ id }) {
           >
             <ChevronRight size={20} />
           </button>
-
         </div>
 
         {/* Indicators */}
 
         <div className="flex justify-center gap-2 mt-10">
-
           {challenges.map((_, i) => (
-
             <button
               key={i}
               onClick={() => {
@@ -222,13 +191,9 @@ export default function Edinaichallenges({ id }) {
                   : "w-2 bg-white/20"
               }`}
             />
-
           ))}
-
         </div>
-
       </div>
-
     </section>
   );
 }

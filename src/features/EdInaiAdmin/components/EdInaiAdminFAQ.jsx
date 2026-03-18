@@ -18,7 +18,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 ${isOpen ? 'border-gray-500' : 'hover:border-gray-600'}`}
             >
                 <div className="p-4 flex items-center justify-between relative z-10">
-                    <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white ">
+                    <h3 className="text-[14px] md:text-[18px] font-medium tracking-wide text-white ">
                         {question}
                     </h3>
 
@@ -52,7 +52,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
                             <div className="border-t border-gray-700/30 p-4">
-                                <p className="text-[#ccc] text-[1rem] leading-relaxed">
+                                <p className="text-[#ccc] text-[14px] md:text-[18px]  leading-relaxed">
                                     {answer}
                                 </p>
                             </div>
@@ -64,7 +64,7 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
     );
 };
 
-const EdInaiAdminFAQ = () => {
+const EdInaiAdminFAQ = ({ id }) => {
     const [openIndex, setOpenIndex] = useState(null);
 
     const faqs = [
@@ -115,7 +115,7 @@ const EdInaiAdminFAQ = () => {
     ];
 
     return (
-        <section className="py-9 md:py-12 px-4 md:px-6 bg-black">
+        <section id={id} className="py-9 md:py-12 px-4 md:px-6 bg-black">
             <div className="max-w-6xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}

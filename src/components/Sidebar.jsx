@@ -7,10 +7,10 @@ function Sidebar({ isOpen, onClose }) {
     const navigate = useNavigate()
 
     const menuItems = [
-        { name: 'Edinai', path: '/edinai' },
+        { name: 'edInai', path: '/edinai' },
         { name: 'Miraai', path: '/miraai' },
         // { name: 'NCD' },
-        { name: 'Vantage AI' },
+        { name: 'Vantage AI', path: '/community' },
     ]
 
     const open = typeof isOpen === 'boolean' ? isOpen : true

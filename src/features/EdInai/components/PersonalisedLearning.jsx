@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom";
 import office from "../../../assets/EdInai_imgs/office.jpeg";
 
 const PersonalisedLearning = () => {
-  const navigate = useNavigate(); // Initialize useNavigate
-  // Dummy images array (abhi ke liye sabme wahi office image use ki hai)
+  const navigate = useNavigate();
   const images = [office, office, office, office];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -13,12 +12,12 @@ const PersonalisedLearning = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 4000); // 4 seconds interval
+    }, 4000);
     return () => clearInterval(timer);
   }, [images.length]);
 
   const handleLearnMoreClick = () => {
-    navigate("/edinai-student"); // Navigate to EdInaiStudentPage
+    navigate("/edinai-student");
   };
 
   return (
@@ -28,14 +27,14 @@ const PersonalisedLearning = () => {
         <div className="flex items-center justify-center flex-col mb-3">
           <h1 className="h1 mb-3">Personalized Learning for Every Student</h1>
           <h2 className="h2 text-center max-w-7xl mx-auto">
-            Each student gets learning support that matches their learning
-            needs.
+            Each student gets learning support that matches their learning needs.
           </h2>
         </div>
 
         {/* Carousel Container */}
-        <div className="relative w-full overflow-hidden my-8 shadow-2xl">
-          <div className="relative h-[250px] md:h-[500px] w-full">
+        <div className="relative w-full overflow-hidden my-8 shadow-2xl rounded-[10px]">
+          {/* Increased mobile height to h-[450px] for better text clearance */}
+          <div className="relative h-[450px] md:h-[500px] w-full">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndex}
@@ -45,49 +44,51 @@ const PersonalisedLearning = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="w-full h-full rounded-[10px] md:rounded-[10px] object-cover opacity-80"
+                className="w-full h-full object-cover opacity-60 md:opacity-80"
               />
             </AnimatePresence>
-          </div>
 
-          {/* Content Overlay at Bottom */}
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-6 md:p-8 rounded-b-[10px]">
-            <div className="flex flex-col mb-11 items-center text-center">
-              <p className="text-white/90 h2 !text-[14px] md:!text-[18px] max-w-2xl mb-3">
-                Students can choose exam categories, access study materials, and
-                attempt AI-generated mock tests anytime.
-              </p>
+            {/* Content Overlay - Added pb-20 on mobile to clear dots and justify-end to stay low */}
+            <div className="absolute inset-0 flex flex-col justify-end items-center bg-gradient-to-t from-black via-black/40 to-transparent p-6 pb-20 md:pb-12">
+              <div className="flex flex-col items-center text-center max-w-2xl">
 
-              <h2 className="p text-white mb-4">
-                Adaptive Curriculum & Real-time Feedback
-              </h2>
+                {/* Description - Lowered on mobile via mt-6 */}
+                <p className="text-white/90 h2 !text-[14px] md:!text-[18px] mb-2 mt-6 md:mt-0 leading-relaxed">
+                  Students can choose exam categories, access study materials, and
+                  attempt AI-generated mock tests anytime.
+                </p>
 
-              {/* Learn More Button */}
-              <div className="group relative mt-6 flex items-center mb-3 gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
-                <button
-                  onClick={handleLearnMoreClick} // Add onClick handler
-                  className="relative md:px-6 md:py-3 px-3 py-1 text-[15px]  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
-                >
-                  Learn more
-                </button>
+                {/* Subheading - Lowered on mobile via mb-6 */}
+                <h2 className="p text-white mb-6 md:mb-4">
+                  Adaptive Curriculum & Real-time Feedback
+                </h2>
+
+                {/* Learn More Button */}
+                <div className="group relative flex items-center mb-4 gap-4 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+                  <button
+                    onClick={handleLearnMoreClick}
+                    className="relative px-5 py-2 md:px-6 md:py-3 text-[15px] md:text-[18px] flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
+                  >
+                    Learn more
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Slider Pagination Dots (Functional) */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
-            {images.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`transition-all duration-300 rounded-[10px] border border-white ${
-                  currentIndex === index
-                    ? "w-6 h-2 bg-white"
-                    : "w-2 h-2 bg-transparent hover:bg-white/30"
-                }`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
+            {/* Slider Pagination Dots */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`transition-all duration-300 rounded-[10px] border border-white ${currentIndex === index
+                      ? "w-6 h-2 bg-white"
+                      : "w-2 h-2 bg-transparent hover:bg-white/30"
+                    }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </div>

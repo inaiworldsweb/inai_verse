@@ -127,7 +127,7 @@ const EdinaiStudentSidebar = ({ isOpen, setIsOpen }) => {
         </div>
 
         {/* Desktop Bottom Portals */}
-        <div className="mt-auto pt-6 border-t border-white/10 space-y-2">
+        <div className="mt-auto pt-6 md:hidden border-t border-white/10 space-y-2">
           <Link
             to="/student-portal"
             className="block text-white/60 hover:text-blue-400 text-sm py-2 transition-colors"

@@ -76,7 +76,7 @@ const EdinaiSiteFooter = () => {
           ))}
         </div>
 
-        
+
       </div>
     </footer>
   );

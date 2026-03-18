@@ -1,12 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import DemoModal from "./Demo";
 
-const HeroSection = ({ id }) => {
+const HeroSection = ({ id, onDemoClick }) => {
   const navigate = useNavigate();
-
-  const handleGetStarted = () => {
-    navigate("/get-started");
-  };
 
   return (
     <section
@@ -30,7 +27,7 @@ const HeroSection = ({ id }) => {
         <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20 mt-4 inline-block">
           <button
             type="button"
-            onClick={handleGetStarted}
+            onClick={onDemoClick}
             className="relative px-6 py-3 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
           >
             Book a Demo

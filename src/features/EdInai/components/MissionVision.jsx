@@ -72,11 +72,10 @@ const MissionVision = () => {
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`flex-1 py-4 text-sm md:text-base font-medium transition-all relative ${
-                activeTab === tab.id
+              className={`flex-1 py-4 text-sm md:text-base font-medium transition-all relative ${activeTab === tab.id
                   ? "text-white"
                   : "text-gray-500 hover:text-gray-300"
-              }`}
+                }`}
             >
               {tab.label}
               {activeTab === tab.id && (

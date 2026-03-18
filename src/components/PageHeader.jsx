@@ -1,175 +1,197 @@
-import { useNavigate } from 'react-router-dom'
-import logo from '../assets/Mirrai.svg'
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/Mirrai.svg";
+// Import your OffCanvasMenu component
+import OffCanvasMenu from "./OffCanvasMenu"; 
 
-/**
- * Reusable Page Header Component
- * @param {Object} props
- * @param {string} props.title - Main title text (e.g., "Edinai")
- * @param {Array} props.breadcrumbs - Optional breadcrumb items [{label: string, onClick: function}]
- * @param {boolean} props.showBackButton - Show back arrow button
- * @param {boolean} props.showPriceButton - Show "Price" button
- * @param {boolean} props.showHomeButton - Show home icon button
- * @param {boolean} props.showMenuButton - Show menu icon button
- * @param {function} props.onBackClick - Custom back button handler
- * @param {function} props.onPriceClick - Custom price button handler
- * @param {function} props.onMenuClick - Custom menu button handler
- */
 function PageHeader({
-    title = '',
-    breadcrumbs = [],
-    showBackButton = false,
-    showLogo = true,
-    logoSrc = logo,
-    logoAlt = 'Miraai logo',
-    logoClassName = 'h-[34px] md:pe-0 pe-5 -ms-4 md:-ms-0 md:h-[44px] w-auto max-w-[130px] object-contain',
-    titleWrapperClassName = 'flex items-center gap-5',
-    titleClassName = 'text-white font-medium text-base',
-    showTitleText = true,
-    showPriceButton = true,
-    showHomeButton = true,
-    showMenuButton = true,
-    onBackClick,
-    onPriceClick,
-    onMenuClick,
-    onLogoClick,
-    showBorder = true,
-    headerClassName = 'bg-black/80 backdrop-blur-md',
+  title = "",
+  breadcrumbs = [],
+  showBackButton = false,
+  showLogo = true,
+  logoSrc = logo,
+  logoAlt = "Miraai logo",
+  logoClassName = "h-[34px] md:pe-0 pe-5 -ms-4 md:-ms-0 md:h-[44px] w-auto max-w-[130px] object-contain",
+  titleWrapperClassName = "flex items-center gap-5",
+  titleClassName = "text-white font-medium text-base",
+  showTitleText = true,
+  showPriceButton = true,
+  showHomeButton = true,
+  showMenuButton = true,
+  onBackClick,
+  onPriceClick,
+  onMenuClick,
+  onLogoClick,
+  showBorder = true,
+  headerClassName = "bg-black/80 backdrop-blur-md",
 }) {
-    const navigate = useNavigate()
+  const navigate = useNavigate();
+  
+  // 1. Menu open state define ki
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const handleBack = () => {
-        navigate('/')
+  const handleBack = () => {
+    navigate("/");
+  };
+
+  const handlePrice = () => {
+    if (onPriceClick) {
+      onPriceClick();
+    } else {
+      navigate("/pricing");
+    }
+  };
+
+  const handleHome = () => {
+    navigate("/");
+  };
+
+  // 2. Menu handle logic update kiya (Same as your reference)
+  const handleMenu = () => {
+    // Agar screen tablet/desktop hai tabhi OffCanvas khulega
+    if (window.innerWidth >= 768) {
+      setIsMenuOpen(true);
     }
 
-    const handlePrice = () => {
-        if (onPriceClick) {
-            onPriceClick()
-        } else {
-            navigate('/pricing')
-        }
+    // Original onMenuClick call hota rahega (mobile sidebar ke liye)
+    if (onMenuClick) {
+      onMenuClick();
     }
+  };
 
-    const handleHome = () => {
-        navigate('/')
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
+  };
+
+  const handleLogoClick = () => {
+    if (onLogoClick) {
+      onLogoClick();
+    } else {
+      navigate("/edinai");
     }
+  };
 
-    const handleMenu = () => {
-        if (onMenuClick) {
-            onMenuClick()
-        }
-    }
-
-    const handleLogoClick = () => {
-        if (onLogoClick) {
-            onLogoClick();
-        } else {
-            navigate('/miraai');
-        }
-    };
-
-    return (
-        <header className={`sticky top-0 z-50 flex !items-center  justify-between  py-3 ${headerClassName} ${showBorder ? 'border-b border-white/10' : ''}`}>
-            {/* Left Section - Back Button, Title, Breadcrumbs */}
-            <div className="flex items-center gap-4">
-
-
-                {(title || (showLogo && logoSrc)) && (
-                    <div className={titleWrapperClassName} >
-                        {(breadcrumbs.length > 0 || title) && (
-                            <span
-                                onClick={() => navigate('/')}
-                                className="text-white text-[40px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
-                                aria-hidden="true"
-                            >
-                                ‹
-                            </span>
-                        )}
-                        {showLogo && logoSrc && (
-                            <img
-                                src={logoSrc}
-                                alt={logoAlt}
-                                className={`${logoClassName} cursor-pointer`}
-                                onClick={handleLogoClick}
-                            />
-                        )}
-                    </div>
-                )}
-
-                {breadcrumbs.length > 0 && (
-                    <nav className="flex items-center gap-1" aria-label="Breadcrumb">
-                        {breadcrumbs.map((crumb, index) => (
-                            <div key={index} className="flex items-center gap-2">
-                                <span className="text-white pb-4 text-[30px] md:text-[50px]" aria-hidden="true">›</span>
-                                <button
-                                    type="button"
-                                    className="bg-transparent border-none text-white/70 cursor-pointer text-sm hover:text-white transition-colors"
-                                    onClick={crumb.onClick}
-                                >
-                                    {crumb.label}
-                                </button>
-                            </div>
-                        ))}
-                    </nav>
-                )}
+  return (
+    <>
+      <header
+        className={`sticky top-0 z-50 flex !items-center justify-between py-3 ${headerClassName} ${showBorder ? "border-b border-white/10" : ""}`}
+      >
+        {/* Left Section - Back Button, Title, Breadcrumbs */}
+        <div className="flex items-center gap-4">
+          {(title || (showLogo && logoSrc)) && (
+            <div className={titleWrapperClassName}>
+              {(breadcrumbs.length > 0 || title) && (
+                <span
+                  onClick={() => navigate("/")}
+                  className="text-white text-[40px] md:text-[50px] cursor-pointer ps-3 pb-1 transition-all hover:opacity-70"
+                  aria-hidden="true"
+                >
+                  ‹
+                </span>
+              )}
+              {showLogo && logoSrc && (
+                <img
+                  src={logoSrc}
+                  alt={logoAlt}
+                  className={`${logoClassName} cursor-pointer`}
+                  onClick={handleLogoClick}
+                />
+              )}
             </div>
+          )}
 
-            {/* Right Section - Action Buttons */}
-            <div className="flex items-center gap-4">
-                {showPriceButton && (
-                    <button
-                        type="button"
-                        className="bg-gradient-to-b from-gray-700 to-gray-600 text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gradient-to-b hover:from-gray-600 hover:to-gray-700 transition-all duration-200 cursor-pointer shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995]"
-                        onClick={handlePrice}
-                    >
-                        <span>Price</span>
-                    </button>
-                )}
+          {breadcrumbs.length > 0 && (
+            <nav className="flex items-center gap-1" aria-label="Breadcrumb">
+              {breadcrumbs.map((crumb, index) => (
+                <div key={index} className="flex items-center gap-2">
+                  <span
+                    className="text-white pb-4 text-[30px] md:text-[50px]"
+                    aria-hidden="true"
+                  >
+                    ›
+                  </span>
+                  <button
+                    type="button"
+                    className="bg-transparent border-none text-white/70 cursor-pointer text-sm hover:text-white transition-colors"
+                    onClick={crumb.onClick}
+                  >
+                    {crumb.label}
+                  </button>
+                </div>
+              ))}
+            </nav>
+          )}
+        </div>
 
-                {showHomeButton && (
-                    <button
-                        type="button"
-                        className="bg-transparent border-none text-white cursor-pointer hover:text-white/80 transition-colors"
-                        aria-label="Go to home"
-                        onClick={handleHome}
-                    >
-                        <svg className="w-4 h-4 md:w-5 md:h-5" viewBox="0 0 24 24" aria-hidden="true">
-                            <path
-                                d="M3 11l9-8 9 8"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                            <path
-                                d="M5 10v10h14V10"
-                                fill="none"
-                                stroke="currentColor"
-                                strokeWidth="2"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                            />
-                        </svg>
-                    </button>
-                )}
+        {/* Right Section - Action Buttons */}
+        <div className="flex items-center gap-4">
+          {showPriceButton && (
+            <button
+              type="button"
+              className="bg-gradient-to-b from-gray-700 to-gray-600 text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-gradient-to-b hover:from-gray-600 hover:to-gray-700 transition-all duration-200 cursor-pointer shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995]"
+              onClick={handlePrice}
+            >
+              <span>Price</span>
+            </button>
+          )}
 
-                {showMenuButton && (
-                    <button
-                        type="button"
-                        className="bg-transparent border-none text-white pe-1 cursor-pointer hover:text-white/80 transition-colors"
-                        aria-label="Open menu"
-                        onClick={handleMenu}
-                    >
-                        <svg className="w-5 h-5 md:w-6 md:h-6" viewBox="0 0 24 24" aria-hidden="true">
-                            <line x1="5" y1="8" x2="19" y2="8" stroke="currentColor" strokeWidth="1.8" />
-                            <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="1.8" />
-                            <line x1="5" y1="16" x2="19" y2="16" stroke="currentColor" strokeWidth="1.8" />
-                        </svg>
-                    </button>
-                )}
-            </div>
-        </header>
-    )
+          {showHomeButton && (
+            <button
+              type="button"
+              className="bg-transparent border-none text-white cursor-pointer hover:text-white/80 transition-colors"
+              aria-label="Go to home"
+              onClick={handleHome}
+            >
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 11l9-8 9 8"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M5 10v10h14V10"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          )}
+
+          {showMenuButton && (
+            <button
+              type="button"
+              className="bg-transparent border-none text-white pe-1 cursor-pointer hover:text-white/80 transition-colors"
+              aria-label="Open menu"
+              onClick={handleMenu}
+            >
+              <svg
+                className="w-5 h-5 md:w-6 md:h-6"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <line x1="5" y1="8" x2="19" y2="8" stroke="currentColor" strokeWidth="1.8" />
+                <line x1="5" y1="12" x2="19" y2="12" stroke="currentColor" strokeWidth="1.8" />
+                <line x1="5" y1="16" x2="19" y2="16" stroke="currentColor" strokeWidth="1.8" />
+              </svg>
+            </button>
+          )}
+        </div>
+      </header>
+
+      {/* 3. Off Canvas Menu Component Yahan add kiya */}
+      <OffCanvasMenu isOpen={isMenuOpen} onClose={handleCloseMenu} />
+    </>
+  );
 }
 
-export default PageHeader
+export default PageHeader;

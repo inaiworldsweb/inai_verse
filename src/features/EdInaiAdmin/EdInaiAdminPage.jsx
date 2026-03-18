@@ -37,15 +37,15 @@ const EdInaiAdminPage = () => {
         />
 
         <main className="overflow-y-auto bg-black scrollbar-hide">
-          <AdminHero />
-          <EdInaiInside />
-          <EdInaiCommandPanel />
-          <EdinaiKeyFeature />
-          <EdInaiInstitutionBenefits />
-          <EdInaiEducationProvider />
-          <EDInaiHowTosetUp />
-          <EdInaiAdminTrasform />
-          <EdInaiAdminFAQ />
+          <AdminHero id="hero-section" />
+          <EdInaiInside id="admin-portal" />
+          <EdInaiCommandPanel id="admin-dashboard" />
+          <EdinaiKeyFeature id="key-features" />
+          <EdInaiInstitutionBenefits id="institution-benefits" />
+          <EdInaiEducationProvider id="education-providers" />
+          <EDInaiHowTosetUp id="setup-guide" />
+          <EdInaiAdminTrasform id="cta-section" />
+          <EdInaiAdminFAQ id="faq-section" />
           <EdinaiSiteFooter />
         </main>
       </div>

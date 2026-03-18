@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import img1 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/Scheduled Exams Section.webp";
+import img2 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/Ai Mock Test Mode.webp";
+import img3 from "../../../assets/EdInai_Student_imgs/Practice Attempt Track Exams Anytime/Study Materials Section.webp";
 
 const ExamSystem = ({ id }) => {
   const [activeTab, setActiveTab] = useState(0);
@@ -17,7 +20,7 @@ const ExamSystem = ({ id }) => {
         "View completed exam history",
       ],
       image:
-        "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=2070",
+        img1,
     },
     {
       id: "02",
@@ -30,7 +33,7 @@ const ExamSystem = ({ id }) => {
         "Organized by exam category",
       ],
       image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071",
+        img3,
     },
     {
       id: "03",
@@ -44,7 +47,7 @@ const ExamSystem = ({ id }) => {
         "Performance analytics",
       ],
       image:
-        "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=2070",
+       img2,
     },
   ];
 

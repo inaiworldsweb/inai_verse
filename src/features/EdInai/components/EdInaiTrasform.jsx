@@ -1,7 +1,7 @@
 import React from "react";
 import CTAImage from "../../../assets/EdInai_imgs/CTA.png";
 
-const EdInaiTrasform = ({ id }) => {
+const EdInaiTrasform = ({ id, onDemoClick }) => {
   return (
     <section id={id} className="w-full py-9 md:py-12 px-4">
       <div className="max-w-6xl mx-auto relative overflow-hidden rounded-[10px] min-h-[250px] md:min-h-[350px] flex items-center justify-center text-center p-6 md:p-16">
@@ -31,7 +31,10 @@ const EdInaiTrasform = ({ id }) => {
 
           <div className="flex justify-center">
             <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
-              <button className="relative px-6 py-3 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
+              <button 
+                onClick={onDemoClick}
+                className="relative px-6 py-3 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
+              >
                 Book a Demo
               </button>
             </div>

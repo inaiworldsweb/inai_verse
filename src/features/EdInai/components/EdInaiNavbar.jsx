@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react"; // 1. useState import kiya
 import { useNavigate } from "react-router-dom";
 import logo from "../../../assets/EdInai Logo.png";
+import OffCanvasMenu from "../../../components/OffCanvasMenu";
 
 const EdInaiNavbar = ({
   breadcrumbs = [],
@@ -19,6 +20,9 @@ const EdInaiNavbar = ({
   headerClassName = "bg-black/80 backdrop-blur-md",
 }) => {
   const navigate = useNavigate();
+  
+  // 3. Menu state manage karne ke liye
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleClick = (defaultPath, customHandler) => {
     if (customHandler) customHandler();
@@ -29,105 +33,128 @@ const EdInaiNavbar = ({
     navigate(-1);
   };
 
+  // 4. Menu handle logic: Desktop/Tablet pe OffCanvas, Mobile pe original sidebar
+  const handleMenuAction = () => {
+    if (window.innerWidth >= 768) {
+      setIsMenuOpen(true);
+    }
+
+    // Mobile sidebar ke liye original prop call karein
+    if (onMenuClick) {
+      onMenuClick();
+    }
+  };
+
   return (
-    <header
-      className={`sticky top-0 z-50 flex items-center justify-between px-4 md:px-6 py-2.5 md:py-3 transition-all ${headerClassName} ${
-        showBorder ? "border-b border-white/10" : ""
-      }`}
-    >
-      {/* LEFT: Back Button, Logo & Breadcrumbs */}
-      <div className="flex items-center gap-2 md:gap-3">
-        {showBackButton && (
+    <>
+      <header
+        className={`sticky top-0 z-50 flex items-center justify-between px-4 md:px-6 py-2.5 md:py-3 transition-all ${headerClassName} ${
+          showBorder ? "border-b border-white/10" : ""
+        }`}
+      >
+        {/* LEFT: Back Button, Logo & Breadcrumbs */}
+        <div className="flex items-center gap-2 md:gap-3">
+          {showBackButton && (
+            <button
+              onClick={handleBack}
+              className="flex items-center mt-3 justify-center text-white/80 hover:text-white transition-all active:scale-90"
+              aria-label="Go back"
+            >
+              <BackIcon />
+            </button>
+          )}
+
+          {showLogo && (
+            <img
+              src={logoSrc}
+              alt={logoAlt}
+              className={`${logoClassName} cursor-pointer hover:opacity-80 active:scale-95 transition-all`}
+              onClick={() => {
+                if (window.location.pathname === "/edinai") {
+                  window.location.reload();
+                } else {
+                  window.location.href = "/edinai";
+                }
+              }}
+            />
+          )}
+
+          {breadcrumbs.length > 0 && (
+            <nav className="hidden sm:flex items-center" aria-label="Breadcrumb">
+              {breadcrumbs.map((crumb, i) => (
+                <div key={i} className="flex items-center">
+                  <span className="text-white/20 text-lg font-light px-2 select-none">
+                    /
+                  </span>
+                  <button
+                    onClick={crumb.onClick}
+                    className="text-white/60 text-sm hover:text-white transition-colors tracking-wide"
+                  >
+                    {crumb.label}
+                  </button>
+                </div>
+              ))}
+            </nav>
+          )}
+        </div>
+
+        {/* RIGHT: Actions */}
+        <div className="flex items-center gap-3 md:gap-5">
           <button
-            onClick={handleBack}
-            className="flex items-center mt-3 justify-center text-white/80 hover:text-white transition-all active:scale-90"
-            aria-label="Go back"
+            onClick={() => navigate("/edinai-student")}
+            className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
           >
-            <BackIcon />
+            Student Portal
           </button>
-        )}
 
-        {showLogo && (
-          <img
-            src={logoSrc}
-            alt={logoAlt}
-            className={`${logoClassName} cursor-pointer hover:opacity-80 active:scale-95 transition-all`}
-            onClick={() => handleClick("/EdInaiPage", onLogoClick)}
-          />
-        )}
-
-        {breadcrumbs.length > 0 && (
-          <nav className="hidden sm:flex items-center" aria-label="Breadcrumb">
-            {breadcrumbs.map((crumb, i) => (
-              <div key={i} className="flex items-center">
-                <span className="text-white/20 text-lg font-light px-2 select-none">
-                  /
-                </span>
-                <button
-                  onClick={crumb.onClick}
-                  className="text-white/60 text-sm hover:text-white transition-colors tracking-wide"
-                >
-                  {crumb.label}
-                </button>
-              </div>
-            ))}
-          </nav>
-        )}
-      </div>
-
-      {/* RIGHT: Actions */}
-      <div className="flex items-center gap-3 md:gap-5">
-        
-        {/* Student Portal Link */}
-        <button
-          onClick={() => navigate("/edinai-student")}
-          className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
-        >
-          Student Portal
-        </button>
-
-        {/* Admin Portal Link */}
-        <button
-          onClick={() => navigate("/edinai-admin")}
-          className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
-        >
-          Admin Portal
-        </button>
-
-        {showPriceButton && (
           <button
-            onClick={() => handleClick("/pricing", onPriceClick)}
-            className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-4 md:px-6 py-1.5 md:py-2 rounded-[10px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20"
+            onClick={() => navigate("/edinai-admin")}
+            className="hidden md:block text-white/70 hover:text-white text-[13px] md:text-[14px] font-medium transition-colors"
           >
-            Price
+            Admin Portal
           </button>
-        )}
 
-        {showHomeButton && (
-          <button
-            onClick={() => navigate("/")}
-            className="text-white/80 hover:text-white transition-transform active:scale-90"
-            aria-label="Home"
-          >
-            <HomeIcon />
-          </button>
-        )}
+          {showPriceButton && (
+            <button
+              onClick={() => handleClick("/pricing", onPriceClick)}
+              className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-4 md:px-6 py-1.5 md:py-2 rounded-[10px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20"
+            >
+              Price
+            </button>
+          )}
 
-        {showMenuButton && (
-          <button
-            onClick={onMenuClick}
-            className="text-white/80 hover:text-white transition-transform active:scale-90 p-1"
-            aria-label="Menu"
-          >
-            <MenuIcon />
-          </button>
-        )}
-      </div>
-    </header>
+          {showHomeButton && (
+            <button
+              onClick={() => navigate("/")}
+              className="text-white/80 hover:text-white transition-transform active:scale-90"
+              aria-label="Home"
+            >
+              <HomeIcon />
+            </button>
+          )}
+
+          {showMenuButton && (
+            <button
+              onClick={handleMenuAction} // Updated handler
+              className="text-white/80 hover:text-white transition-transform active:scale-90 p-1"
+              aria-label="Menu"
+            >
+              <MenuIcon />
+            </button>
+          )}
+        </div>
+      </header>
+
+      {/* 5. Off Canvas Menu Component */}
+      <OffCanvasMenu 
+        isOpen={isMenuOpen} 
+        onClose={() => setIsMenuOpen(false)} 
+      />
+    </>
   );
 };
 
-// --- Icons Sub-components ---
+// --- Icons Sub-components (Same as before) ---
 const BackIcon = () => (
   <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />

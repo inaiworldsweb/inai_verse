@@ -21,6 +21,7 @@ import PayUCheckout from './components/payment/PayUCheckout';
 import PaymentSuccess from './components/payment/PaymentSuccess';
 import PaymentFailure from './components/payment/PaymentFailure';
 import GlobalScrollManager from './components/GlobalScrollManager'
+import ComingSoon from './components/saas/ComingSoon'
 
 import { useState } from 'react'
 
@@ -47,6 +48,7 @@ function AppContent() {
     location.pathname === '/MiraaiPrice' ||
     location.pathname === '/MiraaiForm' ||
     location.pathname === '/checkout' ||
+    location.pathname === '/community' ||
     location.pathname.startsWith('/payment/')
 
   return (
@@ -77,6 +79,7 @@ function AppContent() {
           <Route path="/checkout" element={<PayUCheckout />} />
           <Route path="/payment/success" element={<PaymentSuccess />} />
           <Route path="/payment/failure" element={<PaymentFailure />} />
+          <Route path="/community" element={<ComingSoon />} />
         </Routes>
       </main>
       {location.pathname !== '/' && <FooterLegalLine />}
