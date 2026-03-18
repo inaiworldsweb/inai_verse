@@ -32,21 +32,21 @@ import MiraaiScrollbar from "./components/MiraaiScrollbar";
 // Navigation configuration - All components included
 const navConfig = [
   { id: "hero", label: "Hero section" },
-  { id: "gallery", label: "Gallery" },
-  { id: "process", label: "Process" },
 
-  { id: "showcase", label: "Showcase" },
+  { id: " process", label: "Our Process" },
+
+  { id: "showcase", label: "Explore Portfolio" },
   { id: "services", label: "What exactly we do" },
   { id: "whatyouget", label: "What you get" },
-  { id: "simpletruth", label: "The real problem we solve" },
+
   { id: "whoneeds", label: "Who needs our services" },
   { id: "cta", label: "Get Started" },
-  { id: "comparison", label: "Comparison" },
-  { id: "growthkiller", label: "Growth killer" },
+  { id: "comparison", label: "Real Problem We Solve" },
+ 
   { id: "whychoose", label: "Why choose miraai" },
-  { id: "finalcta", label: "Final CTA with form fill-up" },
-  { id: "testimonials", label: "Testimonials" },
-  { id: "faq", label: "Frequently asked questions" },
+  { id: "finalcta", label: "CTA Section" },
+  
+  { id: "faq", label: "FAQ" },
 ];
 
 const Miraai = () => {
@@ -132,7 +132,7 @@ const Miraai = () => {
         )}
 
         {/* Desktop Sidebar - Hidden on mobile */}
-        <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black sticky top-0 h-screen overflow-hidden">
+        <aside className="hidden lg:flex lg:flex-col w-[280px] bg-black sticky top-0 h-screen overflow-hidden border-r border-white/30">
           <div className="p-6 xl:p-8 flex flex-col items-center justify-center">
             <Link to="/">
               <img

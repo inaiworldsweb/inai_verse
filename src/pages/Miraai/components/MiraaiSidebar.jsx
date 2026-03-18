@@ -52,7 +52,7 @@ const MiraaiSidebar = ({ logoImage, items = [], onItemClick, activeId }) => {
       </div>
 
       {/* Navigation Menu */}
-      <nav className="flex flex-col px-6 flex-1 space-y-3 overflow-hidden">
+      <nav className="flex flex-col px-6 flex-1 space-y-2 overflow-hidden">
         {items.map((item) => (
           <button
             key={item.id}
