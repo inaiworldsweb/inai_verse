@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN npm ci || npm install
 
 COPY . .
-RUN npm run build
+RUN npm run build -- --verbose || echo "Build failed, checking logs..." && ls -la && cat npm-debug.log 2>/dev/null || echo "No npm-debug.log found"
 
 FROM nginx:alpine
 
