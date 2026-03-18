@@ -18,8 +18,8 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                 ease-out cursor-pointer overflow-hidden 
                 ${isOpen ? 'border-gray-500' : 'hover:border-gray-600'}`}
             >
-                <div className="p-6 flex items-center justify-between relative z-10">
-                    <h3 className="text-[16px] md:text-[18px] font-medium tracking-wide text-white ">
+                <div className="p-5 flex items-center justify-between relative z-10">
+                    <h3 className="text-[14px] md:text-[18px] font-medium tracking-wide text-white ">
                         {question}
                     </h3>
 
@@ -53,8 +53,8 @@ const FAQItem = ({ question, answer, index, isOpen, onToggle }) => {
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.3, ease: "easeInOut" }}
                         >
-                            <div className="border-t border-gray-700/30 p-6">
-                                <p className="text-[#ccc] text-[1rem] leading-relaxed">
+                            <div className="border-t border-gray-700/30 p-5">
+                                <p className="text-[#ccc] text-[14px] md:text-[18px] leading-relaxed">
                                     {answer}
                                 </p>
                             </div>

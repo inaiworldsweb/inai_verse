@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Using local assets
 import img1 from '../../../assets/images/Miraai/model/Laxmi Fashion Shoot (1).webp';
-import img2 from '../../../assets/images/Miraai/video/download 1.gif';
+import img2 from '../../../assets/images/Miraai/video/download1.gif';
 import img3 from '../../../assets/images/Miraai/model/Perfume (1).webp';
-import img4 from '../../../assets/images/Miraai/video/download 2.gif';
+import img4 from '../../../assets/images/Miraai/video/download2.gif';
 import img5 from '../../../assets/images/Miraai/model/Rasmika Shoot (1).webp';
-import img6 from '../../../assets/images/Miraai/video/download 3.gif';
-import img7 from '../../../assets/images/Miraai/video/download 7.gif';
+import img6 from '../../../assets/images/Miraai/video/download3.gif';
+import img7 from '../../../assets/images/Miraai/video/download7.gif';
 
 const galleryItems = [
     { url: img1 }, { url: img2 }, { url: img3 },

@@ -93,17 +93,17 @@ const MiraaiCTA = () => {
                         className=""
                     >
                         <p className="  text-[0.75rem] md:text-[0.9rem] lg:text-[1.125rem] text-[#ccc] tracking-widest">If you answered YES to any of these</p>
-                        <h3 className=" mb-8 text-bold  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
+                        <h3 className=" mb-5 text-bold  text-[1.5625rem] md:text-[2rem] lg:text-[2.5rem] text-white tracking-[1px] [font-stretch:700%]">Miraai is for you.</h3>
                     </motion.div>
 
-                    <div className=" md:mb-14 bg-gradient-to-b from-gray-800/40 to-transparent p-[4px] rounded-[16px] mb-8">
-                        <button className="group p-[4px] rounded-[12px] bg-gradient-to-b from-gray-700 to-gray-600 shadow-[0_2px_4px_rgba(0,0,0,0.7)] hover:shadow-[0_4px_8px_rgba(0,0,0,0.6)] active:shadow-[0_0px_1px_rgba(0,0,0,0.8)] active:scale-[0.995] transition-all duration-200 cursor-pointer">
-                            <div className=" bg-gradient-to-b from-gray-600 to-gray-700 rounded-[8px] px-2 py-2">
-                                <div className=" flex gap-2 items-center">
-                                    <span className=" font-semibold text-white">Get Started Now</span>
-                                </div>
-                            </div>
-                        </button>
+                    <div className="flex justify-center mb-8">
+                        <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[7px] md:rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+                            <button 
+                                className="relative px-4 py-2 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300"
+                            >
+                                Get Started Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

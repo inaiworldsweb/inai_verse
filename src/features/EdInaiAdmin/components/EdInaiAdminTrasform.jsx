@@ -28,8 +28,8 @@ const EdInaiAdminTrasform = ({ id }) => {
           </p>
 
           <div className="flex justify-center">
-            <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[7px] md:rounded-[10px] text-xl font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
-              <button className="relative px-6 py-3 flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
+            <div className="group relative flex items-center gap-2 bg-white/[0.10] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 rounded-[7px] md:rounded-[10px]  font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+              <button className="relative text-[18px] md:text-[20px]  md:px-4 px-3 py-1 md:py-2  flex items-center gap-2 bg-transparent text-white font-medium transition-all duration-300">
                 Book Admin Demo
               </button>
             </div>

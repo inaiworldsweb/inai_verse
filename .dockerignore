@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+README.md
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+coverage
+.nyc_output
+
+# Exclude large GIF files from build context to speed up transfer and prevent potential timeouts
+src/assets/images/Miraai/video/*.gif
