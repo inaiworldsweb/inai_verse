@@ -19,14 +19,14 @@ const StudentHero = () => {
 
         {/* Content Section */}
         <div className="relative z-10 text-center px-6 max-w-4xl flex flex-col items-center justify-center h-full">
-          <h1 className="text-white text-2xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-snug mb-8 tracking-tight">
+          <h1 className="text-white h1 text-2xl md:text-4xl lg:text-5xl font-bold leading-tight md:leading-snug mb-8 tracking-tight">
             Learn Smarter, Revise Faster & <br className="hidden md:block" />
             Track Your Progress with Ed-INAI’s{" "}
             <br className="hidden md:block" />
             Intelligent Student Portal
           </h1>
 
-          <button className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20 px-8 py-3 md:px-10 md:py-4 rounded-[10px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+          <button className="group relative flex items-center gap-2 bg-white/[0.05] hover:bg-white/[0.12] text-white border border-white/10 hover:border-white/20  md:px-4 px-3 py-1 md:py-2  rounded-[10px] text-[18px] md:text-[20px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
             Start Learning Now
           </button>
         </div>

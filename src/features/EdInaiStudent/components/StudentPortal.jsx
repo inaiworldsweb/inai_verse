@@ -30,7 +30,7 @@ const StudentPortal = ({ id }) => {
           </p>
 
           {/* Styled Button - Image ki tarah exact match */}
-          <button className="group relative flex items-center gap-2 bg-white/5 hover:bg-white/12 text-white border border-white/10 hover:border-white/20 px-10 py-4 md:px-12 md:py-5 rounded-[10px] text-[13px] md:text-[15px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
+          <button className="group relative flex items-center gap-2 bg-white/5 hover:bg-white/12 text-white border border-white/10 hover:border-white/20  md:px-4 px-3 py-1 md:py-2  rounded-[10px] text-[18px] md:text-[20px] font-medium transition-all duration-300 active:scale-95 shadow-lg shadow-black/20">
             Access Student Portal
           </button>
         </div>

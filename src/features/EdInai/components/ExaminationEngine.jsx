@@ -57,11 +57,7 @@ const ExaminationEngine = ({ id }) => {
 
   useGSAP(
     () => {
-      gsap.fromTo(
-        [desktopTextRef.current, desktopImageRef.current],
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.5, stagger: 0.1, ease: "power2.out" },
-      );
+      // Animation removed to prevent tab position/content changes
     },
     { dependencies: [activeTab], scope: containerRef },
   );
@@ -112,9 +108,9 @@ const ExaminationEngine = ({ id }) => {
               <button
                 key={item.id}
                 onClick={() => setActiveTab(index)}
-                className={`group flex items-center py-4 ps-5 px-4 transition-all duration-500 rounded-[10px] text-left ${
+                className={`group flex items-center py-4 ps-5 px-4 transition-none duration-0 rounded-full text-left ${
                   activeTab === index
-                    ? "bg-black text-white translate-x-12 w-[calc(100%+3rem)] shadow-2xl z-30 border border-white"
+                    ? "bg-black text-white shadow-2xl z-30 border border-white"
                     : "text-black hover:bg-gray-100"
                 }`}
               >
@@ -136,7 +132,7 @@ const ExaminationEngine = ({ id }) => {
               <ul className="space-y-3 md:ml-6 text-white text-lg font-medium">
                 {examData[activeTab].bulletPoints.map((point, i) => (
                   <li key={i} className="flex items-start text-[16px] gap-3">
-                    <span className="text-white/30">—</span>
+                    <span className="text-white/30 text-sm leading-tight">—</span>
                     {point}
                   </li>
                 ))}
