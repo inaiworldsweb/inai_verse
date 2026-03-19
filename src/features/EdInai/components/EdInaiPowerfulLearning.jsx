@@ -2,10 +2,10 @@ import React, { useRef } from "react";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import PowerfulSection1 from "../../../assets/EdInai_imgs/PowerfulSection1.png";
-import PowerfulSection2 from "../../../assets/EdInai_imgs/PowerfulSection2.png";
-import PowerfulSection3 from "../../../assets/EdInai_imgs/PowerfulSection3.png";
-import PowerfulSection4 from "../../../assets/EdInai_imgs/PowerfulSection4.png";
+import PowerfulSection1 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Powerful Learning Modes for Every Student/biujvxbaxgmp8iqvkt6u.webp";
+import PowerfulSection2 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Powerful Learning Modes for Every Student/Live AI Lectures.webp";
+import PowerfulSection3 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Powerful Learning Modes for Every Student/sebqrodjzmywxvg89hj9.webp";
+import PowerfulSection4 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Powerful Learning Modes for Every Student/uuvfvvqqy1h6emnnb8d7.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 

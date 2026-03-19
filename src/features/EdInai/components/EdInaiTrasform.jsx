@@ -1,5 +1,5 @@
 import React from "react";
-import CTAImage from "../../../assets/EdInai_imgs/CTA.png";
+import CTAImage from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Transform Your Institution with AI-Powered Teaching & Exam Automation.webp";
 
 const EdInaiTrasform = ({ id, onDemoClick }) => {
   return (

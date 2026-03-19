@@ -1,12 +1,21 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import office from "../../../assets/EdInai_imgs/office.jpeg";
+import platform1 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Automatic exam duration calculation.webp";
+import platform2 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Create & manage exam categories.webp";
+import platform3 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Generate And Manage Your Lecture.webp";
+import platform4 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Generate professional exam PDFs.webp";
+import platform5 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Hybrid exam format.webp";
+import platform6 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Manage Students & Staff.webp";
+import platform7 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Multi-language exam creation.webp";
+import platform8 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Schedule exams with date & time.webp";
+import platform9 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Inside the Ed-INAI AI Education Platform/Upload & Organize Curriculum.webp";
+
 
 const EdInaiPlatform = () => {
   const navigate = useNavigate();
   // Using an array of images - you can add different images here later
-  const images = [office, office, office, office];
+  const images = [platform1, platform2, platform3, platform4, platform5, platform6, platform7, platform8, platform9];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-play logic
@@ -41,7 +50,7 @@ const EdInaiPlatform = () => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -50 }}
                 transition={{ duration: 0.6, ease: "easeInOut" }}
-                className="w-full h-full object-cover opacity-60 md:opacity-80"
+                className="w-full h-full object-contain opacity-60 md:opacity-80"
               />
             </AnimatePresence>
 

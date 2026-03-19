@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-import Examination1 from "../../../assets/EdInai_imgs/Examination1.png";
-import Examination2 from "../../../assets/EdInai_imgs/Examination2.png";
-import Examination3 from "../../../assets/EdInai_imgs/Examination3.png";
+import Examination1 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Smart, Automated & Scalable Examination Engine/ouhorxoh0rrqm5gz5p9d.webp";
+import Examination2 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Smart, Automated & Scalable Examination Engine/qn3ywmbkqxz8zw5blthn.webp";
+import Examination3 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Smart, Automated & Scalable Examination Engine/wkklmw6awkbhakhb27ih.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 

@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import office from "../../../assets/EdInai_imgs/office.jpeg";
+import office1 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Personalized Learning for Every Student/AI tutoring support.webp";
+import office2 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Personalized Learning for Every Student/Countdown-based scheduled exams.webp";
+import office3 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Personalized Learning for Every Student/Live & recorded lectures.webp";
+import office4 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Personalized Learning for Every Student/Multi-device access.webp";
+import office5 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Personalized Learning for Every Student/Smart assessments.webp";
+import office6 from "../../../assets/EdInai_imgs/ED-INAI HOME PAGE IMAGE/Personalized Learning for Every Student/Topic-wise practice mode.webp";
 
 const PersonalisedLearning = () => {
   const navigate = useNavigate();
-  const images = [office, office, office, office];
+  const images = [office1, office2, office3, office4, office5, office6];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // Auto-play logic
