@@ -1,5 +1,5 @@
 import React from "react";
-// Image aap yahan import kar sakte hain
+
 import BannerImg from "../../../assets/EdInai_Student_imgs/Learn Smarter, Revise Faster & Track Your Progress with Ed-INAI’s Intelligent Student Portal.webp";
 
 const StudentHero = () => {
